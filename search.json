@@ -11,14 +11,14 @@
     "href": "index.html",
     "title": "Quarto-Blog",
     "section": "",
-    "text": "test: quarto test1\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto 기초\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
+    "text": "test: quarto test1\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/category1/notebook1.html",
     "href": "posts/category1/notebook1.html",
     "title": "test: quarto test1",
     "section": "",
-    "text": "1+2\n\n3"
+    "text": "1+2\n\n3\n\n\n\n\n\nimage.png"
   },
   {
     "objectID": "posts/category1/Untitled.html",
@@ -35,10 +35,10 @@
     "text": "22\n\n22"
   },
   {
-    "objectID": "posts/test1.html",
-    "href": "posts/test1.html",
-    "title": "test: quarto 기초",
+    "objectID": "posts/Python/notebook3.html",
+    "href": "posts/Python/notebook3.html",
+    "title": "test: quarto test2",
     "section": "",
-    "text": "# test\n1+1\n\n2"
+    "text": "22\n\n22"
   }
 ]

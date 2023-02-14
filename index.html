@@ -70,9 +70,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-description","listing-categories"],
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -174,11 +174,6 @@ ul.task-list li input[type="checkbox"] {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/test1.html" class="sidebar-item-text sidebar-link">test: quarto 기초</a>
-  </div>
-</li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Category1</a>
@@ -214,6 +209,21 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">Python</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./posts/Python/notebook3.html" class="sidebar-item-text sidebar-link">test: quarto test2</a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
     </ul>
@@ -235,7 +245,10 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="test" data-listing-date-sort="1674399600000" data-listing-file-modified-sort="1673579998188" data-listing-reading-time-sort="0.005">
+<div class="quarto-post image-right" data-index="0" data-categories="test" data-listing-date-sort="1674399600000" data-listing-file-modified-sort="1673580230819" data-listing-reading-time-sort="0.005">
+<div class="thumbnail">
+<p><a href="./posts/category1/notebook1.html"> <img src="./posts/category1/attachment:image.png" class="thumnail-image"> </a></p>
+</div>
 <div class="body">
 <a href="./posts/category1/notebook1.html">
 <h3 class="no-anchor listing-title">
@@ -268,6 +281,13 @@ Jan 23, 2023
 </div>
 </div>
 <div class="quarto-post image-right" data-index="1" data-categories="test" data-listing-date-sort="1674399600000" data-listing-file-modified-sort="1673580041110" data-listing-reading-time-sort="0.01">
+<div class="thumbnail">
+<a href="./posts/category1/Untitled.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/category1/Untitled.html"></a></p>
+</div>
 <div class="body">
 <a href="./posts/category1/Untitled.html">
 <h3 class="no-anchor listing-title">
@@ -299,7 +319,14 @@ Jan 23, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="test" data-listing-date-sort="1674399600000" data-listing-file-modified-sort="1673580043515" data-listing-reading-time-sort="0.005">
+<div class="quarto-post image-right" data-index="2" data-categories="test" data-listing-date-sort="1674399600000" data-listing-file-modified-sort="1673581243527" data-listing-reading-time-sort="0.005">
+<div class="thumbnail">
+<a href="./posts/category2/notebook2.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/category2/notebook2.html"></a></p>
+</div>
 <div class="body">
 <a href="./posts/category2/notebook2.html">
 <h3 class="no-anchor listing-title">
@@ -331,11 +358,18 @@ Jan 23, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="test" data-listing-date-sort="1674399600000" data-listing-file-modified-sort="1673578876918" data-listing-reading-time-sort="0.005">
+<div class="quarto-post image-right" data-index="3" data-categories="test" data-listing-date-sort="1674399600000" data-listing-file-modified-sort="1673581243527" data-listing-reading-time-sort="0.005">
+<div class="thumbnail">
+<a href="./posts/Python/notebook3.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/Python/notebook3.html"></a></p>
+</div>
 <div class="body">
-<a href="./posts/test1.html">
+<a href="./posts/Python/notebook3.html">
 <h3 class="no-anchor listing-title">
-test: quarto 기초
+test: quarto test2
 </h3>
 <div class="listing-subtitle">
 
@@ -346,14 +380,14 @@ test: quarto 기초
 test
 </div>
 </div>
-<a href="./posts/test1.html">
+<a href="./posts/Python/notebook3.html">
 <div class="listing-description">
 
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/test1.html">
+<a href="./posts/Python/notebook3.html">
 <div class="listing-date">
 Jan 23, 2023
 </div>
