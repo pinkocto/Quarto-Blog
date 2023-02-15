@@ -1,0 +1,58 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this blog ~~~"
+  },
+  {
+    "objectID": "posts/Python/python-test1.html",
+    "href": "posts/Python/python-test1.html",
+    "title": "Quarto-Blog",
+    "section": "",
+    "text": "# update가 잘되는지를 위한 테스트ㅠㅠ\n\n\nimport matplotlib.pyplot as plt\n\nplt.plot([1, 2, 3, 4])\nplt.show()"
+  },
+  {
+    "objectID": "posts/category2/notebook2.html",
+    "href": "posts/category2/notebook2.html",
+    "title": "test: quarto test2",
+    "section": "",
+    "text": "22\n\n22"
+  },
+  {
+    "objectID": "posts/DV/dv1.html",
+    "href": "posts/DV/dv1.html",
+    "title": "Quarto-Blog",
+    "section": "",
+    "text": "# for test\nimport matplotlib.pyplot as plt\nplt.plot([1,2,3,4], [1,4,9,16],'ro')"
+  },
+  {
+    "objectID": "posts/DV/Untitled.html",
+    "href": "posts/DV/Untitled.html",
+    "title": "Quarto-Blog",
+    "section": "",
+    "text": "1+2\n\n3"
+  },
+  {
+    "objectID": "posts/category1/notebook1.html",
+    "href": "posts/category1/notebook1.html",
+    "title": "test: quarto test1",
+    "section": "",
+    "text": "1+2\n\n3\n\n\n\n\n\nimage.png"
+  },
+  {
+    "objectID": "posts/category1/Untitled.html",
+    "href": "posts/category1/Untitled.html",
+    "title": "test: quarto test2",
+    "section": "",
+    "text": "test 입니다."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Quarto-Blog",
+    "section": "",
+    "text": "test: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n  \n\n\n\n\ntest: quarto test1\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
+  }
+]
