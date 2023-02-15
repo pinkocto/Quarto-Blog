@@ -2,10 +2,12 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/category1/notebook1.html",
-      "/posts/category1/Untitled.html",
+      "/posts/Python/python-test1.html",
+      "/posts/DV/dv1.html",
+      "/posts/DV/Untitled.html",
       "/posts/category2/notebook2.html",
-      "/posts/Python/notebook3.html"
+      "/posts/category1/notebook1.html",
+      "/posts/category1/Untitled.html"
     ]
   }
 ]

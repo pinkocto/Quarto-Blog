@@ -2,26 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/about.html</loc>
-    <lastmod>2023-02-14T13:32:20.634Z</lastmod>
+    <lastmod>2023-02-15T04:17:50.835Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/index.html</loc>
-    <lastmod>2023-02-14T13:32:21.077Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/category1/notebook1.html</loc>
-    <lastmod>2023-02-14T13:32:21.472Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/category1/Untitled.html</loc>
-    <lastmod>2023-02-14T13:32:21.857Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/python-test1.html</loc>
+    <lastmod>2023-02-15T04:17:51.011Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/category2/notebook2.html</loc>
-    <lastmod>2023-02-14T13:32:22.223Z</lastmod>
+    <lastmod>2023-02-15T04:17:51.207Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/notebook3.html</loc>
-    <lastmod>2023-02-14T13:32:22.626Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/DV/dv1.html</loc>
+    <lastmod>2023-02-15T04:17:51.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/DV/Untitled.html</loc>
+    <lastmod>2023-02-15T04:17:51.539Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/category1/notebook1.html</loc>
+    <lastmod>2023-02-15T04:17:51.711Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/category1/Untitled.html</loc>
+    <lastmod>2023-02-15T04:17:51.875Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/index.html</loc>
+    <lastmod>2023-02-15T04:17:52.107Z</lastmod>
   </url>
 </urlset>
