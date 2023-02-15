@@ -443,7 +443,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>그런데 <code>__init__()</code> 의 첫번째 입력인 <code>self</code>는 입력안해도 무바했음. 그런데 두번째 입력은 title은 입력을 해야했음.</li>
 <li>그런데 title을 입력하지 않아서 발생하는 에러.</li>
 </ul>
-<p><code>-</code> <code>__init__(self, arg1, arg2,...)</code> 함수에 대하여 - 엄청나게 특별해 보이지만 사실 몇가지 특별한 점을 제외하고는 어떠한 마법도 없는 함수이다. - 특별한 점1: 첫번째 입력으로 반드시 self를 넣어야함. (이건 사실 클래스 내의 메소드 거의 다 그러함) - 특별한 점2: 클래스에서 인스턴스를 만드는 시점에 자동으로 실행된다. - 특별한 점3: <code>__init(self, arg1, arg2,...)</code>의 입력중 self 이외의 입력들은 ‘클래스 <span class="math inline">\(\to\)</span> 인스턴스’ 시점에서 ’인스턴스이름 = 클래스이름(arg1, arg2,…)’와 같이 사용한다. (이 예제의 경우 <strong>STOOOP(title)</strong> 와 같이 사용해야함)</p>
+<p><code>-</code> <code>__init__(self, arg1, arg2,...)</code> 함수에 대하여</p>
+<ul>
+<li><p>엄청나게 특별해 보이지만 사실 몇가지 특별한 점을 제외하고는 어떠한 마법도 없는 함수이다.</p></li>
+<li><p>특별한 점1: 첫번째 입력으로 반드시 self를 넣어야함. (이건 사실 클래스 내의 메소드 거의 다 그러함)</p></li>
+<li><p>특별한 점2: 클래스에서 인스턴스를 만드는 시점에 자동으로 실행된다.</p></li>
+<li><p>특별한 점3: <code>__init(self, arg1, arg2,...)</code>의 입력중 self 이외의 입력들은 ‘클래스 <span class="math inline">\(\to\)</span> 인스턴스’ 시점에서 ’인스턴스이름 = 클래스이름(arg1, arg2,…)’와 같이 사용한다. (이 예제의 경우 <strong>STOOOP(title)</strong> 와 같이 사용해야함)</p></li>
+</ul>
 <p><code>-</code> title이 디폴트로 들어가는 상황도 불편했지만, title을 명시적으로 넣지 않으면 에러가 발생하는 것도 불편하다?</p>
 <div class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="kw">class</span> STOOOP:</span>
@@ -583,14 +589,193 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="파이썬의-비밀1">파이썬의 비밀1</h3>
 <p><strong>탐구</strong>: 인스턴스의 자료형이 무엇인지 탐구해보자.</p>
 <p><code>-</code> 아래의 두 클래스를 선언해보자.</p>
-<div class="cell">
+<div class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">class</span> STOOOP:</span>
 <span id="cb43-2"><a href="#cb43-2"></a>    <span class="co"># title = '학교폭력!'</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a>    url <span class="op">=</span> url1</span>
 <span id="cb43-4"><a href="#cb43-4"></a>    end <span class="op">=</span> <span class="st">'멈춰~~~~'</span></span>
 <span id="cb43-5"><a href="#cb43-5"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, title<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb43-6"><a href="#cb43-6"></a>        <span class="va">self</span>.title <span class="op">=</span> title</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-6"><a href="#cb43-6"></a>        <span class="va">self</span>.title <span class="op">=</span> title</span>
+<span id="cb43-7"><a href="#cb43-7"></a>    <span class="kw">def</span> stop(<span class="va">self</span>):</span>
+<span id="cb43-8"><a href="#cb43-8"></a>        <span class="bu">print</span>(<span class="va">self</span>.title)</span>
+<span id="cb43-9"><a href="#cb43-9"></a>        display(Image.<span class="bu">open</span>(Image.io.BytesIO(requests.get(<span class="va">self</span>.url).content)))</span>
+<span id="cb43-10"><a href="#cb43-10"></a>        <span class="bu">print</span>(<span class="va">self</span>.end)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="kw">class</span> Klass4:</span>
+<span id="cb44-2"><a href="#cb44-2"></a>    n <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>    url <span class="op">=</span> <span class="st">'https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop1.jpeg?raw=true'</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
+<span id="cb44-5"><a href="#cb44-5"></a>        display(Image.<span class="bu">open</span>(Image.io.BytesIO(requests.get(<span class="va">self</span>.url).content)))</span>
+<span id="cb44-6"><a href="#cb44-6"></a>        <span class="bu">print</span>(<span class="st">'당신은 이 이미지를 </span><span class="sc">{}</span><span class="st">번 보았습니다.'</span>.<span class="bu">format</span>(<span class="va">self</span>.n))</span>
+<span id="cb44-7"><a href="#cb44-7"></a>        <span class="co"># self.n = self.n + 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 인스턴스를 생성해보자.</p>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>k4 <span class="op">=</span> Klass4()</span>
+<span id="cb45-2"><a href="#cb45-2"></a>s1 <span class="op">=</span> STOOOP()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="타입을-알아보자." class="level4">
+<h4 class="anchored" data-anchor-id="타입을-알아보자."><code>-</code> 타입을 알아보자.</h4>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>k4?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">Type:</span>        Klass4
+<span class="ansi-red-fg">String form:</span> &lt;__main__.Klass4 object at 0x7fb4956082b0&gt;
+<span class="ansi-red-fg">Docstring:</span>   &lt;no docstring&gt;</pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>s1?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">Type:</span>        STOOOP
+<span class="ansi-red-fg">String form:</span> &lt;__main__.STOOOP object at 0x7fb495608310&gt;
+<span class="ansi-red-fg">Docstring:</span>   &lt;no docstring&gt;</pre>
+</div>
+</div>
+</div>
+<p><code>-</code> ??? 타입은 자료형 즉, <code>int</code>, <code>float</code>, <code>list</code> 이런 것 아니었나?</p>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb48-2"><a href="#cb48-2"></a>a?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+
+<pre><span class="ansi-red-fg">Type:</span>        list
+<span class="ansi-red-fg">String form:</span> [1, 2, 3]
+<span class="ansi-red-fg">Length:</span>      3
+<span class="ansi-red-fg">Docstring:</span>  
+Built-in mutable sequence.
+If no argument is given, the constructor creates a new empty list.
+The argument must be an iterable if specified.</pre>
+</div>
+</div>
+</div>
+<p><code>-</code> 그런데 지금 k4, s1의 타입은 Klass4, STOOOP이다. - 가설1 : 사실 파이썬 내부에 Klass4, STOOOP이라는 자료형이 있었다. 그런데 내가 만든 k4, s1이 우연히 그 자료형을 따르는 것! (이건 너무 억지스럽다.) - 가설2: type이 list인 것은 사실 list라는 클래스에서 생긴 인스턴스이다. <span class="math inline">\(\to\)</span> 리스트 자료형을 찍어낼 수 있는 어떤 클래스가 파이썬에 내부적으로 존재할 것이다. (이게 맞는 것 같다.)</p>
+<p><strong>꺠달음1</strong></p>
+<p><code>-</code> 가설2가 맞다? 그렇다면 아래는 모두 어딘가에서 찍혀진 인스턴스이다.</p>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb49-2"><a href="#cb49-2"></a>a?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+
+<pre><span class="ansi-red-fg">Type:</span>        list
+<span class="ansi-red-fg">String form:</span> [1, 2, 3]
+<span class="ansi-red-fg">Length:</span>      3
+<span class="ansi-red-fg">Docstring:</span>  
+Built-in mutable sequence.
+If no argument is given, the constructor creates a new empty list.
+The argument must be an iterable if specified.</pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>a <span class="op">=</span> <span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>(1, 2, 3)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>a?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">Type:</span>        int
+<span class="ansi-red-fg">String form:</span> 1
+<span class="ansi-red-fg">Docstring:</span>  
+int([x]) -&gt; integer
+int(x, base=10) -&gt; integer
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int('0b100', base=0)
+4</pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>a <span class="op">=</span> <span class="st">'1'</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>a?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">Type:</span>        str
+<span class="ansi-red-fg">String form:</span> 1
+<span class="ansi-red-fg">Length:</span>      1
+<span class="ansi-red-fg">Docstring:</span>  
+str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</pre>
+</div>
+</div>
+</div>
+<p><code>-</code> 그리고 위의 <code>a=[1,2,3]</code> 과 같은 것들은 모두 ‘클래스<span class="math inline">\(\to\)</span> 인스턴스’ 에 해당하는 과정이었다.</p>
+<p><strong>깨달음2</strong></p>
+<p><code>-</code> 생각해보니까 아래와 같이 list를 선언하는 방식도 있었음</p>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>a <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb54-2"><a href="#cb54-2"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<pre><code>[]</code></pre>
+</div>
+</div>
+<ul>
+<li>이거 지금 생각해보니까 list라는 이름의 클래스에서 a라는 인스턴스를 찍어내는 문법이다?!</li>
+</ul>
+<p><code>-</code> 아래도 가능함</p>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>a <span class="op">=</span> <span class="bu">list</span>((<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>))</span>
+<span id="cb56-2"><a href="#cb56-2"></a>a?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+
+<pre><span class="ansi-red-fg">Type:</span>        list
+<span class="ansi-red-fg">String form:</span> [1, 2, 3]
+<span class="ansi-red-fg">Length:</span>      3
+<span class="ansi-red-fg">Docstring:</span>  
+Built-in mutable sequence.
+If no argument is given, the constructor creates a new empty list.
+The argument must be an iterable if specified.</pre>
+</div>
+</div>
+</div>
+<ul>
+<li>이것도 지금 보니까 list라는 이름의 클래스에서 a라는 인스턴스를 찍어내는 문법이다. 여기에서 (1,2,3)은 <code>__init__()</code> 의 입력이다.</li>
+</ul>
+<p><strong>깨달음3</strong></p>
+<p><code>-</code> 그러고보니까 각 자료형마다 특수한 기능들이 있었음.</p>
+<p><code>-</code> <code>a.</code> + tab을 하면 append, claer 등등이 나온다.</p>
+<p><code>-</code> 이러한 기능은 지금까지 우리가 ‘list자료형 특수기능들’ 이라고 부르면서 사용했었다. 그런데 a가 list 클래스에서 생성된 인스턴스라는 관점에서 보면 이러한 기능들은 list 클래스에서 정의된 메소드라고 볼 수 있다.</p>
+<p><strong>깨달음4</strong> <code>-</code> <code>a.f()</code> 는 <code>f(a)</code> 로 해석 가능하다고 하였다. 이 해석에 따르면 메소드의 첫번째 입력은 메소드가 소속된 인스턴스라고 해석할 수 있다.</p>
+<p><code>-</code> 동일한 논리로 아래의 코드는 stop() 의 입력에서 s1을 넣는다는 의미이다.</p>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>s1.stop()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>None</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-02-15-class2_files/figure-html/cell-40-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>멈춰~~~~</code></pre>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="homework" class="level2">
@@ -601,11 +786,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>위의 리스트에서 하나의 값을 뽑는 메소드 <code>f</code>를 가지고 있다.</p></li>
 </ol>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># 사용예시</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="co"># a = Klass(['가위', '바위'])</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a><span class="co"># a.f() # 가위가 1/2 바위가 1/2의 확률로 출력</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a><span class="co"># b = Klass(['가위', '바위', '보'])</span></span>
-<span id="cb44-5"><a href="#cb44-5"></a><span class="co"># b.f() # 가위, 바위, 보가 1/3의 확률로 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># 사용예시</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a><span class="co"># a = Klass(['가위', '바위'])</span></span>
+<span id="cb60-3"><a href="#cb60-3"></a><span class="co"># a.f() # 가위가 1/2 바위가 1/2의 확률로 출력</span></span>
+<span id="cb60-4"><a href="#cb60-4"></a><span class="co"># b = Klass(['가위', '바위', '보'])</span></span>
+<span id="cb60-5"><a href="#cb60-5"></a><span class="co"># b.f() # 가위, 바위, 보가 1/3의 확률로 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
