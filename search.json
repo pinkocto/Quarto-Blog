@@ -18,12 +18,12 @@
     "href": "posts/Python/2023-02-15-class4.html",
     "title": "class 4단계",
     "section": "",
-    "text": "이 단계에서는 클래스 오브젝트에 소속된 변수와 인스턴스 오브젝트에 소속된 변수를 설명한다.\n\n\n\n- 파이썬은 모든 것이 오브젝트로 이루어져 있따. \\(\\leftarrow\\) 우선 그냥 외우기!\n- 오브젝트는 메모리 주소에 저장되는 모든 것을 의미한다.\n\na = 1\nid(a) # 메모리주소를 보는 명령어\n\n7618240\n\n\n\na = 'asdf'\nid(a)\n\n140366991918512\n\n\n\na = [1,2,3]\nid(a)\n\n140366923845376\n\n\n- 클래스와 인스턴스도 오브젝트다.\n\nclass A:\n    x = 0\n    def f(self):\n        print(self.x)\n\n\nid(A)\n\n39987760\n\n\n\nA는 오브젝트\n\n\nb = A()\n\n\nid(b)\n\n140366932540960\n\n\n\nb는 오브젝트\n\n- 앞으로는 A를 클래스오브젝트, a,b를 인스턴스오브젝트라고 부르자."
+    "text": "이 단계에서는 클래스 오브젝트에 소속된 변수와 인스턴스 오브젝트에 소속된 변수를 설명한다.\n\n\n\n\n\nmotivating example\n__str__, 파이썬의 비밀2\n__repr__, 파이썬의 비밀3\n주피터 노트북의 비밀 (_repr_html_), __repr__와 __str__의 우선적용 순위\n\n\n\n\n\n- 파이썬은 모든 것이 오브젝트로 이루어져 있따. \\(\\leftarrow\\) 우선 그냥 외우기!\n- 오브젝트는 메모리 주소에 저장되는 모든 것을 의미한다.\n\na = 1\nid(a) # 메모리주소를 보는 명령어\n\n7618240\n\n\n\na = 'asdf'\nid(a)\n\n140366991918512\n\n\n\na = [1,2,3]\nid(a)\n\n140366923845376\n\n\n- 클래스와 인스턴스도 오브젝트다.\n\nclass A:\n    x = 0\n    def f(self):\n        print(self.x)\n\n\nid(A)\n\n39987760\n\n\n\nA는 오브젝트\n\n\nb = A()\n\n\nid(b)\n\n140366932540960\n\n\n\nb는 오브젝트\n\n- 앞으로는 A를 클래스오브젝트, a,b를 인스턴스오브젝트라고 부르자."
   },
   {
     "objectID": "posts/Python/2023-02-15-class3.html",
     "href": "posts/Python/2023-02-15-class3.html",
-    "title": "class 4단계",
+    "title": "class 3단계",
     "section": "",
     "text": "이 단계에서는 클래스오브젝트에 소속된 변수와 인스턴스오브젝트에 소속된 변수를 설명한다.\n\n\n\n- 파이썬은 모든 것이 오브젝트로 이루어져 있따. \\(\\leftarrow\\) 우선 그냥 외우기!\n- 오브젝트는 메모리 주소에 저장되는 모든 것을 의미한다.\n\na = 1\nid(a) # 메모리주소를 보는 명령어\n\n7618240\n\n\n\na = 'asdf'\nid(a)\n\n140366991918512\n\n\n\na = [1,2,3]\nid(a)\n\n140366923845376\n\n\n- 클래스와 인스턴스도 오브젝트다.\n\nclass A:\n    x = 0\n    def f(self):\n        print(self.x)\n\n\nid(A)\n\n39987760\n\n\n\nA는 오브젝트\n\n\nb = A()\n\n\nid(b)\n\n140366932540960\n\n\n\nb는 오브젝트\n\n- 앞으로는 A를 클래스 오브젝트, a,b를 인스턴스 오브젝트라고 부르자."
   },
@@ -81,6 +81,6 @@
     "href": "index.html",
     "title": "Quarto-Blog",
     "section": "",
-    "text": "class 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
+    "text": "class 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 3단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
   }
 ]
