@@ -312,6 +312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#contents" id="toc-contents" class="nav-link" data-scroll-target="#contents">Contents</a></li>
   <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -337,9 +338,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports">imports</h2>
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># 이미지 출력을 위한 패키지 불러오기</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> requests</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<p>아래의 조건에 맞는 클래스를 생성하라.</p>
+<ol type="1">
+<li><p><code>['가위', '바위']</code> 와 같은 리스트를 입력으로 받아 인스턴스를 생성한다.</p></li>
+<li><p>위의 리스트에서 하나의 값을 뽑는 메소드 <code>f</code>를 가지고 있다.</p></li>
+</ol>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># 사용예시</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>a <span class="op">=</span> Klass([<span class="st">'가위'</span>, <span class="st">'바위'</span>])</span>
+<span id="cb2-3"><a href="#cb2-3"></a>a.f() <span class="co"># 가위가 1/2 바위가 1/2의 확률로 출력</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>b <span class="op">=</span> Klass([<span class="st">'가위'</span>, <span class="st">'바위'</span>, <span class="st">'보'</span>])</span>
+<span id="cb2-5"><a href="#cb2-5"></a>b.f() <span class="co"># 가위, 바위, 보가 1/3의 확률로 출력</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'Klass' is not defined</code></pre>
+</div>
 </div>
 
 

@@ -309,9 +309,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#contents" id="toc-contents" class="nav-link active" data-scroll-target="#contents">Contents</a></li>
-  <li><a href="#이미지-자료-불러오기" id="toc-이미지-자료-불러오기" class="nav-link" data-scroll-target="#이미지-자료-불러오기">이미지 자료 불러오기</a></li>
-  <li><a href="#클래스-공부-1단계" id="toc-클래스-공부-1단계" class="nav-link" data-scroll-target="#클래스-공부-1단계">클래스 공부 1단계</a>
+  <li><a href="#클래스-공부-1단계" id="toc-클래스-공부-1단계" class="nav-link active" data-scroll-target="#클래스-공부-1단계">클래스 공부 1단계</a>
+  <ul class="collapse">
+  <li><a href="#contents" id="toc-contents" class="nav-link" data-scroll-target="#contents">Contents</a></li>
+  <li><a href="#이미지-자료-불러오기" id="toc-이미지-자료-불러오기" class="nav-link" data-scroll-target="#이미지-자료-불러오기">이미지 자료 불러오기</a>
   <ul class="collapse">
   <li><a href="#클래스-선언" id="toc-클래스-선언" class="nav-link" data-scroll-target="#클래스-선언">클래스 선언</a></li>
   <li><a href="#클래스-사용-예시" id="toc-클래스-사용-예시" class="nav-link" data-scroll-target="#클래스-사용-예시">클래스 사용 예시</a></li>
@@ -325,6 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#문제4-아래의-클래스를-구현하라." id="toc-문제4-아래의-클래스를-구현하라." class="nav-link" data-scroll-target="#문제4-아래의-클래스를-구현하라.">문제4: 아래의 클래스를 구현하라.</a></li>
   </ul></li>
   <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -334,6 +336,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<section id="클래스-공부-1단계" class="level1">
+<h1>클래스 공부 1단계</h1>
+<blockquote class="blockquote">
+<p>클래스 선언 및 사용 예시</p>
+</blockquote>
 <section id="contents" class="level2">
 <h2 class="anchored" data-anchor-id="contents">Contents</h2>
 <blockquote class="blockquote">
@@ -378,12 +385,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="2023-02-15-class1_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-</section>
-<section id="클래스-공부-1단계" class="level2">
-<h2 class="anchored" data-anchor-id="클래스-공부-1단계">클래스 공부 1단계</h2>
-<blockquote class="blockquote">
-<p>클래스 선언 및 사용 예시</p>
-</blockquote>
 <section id="클래스-선언" class="level3">
 <h3 class="anchored" data-anchor-id="클래스-선언">클래스 선언</h3>
 <div class="cell" data-execution_count="20">
@@ -679,32 +680,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="homework" class="level2">
 <h2 class="anchored" data-anchor-id="homework">Homework</h2>
 <p><code>-</code> 클래스를 선언하라. [‘가위’, ‘바위’, ‘보’] 중 하나를 골라서 내는 메소드를 정의하라.</p>
-<div class="cell" data-execution_count="60">
+<div class="cell" data-execution_count="89">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># hint</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb64-3"><a href="#cb64-3"></a>np.random.choice([<span class="st">'가위'</span>, <span class="st">'바위'</span>, <span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="60">
-<pre><code>'보'</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="kw">class</span> Klass5:</span>
-<span id="cb66-2"><a href="#cb66-2"></a>    a <span class="op">=</span> np.random.choice([<span class="st">'가위'</span>, <span class="st">'바위'</span>, <span class="st">'보'</span>])</span>
-<span id="cb66-3"><a href="#cb66-3"></a>    <span class="kw">def</span> game(<span class="va">self</span>):</span>
-<span id="cb66-4"><a href="#cb66-4"></a>        <span class="bu">print</span>(<span class="va">self</span>.a)</span>
-<span id="cb66-5"><a href="#cb66-5"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="83">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>ex5 <span class="op">=</span> Klass5()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="84">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>ex5.a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="84">
-<pre><code>'바위'</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<pre><code>'가위'</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
