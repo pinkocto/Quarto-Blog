@@ -233,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/category1/notebook1.html" class="sidebar-item-text sidebar-link">test: quarto test1</a>
+  <a href="../../posts/category1/notebook1.html" class="sidebar-item-text sidebar-link">class 2단계</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -293,7 +293,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Python/python-test1.html" class="sidebar-item-text sidebar-link">Python Test1</a>
+  <a href="../../posts/Python/2023-02-15-class2.html" class="sidebar-item-text sidebar-link">class 2단계</a>
   </div>
 </li>
       </ul>
@@ -309,7 +309,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#클래스-공부-1단계" id="toc-클래스-공부-1단계" class="nav-link active" data-scroll-target="#클래스-공부-1단계">클래스 공부 1단계</a>
+  <li><a href="#contents" id="toc-contents" class="nav-link active" data-scroll-target="#contents">Contents</a></li>
+  <li><a href="#이미지-자료-불러오기" id="toc-이미지-자료-불러오기" class="nav-link" data-scroll-target="#이미지-자료-불러오기">이미지 자료 불러오기</a></li>
+  <li><a href="#클래스-공부-1단계" id="toc-클래스-공부-1단계" class="nav-link" data-scroll-target="#클래스-공부-1단계">클래스 공부 1단계</a>
   <ul class="collapse">
   <li><a href="#클래스-선언" id="toc-클래스-선언" class="nav-link" data-scroll-target="#클래스-선언">클래스 선언</a></li>
   <li><a href="#클래스-사용-예시" id="toc-클래스-사용-예시" class="nav-link" data-scroll-target="#클래스-사용-예시">클래스 사용 예시</a></li>
@@ -320,7 +322,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#문제1-아래의-클래스를-구현하라." id="toc-문제1-아래의-클래스를-구현하라." class="nav-link" data-scroll-target="#문제1-아래의-클래스를-구현하라.">문제1 : 아래의 클래스를 구현하라.</a></li>
   <li><a href="#문제2-아래의-클래스를-구현하라." id="toc-문제2-아래의-클래스를-구현하라." class="nav-link" data-scroll-target="#문제2-아래의-클래스를-구현하라.">문제2 : 아래의 클래스를 구현하라.</a></li>
   <li><a href="#문제3-아래의-클래스를-구현하라." id="toc-문제3-아래의-클래스를-구현하라." class="nav-link" data-scroll-target="#문제3-아래의-클래스를-구현하라.">문제3: 아래의 클래스를 구현하라.</a></li>
+  <li><a href="#문제4-아래의-클래스를-구현하라." id="toc-문제4-아래의-클래스를-구현하라." class="nav-link" data-scroll-target="#문제4-아래의-클래스를-구현하라.">문제4: 아래의 클래스를 구현하라.</a></li>
   </ul></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework">Homework</a></li>
   </ul>
 </nav>
     </div>
@@ -330,6 +334,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<section id="contents" class="level2">
+<h2 class="anchored" data-anchor-id="contents">Contents</h2>
 <blockquote class="blockquote">
 <ol type="1">
 <li>이미지 자료 불러오기 (PIL 이용)</li>
@@ -337,10 +343,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>연습문제</li>
 </ol>
 </blockquote>
+</section>
+<section id="이미지-자료-불러오기" class="level2">
+<h2 class="anchored" data-anchor-id="이미지-자료-불러오기">이미지 자료 불러오기</h2>
 <p><code>-</code> 예제1</p>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># 이미지 출력을 위한 패키지 불러오기</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> requests</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>url<span class="op">=</span> <span class="st">'https://stat.jbnu.ac.kr/sites/stat/images/intro_about_02.jpg'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -368,6 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="2023-02-15-class1_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
 <section id="클래스-공부-1단계" class="level2">
 <h2 class="anchored" data-anchor-id="클래스-공부-1단계">클래스 공부 1단계</h2>
 <blockquote class="blockquote">
@@ -387,7 +398,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-9"><a href="#cb7-9"></a>                </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>규칙1 : 메소드(=class 안에서 정의된 함수)의 <strong>첫번째 인자는 무조건 self</strong></li>
+<li>규칙1 : <strong>메소드(=class 안에서 정의된 함수)의 첫번째 인자는 무조건 self</strong></li>
 <li>규칙2 : 메소드에서 class 안에 정의된 변수들 (title, url, end)을 사용하려면 <code>self.변수이름</code> 과 같은 형식으로 쓴다.
 <ul>
 <li>즉, <code>self.title</code>, <code>self.url</code>, <code>self.end</code> 와 같은 방식으로 써야한다.</li>
@@ -575,9 +586,125 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="문제3-아래의-클래스를-구현하라.">문제3: 아래의 클래스를 구현하라.</h3>
 <p><code>-</code> 클래스 내에는 변수 a가 있다. 변수 a의 초기값은 <span class="math inline">\(0\)</span> 이다.</p>
 <p><code>-</code> 클래스에는 <code>up()</code>, <code>down()</code>, <code>show()</code> 라는 메소드가 있다. 각각은 a의 값을 1증가, a값을 1감소, a의 값을 print하는 기능을 한다.</p>
-
-
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="kw">class</span> Klass3:</span>
+<span id="cb46-2"><a href="#cb46-2"></a>    a <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>    <span class="kw">def</span> up(<span class="va">self</span>):</span>
+<span id="cb46-4"><a href="#cb46-4"></a>        <span class="va">self</span>.a  <span class="op">=</span> <span class="va">self</span>.a <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>    <span class="kw">def</span> down(<span class="va">self</span>):</span>
+<span id="cb46-6"><a href="#cb46-6"></a>        <span class="va">self</span>.a <span class="op">=</span> <span class="va">self</span>.a <span class="op">-</span> <span class="dv">1</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
+<span id="cb46-8"><a href="#cb46-8"></a>        <span class="bu">print</span>(<span class="va">self</span>.a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>ex3 <span class="op">=</span> Klass3()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>ex3.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>ex3.up()</span>
+<span id="cb50-2"><a href="#cb50-2"></a>ex3.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>ex3.up()</span>
+<span id="cb52-2"><a href="#cb52-2"></a>ex3.up()</span>
+<span id="cb52-3"><a href="#cb52-3"></a>ex3.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>ex3.down()</span>
+<span id="cb54-2"><a href="#cb54-2"></a>ex3.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2</code></pre>
+</div>
+</div>
 </section>
+<section id="문제4-아래의-클래스를-구현하라." class="level3">
+<h3 class="anchored" data-anchor-id="문제4-아래의-클래스를-구현하라.">문제4: 아래의 클래스를 구현하라.</h3>
+<p><code>-</code> 클래스 내에는 변수 url이 있음. url의 초기값은 다음과 같다. <code>https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop1.jpeg?raw=true</code></p>
+<p><code>-</code> 클래스에는 <code>show()</code> 라는 메소드를 가지는데, 메소드는 아래와 같은 기능을 한다. - 기능1: url의 그림을 출력 - 기능2: ‘당신은 이 그림을 <span class="math inline">\(n\)</span> 번 보았습니다.’ 출력. (여기에서 <span class="math inline">\(n\)</span>은 그림을 본 횟수)</p>
+<div class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="kw">class</span> Klass4:</span>
+<span id="cb56-2"><a href="#cb56-2"></a>    n <span class="op">=</span> <span class="dv">1</span> <span class="co"># 초기값</span></span>
+<span id="cb56-3"><a href="#cb56-3"></a>    url <span class="op">=</span> <span class="st">'https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop1.jpeg?raw=true'</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
+<span id="cb56-5"><a href="#cb56-5"></a>        display(Image.<span class="bu">open</span>(Image.io.BytesIO(requests.get(<span class="va">self</span>.url).content)))</span>
+<span id="cb56-6"><a href="#cb56-6"></a>        <span class="bu">print</span>(<span class="st">'당신은 이 그림을 </span><span class="sc">{}</span><span class="st">번 보았습니다.'</span>.<span class="bu">format</span>(<span class="va">self</span>.n))</span>
+<span id="cb56-7"><a href="#cb56-7"></a>        <span class="va">self</span>.n <span class="op">=</span> <span class="va">self</span>.n <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>ex4 <span class="op">=</span> Klass4()</span>
+<span id="cb57-2"><a href="#cb57-2"></a>ex4.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-02-15-class1_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>당신은 이 그림을 1번 보았습니다.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>ex4.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-02-15-class1_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>당신은 이 그림을 2번 보았습니다.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># url 변환 (학교 폭력 이미지 말고, SNL 이미지로 출력되게 바꿔보자.)</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a>ex4_1 <span class="op">=</span> Klass4()</span>
+<span id="cb61-3"><a href="#cb61-3"></a>ex4_1.url <span class="op">=</span> url2 <span class="co"># SNL image link</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>ex4_1.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-02-15-class1_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>당신은 이 그림을 1번 보았습니다.</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="homework" class="level2">
+<h2 class="anchored" data-anchor-id="homework">Homework</h2>
+<p><code>-</code> 클래스를 선언하라. [‘가위’, ‘바위’, ‘보’] 중 하나를 골라서 내는 메소드를 정의하라.</p>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># hint</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb64-3"><a href="#cb64-3"></a>np.random.choice([<span class="st">'가위'</span>, <span class="st">'바위'</span>, <span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>'보'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="kw">class</span> Klass5:</span>
+<span id="cb66-2"><a href="#cb66-2"></a>    a <span class="op">=</span> np.random.choice([<span class="st">'가위'</span>, <span class="st">'바위'</span>, <span class="st">'보'</span>])</span>
+<span id="cb66-3"><a href="#cb66-3"></a>    <span class="kw">def</span> game(<span class="va">self</span>):</span>
+<span id="cb66-4"><a href="#cb66-4"></a>        <span class="bu">print</span>(<span class="va">self</span>.a)</span>
+<span id="cb66-5"><a href="#cb66-5"></a>    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>ex5 <span class="op">=</span> Klass5()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>ex5.a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<pre><code>'바위'</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

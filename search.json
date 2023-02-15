@@ -7,18 +7,25 @@
     "text": "About this blog ~~~"
   },
   {
-    "objectID": "posts/Python/python-test1.html",
-    "href": "posts/Python/python-test1.html",
-    "title": "Quarto-Blog",
+    "objectID": "posts/Python/2023-02-15-class2.html",
+    "href": "posts/Python/2023-02-15-class2.html",
+    "title": "class 2단계",
     "section": "",
-    "text": "# update가 잘되는지를 위한 테스트ㅠㅠ\n\n\nimport matplotlib.pyplot as plt\n\nplt.plot([1, 2, 3, 4])\nplt.show()"
+    "text": "__init__\nself의 의미\n파이썬의 비밀1\n파이썬의 비밀2\n\n\n\n\n\n\nfrom PIL import Image\nimport requests"
   },
   {
     "objectID": "posts/Python/2023-02-15-class1.html",
     "href": "posts/Python/2023-02-15-class1.html",
     "title": "class 1단계",
     "section": "",
-    "text": "이미지 자료 불러오기 (PIL 이용)\n클래스 성능 정리\n연습문제\n- 예제1\n- 예제2"
+    "text": "이미지 자료 불러오기 (PIL 이용)\n클래스 성능 정리\n연습문제"
+  },
+  {
+    "objectID": "posts/Python/2023-02-15-class1.html#이미지-자료-불러오기",
+    "href": "posts/Python/2023-02-15-class1.html#이미지-자료-불러오기",
+    "title": "class 1단계",
+    "section": "이미지 자료 불러오기",
+    "text": "이미지 자료 불러오기\n- 예제1\n\n# 이미지 출력을 위한 패키지 불러오기\nimport requests\nfrom PIL import Image\n\n\nurl= 'https://stat.jbnu.ac.kr/sites/stat/images/intro_about_02.jpg'\n\n\nImage.open(Image.io.BytesIO(requests.get(url).content))\n\n\n\n\n- 예제2\n\nurl1 = 'https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop1.jpeg?raw=true'\nurl2 = 'https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop2.png?raw=true' \n\n\nImage.open(Image.io.BytesIO(requests.get(url1).content))\n\n\n\n\n\nImage.open(Image.io.BytesIO(requests.get(url2).content))"
   },
   {
     "objectID": "posts/Python/2023-02-15-class1.html#클래스-공부-1단계",
@@ -32,7 +39,14 @@
     "href": "posts/Python/2023-02-15-class1.html#연습문제",
     "title": "class 1단계",
     "section": "연습문제",
-    "text": "연습문제\n\n문제1 : 아래의 클래스를 구현하라.\n- 클래스 내에는 변수 a가 있다. 변수 a의 초기값은 True이다.\n- 클래스에는 show()라는 메소드가 있다. show() 기능은 a의 값을 print하는 기능을 한다.\n\nclass Klass1:\n    a = True # 초기값\n    def show(self):\n        print(self.a)\n\n\nex1 = Klass1()\n\n\nex1.a # 초기값\n\nTrue\n\n\n\nex1.show()\n\nTrue\n\n\n\n\n문제2 : 아래의 클래스를 구현하라.\n- 클래스 내에는 변수 a가 있다. 변수 a의 초기값은 1이다.\n- 클래스에는 up()이라는 메소드가 있다. up()의 기능은 a의 값을 1증가시키는 기능을 한다.\n\nclass Klass2:\n    a = 1 # 초깃값\n    def up(self):\n        self.a = self.a + 1\n\n\nex2 = Klass2()\nex2.a\n\n1\n\n\n\nex2.up()\nex2.a\n\n2\n\n\n\nex2.up()\nex2.a\n\n3\n\n\n\nex2.up()\nex2.a\n\n4\n\n\n\n\n문제3: 아래의 클래스를 구현하라.\n- 클래스 내에는 변수 a가 있다. 변수 a의 초기값은 \\(0\\) 이다.\n- 클래스에는 up(), down(), show() 라는 메소드가 있다. 각각은 a의 값을 1증가, a값을 1감소, a의 값을 print하는 기능을 한다."
+    "text": "연습문제\n\n문제1 : 아래의 클래스를 구현하라.\n- 클래스 내에는 변수 a가 있다. 변수 a의 초기값은 True이다.\n- 클래스에는 show()라는 메소드가 있다. show() 기능은 a의 값을 print하는 기능을 한다.\n\nclass Klass1:\n    a = True # 초기값\n    def show(self):\n        print(self.a)\n\n\nex1 = Klass1()\n\n\nex1.a # 초기값\n\nTrue\n\n\n\nex1.show()\n\nTrue\n\n\n\n\n문제2 : 아래의 클래스를 구현하라.\n- 클래스 내에는 변수 a가 있다. 변수 a의 초기값은 1이다.\n- 클래스에는 up()이라는 메소드가 있다. up()의 기능은 a의 값을 1증가시키는 기능을 한다.\n\nclass Klass2:\n    a = 1 # 초깃값\n    def up(self):\n        self.a = self.a + 1\n\n\nex2 = Klass2()\nex2.a\n\n1\n\n\n\nex2.up()\nex2.a\n\n2\n\n\n\nex2.up()\nex2.a\n\n3\n\n\n\nex2.up()\nex2.a\n\n4\n\n\n\n\n문제3: 아래의 클래스를 구현하라.\n- 클래스 내에는 변수 a가 있다. 변수 a의 초기값은 \\(0\\) 이다.\n- 클래스에는 up(), down(), show() 라는 메소드가 있다. 각각은 a의 값을 1증가, a값을 1감소, a의 값을 print하는 기능을 한다.\n\nclass Klass3:\n    a = 0\n    def up(self):\n        self.a  = self.a + 1\n    def down(self):\n        self.a = self.a - 1\n    def show(self):\n        print(self.a)\n\n\nex3 = Klass3()\n\n\nex3.show()\n\n0\n\n\n\nex3.up()\nex3.show()\n\n1\n\n\n\nex3.up()\nex3.up()\nex3.show()\n\n3\n\n\n\nex3.down()\nex3.show()\n\n2\n\n\n\n\n문제4: 아래의 클래스를 구현하라.\n- 클래스 내에는 변수 url이 있음. url의 초기값은 다음과 같다. https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop1.jpeg?raw=true\n- 클래스에는 show() 라는 메소드를 가지는데, 메소드는 아래와 같은 기능을 한다. - 기능1: url의 그림을 출력 - 기능2: ‘당신은 이 그림을 \\(n\\) 번 보았습니다.’ 출력. (여기에서 \\(n\\)은 그림을 본 횟수)\n\nclass Klass4:\n    n = 1 # 초기값\n    url = 'https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop1.jpeg?raw=true'\n    def show(self):\n        display(Image.open(Image.io.BytesIO(requests.get(self.url).content)))\n        print('당신은 이 그림을 {}번 보았습니다.'.format(self.n))\n        self.n = self.n + 1\n\n\nex4 = Klass4()\nex4.show()\n\n\n\n\n당신은 이 그림을 1번 보았습니다.\n\n\n\nex4.show()\n\n\n\n\n당신은 이 그림을 2번 보았습니다.\n\n\n\n# url 변환 (학교 폭력 이미지 말고, SNL 이미지로 출력되게 바꿔보자.)\nex4_1 = Klass4()\nex4_1.url = url2 # SNL image link\n\n\nex4_1.show()\n\n\n\n\n당신은 이 그림을 1번 보았습니다."
+  },
+  {
+    "objectID": "posts/Python/2023-02-15-class1.html#homework",
+    "href": "posts/Python/2023-02-15-class1.html#homework",
+    "title": "class 1단계",
+    "section": "Homework",
+    "text": "Homework\n- 클래스를 선언하라. [‘가위’, ‘바위’, ‘보’] 중 하나를 골라서 내는 메소드를 정의하라.\n\n# hint\nimport numpy as np\nnp.random.choice(['가위', '바위', '보'])\n\n'보'\n\n\n\nclass Klass5:\n    a = np.random.choice(['가위', '바위', '보'])\n    def game(self):\n        print(self.a)\n    \n\n\nex5 = Klass5()\n\n\nex5.a\n\n'바위'"
   },
   {
     "objectID": "posts/category2/notebook2.html",
@@ -58,9 +72,16 @@
   {
     "objectID": "posts/category1/notebook1.html",
     "href": "posts/category1/notebook1.html",
-    "title": "test: quarto test1",
+    "title": "class 2단계",
     "section": "",
-    "text": "1+2\n\n3\n\n\n\n\n\nimage.png"
+    "text": "__init__\nself의 의미\n파이썬의 비밀1\n파이썬의 비밀2"
+  },
+  {
+    "objectID": "posts/category1/notebook1.html#imports",
+    "href": "posts/category1/notebook1.html#imports",
+    "title": "class 2단계",
+    "section": "imports",
+    "text": "imports\n\n# 이미지 출력을 위한 패키지\nfrom PIL import Image\nimport requests"
   },
   {
     "objectID": "posts/category1/Untitled.html",
@@ -74,6 +95,6 @@
     "href": "index.html",
     "title": "Quarto-Blog",
     "section": "",
-    "text": "class 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n  \n\n\n\n\ntest: quarto test1\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
+    "text": "class 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
   }
 ]
