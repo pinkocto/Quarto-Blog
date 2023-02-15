@@ -2,38 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/about.html</loc>
-    <lastmod>2023-02-15T12:01:38.475Z</lastmod>
+    <lastmod>2023-02-15T12:09:36.532Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-15-class2.html</loc>
-    <lastmod>2023-02-15T12:01:38.855Z</lastmod>
+    <lastmod>2023-02-15T12:09:36.916Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-15-class3.html</loc>
+    <lastmod>2023-02-15T12:09:37.108Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/Untitled.html</loc>
+    <lastmod>2023-02-15T12:09:37.296Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-15-class1.html</loc>
-    <lastmod>2023-02-15T12:01:39.171Z</lastmod>
+    <lastmod>2023-02-15T12:09:37.624Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/category2/notebook2.html</loc>
-    <lastmod>2023-02-15T12:01:39.347Z</lastmod>
+    <lastmod>2023-02-15T12:09:37.796Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/DV/dv1.html</loc>
-    <lastmod>2023-02-15T12:01:39.507Z</lastmod>
+    <lastmod>2023-02-15T12:09:37.964Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/DV/Untitled.html</loc>
-    <lastmod>2023-02-15T12:01:39.667Z</lastmod>
+    <lastmod>2023-02-15T12:09:38.132Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/category1/notebook1.html</loc>
-    <lastmod>2023-02-15T12:01:39.851Z</lastmod>
+    <lastmod>2023-02-15T12:09:38.304Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/category1/Untitled.html</loc>
-    <lastmod>2023-02-15T12:01:40.027Z</lastmod>
+    <lastmod>2023-02-15T12:09:38.472Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/index.html</loc>
-    <lastmod>2023-02-15T12:01:40.243Z</lastmod>
+    <lastmod>2023-02-15T12:09:38.708Z</lastmod>
   </url>
 </urlset>
