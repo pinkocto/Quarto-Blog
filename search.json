@@ -18,7 +18,7 @@
     "href": "posts/Python/2023-02-15-class4.html",
     "title": "class 4단계",
     "section": "",
-    "text": "이 단계에서는 클래스 오브젝트에 소속된 변수와 인스턴스 오브젝트에 소속된 변수를 설명한다.\n\n\n\n\n\nmotivating example\n__str__, 파이썬의 비밀2\n__repr__, 파이썬의 비밀3\n주피터 노트북의 비밀 (_repr_html_), __repr__와 __str__의 우선적용 순위\n\n\n\n\n\n- 파이썬은 모든 것이 오브젝트로 이루어져 있따. \\(\\leftarrow\\) 우선 그냥 외우기!\n- 오브젝트는 메모리 주소에 저장되는 모든 것을 의미한다.\n\na = 1\nid(a) # 메모리주소를 보는 명령어\n\n7618240\n\n\n\na = 'asdf'\nid(a)\n\n140366991918512\n\n\n\na = [1,2,3]\nid(a)\n\n140366923845376\n\n\n- 클래스와 인스턴스도 오브젝트다.\n\nclass A:\n    x = 0\n    def f(self):\n        print(self.x)\n\n\nid(A)\n\n39987760\n\n\n\nA는 오브젝트\n\n\nb = A()\n\n\nid(b)\n\n140366932540960\n\n\n\nb는 오브젝트\n\n- 앞으로는 A를 클래스오브젝트, a,b를 인스턴스오브젝트라고 부르자."
+    "text": "이 단계에서는 클래스 오브젝트에 소속된 변수와 인스턴스 오브젝트에 소속된 변수를 설명한다.\n\n\n\n\n\nmotivating example\n__str__, 파이썬의 비밀2\n__repr__, 파이썬의 비밀3\n주피터 노트북의 비밀 (_repr_html_), __repr__와 __str__의 우선적용 순위\n\n\n\n\n\n\nimport numpy as np\n\n\n\n\n\n\n\nclass RPS:\n    def __init__(self, candidate = ['가위', '바위', '보']):\n        self.candidate = candidate\n    def throw(self):\n        print(np.random.choice(self.candidate))\n\n\na = RPS() # __init__ 는 암묵적으로 실행\n\n\na.throw()\n\n보\n\n\n생각해보니까 throw는 choose + show의 결합인 것 같다.\n\nclass RPS: ## 시점1\n    def __init__(self, candidate = ['가위', '바위', '보']):\n        self.candidate = candidate\n    def choose(self):\n        self.actions = np.random.choice(self.candidate)\n    def show(self):\n        print(self.actions)\n\n\na = RPS()  ## 시점2\n\n\na.actions ## 시점3\n\nAttributeError: 'RPS' object has no attribute 'actions'"
   },
   {
     "objectID": "posts/Python/2023-02-15-class3.html",
