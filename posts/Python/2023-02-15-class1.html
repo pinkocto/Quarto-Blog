@@ -338,9 +338,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="클래스-공부-1단계" class="level1">
 <h1>클래스 공부 1단계</h1>
-<blockquote class="blockquote">
-<p>클래스 선언 및 사용 예시</p>
-</blockquote>
+<ul>
+<li>클래스 선언 및 사용 예시</li>
+</ul>
 <section id="contents" class="level2">
 <h2 class="anchored" data-anchor-id="contents">Contents</h2>
 <blockquote class="blockquote">
@@ -632,7 +632,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="문제4-아래의-클래스를-구현하라." class="level3">
 <h3 class="anchored" data-anchor-id="문제4-아래의-클래스를-구현하라.">문제4: 아래의 클래스를 구현하라.</h3>
 <p><code>-</code> 클래스 내에는 변수 url이 있음. url의 초기값은 다음과 같다. <code>https://github.com/guebin/IP2022/blob/master/_notebooks/2022-05-07-stop1.jpeg?raw=true</code></p>
-<p><code>-</code> 클래스에는 <code>show()</code> 라는 메소드를 가지는데, 메소드는 아래와 같은 기능을 한다. - 기능1: url의 그림을 출력 - 기능2: ‘당신은 이 그림을 <span class="math inline">\(n\)</span> 번 보았습니다.’ 출력. (여기에서 <span class="math inline">\(n\)</span>은 그림을 본 횟수)</p>
+<p><code>-</code> 클래스에는 <code>show()</code> 라는 메소드(클래스 안에 정의된 함수)를 가지는데, 메소드는 아래와 같은 기능을 한다. - 기능1: url의 그림을 출력 - 기능2: ‘당신은 이 그림을 <span class="math inline">\(n\)</span> 번 보았습니다.’ 출력. (여기에서 <span class="math inline">\(n\)</span>은 그림을 본 횟수)</p>
 <div class="cell" data-execution_count="62">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="kw">class</span> Klass4:</span>
 <span id="cb56-2"><a href="#cb56-2"></a>    n <span class="op">=</span> <span class="dv">1</span> <span class="co"># 초기값</span></span>
@@ -680,12 +680,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="homework" class="level2">
 <h2 class="anchored" data-anchor-id="homework">Homework</h2>
 <p><code>-</code> 클래스를 선언하라. [‘가위’, ‘바위’, ‘보’] 중 하나를 골라서 내는 메소드를 정의하라.</p>
-<div class="cell" data-execution_count="89">
+<div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># hint</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb64-3"><a href="#cb64-3"></a>np.random.choice([<span class="st">'가위'</span>, <span class="st">'바위'</span>, <span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="89">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>'가위'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a><span class="kw">class</span> Klass5:</span>
+<span id="cb66-2"><a href="#cb66-2"></a>    <span class="kw">def</span> game(<span class="va">self</span>):</span>
+<span id="cb66-3"><a href="#cb66-3"></a>        <span class="va">self</span>.n <span class="op">=</span> np.random.choice([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span>
+<span id="cb66-4"><a href="#cb66-4"></a>        <span class="bu">print</span>(<span class="va">self</span>.n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>ex5 <span class="op">=</span> Klass5()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>ex5.game()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>보</code></pre>
 </div>
 </div>
 
