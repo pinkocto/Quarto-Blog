@@ -1,6 +1,6 @@
 ---
 title: "simultaneous equation"
-description: "implementation with R"
+description: 'implementation with R'
 author: 'jiyun Lim'
 date: '02/19/2023'
 categories:
@@ -18,9 +18,7 @@ format:
 
 `-` 예를 들어 아래와 같은 문제가 있다고 하자.
 
-$$
-\begin{cases}w+2x+ey+4z = 1 \\2w+2x+y=9 \\x-y = 4 \\3w+x-y+3y=7\end{cases}
-$$
+$$\begin{cases}w+2x+ey+4z = 1 \\2w+2x+y=9 \\x-y = 4 \\3w+x-y+3y=7\end{cases}$$
 
 `-` 매트릭스 형태로 위의 식을 표현하면 아래와 같다.
 
@@ -36,24 +34,20 @@ w \\ x \\ y \\z
 \end{bmatrix}=\begin{bmatrix}
 1 \\ 9 \\ 4 \\7 
 \end{bmatrix}
-$$ 
+$$
 
 `-` 양변에
 
-$$
-\begin{bmatrix}
+$$\begin{bmatrix}
 1 & 2 & 3 & 4 \\ 
 2 & 2 & 1 & 0 \\
 0 & 1 &-1 & 0 \\
 3 & 1 &-1 & 3 
-\end{bmatrix}
-$$
-
+\end{bmatrix}$$
 
 의 역행렬을 취하면
 
-$$
-\begin{bmatrix}
+$$\begin{bmatrix}
 w \\ x \\ y \\z 
 \end{bmatrix}=\begin{bmatrix}
 1 & 2 & 3 & 4 \\ 
@@ -62,9 +56,7 @@ w \\ x \\ y \\z
 3 & 1 &-1 & 3 
 \end{bmatrix}^{-1}\begin{bmatrix}
 1 \\ 9 \\ 4 \\7 
-\end{bmatrix}
-$$
-
+\end{bmatrix}$$
 
 ## R로 구현
 
