@@ -8,9 +8,9 @@
 
 <meta name="author" content="jiyun Lim">
 <meta name="dcterms.date" content="2023-02-19">
-<meta name="description" content="timeseries study1">
+<meta name="description" content="implementation with R">
 
-<title>Quarto-Blog - ts1</title>
+<title>Quarto-Blog - simultaneous equation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,69 +23,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -125,6 +62,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -161,7 +99,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">ts1</h1>
+      <h1 class="quarto-secondary-nav-title">simultaneous equation</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -172,15 +110,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">ts1</h1>
+      <h1 class="title d-none d-lg-block">simultaneous equation</h1>
                   <div>
         <div class="description">
-          timeseries study1
+          implementation with R
         </div>
       </div>
                           <div class="quarto-categories">
                 <div class="quarto-category">R</div>
-                <div class="quarto-category">ts</div>
+                <div class="quarto-category">linear algebra</div>
                 <div class="quarto-category">basic</div>
               </div>
                   </div>
@@ -240,12 +178,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/category1/simul_eq.html" class="sidebar-item-text sidebar-link">simultaneous equation</a>
+  <a href="../../posts/category1/simul_eq.html" class="sidebar-item-text sidebar-link active">simultaneous equation</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/category1/ts1.html" class="sidebar-item-text sidebar-link active">ts1</a>
+  <a href="../../posts/category1/ts1.html" class="sidebar-item-text sidebar-link">ts1</a>
   </div>
 </li>
       </ul>
@@ -326,7 +264,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#monthly-airline-passenger-numbers-1949-1960" id="toc-monthly-airline-passenger-numbers-1949-1960" class="nav-link active" data-scroll-target="#monthly-airline-passenger-numbers-1949-1960">Monthly Airline Passenger Numbers 1949-1960</a></li>
+  <li><a href="#행렬과-연립일차-방정식" id="toc-행렬과-연립일차-방정식" class="nav-link active" data-scroll-target="#행렬과-연립일차-방정식">행렬과 연립일차 방정식</a></li>
+  <li><a href="#r로-구현" id="toc-r로-구현" class="nav-link" data-scroll-target="#r로-구현">R로 구현</a></li>
   </ul>
 </nav>
     </div>
@@ -336,91 +275,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<section id="행렬과-연립일차-방정식" class="level2">
+<h2 class="anchored" data-anchor-id="행렬과-연립일차-방정식">행렬과 연립일차 방정식</h2>
+<p>파이썬에서 Numpy는 행렬 계산을 쉽게하기 위해 사용하는 패키지이다. R로 행렬과 매트릭스를 구현해보자.</p>
+<p><code>-</code> 예를 들어 아래와 같은 문제가 있다고 하자.</p>
+<p><span class="math display">\[
+\begin{cases}w+2x+ey+4z = 1 \\2w+2x+y=9 \\x-y = 4 \\3w+x-y+3y=7\end{cases}
+\]</span></p>
+<p><code>-</code> 매트릭스 형태로 위의 식을 표현하면 아래와 같다.</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp;-1 &amp; 0 \\
+3 &amp; 1 &amp;-1 &amp; 3
+\end{bmatrix}
+\begin{bmatrix}
+w \\ x \\ y \\z
+\end{bmatrix}=\begin{bmatrix}
+1 \\ 9 \\ 4 \\7
+\end{bmatrix}
+\]</span> <code>-</code> 양변에 $$</p>
+<span class="math display">\[\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp;-1 &amp; 0 \\
+3 &amp; 1 &amp;-1 &amp; 3
+\end{bmatrix}\]</span>
+<p>$$</p>
+<p>의 역행렬을 취하면</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+w \\ x \\ y \\z
+\end{bmatrix}=\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp;-1 &amp; 0 \\
+3 &amp; 1 &amp;-1 &amp; 3
+\end{bmatrix}^{-1}\begin{bmatrix}
+1 \\ 9 \\ 4 \\7
+\end{bmatrix}
+\]</span></p>
+</section>
+<section id="r로-구현" class="level2">
+<h2 class="anchored" data-anchor-id="r로-구현">R로 구현</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(forecast)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tseries)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<section id="monthly-airline-passenger-numbers-1949-1960" class="level2">
-<h2 class="anchored" data-anchor-id="monthly-airline-passenger-numbers-1949-1960">Monthly Airline Passenger Numbers 1949-1960</h2>
-<p>The classic Box &amp; Jenkins airline data. Monthly totals of international airline passengers, 1949 to 1960.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>ap <span class="ot">&lt;-</span> AirPassengers</span>
-<span id="cb2-2"><a href="#cb2-2"></a>ap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-1949 112 118 132 129 121 135 148 148 136 119 104 118
-1950 115 126 141 135 125 149 170 170 158 133 114 140
-1951 145 150 178 163 172 178 199 199 184 162 146 166
-1952 171 180 193 181 183 218 230 242 209 191 172 194
-1953 196 196 236 235 229 243 264 272 237 211 180 201
-1954 204 188 235 227 234 264 302 293 259 229 203 229
-1955 242 233 267 269 270 315 364 347 312 274 237 278
-1956 284 277 317 313 318 374 413 405 355 306 271 306
-1957 315 301 356 348 355 422 465 467 404 347 305 336
-1958 340 318 362 348 363 435 491 505 404 359 310 337
-1959 360 342 406 396 420 472 548 559 463 407 362 405
-1960 417 391 419 461 472 535 622 606 508 461 390 432</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>ap <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> Time-Series [1:144] from 1949 to 1961: 112 118 132 129 121 135 148 148 136 119 ...</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">class</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ts"</code></pre>
-</div>
-</div>
-<ul>
-<li>ts 객체는 시계열 데이터를 처리하기 위한 속성</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">start</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1949    1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">end</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1960   12</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">frequency</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 12</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">plot</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ts1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">cycle</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
-1949   1   2   3   4   5   6   7   8   9  10  11  12
-1950   1   2   3   4   5   6   7   8   9  10  11  12
-1951   1   2   3   4   5   6   7   8   9  10  11  12
-1952   1   2   3   4   5   6   7   8   9  10  11  12
-1953   1   2   3   4   5   6   7   8   9  10  11  12
-1954   1   2   3   4   5   6   7   8   9  10  11  12
-1955   1   2   3   4   5   6   7   8   9  10  11  12
-1956   1   2   3   4   5   6   7   8   9  10  11  12
-1957   1   2   3   4   5   6   7   8   9  10  11  12
-1958   1   2   3   4   5   6   7   8   9  10  11  12
-1959   1   2   3   4   5   6   7   8   9  10  11  12
-1960   1   2   3   4   5   6   7   8   9  10  11  12</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">boxplot</span>(ap<span class="sc">~</span><span class="fu">cycle</span>(ap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="ts1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
+
 </div>
 
 
