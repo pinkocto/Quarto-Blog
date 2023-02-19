@@ -70,31 +70,10 @@
     "text": "Monthly Airline Passenger Numbers 1949-1960\nThe classic Box & Jenkins airline data. Monthly totals of international airline passengers, 1949 to 1960.\n\nap <- AirPassengers\nap\n\n     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n1949 112 118 132 129 121 135 148 148 136 119 104 118\n1950 115 126 141 135 125 149 170 170 158 133 114 140\n1951 145 150 178 163 172 178 199 199 184 162 146 166\n1952 171 180 193 181 183 218 230 242 209 191 172 194\n1953 196 196 236 235 229 243 264 272 237 211 180 201\n1954 204 188 235 227 234 264 302 293 259 229 203 229\n1955 242 233 267 269 270 315 364 347 312 274 237 278\n1956 284 277 317 313 318 374 413 405 355 306 271 306\n1957 315 301 356 348 355 422 465 467 404 347 305 336\n1958 340 318 362 348 363 435 491 505 404 359 310 337\n1959 360 342 406 396 420 472 548 559 463 407 362 405\n1960 417 391 419 461 472 535 622 606 508 461 390 432\n\n\n\nap %>% glimpse()\n\n Time-Series [1:144] from 1949 to 1961: 112 118 132 129 121 135 148 148 136 119 ...\n\n\n\nclass(ap)\n\n[1] \"ts\"\n\n\n\nts 객체는 시계열 데이터를 처리하기 위한 속성\n\n\nstart(ap)\n\n[1] 1949    1\n\nend(ap)\n\n[1] 1960   12\n\nfrequency(ap)\n\n[1] 12\n\n\n\nplot(ap)\n\n\n\n\n\ncycle(ap)\n\n     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n1949   1   2   3   4   5   6   7   8   9  10  11  12\n1950   1   2   3   4   5   6   7   8   9  10  11  12\n1951   1   2   3   4   5   6   7   8   9  10  11  12\n1952   1   2   3   4   5   6   7   8   9  10  11  12\n1953   1   2   3   4   5   6   7   8   9  10  11  12\n1954   1   2   3   4   5   6   7   8   9  10  11  12\n1955   1   2   3   4   5   6   7   8   9  10  11  12\n1956   1   2   3   4   5   6   7   8   9  10  11  12\n1957   1   2   3   4   5   6   7   8   9  10  11  12\n1958   1   2   3   4   5   6   7   8   9  10  11  12\n1959   1   2   3   4   5   6   7   8   9  10  11  12\n1960   1   2   3   4   5   6   7   8   9  10  11  12\n\n\n\nboxplot(ap~cycle(ap))"
   },
   {
-    "objectID": "posts/category1/notebook1.html",
-    "href": "posts/category1/notebook1.html",
-    "title": "class 2단계",
-    "section": "",
-    "text": "__init__\nself의 의미\n파이썬의 비밀1\n파이썬의 비밀2"
-  },
-  {
-    "objectID": "posts/category1/notebook1.html#imports",
-    "href": "posts/category1/notebook1.html#imports",
-    "title": "class 2단계",
-    "section": "imports",
-    "text": "imports\n\n# 이미지 출력을 위한 패키지\nfrom PIL import Image\nimport requests"
-  },
-  {
-    "objectID": "posts/category1/Untitled.html",
-    "href": "posts/category1/Untitled.html",
-    "title": "test: quarto test2",
-    "section": "",
-    "text": "test 입니다."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "2023 study blog",
     "section": "",
-    "text": "ts1\n\n\n\n\n\n\n\nR\n\n\nts\n\n\nbasic\n\n\n\n\ntimeseries study1\n\n\n\n\n\n\nFeb 19, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 3단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
+    "text": "ts1\n\n\n\n\n\n\n\nR\n\n\nts\n\n\nbasic\n\n\n\n\ntimeseries study1\n\n\n\n\n\n\nFeb 19, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 3단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
   }
 ]
