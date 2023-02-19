@@ -1,6 +1,6 @@
 ---
 title: "simultaneous equation"
-description: "implementation with R "
+description: "implementation with R"
 author: 'jiyun Lim'
 date: '02/19/2023'
 categories:
@@ -64,6 +64,7 @@ w \\ x \\ y \\z
 1 \\ 9 \\ 4 \\7 
 \end{bmatrix}
 $$
+
 
 ## R로 구현
 
