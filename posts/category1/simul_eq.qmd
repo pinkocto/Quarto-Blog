@@ -1,0 +1,108 @@
+---
+title: "simultaneous equation"
+description: "implementation with R "
+author: 'jiyun Lim'
+date: '02/19/2023'
+categories:
+  - R
+  - linear algebra
+  - basic
+format:
+  html:
+    theme: default
+---
+
+## 행렬과 연립일차 방정식
+
+파이썬에서 Numpy는 행렬 계산을 쉽게하기 위해 사용하는 패키지이다. R로도 행렬과 매트릭스를 구현해보자.
+
+
+`-` 예를 들어 아래와 같은 문제가 있다고 하자.
+
+
+$$
+\begin{cases}w+2x+ey+4z = 1 \\2w+2x+y=9 \\x-y = 4 \\3w+x-y+3y=7\end{cases}
+$$
+
+`-` 매트릭스 형태로 위의 식을 표현하면 아래와 같다.
+
+$$
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\ 
+2 & 2 & 1 & 0 \\
+0 & 1 &-1 & 0 \\
+3 & 1 &-1 & 3 
+\end{bmatrix}
+\begin{bmatrix}
+w \\ x \\ y \\z 
+\end{bmatrix}=\begin{bmatrix}
+1 \\ 9 \\ 4 \\7 
+\end{bmatrix}
+$$
+`-` 양변에 
+
+$$
+
+\begin{bmatrix}
+1 & 2 & 3 & 4 \\ 
+2 & 2 & 1 & 0 \\
+0 & 1 &-1 & 0 \\
+3 & 1 &-1 & 3 
+\end{bmatrix}
+
+$$
+
+의 역행렬을 취하면
+
+
+$$
+\begin{bmatrix}
+w \\ x \\ y \\z 
+\end{bmatrix}=\begin{bmatrix}
+1 & 2 & 3 & 4 \\ 
+2 & 2 & 1 & 0 \\
+0 & 1 &-1 & 0 \\
+3 & 1 &-1 & 3 
+\end{bmatrix}^{-1}\begin{bmatrix}
+1 \\ 9 \\ 4 \\7 
+\end{bmatrix}
+$$
+
+## R로 구현
+
+### `-` 방법1
+
+```{r}
+A=rbind(c(1,2,3,4),c(2,2,1,0),c(0,1,-1,0),c(3,1,-1,3))
+A
+```
+
+```{r}
+b=c(1,9,4,7)
+dim(b)=c(4,1)
+b
+```
+```{r}
+solve(A) %*% b 
+```
+
+따라서 $(w,x,y,z) = (2,3,-1,-1)$ 이다.
+
+
+### `-` 방법2
+
+```{r}
+A = rbind(c(1,2,3,4),c(2,2,1,0),c(0,1,-1,0),c(3,1,-1,3))
+A
+```
+```{r}
+b = c(1,9,4,7)
+b
+```
+
+```{r}
+solve(A) %*% b
+```
+
+
+

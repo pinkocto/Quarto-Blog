@@ -1,0 +1,56 @@
+---
+title: "ts1"
+description: 'timeseries study1'
+author: 'jiyun Lim'
+date: '02/19/2023'
+categories:
+  - R
+  - ts
+  - basic
+format:
+  html:
+    theme: default
+---
+
+## Monthly Airline Passenger Numbers 1949-1960
+
+The classic Box & Jenkins airline data. Monthly totals of international airline passengers, 1949 to 1960.
+
+```{r,message=FALSE, warning=FALSE, results='hide'}
+library(forecast)
+library(tseries)
+library(tidyverse)
+```
+
+```{r}
+ap <- AirPassengers
+ap
+```
+
+```{r}
+ap %>% glimpse()
+```
+
+```{r}
+class(ap)
+```
+
+-   ts 객체는 시계열 데이터를 처리하기 위한 속성
+
+```{r}
+start(ap)
+end(ap)
+frequency(ap)
+```
+
+```{r}
+plot(ap)
+```
+
+```{r}
+cycle(ap)
+```
+
+```{r}
+boxplot(ap~cycle(ap))
+```
