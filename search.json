@@ -70,6 +70,13 @@
     "text": "imports\n\n# 이미지 출력을 위한 패키지\nfrom PIL import Image\nimport requests"
   },
   {
+    "objectID": "posts/category1/test.html",
+    "href": "posts/category1/test.html",
+    "title": "test_R",
+    "section": "",
+    "text": "1+1\n\n[1] 2"
+  },
+  {
     "objectID": "posts/category1/Untitled.html",
     "href": "posts/category1/Untitled.html",
     "title": "test: quarto test2",
@@ -81,6 +88,6 @@
     "href": "index.html",
     "title": "Quarto-Blog",
     "section": "",
-    "text": "class 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 3단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
+    "text": "test_R\n\n\n\n\n\n\n\n\n\n\n \n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 3단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\n\n\ntest: quarto test2\n\n\n\n\n\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nJan 23, 2023\n\n\n임지윤\n\n\n\n\n\n\nNo matching items"
   }
 ]
