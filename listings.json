@@ -2,15 +2,15 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/Python/Untitled.html",
       "/posts/DV/dv1.html",
       "/posts/DV/Untitled.html",
-      "/posts/category1/ts1.html",
-      "/posts/category1/simul_eq.html",
+      "/posts/R/ts1.html",
+      "/posts/R/simul_eq.html",
       "/posts/Python/2023-02-15-class2.html",
       "/posts/Python/2023-02-15-class4.html",
       "/posts/Python/2023-02-15-class3.html",
       "/posts/Python/2023-02-15-class1.html",
-      "/posts/category2/notebook2.html",
       "/posts/Python/2022-06-13-final.html"
     ]
   }
