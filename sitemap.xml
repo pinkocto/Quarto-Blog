@@ -2,50 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/about.html</loc>
-    <lastmod>2023-02-20T16:12:54.244Z</lastmod>
+    <lastmod>2023-02-23T09:12:31.433Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-15-class2.html</loc>
-    <lastmod>2023-02-20T16:12:54.632Z</lastmod>
+    <lastmod>2023-02-23T09:12:31.821Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-15-class4.html</loc>
-    <lastmod>2023-02-20T16:12:55.024Z</lastmod>
+    <lastmod>2023-02-23T09:12:32.205Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-15-class3.html</loc>
-    <lastmod>2023-02-20T16:12:55.264Z</lastmod>
+    <lastmod>2023-02-23T09:12:32.429Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-23-numpy4.html</loc>
+    <lastmod>2023-02-23T09:12:32.745Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2022-06-13-final.html</loc>
-    <lastmod>2023-02-20T16:12:55.588Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/Untitled.html</loc>
-    <lastmod>2023-02-20T16:12:55.768Z</lastmod>
+    <lastmod>2023-02-23T09:12:33.077Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/Python/2023-02-15-class1.html</loc>
-    <lastmod>2023-02-20T16:12:56.096Z</lastmod>
+    <lastmod>2023-02-23T09:12:33.389Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/R/ts1.html</loc>
-    <lastmod>2023-02-20T16:12:58.164Z</lastmod>
+    <lastmod>2023-02-23T09:12:33.685Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/R/simul_eq.html</loc>
-    <lastmod>2023-02-20T16:12:58.968Z</lastmod>
+    <lastmod>2023-02-23T09:12:34.001Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/DV/dv1.html</loc>
-    <lastmod>2023-02-20T16:12:59.132Z</lastmod>
+    <lastmod>2023-02-23T09:12:34.161Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/DV/Untitled.html</loc>
-    <lastmod>2023-02-20T16:12:59.296Z</lastmod>
+    <lastmod>2023-02-23T09:12:34.321Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/index.html</loc>
-    <lastmod>2023-02-20T16:12:59.544Z</lastmod>
+    <lastmod>2023-02-23T09:12:34.565Z</lastmod>
   </url>
 </urlset>
