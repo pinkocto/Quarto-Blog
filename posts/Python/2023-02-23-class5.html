@@ -326,8 +326,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#motive" id="toc-motive" class="nav-link" data-scroll-target="#motive">motive</a>
   <ul class="collapse">
-  <li><a href="#add__" id="toc-add__" class="nav-link" data-scroll-target="#add__"><code>__add__</code></a></li>
-  <li><a href="#mul__" id="toc-mul__" class="nav-link" data-scroll-target="#mul__"><code>__mul__</code></a></li>
+  <li><a href="#add__" id="toc-add__" class="nav-link" data-scroll-target="#add__">1. <code>__add__</code></a></li>
+  <li><a href="#mul__" id="toc-mul__" class="nav-link" data-scroll-target="#mul__">2. <code>__mul__</code></a></li>
   </ul></li>
   <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">숙제</a></li>
   </ul></li>
@@ -446,7 +446,7 @@ Base 0 means to interpret the base from the string as an integer literal.
 </div>
 <p><code>-</code> a+b는 사실 내부적으로 <code>a.__add(b)</code>의 축약구문이다. 따라서 만약 <code>a.__add__(b)</code>의 기능을 바꾸면 (재정의 하면) a+b의 기능도 바뀔 것이다.</p>
 <section id="add__" class="level3">
-<h3 class="anchored" data-anchor-id="add__"><code>__add__</code></h3>
+<h3 class="anchored" data-anchor-id="add__">1. <code>__add__</code></h3>
 <p><code>-</code> 학생예제</p>
 <div class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">class</span> Student: <span class="co"># student class를 만들어보자. (student 자료형인것.)</span></span>
@@ -613,7 +613,7 @@ Base 0 means to interpret the base from the string as an integer literal.
 </div>
 </section>
 <section id="mul__" class="level3">
-<h3 class="anchored" data-anchor-id="mul__"><code>__mul__</code></h3>
+<h3 class="anchored" data-anchor-id="mul__">2. <code>__mul__</code></h3>
 <div class="cell" data-execution_count="90">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>b <span class="op">=</span> <span class="dv">0</span></span>
@@ -749,9 +749,123 @@ Base 0 means to interpret the base from the string as an integer literal.
 <h2 class="anchored" data-anchor-id="숙제">숙제</h2>
 <p>RPC클래스에서 Player a와 Player b를 만들어라. - Player a는 [‘가위’,‘보’] 중에 하나를 낼 수 있다. - 그리고 Player b는 [‘가위’,‘바위’] 중에 하나를 낼 수 있다. - 두 Player는 가지고 있는 패를 (같은 확률로) 랜덤으로 낸다. (즉, Player a가 가위만 내거나 보만 내는 경우는 없다.)</p>
 <ol type="1">
-<li><p>누가 더 유리한가? 이유를 스스로 생각해보라.</p></li>
-<li><p>50000번을 시뮬레이션을 해보고 결과를 분석해보라.</p></li>
+<li>누가 더 유리한가? 이유를 스스로 생각해보라.</li>
 </ol>
+<ul>
+<li>비슷하지 않을까?</li>
+</ul>
+<ol start="2" type="1">
+<li>50000번을 시뮬레이션을 해보고 결과를 분석해보라.</li>
+</ol>
+<div class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="kw">class</span> RPC:</span>
+<span id="cb65-2"><a href="#cb65-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, candidate<span class="op">=</span>[<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>]):</span>
+<span id="cb65-3"><a href="#cb65-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
+<span id="cb65-4"><a href="#cb65-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb65-5"><a href="#cb65-5"></a>        <span class="va">self</span>.results <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb65-6"><a href="#cb65-6"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>, other):</span>
+<span id="cb65-7"><a href="#cb65-7"></a>        <span class="va">self</span>.choose()</span>
+<span id="cb65-8"><a href="#cb65-8"></a>        other.choose()</span>
+<span id="cb65-9"><a href="#cb65-9"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'가위'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'가위'</span>:</span>
+<span id="cb65-10"><a href="#cb65-10"></a>            <span class="va">self</span>.results.append(<span class="dv">0</span>)</span>
+<span id="cb65-11"><a href="#cb65-11"></a>            other.results.append(<span class="dv">0</span>)</span>
+<span id="cb65-12"><a href="#cb65-12"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'가위'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'바위'</span>:</span>
+<span id="cb65-13"><a href="#cb65-13"></a>            <span class="va">self</span>.results.append(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb65-14"><a href="#cb65-14"></a>            other.results.append(<span class="dv">1</span>)</span>
+<span id="cb65-15"><a href="#cb65-15"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'가위'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'보'</span>:</span>
+<span id="cb65-16"><a href="#cb65-16"></a>            <span class="va">self</span>.results.append(<span class="dv">1</span>)</span>
+<span id="cb65-17"><a href="#cb65-17"></a>            other.results.append(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb65-18"><a href="#cb65-18"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'바위'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'가위'</span>:</span>
+<span id="cb65-19"><a href="#cb65-19"></a>            <span class="va">self</span>.results.append(<span class="dv">1</span>)</span>
+<span id="cb65-20"><a href="#cb65-20"></a>            other.results.append(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb65-21"><a href="#cb65-21"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'바위'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'바위'</span>:</span>
+<span id="cb65-22"><a href="#cb65-22"></a>            <span class="va">self</span>.results.append(<span class="dv">0</span>)</span>
+<span id="cb65-23"><a href="#cb65-23"></a>            other.results.append(<span class="dv">0</span>)</span>
+<span id="cb65-24"><a href="#cb65-24"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'바위'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'보'</span>:</span>
+<span id="cb65-25"><a href="#cb65-25"></a>            <span class="va">self</span>.results.append(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb65-26"><a href="#cb65-26"></a>            other.results.append(<span class="dv">1</span>)</span>
+<span id="cb65-27"><a href="#cb65-27"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'보'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'가위'</span>:</span>
+<span id="cb65-28"><a href="#cb65-28"></a>            <span class="va">self</span>.results.append(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb65-29"><a href="#cb65-29"></a>            other.results.append(<span class="dv">1</span>)</span>
+<span id="cb65-30"><a href="#cb65-30"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'보'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'바위'</span>:</span>
+<span id="cb65-31"><a href="#cb65-31"></a>            <span class="va">self</span>.results.append(<span class="dv">1</span>)</span>
+<span id="cb65-32"><a href="#cb65-32"></a>            other.results.append(<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb65-33"><a href="#cb65-33"></a>        <span class="cf">if</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> <span class="st">'보'</span> <span class="kw">and</span> other.actions[<span class="op">-</span><span class="dv">1</span>]<span class="op">==</span><span class="st">'보'</span>:</span>
+<span id="cb65-34"><a href="#cb65-34"></a>            <span class="va">self</span>.results.append(<span class="dv">0</span>)</span>
+<span id="cb65-35"><a href="#cb65-35"></a>            other.results.append(<span class="dv">0</span>)</span>
+<span id="cb65-36"><a href="#cb65-36"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
+<span id="cb65-37"><a href="#cb65-37"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate))</span>
+<span id="cb65-38"><a href="#cb65-38"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb65-39"><a href="#cb65-39"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb65-40"><a href="#cb65-40"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt;</span></span>
+<span id="cb65-41"><a href="#cb65-41"></a><span class="st">        액션: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt;</span></span>
+<span id="cb65-42"><a href="#cb65-42"></a><span class="st">        승패: </span><span class="sc">{}</span></span>
+<span id="cb65-43"><a href="#cb65-43"></a><span class="st">        """</span></span>
+<span id="cb65-44"><a href="#cb65-44"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate, <span class="va">self</span>.actions, <span class="va">self</span>.results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>player_a <span class="op">=</span> RPC([<span class="st">'가위'</span>, <span class="st">'보'</span>])</span>
+<span id="cb66-2"><a href="#cb66-2"></a>player_b <span class="op">=</span> RPC([<span class="st">'가위'</span>, <span class="st">'바위'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>player_a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="134">
+
+        낼 수 있는 패: ['가위', '보'] <br>
+        액션: [] <br>
+        승패: []
+        
+</div>
+</div>
+<div class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>player_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="135">
+
+        낼 수 있는 패: ['가위', '바위'] <br>
+        액션: [] <br>
+        승패: []
+        
+</div>
+</div>
+<div class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>player_a<span class="op">*</span>player_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>player_a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="137">
+
+        낼 수 있는 패: ['가위', '보'] <br>
+        액션: ['보'] <br>
+        승패: [1]
+        
+</div>
+</div>
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>player_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="138">
+
+        낼 수 있는 패: ['가위', '바위'] <br>
+        액션: ['바위'] <br>
+        승패: [-1]
+        
+</div>
+</div>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">50000</span>):</span>
+<span id="cb72-2"><a href="#cb72-2"></a>    player_a<span class="op">*</span>player_b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="bu">sum</span>(player_a.results), <span class="bu">sum</span>(player_b.results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="140">
+<pre><code>(-12279, 12279)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="bu">sum</span>(player_a.results)<span class="op">/</span><span class="dv">50000</span>, <span class="bu">sum</span>(player_b.results)<span class="op">/</span><span class="dv">50000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="141">
+<pre><code>(-0.24558, 0.24558)</code></pre>
+</div>
+</div>
 
 
 </section>
