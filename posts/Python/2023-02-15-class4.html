@@ -282,6 +282,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../../posts/Python/Untitled.html" class="sidebar-item-text sidebar-link">class 5단계</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../../posts/Python/2023-02-23-numpy4.html" class="sidebar-item-text sidebar-link">Numpy4(concat, stack)</a>
   </div>
 </li>
@@ -1628,6 +1633,58 @@ Type "help", "copyright", "credits" or "license" for more information.
 <pre><code>학번: 202143052 
 낼 수 있는 패: ['가위', '바위', '보']
 기록: ['가위', '가위', '보', '보', '바위']</code></pre>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb247-1"><a href="#cb247-1"></a><span class="kw">class</span> RPS: </span>
+<span id="cb247-2"><a href="#cb247-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate<span class="op">=</span>[<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>]):</span>
+<span id="cb247-3"><a href="#cb247-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
+<span id="cb247-4"><a href="#cb247-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
+<span id="cb247-5"><a href="#cb247-5"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
+<span id="cb247-6"><a href="#cb247-6"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate))</span>
+<span id="cb247-7"><a href="#cb247-7"></a>    <span class="kw">def</span> show(<span class="va">self</span>):</span>
+<span id="cb247-8"><a href="#cb247-8"></a>        <span class="bu">print</span>(<span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb247-9"><a href="#cb247-9"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb247-10"><a href="#cb247-10"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb247-11"><a href="#cb247-11"></a><span class="st">        학번: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt;</span></span>
+<span id="cb247-12"><a href="#cb247-12"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
+<span id="cb247-13"><a href="#cb247-13"></a><span class="st">        기록: </span><span class="sc">{}</span></span>
+<span id="cb247-14"><a href="#cb247-14"></a><span class="st">        """</span></span>
+<span id="cb247-15"><a href="#cb247-15"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="dv">202143052</span>,<span class="va">self</span>.candidate,<span class="va">self</span>.actions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb248"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb248-1"><a href="#cb248-1"></a>a <span class="op">=</span> RPS()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb249"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb249-1"><a href="#cb249-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+
+        학번: 202143052 <br>
+        낼 수 있는 패: ['가위', '바위', '보'] <br> 
+        기록: []
+        
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb250"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb250-1"><a href="#cb250-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb250-2"><a href="#cb250-2"></a>    a.choose()</span>
+<span id="cb250-3"><a href="#cb250-3"></a>    a.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>보
+가위
+바위
+바위
+가위</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb252"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb252-1"><a href="#cb252-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+
+        학번: 202143052 <br>
+        낼 수 있는 패: ['가위', '바위', '보'] <br> 
+        기록: ['보', '가위', '바위', '바위', '가위']
+        
+</div>
+</div>
 
 
 </section>

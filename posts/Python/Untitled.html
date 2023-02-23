@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="jiyun Lim">
+<meta name="dcterms.date" content="2023-02-23">
 
-<title>Quarto-Blog – untitled</title>
+<title>Quarto-Blog - class 5단계</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">class 5단계</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -166,7 +168,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">class 5단계</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">class</div>
+                <div class="quarto-category">Python</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>jiyun Lim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">February 23, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -244,7 +278,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/Python/Untitled.html" class="sidebar-item-text sidebar-link active">Untitled</a>
+  <a href="../../posts/Python/Untitled.html" class="sidebar-item-text sidebar-link active">class 5단계</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Python/2023-02-23-numpy4.html" class="sidebar-item-text sidebar-link">Numpy4(concat, stack)</a>
   </div>
 </li>
       </ul>
@@ -276,68 +315,89 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#클래스-공부-5단계" id="toc-클래스-공부-5단계" class="nav-link active" data-scroll-target="#클래스-공부-5단계">클래스 공부 5단계</a>
+  <ul class="collapse">
+  <li><a href="#motive" id="toc-motive" class="nav-link" data-scroll-target="#motive">motive</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> torch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<section id="클래스-공부-5단계" class="level1">
+<h1>클래스 공부 5단계</h1>
+<blockquote class="blockquote">
+<p>특정 자료형에 한정하여 print 이외에 파이썬 내부기능을 조작하여 보자. (재정의하여 보자.)</p>
+</blockquote>
+<p><code>-</code> 지난시간까지 배운 것: RPC자료형에 한정해서 print() 등의 기능을 조작할 수 있었다. (재정의 할 수 있었다.)</p>
+<p><code>-</code> 이번시간에 배울 것: 특정 자료형에 한정하여 print 이외에 파이썬 내부기능을 조작하여 보자. (재정의하여 보자.)</p>
+<section id="motive" class="level2">
+<h2 class="anchored" data-anchor-id="motive">motive</h2>
+<p><code>-</code> 아래의 연산구조를 관찰하자.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>a <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>b <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>torch.device.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-<pre><code>torch.device</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="bu">print</span>(torch.cuda.is_available())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>True</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2"></a>device <span class="op">=</span> torch.device(<span class="st">'cuda:0'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>device</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>device(type='cuda', index=0)</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="im">import</span> networkx <span class="im">as</span> nx </span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="im">from</span> tqdm <span class="im">import</span> tqdm </span>
-<span id="cb8-5"><a href="#cb8-5"></a></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co"># 파이토치 관련 </span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="im">import</span> torch</span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="im">import</span> torch.nn.functional <span class="im">as</span> F</span>
-<span id="cb8-9"><a href="#cb8-9"></a></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># PyG 관련 </span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="im">from</span> torch_geometric.data <span class="im">import</span> Data</span>
-<span id="cb8-12"><a href="#cb8-12"></a></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co"># STGCN 관련 </span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="im">import</span> torch_geometric_temporal</span>
-<span id="cb8-15"><a href="#cb8-15"></a><span class="im">from</span> torch_geometric_temporal.nn.recurrent <span class="im">import</span> GConvGRU</span>
-<span id="cb8-16"><a href="#cb8-16"></a><span class="im">from</span> torch_geometric_temporal.signal <span class="im">import</span> temporal_signal_split </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>ModuleNotFoundError: No module named 'torch_sparse'</code></pre>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>a?? <span class="co"># a는 int class에서 만들어진 인스턴스다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">Type:</span>        int
+<span class="ansi-red-fg">String form:</span> 1
+<span class="ansi-red-fg">Docstring:</span>  
+int([x]) -&gt; integer
+int(x, base=10) -&gt; integer
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+&gt;&gt;&gt; int('0b100', base=0)
+4</pre>
 </div>
 </div>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="im">import</span> torch</span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">print</span>(torch.__version__)</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="bu">print</span>(torch.version.cuda)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1.13.1
-11.6</code></pre>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>a <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<pre><code>3</code></pre>
 </div>
 </div>
+<ul>
+<li>a라는 인스턴스와 b라는 인스턴스를 +라는 기호가 연결하고 있다.</li>
+</ul>
+<p><code>-</code> 이번에는 아래의 연산구조를 관찰하자.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb5-2"><a href="#cb5-2"></a>b <span class="op">=</span> [<span class="dv">3</span>,<span class="dv">4</span>]</span>
+<span id="cb5-3"><a href="#cb5-3"></a>a<span class="op">+</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>[1, 2, 3, 4]</code></pre>
+</div>
+</div>
+<ul>
+<li>a라는 인스턴스와 b라는 인스턴스를 +라는 기호가 연결하고 있다.</li>
+</ul>
+<p><code>-</code> 동작이 다른 이유?</p>
+<ul>
+<li>클래스를 배우기 이전: int자료형의 <code>+</code>는 “정수의 덧셈”을 의미하고 list자료형의 <code>+</code>는 “자료의 추가”를 의미한다.</li>
+<li>클래스를 배운 이후:</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
