@@ -124,6 +124,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -352,6 +353,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#클래스공부-10단계" id="toc-클래스공부-10단계" class="nav-link active" data-scroll-target="#클래스공부-10단계">클래스공부 10단계</a>
   <ul class="collapse">
   <li><a href="#문자열-join" id="toc-문자열-join" class="nav-link" data-scroll-target="#문자열-join">문자열 join</a></li>
+  <li><a href="#matplotlib" id="toc-matplotlib" class="nav-link" data-scroll-target="#matplotlib">matplotlib</a></li>
+  <li><a href="#참조와-에일리어싱" id="toc-참조와-에일리어싱" class="nav-link" data-scroll-target="#참조와-에일리어싱">참조와 에일리어싱</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -367,9 +370,327 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="문자열-join" class="level2">
 <h2 class="anchored" data-anchor-id="문자열-join">문자열 join</h2>
 <p><code>-</code> 예제</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>lst <span class="op">=</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">'abcd'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>'abcd'</code></pre>
 </div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>lst <span class="op">=</span> <span class="bu">list</span>(<span class="st">'abcd'</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>lst</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>['a', 'b', 'c', 'd']</code></pre>
+</div>
+</div>
+<ul>
+<li><code>['a','b','c','d']</code>를 붙여서 <code>'abcd'</code>로 하고 싶은데?</li>
+</ul>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">''</span>.join(lst)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>'abcd'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>a<span class="op">=</span><span class="st">''</span> <span class="co"># string object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>a?</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">Type:</span>        str
+<span class="ansi-red-fg">String form:</span> 
+<span class="ansi-red-fg">Length:</span>      0
+<span class="ansi-red-fg">Docstring:</span>  
+str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>a.join? <span class="co"># iterable이 와야함.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">Signature:</span> a<span class="ansi-blue-fg">.</span>join<span class="ansi-blue-fg">(</span>iterable<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">/</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-red-fg">Docstring:</span>
+Concatenate any number of strings.
+The string whose method is called is inserted in between each given string.
+The result is returned as a new string.
+Example: '.'.join(['ab', 'pq', 'rs']) -&gt; 'ab.pq.rs'
+<span class="ansi-red-fg">Type:</span>      builtin_function_or_method</pre>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>a.join(lst) <span class="co"># lst도 일단 리스트니까 iterable object</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>'abcd'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="bu">set</span>(<span class="bu">dir</span>(lst)) <span class="op">&amp;</span> {<span class="st">'__iter__'</span> , <span class="st">'__next__'</span>} <span class="co"># iterable object임을 확인</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>{'__iter__'}</code></pre>
+</div>
+</div>
+<p><code>-</code> 해설: <code>''</code>는 string object이고, <code>.join</code>는 string object에 소속된 메서드이다.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>a <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>a.join(lst) <span class="co"># join(a,lst) 와 같은 효과</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>'abcd'</code></pre>
+</div>
+</div>
+<p><code>-</code> join의 간단한 사용방법</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">'-'</span>.join(lst)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>'a-b-c-d'</code></pre>
+</div>
+</div>
+</section>
+<section id="matplotlib" class="level2">
+<h2 class="anchored" data-anchor-id="matplotlib">matplotlib</h2>
+<p><code>-</code> 파이썬의 모든것은 객체이다:matplotlib의 다른 사용 (객체지향적 언어로 그림그리기!)</p>
+<p><code>-</code> 그림오브젝트 생성</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>fig <span class="op">=</span> plt.figure() <span class="co"># plt라는 모듈안에서 figure()라는 함수 실행</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 432x288 with 0 Axes&gt;</code></pre>
+</div>
+</div>
+<p>그림오브젝트가 실행되고 fig라는 이름이 붙음</p>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="bu">id</span>(fig)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>140529470770096</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>&lt;Figure size 432x288 with 0 Axes&gt;</code></pre>
+</div>
+</div>
+<p><code>-</code> 그림오브젝트의 액시즈를 확인 -&gt; 아무것도 없음</p>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>fig.axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>[]</code></pre>
+</div>
+</div>
+<p><code>-</code> (0,0) 자리에 (가로=1, 세로=1) 크기의 액시즈를 넣어보자.</p>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>&lt;Axes: &gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>fig.axes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>[&lt;Axes: &gt;]</code></pre>
+</div>
+</div>
+<ul>
+<li>아까는 빈 리스트였는데 뭔가 추가되어 있다.</li>
+</ul>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<p><img src="2023-02-23-class10_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> (0,1.2) 위치에 (가로=1,세로=1) 크기의 엑시즈 추가</p>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>fig.add_axes([<span class="dv">0</span>,<span class="fl">1.2</span>, <span class="dv">1</span>,<span class="dv">1</span>])</span>
+<span id="cb32-2"><a href="#cb32-2"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<p><img src="2023-02-23-class10_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> (0.5,0.5) 위치에 (가로=1, 세로=1) 크기의 그림 추가</p>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>fig.add_axes([<span class="fl">0.5</span>,<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>&lt;Axes: &gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<p><img src="2023-02-23-class10_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> fig의 세번째 엑시즈에 접근</p>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>a3 <span class="op">=</span> fig.axes[<span class="dv">2</span>] <span class="co"># 이것역시 오브젝트임.</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="52">
+<pre><code>&lt;Axes: &gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a><span class="bu">id</span>(fig.axes[<span class="dv">2</span>]) <span class="co"># 어딘가에 저장이 되어있으니까 오브젝트!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<pre><code>140529466106976</code></pre>
+</div>
+</div>
+<p><code>-</code> 엑시즈의 메소드 중에 plot이 있음 <span class="math inline">\(\to\)</span> 이것으로 그림을 그려봄.</p>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>a3.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">3</span>],<span class="st">'--r'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<p><img src="2023-02-23-class10_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 다시 세번째 축에 접근하여 다른 그림을 그려보자.</p>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>fig.axes[<span class="op">-</span><span class="dv">1</span>].plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">':o'</span>)</span>
+<span id="cb42-2"><a href="#cb42-2"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+<p><img src="2023-02-23-class10_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 이제 첫번째 축에 접근하여 새로운 그림을 그려보자.</p>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>fig.axes[<span class="dv">0</span>].plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],[<span class="dv">4</span>,<span class="dv">1</span>,<span class="dv">4</span>],<span class="st">'--b'</span>)</span>
+<span id="cb43-2"><a href="#cb43-2"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<p><img src="2023-02-23-class10_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 클래스에 대한 이해가 없다면 위와 같은 그림을 그리기도 힘들고 코드를 해석하기도 힘듬</p>
+</section>
+<section id="참조와-에일리어싱" class="level2">
+<h2 class="anchored" data-anchor-id="참조와-에일리어싱">참조와 에일리어싱</h2>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># !conda install -c conda-forge rise -y</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 아래의 코드를 관찰하자.</p>
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb45-2"><a href="#cb45-2"></a>b <span class="op">=</span> a</span>
+<span id="cb45-3"><a href="#cb45-3"></a>a <span class="op">=</span> a <span class="op">+</span> [<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>a, b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>([1, 2, 3, 4], [1, 2, 3])</code></pre>
+</div>
+</div>
+<p><code>-</code> 이제 다시 아래의 코드를 관찰하자.</p>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb48-2"><a href="#cb48-2"></a>b <span class="op">=</span> a</span>
+<span id="cb48-3"><a href="#cb48-3"></a>a.append(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>현재 a,b의 출력결과는?</p>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>a, b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="67">
+<pre><code>([1, 2, 3, 4], [1, 2, 3, 4])</code></pre>
+</div>
+</div>
+<p><code>-</code> 아래의 코드를 다시 살펴보자.</p>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
+<span id="cb51-2"><a href="#cb51-2"></a>b <span class="op">=</span> a</span>
+<span id="cb51-3"><a href="#cb51-3"></a>a.append(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>a,b라는 변수들은 메모리에 어떻게 저장이 되어있을까?</p>
+<p>상상력을 조금 발휘하면 아래와 같이 여길 수 있다.</p>
+<ol type="1">
+<li><p>메모리는 변수를 담을 방이 여러개 있는 호텔이라고 생각하자.</p></li>
+<li><p>아래를 실행하였을 경우</p></li>
+</ol>
+<div class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>메모리주소1에 존재하는 방을 a라고 하고, 그 방에 [1,2,3]을 넣는다.</li>
+</ul>
+<ol start="3" type="1">
+<li>아래를 실행하였을 경우</li>
+</ol>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>b <span class="op">=</span> a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>메모리주소 38에 존재하는 방을 b라고 하고, 그 방에 a를 넣어야하는데 a는 [1,2,3]이니까 [1,2,3]을 넣는다.</li>
+</ul>
+<ol start="4" type="1">
+<li>아래를 실행하면</li>
+</ol>
+<div class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>a.append(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>방 a로 가서 [1,2,3]을 [1,2,3,4]로 바꾼다.</li>
+<li>그리고 방 b에는 아무것도 하지 않는다.</li>
+</ul>
+<p><code>-</code> R에서는 맞는 비유인데, 파이썬은 적절하지 않은 비유이다.</p>
+<div class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a><span class="bu">id</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="77">
+<pre><code>140529439072192</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a><span class="bu">id</span>(b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<pre><code>140529439072192</code></pre>
+</div>
+</div>
+<p>실제로는 a,b가 저장된 메모리 주소가 동일함</p>
+<p><code>-</code> 파이썬에서는 아래가 더 적절한 비유이다.</p>
+<ol type="1">
+<li><p>메모리는 변수를 담을 방이 여러개 있는 호텔이라고 생각하자.</p></li>
+<li><p>아래를 실행하였을 경우</p></li>
+</ol>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>메모리주소 140529439072192에서 [1,2,3]을 생성한다.</li>
+<li>방 140529439072192의 방문에 a라는 포스트잇을 붙인다.</li>
+<li>앞으로 [1,2,3]에 접근하기 위해서는 여러 메모리방중에서 a라는 포스트잇이 붙은 방을 찾아가면 된다.</li>
+</ul>
+<ol start="3" type="1">
+<li>아래를 실행하였을 경우</li>
+</ol>
+<div class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>b<span class="op">=</span>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>a 라는 포스트잇이 있는데, a라는 포스트잇이랑 b라는 포스트잇과 같은 효과를 주도록 한다.</li>
+<li>쉽게말하면, b라는 포스트잇을 방 140529439072192의 방문에 붙인다는 이야기.</li>
+<li>앞으로 [1,2,3]에 접근하기 위해서는 여러 메모리방 중에서 a라는 포스트잇이 붙어있거나, b라는 포스트잇이 붙어있는 방을 찾아가면 된다.</li>
+</ul>
+<ol start="4" type="1">
+<li>아래를 실행하면</li>
+</ol>
+<div class="cell" data-execution_count="80">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>a.append(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>a라는 포스트잇이 붙어있는 방으로 가서, 그 내용물 append함수를 써서 4를 추가하라. 즉 내용물 [1,2,3]을 [1,2,3,4]로 바꾸라.</li>
+<li>같은방에 a,b라는 포스트잇이 모두 붙어있음. 따라서 b라는 포스트잇이 붙은 방을 찾아가서 내용물을 열어보면 [1,2,3,4]가 나온다.</li>
+</ul>
+<p><code>-</code> 결론: 파이썬의 모든것은 오브젝트이다. 그리고 모든 오브젝트는 메모리주소 위에 올라간다. 하지만 그 메모리 주소에 붙어있는 포스트잇이 하나라는 보장은 없다.</p>
 
 
 </section>
