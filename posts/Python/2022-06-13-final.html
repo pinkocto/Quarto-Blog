@@ -370,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports"><code>0</code>. imports</h2>
 <p>아래코드를 이용하여 numpy, matplotlib, pandas를 import하라.</p>
-<div class="cell">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -380,23 +380,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="기본문제-50점" class="level2">
 <h2 class="anchored" data-anchor-id="기본문제-50점"><code>1</code>. 기본문제 (50점)</h2>
 <p><code>(1)</code> 도함수를 구하는 함수 <code>derivate</code>를 선언하라. 이 함수를 이용하여 <span class="math inline">\(f(x)=x^2\)</span>의 그래프와 <span class="math inline">\(f'(x)=2x\)</span>의 그래프를 <span class="math inline">\(x \in (-1,1)\)</span>의 범위에서 그려라.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> f(x):</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">return</span> x<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">def</span> derivate(f): </span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="kw">def</span> df(x): </span>
+<span id="cb3-3"><a href="#cb3-3"></a>        h<span class="op">=</span><span class="fl">0.00000000000001</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>        <span class="cf">return</span> (f(x<span class="op">+</span>h)<span class="op">-</span>f(x))<span class="op">/</span>h </span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="cf">return</span> df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="op">=</span> np.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>plt.plot(x, f(x))  <span class="co">## f(x)=x**2</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>plt.plot(x, derivate(f)(x)) <span class="co">## f'(x)=2*x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022-06-13-final_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>(2)</code> 적당한 클래스 정의하여 인스턴스 a를 만들고 print(a)의 출력결과가 본인의 학번이 나오도록 하라.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">## 코드예시</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="kw">class</span> Klass:</span>
-<span id="cb2-3"><a href="#cb2-3"></a>    ???</span>
-<span id="cb2-4"><a href="#cb2-4"></a>    ???</span>
-<span id="cb2-5"><a href="#cb2-5"></a>a<span class="op">=</span>Klass()</span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">## 코드예시</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">class</span> Klass:</span>
+<span id="cb5-3"><a href="#cb5-3"></a>    ???</span>
+<span id="cb5-4"><a href="#cb5-4"></a>    ???</span>
+<span id="cb5-5"><a href="#cb5-5"></a>a<span class="op">=</span>Klass()</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <pre><code>## 출력결과
 2022-43052</code></pre>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">class</span> Klass:</span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb7-3"><a href="#cb7-3"></a>        <span class="cf">return</span>(<span class="st">'123456789'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">class</span> Klass:</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb8-3"><a href="#cb8-3"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="st">        학번: {'12345678}</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="st">        """</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate, <span class="va">self</span>.actions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>a <span class="op">=</span> Klass()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="49">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">print</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>123456789</code></pre>
+</div>
+</div>
 <p><code>(3)</code> for문이 실행될때마다 [묵,찌,빠] 중에 하나를 내며 빠를 누적 3회 낼경우 for문이 멈추는 이터레이터를 생성하라.</p>
 <p><strong><em>(4)-(6)</em></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">class</span> GS25: </span>
-<span id="cb4-2"><a href="#cb4-2"></a>    n<span class="op">=</span><span class="dv">0</span> </span>
-<span id="cb4-3"><a href="#cb4-3"></a>    total_number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
-<span id="cb4-4"><a href="#cb4-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb4-5"><a href="#cb4-5"></a>        <span class="va">self</span>.number_of_guests <span class="op">=</span> <span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a><span class="kw">class</span> GS25: </span>
+<span id="cb12-2"><a href="#cb12-2"></a>    n<span class="op">=</span><span class="dv">0</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>    total_number_of_guests <span class="op">=</span> <span class="dv">0</span> </span>
+<span id="cb12-4"><a href="#cb12-4"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb12-5"><a href="#cb12-5"></a>        <span class="va">self</span>.number_of_guests <span class="op">=</span> <span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>(4)</code> 위의 클래스를 수정하여 아래와 같이 GS25에서 새로운 인스턴스가 생성될때마다</p>
 <pre><code>GS25의 점포수가 ?개로 늘었습니다.</code></pre>
@@ -410,19 +451,19 @@ GS25를 방문한 총 손님수는 n명입니다.
 GS25를 방문한 총 손님수: ??</code></pre>
 <p>(사용예시) (4)-(6)을 모두 적용한 경우 사용예시는 아래와 같다.</p>
 <div class="cell" data-outputid="43841d7f-c0f6-4367-c7ef-f2cb809c608a">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>a<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>a<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GS25의 점포수가 1개로 늘었습니다.</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="d83c6fba-c694-44b5-c9cb-7d0cce4e353e">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>b<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>b<span class="op">=</span>GS25() <span class="co">## (4)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GS25의 점포수가 2개로 늘었습니다.</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="254375be-d487-40c6-a077-359e4447ad18">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>새로운 손님이 오셨습니다!
 GS25를 방문한 모든 손님수는 1명입니다.
@@ -430,7 +471,7 @@ GS25를 방문한 모든 손님수는 1명입니다.
 </div>
 </div>
 <div class="cell" data-outputid="a380aa20-1062-402d-f2d5-1ca04cb8cac8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>새로운 손님이 오셨습니다!
 GS25를 방문한 모든 손님수는 2명입니다.
@@ -438,7 +479,7 @@ GS25를 방문한 모든 손님수는 2명입니다.
 </div>
 </div>
 <div class="cell" data-outputid="d52c5644-5fb3-4569-8815-9c69da98e04a">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>b.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>b.come() <span class="co">## (5)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>새로운 손님이 오셨습니다!
 GS25를 방문한 모든 손님수는 3명입니다.
@@ -446,7 +487,7 @@ GS25를 방문한 모든 손님수는 3명입니다.
 </div>
 </div>
 <div class="cell" data-outputid="eef6117c-6b8c-434e-e826-43b391340f98">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>GS25.show() <span class="co">## (6)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>GS25.show() <span class="co">## (6)의 사용예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GS25의 점포수: 2
 GS25를 방문한 총 손님수: 3</code></pre>
@@ -454,32 +495,32 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </div>
 <p><code>(7)</code> <code>__eq__</code>는 연산 <code>==</code> 를 재정의하는 메소드이다. 클래스 <code>RPS_BASE</code>를 상속하여 새로운 클래스 RPS5를 만들라. 연산 <code>==</code>를 재정의하여 RPS5의 두 인스턴스의 action이 같은 경우 true를 리턴하는 기능을 구현하라.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="kw">class</span> RPS_BASE:</span>
-<span id="cb20-2"><a href="#cb20-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
-<span id="cb20-3"><a href="#cb20-3"></a>        <span class="va">self</span>.action <span class="op">=</span> np.random.choice([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">class</span> RPS_BASE:</span>
+<span id="cb28-2"><a href="#cb28-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb28-3"><a href="#cb28-3"></a>        <span class="va">self</span>.action <span class="op">=</span> np.random.choice([<span class="st">'가위'</span>,<span class="st">'바위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>hint:</strong> Appendix를 참고할 것</p>
 <p><strong>hint:</strong> RPS5의 선언부분은 아래와 같은 형태를 가지고 있다.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="kw">class</span> RPS5(???):</span>
-<span id="cb21-2"><a href="#cb21-2"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other):</span>
-<span id="cb21-3"><a href="#cb21-3"></a>        <span class="cf">return</span> ??????</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">class</span> RPS5(???):</span>
+<span id="cb29-2"><a href="#cb29-2"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other):</span>
+<span id="cb29-3"><a href="#cb29-3"></a>        <span class="cf">return</span> ??????</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>hint:</strong> RPS5클래스의 사용예시는 아래와 같다.</p>
 <div class="cell" data-outputid="40faa7f5-5ade-484f-e90e-e0fa397345ba">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>a<span class="op">=</span>RPS5()</span>
-<span id="cb22-2"><a href="#cb22-2"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>a<span class="op">=</span>RPS5()</span>
+<span id="cb30-2"><a href="#cb30-2"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>'바위'</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="0b355fb3-5a2d-4703-bd41-df1ddaed1261">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>b<span class="op">=</span>RPS5()</span>
-<span id="cb24-2"><a href="#cb24-2"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>b<span class="op">=</span>RPS5()</span>
+<span id="cb32-2"><a href="#cb32-2"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>'보'</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="6e5530e7-abd8-45b0-ef7a-73c7da6f1596">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>a<span class="op">==</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>a<span class="op">==</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>False</code></pre>
 </div>
@@ -488,21 +529,21 @@ GS25를 방문한 총 손님수: 3</code></pre>
 <p><strong>hint:</strong> Appendix를 참고할 것</p>
 <p><strong>hint:</strong> RPS6클래스의 사용예시는 아래와 같다.</p>
 <div class="cell" data-outputid="9a6ce919-fa26-4cd4-b411-a36c9d42e0cb">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>a<span class="op">=</span>RPS6()</span>
-<span id="cb28-2"><a href="#cb28-2"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>a<span class="op">=</span>RPS6()</span>
+<span id="cb36-2"><a href="#cb36-2"></a>a.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>'바위'</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="0493eb87-ea6a-49f6-a10b-a4576cdf0404">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>b<span class="op">=</span>RPS6()</span>
-<span id="cb30-2"><a href="#cb30-2"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>b<span class="op">=</span>RPS6()</span>
+<span id="cb38-2"><a href="#cb38-2"></a>b.action</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="73">
 <pre><code>'보'</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="2060fc0d-e159-48c2-b228-156109444db2">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>a<span class="op">&gt;</span>b, a<span class="op">&lt;</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>a<span class="op">&gt;</span>b, a<span class="op">&lt;</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="74">
 <pre><code>(False, True)</code></pre>
 </div>
@@ -510,9 +551,9 @@ GS25를 방문한 총 손님수: 3</code></pre>
 <p><strong><em>(9)-(10)</em></strong></p>
 <p>아래와 같은 데이터프레임을 선언하고 물음에 답하라.</p>
 <div class="cell" data-outputid="d8498370-79f6-466a-88e0-04131b7c9db4">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb34-2"><a href="#cb34-2"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'type'</span>:np.random.choice([<span class="st">'A'</span>,<span class="st">'B'</span>],<span class="dv">100</span>), <span class="st">'score'</span>:np.random.randint(<span class="dv">40</span>,<span class="dv">95</span>,<span class="dv">100</span>)})</span>
-<span id="cb34-3"><a href="#cb34-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb42-2"><a href="#cb42-2"></a>df<span class="op">=</span>pd.DataFrame({<span class="st">'type'</span>:np.random.choice([<span class="st">'A'</span>,<span class="st">'B'</span>],<span class="dv">100</span>), <span class="st">'score'</span>:np.random.randint(<span class="dv">40</span>,<span class="dv">95</span>,<span class="dv">100</span>)})</span>
+<span id="cb42-3"><a href="#cb42-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 
 <div>
@@ -892,67 +933,67 @@ GS25를 방문한 총 손님수: 3</code></pre>
 <h2 class="anchored" data-anchor-id="appendix">Appendix</h2>
 <p><code>-</code> 아래의 클래스를 참고하여 문제1,2을 풀어라. (5월25일 강의노트에 소개된 클래스를 약간 정리한 것) - 참고하지 않아도 감점은 없음</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="kw">class</span> RPS:</span>
-<span id="cb35-2"><a href="#cb35-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
-<span id="cb35-3"><a href="#cb35-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
-<span id="cb35-4"><a href="#cb35-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
-<span id="cb35-5"><a href="#cb35-5"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb35-6"><a href="#cb35-6"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
-<span id="cb35-7"><a href="#cb35-7"></a></span>
-<span id="cb35-8"><a href="#cb35-8"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other): <span class="co"># 연산 == 를 재정의 </span></span>
-<span id="cb35-9"><a href="#cb35-9"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other.actions[<span class="op">-</span><span class="dv">1</span>] </span>
-<span id="cb35-10"><a href="#cb35-10"></a>        <span class="co">#note: 둘의 액션이 같으면 무승부 </span></span>
-<span id="cb35-11"><a href="#cb35-11"></a>    </span>
-<span id="cb35-12"><a href="#cb35-12"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
-<span id="cb35-13"><a href="#cb35-13"></a>        pair <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>], other.actions[<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb35-14"><a href="#cb35-14"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span>
-<span id="cb35-15"><a href="#cb35-15"></a>        <span class="co">#note: 가위&gt;보, 바위&gt;가위, 보&gt;가위 </span></span>
-<span id="cb35-16"><a href="#cb35-16"></a>    </span>
-<span id="cb35-17"><a href="#cb35-17"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>,other):</span>
-<span id="cb35-18"><a href="#cb35-18"></a>        <span class="co"># step1: 각자의 패를 선택 </span></span>
-<span id="cb35-19"><a href="#cb35-19"></a>        <span class="va">self</span>.choose()</span>
-<span id="cb35-20"><a href="#cb35-20"></a>        other.choose()</span>
-<span id="cb35-21"><a href="#cb35-21"></a>        </span>
-<span id="cb35-22"><a href="#cb35-22"></a>        <span class="co"># step2: 승패 판단 + upate reward</span></span>
-<span id="cb35-23"><a href="#cb35-23"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="op">==</span> other: <span class="co"># 무승부일경우 </span></span>
-<span id="cb35-24"><a href="#cb35-24"></a>            <span class="va">self</span>.rewards.append(<span class="dv">1</span>)</span>
-<span id="cb35-25"><a href="#cb35-25"></a>            other.rewards.append(<span class="dv">1</span>)</span>
-<span id="cb35-26"><a href="#cb35-26"></a>        <span class="cf">elif</span> <span class="va">self</span> <span class="op">&gt;</span> other: <span class="co"># self의 승리 </span></span>
-<span id="cb35-27"><a href="#cb35-27"></a>            <span class="va">self</span>.rewards.append(<span class="dv">2</span>)</span>
-<span id="cb35-28"><a href="#cb35-28"></a>            other.rewards.append(<span class="dv">0</span>)</span>
-<span id="cb35-29"><a href="#cb35-29"></a>        <span class="cf">else</span>: <span class="co"># other의 승리 </span></span>
-<span id="cb35-30"><a href="#cb35-30"></a>            <span class="va">self</span>.rewards.append(<span class="dv">0</span>)</span>
-<span id="cb35-31"><a href="#cb35-31"></a>            other.rewards.append(<span class="dv">2</span>)</span>
-<span id="cb35-32"><a href="#cb35-32"></a>        </span>
-<span id="cb35-33"><a href="#cb35-33"></a>        <span class="co"># step3: update data</span></span>
-<span id="cb35-34"><a href="#cb35-34"></a>        <span class="va">self</span>.update_data()</span>
-<span id="cb35-35"><a href="#cb35-35"></a>        other.update_data()</span>
-<span id="cb35-36"><a href="#cb35-36"></a>    </span>
-<span id="cb35-37"><a href="#cb35-37"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
-<span id="cb35-38"><a href="#cb35-38"></a>        <span class="va">self</span>.data <span class="op">=</span> pd.DataFrame({<span class="st">'actions'</span>:<span class="va">self</span>.actions, <span class="st">'rewards'</span>:<span class="va">self</span>.rewards})</span>
-<span id="cb35-39"><a href="#cb35-39"></a>    </span>
-<span id="cb35-40"><a href="#cb35-40"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
-<span id="cb35-41"><a href="#cb35-41"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
-<span id="cb35-42"><a href="#cb35-42"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
-<span id="cb35-43"><a href="#cb35-43"></a><span class="st">        데이터: &lt;br/&gt;</span></span>
-<span id="cb35-44"><a href="#cb35-44"></a><span class="st">        </span><span class="sc">{}</span></span>
-<span id="cb35-45"><a href="#cb35-45"></a><span class="st">        """</span>        </span>
-<span id="cb35-46"><a href="#cb35-46"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.data._repr_html_())</span>
-<span id="cb35-47"><a href="#cb35-47"></a>    </span>
-<span id="cb35-48"><a href="#cb35-48"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
-<span id="cb35-49"><a href="#cb35-49"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a><span class="kw">class</span> RPS:</span>
+<span id="cb43-2"><a href="#cb43-2"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,candidate):</span>
+<span id="cb43-3"><a href="#cb43-3"></a>        <span class="va">self</span>.candidate <span class="op">=</span> candidate</span>
+<span id="cb43-4"><a href="#cb43-4"></a>        <span class="va">self</span>.actions <span class="op">=</span> <span class="bu">list</span>() </span>
+<span id="cb43-5"><a href="#cb43-5"></a>        <span class="va">self</span>.rewards <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb43-6"><a href="#cb43-6"></a>        <span class="va">self</span>.prob <span class="op">=</span> [<span class="fl">0.5</span>,<span class="fl">0.5</span>]</span>
+<span id="cb43-7"><a href="#cb43-7"></a></span>
+<span id="cb43-8"><a href="#cb43-8"></a>    <span class="kw">def</span> <span class="fu">__eq__</span>(<span class="va">self</span>,other): <span class="co"># 연산 == 를 재정의 </span></span>
+<span id="cb43-9"><a href="#cb43-9"></a>        <span class="cf">return</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> other.actions[<span class="op">-</span><span class="dv">1</span>] </span>
+<span id="cb43-10"><a href="#cb43-10"></a>        <span class="co">#note: 둘의 액션이 같으면 무승부 </span></span>
+<span id="cb43-11"><a href="#cb43-11"></a>    </span>
+<span id="cb43-12"><a href="#cb43-12"></a>    <span class="kw">def</span> <span class="fu">__gt__</span>(<span class="va">self</span>,other): <span class="co"># 연산 &gt; 를 재정의 </span></span>
+<span id="cb43-13"><a href="#cb43-13"></a>        pair <span class="op">=</span> <span class="va">self</span>.actions[<span class="op">-</span><span class="dv">1</span>], other.actions[<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb43-14"><a href="#cb43-14"></a>        <span class="cf">return</span> pair <span class="op">==</span> (<span class="st">'가위'</span>,<span class="st">'보'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'바위'</span>,<span class="st">'가위'</span>) <span class="kw">or</span> pair <span class="op">==</span> (<span class="st">'보'</span>,<span class="st">'바위'</span>) </span>
+<span id="cb43-15"><a href="#cb43-15"></a>        <span class="co">#note: 가위&gt;보, 바위&gt;가위, 보&gt;가위 </span></span>
+<span id="cb43-16"><a href="#cb43-16"></a>    </span>
+<span id="cb43-17"><a href="#cb43-17"></a>    <span class="kw">def</span> <span class="fu">__mul__</span>(<span class="va">self</span>,other):</span>
+<span id="cb43-18"><a href="#cb43-18"></a>        <span class="co"># step1: 각자의 패를 선택 </span></span>
+<span id="cb43-19"><a href="#cb43-19"></a>        <span class="va">self</span>.choose()</span>
+<span id="cb43-20"><a href="#cb43-20"></a>        other.choose()</span>
+<span id="cb43-21"><a href="#cb43-21"></a>        </span>
+<span id="cb43-22"><a href="#cb43-22"></a>        <span class="co"># step2: 승패 판단 + upate reward</span></span>
+<span id="cb43-23"><a href="#cb43-23"></a>        <span class="cf">if</span> <span class="va">self</span> <span class="op">==</span> other: <span class="co"># 무승부일경우 </span></span>
+<span id="cb43-24"><a href="#cb43-24"></a>            <span class="va">self</span>.rewards.append(<span class="dv">1</span>)</span>
+<span id="cb43-25"><a href="#cb43-25"></a>            other.rewards.append(<span class="dv">1</span>)</span>
+<span id="cb43-26"><a href="#cb43-26"></a>        <span class="cf">elif</span> <span class="va">self</span> <span class="op">&gt;</span> other: <span class="co"># self의 승리 </span></span>
+<span id="cb43-27"><a href="#cb43-27"></a>            <span class="va">self</span>.rewards.append(<span class="dv">2</span>)</span>
+<span id="cb43-28"><a href="#cb43-28"></a>            other.rewards.append(<span class="dv">0</span>)</span>
+<span id="cb43-29"><a href="#cb43-29"></a>        <span class="cf">else</span>: <span class="co"># other의 승리 </span></span>
+<span id="cb43-30"><a href="#cb43-30"></a>            <span class="va">self</span>.rewards.append(<span class="dv">0</span>)</span>
+<span id="cb43-31"><a href="#cb43-31"></a>            other.rewards.append(<span class="dv">2</span>)</span>
+<span id="cb43-32"><a href="#cb43-32"></a>        </span>
+<span id="cb43-33"><a href="#cb43-33"></a>        <span class="co"># step3: update data</span></span>
+<span id="cb43-34"><a href="#cb43-34"></a>        <span class="va">self</span>.update_data()</span>
+<span id="cb43-35"><a href="#cb43-35"></a>        other.update_data()</span>
+<span id="cb43-36"><a href="#cb43-36"></a>    </span>
+<span id="cb43-37"><a href="#cb43-37"></a>    <span class="kw">def</span> update_data(<span class="va">self</span>):</span>
+<span id="cb43-38"><a href="#cb43-38"></a>        <span class="va">self</span>.data <span class="op">=</span> pd.DataFrame({<span class="st">'actions'</span>:<span class="va">self</span>.actions, <span class="st">'rewards'</span>:<span class="va">self</span>.rewards})</span>
+<span id="cb43-39"><a href="#cb43-39"></a>    </span>
+<span id="cb43-40"><a href="#cb43-40"></a>    <span class="kw">def</span> _repr_html_(<span class="va">self</span>):</span>
+<span id="cb43-41"><a href="#cb43-41"></a>        html_str <span class="op">=</span> <span class="st">"""</span></span>
+<span id="cb43-42"><a href="#cb43-42"></a><span class="st">        낼 수 있는 패: </span><span class="sc">{}</span><span class="st"> &lt;br/&gt; </span></span>
+<span id="cb43-43"><a href="#cb43-43"></a><span class="st">        데이터: &lt;br/&gt;</span></span>
+<span id="cb43-44"><a href="#cb43-44"></a><span class="st">        </span><span class="sc">{}</span></span>
+<span id="cb43-45"><a href="#cb43-45"></a><span class="st">        """</span>        </span>
+<span id="cb43-46"><a href="#cb43-46"></a>        <span class="cf">return</span> html_str.<span class="bu">format</span>(<span class="va">self</span>.candidate,<span class="va">self</span>.data._repr_html_())</span>
+<span id="cb43-47"><a href="#cb43-47"></a>    </span>
+<span id="cb43-48"><a href="#cb43-48"></a>    <span class="kw">def</span> choose(<span class="va">self</span>):</span>
+<span id="cb43-49"><a href="#cb43-49"></a>        <span class="va">self</span>.actions.append(np.random.choice(<span class="va">self</span>.candidate,p<span class="op">=</span><span class="va">self</span>.prob))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 사용예시</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>a<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'가위'</span>])</span>
-<span id="cb36-2"><a href="#cb36-2"></a>b<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>a<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'가위'</span>])</span>
+<span id="cb44-2"><a href="#cb44-2"></a>b<span class="op">=</span>RPS([<span class="st">'가위'</span>,<span class="st">'보'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
-<span id="cb37-2"><a href="#cb37-2"></a>    a<span class="op">*</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">5</span>):</span>
+<span id="cb45-2"><a href="#cb45-2"></a>    a<span class="op">*</span>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-outputid="fcb4fca5-c1df-4443-b2b4-a91d342e754c">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 
 
@@ -1001,7 +1042,7 @@ GS25를 방문한 총 손님수: 3</code></pre>
 </div>
 </div>
 <div class="cell" data-outputid="50b717b3-6665-4fcb-b720-8b28357dc56c">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 
 
