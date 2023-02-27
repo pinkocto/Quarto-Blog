@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="jiyun Lim">
-<meta name="dcterms.date" content="2023-02-25">
+<meta name="dcterms.date" content="2023-02-19">
+<meta name="description" content="timeseries study1">
 
-<title>Quarto-Blog - JT test</title>
+<title>Quarto-Blog - ts1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -124,7 +125,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -161,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">JT test</h1>
+      <h1 class="quarto-secondary-nav-title">ts1</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -172,9 +172,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">JT test</h1>
-                                <div class="quarto-categories">
+      <h1 class="title d-none d-lg-block">ts1</h1>
+                  <div>
+        <div class="description">
+          timeseries study1
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
+                <div class="quarto-category">ts</div>
+                <div class="quarto-category">basic</div>
               </div>
                   </div>
   </div>
@@ -192,7 +199,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 25, 2023</p>
+        <p class="date">February 19, 2023</p>
       </div>
     </div>
     
@@ -308,7 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/R/2023-02-25-jt-test.html" class="sidebar-item-text sidebar-link active">JT test</a>
+  <a href="../../posts/R/2023-02-25-jt-test.html" class="sidebar-item-text sidebar-link">JT test</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -318,7 +325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/R/2023-02-20-ts1.html" class="sidebar-item-text sidebar-link">ts1</a>
+  <a href="../../posts/R/2023-02-20-ts1.html" class="sidebar-item-text sidebar-link active">ts1</a>
   </div>
 </li>
       </ul>
@@ -334,10 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#jt-test" id="toc-jt-test" class="nav-link active" data-scroll-target="#jt-test">JT-test</a>
-  <ul class="collapse">
-  <li><a href="#large-sample-approximation" id="toc-large-sample-approximation" class="nav-link" data-scroll-target="#large-sample-approximation">Large-Sample Approximation</a></li>
-  </ul></li>
+  <li><a href="#monthly-airline-passenger-numbers-1949-1960" id="toc-monthly-airline-passenger-numbers-1949-1960" class="nav-link active" data-scroll-target="#monthly-airline-passenger-numbers-1949-1960">Monthly Airline Passenger Numbers 1949-1960</a></li>
   </ul>
 </nav>
     </div>
@@ -347,100 +351,94 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="jt-test" class="level1">
-<h1>JT-test</h1>
-<p><img src="jt-test-ex.png" class="img-fluid"></p>
+<section id="monthly-airline-passenger-numbers-1949-1960" class="level2">
+<h2 class="anchored" data-anchor-id="monthly-airline-passenger-numbers-1949-1960">Monthly Airline Passenger Numbers 1949-1960</h2>
+<p>The classic Box &amp; Jenkins airline data. Monthly totals of international airline passengers, 1949 to 1960.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.1     ✔ purrr   1.0.1
-✔ tibble  3.1.8     ✔ dplyr   1.1.0
-✔ tidyr   1.3.0     ✔ stringr 1.5.0
-✔ readr   2.1.4     ✔ forcats 1.0.0
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">8</span>), <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">7</span>), <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">7</span>))</span>
-<span id="cb3-2"><a href="#cb3-2"></a>space <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">54.0</span>,<span class="fl">67.0</span>,<span class="fl">47.2</span>,<span class="fl">71.1</span>,<span class="fl">62.7</span>,<span class="fl">44.8</span>,<span class="fl">67.4</span>,<span class="fl">80.2</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>           <span class="fl">79.8</span>,<span class="fl">82.0</span>,<span class="fl">88.8</span>,<span class="fl">79.6</span>,<span class="fl">85.7</span>,<span class="fl">81.7</span>,<span class="fl">88.5</span>,</span>
-<span id="cb3-4"><a href="#cb3-4"></a>          <span class="fl">98.6</span>,<span class="fl">99.5</span>,<span class="fl">95.8</span>,<span class="fl">93.3</span>,<span class="fl">98.9</span>,<span class="fl">91.1</span>,<span class="fl">94.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># H0: m_N = m_U = m_S</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># H1: m_N &gt;= m_U &gt;= m_s (at least one strict inequality)</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">library</span>(clinfun)</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">jonckheere.test</span>(space, </span>
-<span id="cb4-5"><a href="#cb4-5"></a>                group,</span>
-<span id="cb4-6"><a href="#cb4-6"></a>                <span class="at">alternative =</span> <span class="st">'decreasing'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>ap <span class="ot">&lt;-</span> AirPassengers</span>
+<span id="cb2-2"><a href="#cb2-2"></a>ap</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-    Jonckheere-Terpstra test
-
-data:  
-JT = 2, p-value = 7.29e-09
-alternative hypothesis: decreasing</code></pre>
-</div>
-</div>
-<section id="large-sample-approximation" class="level3">
-<h3 class="anchored" data-anchor-id="large-sample-approximation">Large-Sample Approximation</h3>
-<p>For large sample sizes, J is approximately normally distributed with mean 0 and variance 1. When we use the normal approximation, we compute.</p>
-<p><span class="math display">\[
-z = \frac{J-[(N^2 - \sum_{i=1}^kn_i^2)/4]}{\sqrt{[N^2(2N+3)-\sum_{k=1}^kn_i^2(2n_i+3)]/72}}
-\]</span></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">jonckheere.test</span>(mtcars<span class="sc">$</span>mpg,</span>
-<span id="cb6-2"><a href="#cb6-2"></a>                <span class="fu">as.integer</span>(mtcars<span class="sc">$</span>cyl),</span>
-<span id="cb6-3"><a href="#cb6-3"></a>                <span class="at">alternative =</span> <span class="st">'decreasing'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in jonckheere.test(mtcars$mpg, as.integer(mtcars$cyl), alternative = "decreasing"): Sample size &gt; 100 or data with ties 
- p-value based on normal approximation. Specify nperm for permutation p-value</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Jonckheere-Terpstra test
-
-data:  
-JT = 5, p-value = 1.153e-08
-alternative hypothesis: decreasing</code></pre>
+<pre><code>     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+1949 112 118 132 129 121 135 148 148 136 119 104 118
+1950 115 126 141 135 125 149 170 170 158 133 114 140
+1951 145 150 178 163 172 178 199 199 184 162 146 166
+1952 171 180 193 181 183 218 230 242 209 191 172 194
+1953 196 196 236 235 229 243 264 272 237 211 180 201
+1954 204 188 235 227 234 264 302 293 259 229 203 229
+1955 242 233 267 269 270 315 364 347 312 274 237 278
+1956 284 277 317 313 318 374 413 405 355 306 271 306
+1957 315 301 356 348 355 422 465 467 404 347 305 336
+1958 340 318 362 348 363 435 491 505 404 359 310 337
+1959 360 342 406 396 420 472 548 559 463 407 362 405
+1960 417 391 419 461 472 535 622 606 508 461 390 432</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(mtcars)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>n1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mtcars, mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb9-3"><a href="#cb9-3"></a>n2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mtcars, mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb9-4"><a href="#cb9-4"></a>n3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mtcars, mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">8</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mu <span class="ot">&lt;-</span> ((N<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> (n1<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>n2<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>n3<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span><span class="dv">4</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>var_ <span class="ot">&lt;-</span> (N<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>N<span class="sc">+</span><span class="dv">3</span>)<span class="sc">-</span>((n1<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>n1<span class="sc">+</span><span class="dv">3</span>) <span class="sc">+</span> n2<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>n2<span class="sc">+</span><span class="dv">3</span>) <span class="sc">+</span> n3<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>n3 <span class="sc">+</span> <span class="dv">3</span>))))<span class="sc">/</span><span class="dv">72</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>mu; var_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>ap <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 164.5</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 814.9167</code></pre>
+<pre><code> Time-Series [1:144] from 1949 to 1961: 112 118 132 129 121 135 148 148 136 119 ...</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">pnorm</span>(<span class="dv">5</span>, mu, <span class="fu">sqrt</span>(var_), <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">class</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.152957e-08</code></pre>
+<pre><code>[1] "ts"</code></pre>
+</div>
+</div>
+<ul>
+<li>ts 객체는 시계열 데이터를 처리하기 위한 속성</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">start</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1949    1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">end</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1960   12</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">frequency</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 12</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>z_ <span class="ot">=</span> (<span class="dv">5</span> <span class="sc">-</span> mu) <span class="sc">/</span> <span class="fu">sqrt</span>(var_)</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">pnorm</span>(z_,  <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">plot</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-02-20-ts1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">cycle</span>(ap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.152957e-08</code></pre>
+<pre><code>     Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
+1949   1   2   3   4   5   6   7   8   9  10  11  12
+1950   1   2   3   4   5   6   7   8   9  10  11  12
+1951   1   2   3   4   5   6   7   8   9  10  11  12
+1952   1   2   3   4   5   6   7   8   9  10  11  12
+1953   1   2   3   4   5   6   7   8   9  10  11  12
+1954   1   2   3   4   5   6   7   8   9  10  11  12
+1955   1   2   3   4   5   6   7   8   9  10  11  12
+1956   1   2   3   4   5   6   7   8   9  10  11  12
+1957   1   2   3   4   5   6   7   8   9  10  11  12
+1958   1   2   3   4   5   6   7   8   9  10  11  12
+1959   1   2   3   4   5   6   7   8   9  10  11  12
+1960   1   2   3   4   5   6   7   8   9  10  11  12</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">boxplot</span>(ap<span class="sc">~</span><span class="fu">cycle</span>(ap))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-02-20-ts1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

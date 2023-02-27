@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="jiyun Lim">
-<meta name="dcterms.date" content="2023-02-25">
+<meta name="dcterms.date" content="2023-02-19">
+<meta name="description" content="implementation with R">
 
-<title>Quarto-Blog - JT test</title>
+<title>Quarto-Blog - simultaneous equation</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,7 +162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">JT test</h1>
+      <h1 class="quarto-secondary-nav-title">simultaneous equation</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -172,9 +173,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">JT test</h1>
-                                <div class="quarto-categories">
+      <h1 class="title d-none d-lg-block">simultaneous equation</h1>
+                  <div>
+        <div class="description">
+          implementation with R
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">R</div>
+                <div class="quarto-category">linear algebra</div>
+                <div class="quarto-category">basic</div>
               </div>
                   </div>
   </div>
@@ -192,7 +200,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">February 25, 2023</p>
+        <p class="date">February 19, 2023</p>
       </div>
     </div>
     
@@ -308,12 +316,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/R/2023-02-25-jt-test.html" class="sidebar-item-text sidebar-link active">JT test</a>
+  <a href="../../posts/R/2023-02-25-jt-test.html" class="sidebar-item-text sidebar-link">JT test</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/R/2023-02-20-simul_eq.html" class="sidebar-item-text sidebar-link">simultaneous equation</a>
+  <a href="../../posts/R/2023-02-20-simul_eq.html" class="sidebar-item-text sidebar-link active">simultaneous equation</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -334,9 +342,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#jt-test" id="toc-jt-test" class="nav-link active" data-scroll-target="#jt-test">JT-test</a>
+  <li><a href="#행렬과-연립일차-방정식" id="toc-행렬과-연립일차-방정식" class="nav-link active" data-scroll-target="#행렬과-연립일차-방정식">행렬과 연립일차 방정식</a></li>
+  <li><a href="#r로-구현" id="toc-r로-구현" class="nav-link" data-scroll-target="#r로-구현">R로 구현</a>
   <ul class="collapse">
-  <li><a href="#large-sample-approximation" id="toc-large-sample-approximation" class="nav-link" data-scroll-target="#large-sample-approximation">Large-Sample Approximation</a></li>
+  <li><a href="#방법1" id="toc-방법1" class="nav-link" data-scroll-target="#방법1"><code>-</code> 방법1</a></li>
+  <li><a href="#방법2" id="toc-방법2" class="nav-link" data-scroll-target="#방법2"><code>-</code> 방법2</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -347,95 +357,111 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="jt-test" class="level1">
-<h1>JT-test</h1>
-<p><img src="jt-test-ex.png" class="img-fluid"></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-✔ ggplot2 3.4.1     ✔ purrr   1.0.1
-✔ tibble  3.1.8     ✔ dplyr   1.1.0
-✔ tidyr   1.3.0     ✔ stringr 1.5.0
-✔ readr   2.1.4     ✔ forcats 1.0.0
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>group <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">8</span>), <span class="fu">rep</span>(<span class="dv">2</span>,<span class="dv">7</span>), <span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">7</span>))</span>
-<span id="cb3-2"><a href="#cb3-2"></a>space <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">54.0</span>,<span class="fl">67.0</span>,<span class="fl">47.2</span>,<span class="fl">71.1</span>,<span class="fl">62.7</span>,<span class="fl">44.8</span>,<span class="fl">67.4</span>,<span class="fl">80.2</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>           <span class="fl">79.8</span>,<span class="fl">82.0</span>,<span class="fl">88.8</span>,<span class="fl">79.6</span>,<span class="fl">85.7</span>,<span class="fl">81.7</span>,<span class="fl">88.5</span>,</span>
-<span id="cb3-4"><a href="#cb3-4"></a>          <span class="fl">98.6</span>,<span class="fl">99.5</span>,<span class="fl">95.8</span>,<span class="fl">93.3</span>,<span class="fl">98.9</span>,<span class="fl">91.1</span>,<span class="fl">94.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># H0: m_N = m_U = m_S</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># H1: m_N &gt;= m_U &gt;= m_s (at least one strict inequality)</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="fu">library</span>(clinfun)</span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="fu">jonckheere.test</span>(space, </span>
-<span id="cb4-5"><a href="#cb4-5"></a>                group,</span>
-<span id="cb4-6"><a href="#cb4-6"></a>                <span class="at">alternative =</span> <span class="st">'decreasing'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Jonckheere-Terpstra test
-
-data:  
-JT = 2, p-value = 7.29e-09
-alternative hypothesis: decreasing</code></pre>
-</div>
-</div>
-<section id="large-sample-approximation" class="level3">
-<h3 class="anchored" data-anchor-id="large-sample-approximation">Large-Sample Approximation</h3>
-<p>For large sample sizes, J is approximately normally distributed with mean 0 and variance 1. When we use the normal approximation, we compute.</p>
+<section id="행렬과-연립일차-방정식" class="level2">
+<h2 class="anchored" data-anchor-id="행렬과-연립일차-방정식">행렬과 연립일차 방정식</h2>
+<p>파이썬에서 Numpy는 행렬 계산을 쉽게하기 위해 사용하는 패키지이다. R로도 행렬과 매트릭스를 구현해보자.</p>
+<p><code>-</code> 예를 들어 아래와 같은 문제가 있다고 하자.</p>
+<p><span class="math display">\[\begin{cases}w+2x+ey+4z = 1 \\2w+2x+y=9 \\x-y = 4 \\3w+x-y+3y=7\end{cases}\]</span></p>
+<p><code>-</code> 매트릭스 형태로 위의 식을 표현하면 아래와 같다.</p>
 <p><span class="math display">\[
-z = \frac{J-[(N^2 - \sum_{i=1}^kn_i^2)/4]}{\sqrt{[N^2(2N+3)-\sum_{k=1}^kn_i^2(2n_i+3)]/72}}
+\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp;-1 &amp; 0 \\
+3 &amp; 1 &amp;-1 &amp; 3
+\end{bmatrix}
+\begin{bmatrix}
+w \\ x \\ y \\z
+\end{bmatrix}=\begin{bmatrix}
+1 \\ 9 \\ 4 \\7
+\end{bmatrix}
 \]</span></p>
+<p><code>-</code> 양변에</p>
+<p><span class="math display">\[\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp;-1 &amp; 0 \\
+3 &amp; 1 &amp;-1 &amp; 3
+\end{bmatrix}\]</span></p>
+<p>의 역행렬을 취하면</p>
+<p><span class="math display">\[\begin{bmatrix}
+w \\ x \\ y \\z
+\end{bmatrix}=\begin{bmatrix}
+1 &amp; 2 &amp; 3 &amp; 4 \\
+2 &amp; 2 &amp; 1 &amp; 0 \\
+0 &amp; 1 &amp;-1 &amp; 0 \\
+3 &amp; 1 &amp;-1 &amp; 3
+\end{bmatrix}^{-1}\begin{bmatrix}
+1 \\ 9 \\ 4 \\7
+\end{bmatrix}\]</span></p>
+</section>
+<section id="r로-구현" class="level2">
+<h2 class="anchored" data-anchor-id="r로-구현">R로 구현</h2>
+<section id="방법1" class="level3">
+<h3 class="anchored" data-anchor-id="방법1"><code>-</code> 방법1</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">jonckheere.test</span>(mtcars<span class="sc">$</span>mpg,</span>
-<span id="cb6-2"><a href="#cb6-2"></a>                <span class="fu">as.integer</span>(mtcars<span class="sc">$</span>cyl),</span>
-<span id="cb6-3"><a href="#cb6-3"></a>                <span class="at">alternative =</span> <span class="st">'decreasing'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in jonckheere.test(mtcars$mpg, as.integer(mtcars$cyl), alternative = "decreasing"): Sample size &gt; 100 or data with ties 
- p-value based on normal approximation. Specify nperm for permutation p-value</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>A<span class="ot">=</span><span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>),<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb1-2"><a href="#cb1-2"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-    Jonckheere-Terpstra test
-
-data:  
-JT = 5, p-value = 1.153e-08
-alternative hypothesis: decreasing</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(mtcars)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>n1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mtcars, mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb9-3"><a href="#cb9-3"></a>n2 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mtcars, mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">6</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span>
-<span id="cb9-4"><a href="#cb9-4"></a>n3 <span class="ot">&lt;-</span> <span class="fu">filter</span>(mtcars, mtcars<span class="sc">$</span>cyl <span class="sc">==</span> <span class="dv">8</span>) <span class="sc">%&gt;%</span> <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mu <span class="ot">&lt;-</span> ((N<span class="sc">^</span><span class="dv">2</span> <span class="sc">-</span> (n1<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>n2<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span>n3<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span><span class="dv">4</span>)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>var_ <span class="ot">&lt;-</span> (N<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>N<span class="sc">+</span><span class="dv">3</span>)<span class="sc">-</span>((n1<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>n1<span class="sc">+</span><span class="dv">3</span>) <span class="sc">+</span> n2<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>n2<span class="sc">+</span><span class="dv">3</span>) <span class="sc">+</span> n3<span class="sc">^</span><span class="dv">2</span><span class="sc">*</span>(<span class="dv">2</span><span class="sc">*</span>n3 <span class="sc">+</span> <span class="dv">3</span>))))<span class="sc">/</span><span class="dv">72</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>mu; var_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 164.5</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 814.9167</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">pnorm</span>(<span class="dv">5</span>, mu, <span class="fu">sqrt</span>(var_), <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.152957e-08</code></pre>
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    2    3    4
+[2,]    2    2    1    0
+[3,]    0    1   -1    0
+[4,]    3    1   -1    3</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>z_ <span class="ot">=</span> (<span class="dv">5</span> <span class="sc">-</span> mu) <span class="sc">/</span> <span class="fu">sqrt</span>(var_)</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">pnorm</span>(z_,  <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>b<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">7</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">dim</span>(b)<span class="ot">=</span><span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">1</span>)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.152957e-08</code></pre>
+<pre><code>     [,1]
+[1,]    1
+[2,]    9
+[3,]    4
+[4,]    7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">solve</span>(A) <span class="sc">%*%</span> b </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]    2
+[2,]    3
+[3,]   -1
+[4,]   -1</code></pre>
+</div>
+</div>
+<p>따라서 <span class="math inline">\((w,x,y,z) = (2,3,-1,-1)\)</span> 이다.</p>
+</section>
+<section id="방법2" class="level3">
+<h3 class="anchored" data-anchor-id="방법2"><code>-</code> 방법2</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>A <span class="ot">=</span> <span class="fu">rbind</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">0</span>),<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">0</span>),<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb7-2"><a href="#cb7-2"></a>A</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1] [,2] [,3] [,4]
+[1,]    1    2    3    4
+[2,]    2    2    1    0
+[3,]    0    1   -1    0
+[4,]    3    1   -1    3</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>b <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">7</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 9 4 7</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">solve</span>(A) <span class="sc">%*%</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     [,1]
+[1,]    2
+[2,]    3
+[3,]   -1
+[4,]   -1</code></pre>
 </div>
 </div>
 
