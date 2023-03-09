@@ -1,0 +1,16 @@
+{
+  "hash": "38751a5b48f8825b2cdc5aeffe50c0bb",
+  "result": {
+    "markdown": "---\ntitle: \"train/valid\"\nformat:\n  html:\n    theme: default\n---\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\n── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──\n✔ ggplot2 3.4.1     ✔ purrr   1.0.1\n✔ tibble  3.1.8     ✔ dplyr   1.1.0\n✔ tidyr   1.3.0     ✔ stringr 1.5.0\n✔ readr   2.1.4     ✔ forcats 1.0.0\n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nset.seed(2021)\nx <- sample(seq(0,1,by=0.05),\n            100, replace=TRUE)\n\ny <- sin(2*pi*x) +\n  rnorm(length(x), sd=0.2)\n\ndata_for_learning <- tibble(x=x, y=y)\ndata_for_learning\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 100 × 2\n       x      y\n   <dbl>  <dbl>\n 1  0.3   0.921\n 2  0.25  1.24 \n 3  0.65 -0.812\n 4  0.3   0.592\n 5  0.55 -0.257\n 6  0.95 -0.210\n 7  0.25  0.848\n 8  0.25  1.11 \n 9  0.25  0.880\n10  0.65 -0.775\n# … with 90 more rows\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nx <- sample(seq(0,1,by=0.05),\n            5, replace=TRUE)\n\ntrue_val_y <- sin(2*pi*x) + \n  rnorm(length(x), sd = 0.2)\n\ndata_for_testing <- tibble(x=x,y=NA)\ndata_for_testing\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n# A tibble: 5 × 2\n      x y    \n  <dbl> <lgl>\n1  0.05 NA   \n2  1    NA   \n3  0.2  NA   \n4  0.75 NA   \n5  0    NA   \n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(caret)\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nLoading required package: lattice\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\n\nAttaching package: 'caret'\n```\n:::\n\n::: {.cell-output .cell-output-stderr}\n```\nThe following object is masked from 'package:purrr':\n\n    lift\n```\n:::\n\n```{.r .cell-code}\nset.seed(1234)\ntrain_index <- createDataPartition(data_for_learning$y, p=0.7, list=F)\n\ntrain <- data_for_learning[train_index,]\nvalid <- data_for_learning[-train_index,]\n\ndim(train);dim(valid)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 72  2\n```\n:::\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 28  2\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nperform_train <- rep(0, 20)\nperform_valid <- rep(0, 20)\nfor(i in 1:20){\n  result <- lm(y ~ poly(x, i), data=train)\n  perform_train[i] <- mean(result$residuals^2)\n  valid_y_hat <- predict(result, newdata=valid)\n  perform_valid[i] <- mean((valid$y -  valid_y_hat)^2)\n}\nwhich.min(perform_valid)\n```\n\n::: {.cell-output .cell-output-stdout}\n```\n[1] 6\n```\n:::\n:::\n\n::: {.cell}\n\n```{.r .cell-code}\nplot(perform_train, type='l', col='blue')\npoints(perform_valid, type='l', col='red')\ntitle('MSE according to model complexity')\n```\n\n::: {.cell-output-display}\n![](2023-03-07-train-valid_files/figure-html/unnamed-chunk-6-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "2023-03-07-train-valid_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
