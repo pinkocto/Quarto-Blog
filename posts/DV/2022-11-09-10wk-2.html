@@ -368,7 +368,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#wk-2" id="toc-wk-2" class="nav-link active" data-scroll-target="#wk-2">10wk-2</a></li>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link" data-scroll-target="#강의영상">강의영상</a></li>
   <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
   <li><a href="#심슨의-역설" id="toc-심슨의-역설" class="nav-link" data-scroll-target="#심슨의-역설">심슨의 역설</a>
   <ul class="collapse">
@@ -385,13 +386,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<section id="wk-2" class="level1">
+<h1>10wk-2</h1>
+<blockquote class="blockquote">
+<p>심슨의 역설을 bar plot으로 시각화하는 방법과 심슨의 역설이 왜 생기게 되는지에 대해 알아보자.</p>
+</blockquote>
+</section>
 <section id="강의영상" class="level1">
 <h1>강의영상</h1>
 <p><a href="https://youtube.com/playlist?list=PLQqh36zP38-wB73rDChn234r4ded7tDV_" class="uri">https://youtube.com/playlist?list=PLQqh36zP38-wB73rDChn234r4ded7tDV_</a></p>
 </section>
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div class="cell" data-execution_count="2">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -401,18 +408,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>심슨의 역설</h1>
 <p><code>-</code> 버클리대학교의 입학데이터</p>
 <ul>
-<li><a href="https://github.com/guebin/DV2022/blob/master/_notebooks/ds.pdf" class="uri">https://github.com/guebin/DV2022/blob/master/_notebooks/ds.pdf</a></li>
+<li><a href="https://github.com/pinkocto/Quarto-Blog/blob/main/posts/DV/ds.pdf" class="uri">https://github.com/pinkocto/Quarto-Blog/blob/main/posts/DV/ds.pdf</a></li>
 </ul>
 <p><code>-</code> 주장: 버클리대학에 gender bias가 존재한다.</p>
 <ul>
 <li>1973년 가을학기의 입학통계에 따르면 지원하는 남성이 여성보다 훨씬 많이 합격했고, 그 차이가 너무 커서 우연의 일치라 보기 어렵다.</li>
 </ul>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>,header<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])<span class="op">\</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>.stack().stack().reset_index()<span class="op">\</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>.rename({<span class="st">'level_0'</span>:<span class="st">'department'</span>,<span class="st">'level_1'</span>:<span class="st">'result'</span>,<span class="st">'level_2'</span>:<span class="st">'gender'</span>,<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb2-4"><a href="#cb2-4"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="4">
 
 <div>
 
@@ -603,9 +610,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="시각화1-전체합격률" class="level2">
 <h2 class="anchored" data-anchor-id="시각화1-전체합격률">시각화1: 전체합격률</h2>
 <p><code>-</code> df1</p>
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
 
@@ -649,8 +656,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>-</code> df2</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># df.query('gender =="female"')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 
 <div>
@@ -681,8 +691,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> merge: 두개의 데이터프레임을 합친다</p>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 
 <div>
@@ -733,9 +743,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> 비율계산</p>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 
 <div>
@@ -791,15 +801,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> 시각화</p>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>data1<span class="op">=</span> df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
-<span id="cb7-4"><a href="#cb7-4"></a>ggplot(data1.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>data1<span class="op">=</span> df.groupby([<span class="st">'gender'</span>,<span class="st">'result'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index()<span class="op">\</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>.merge(df.groupby(<span class="st">'gender'</span>).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a>ggplot(data1.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>)) <span class="co"># 합격률만 시각화.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2022-11-09-10wk-2_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+<p><img src="2022-11-09-10wk-2_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>&lt;ggplot: (8789343060161)&gt;</code></pre>
+<pre><code>&lt;ggplot: (8769601044809)&gt;</code></pre>
 </div>
 </div>
 <p><code>-</code> 결론: 남자의 합격률이 더 높다. <span class="math inline">\(\to\)</span> 성차별이 있어보인다(?)</p>
@@ -808,7 +818,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="시각화2-학과별-합격률">시각화2: 학과별 합격률</h2>
 <p><code>-</code> df2</p>
 <div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 
 <div>
@@ -902,8 +912,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> merge</p>
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
 
 <div>
@@ -1144,12 +1154,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> 시각화</p>
 <div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>data2<span class="op">=</span>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))<span class="op">\</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="op">+</span>facet_wrap(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>data2<span class="op">=</span>df.merge(df.groupby([<span class="st">'department'</span>,<span class="st">'gender'</span>]).agg({<span class="st">'count'</span>:np.<span class="bu">sum</span>}).reset_index().rename({<span class="st">'count'</span>:<span class="st">'count2'</span>},axis<span class="op">=</span><span class="dv">1</span>))<span class="op">\</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>.<span class="bu">eval</span>(<span class="st">'rate = count/count2'</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,fill<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>))<span class="op">\</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="op">+</span>facet_wrap(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2022-11-09-10wk-2_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<p><img src="2022-11-09-10wk-2_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>&lt;ggplot: (8789343111249)&gt;</code></pre>
@@ -1160,9 +1170,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><code>-</code> 교재에서 설명한 이유: 여성이 합격률이 낮은 학과에만 많이 지원하였기 때문</p>
 <div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'department'</span>,y<span class="op">=</span><span class="st">'count2'</span>,fill<span class="op">=</span><span class="st">'gender'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>ggplot(data2.query(<span class="st">'result=="pass"'</span>))<span class="op">+</span>geom_col(aes(x<span class="op">=</span><span class="st">'department'</span>,y<span class="op">=</span><span class="st">'count2'</span>,fill<span class="op">=</span><span class="st">'gender'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2022-11-09-10wk-2_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<p><img src="2022-11-09-10wk-2_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>&lt;ggplot: (8789343070225)&gt;</code></pre>
@@ -1176,8 +1186,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="hw" class="level1">
 <h1>HW</h1>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson2.csv"</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson2.csv"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 
 <div>
@@ -1256,9 +1266,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> 시각화1: 남녀합격률시각화</p>
 <div class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2022-11-09-10wk-2_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+<p><img src="2022-11-09-10wk-2_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>&lt;ggplot: (8789342120725)&gt;</code></pre>
@@ -1266,9 +1276,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> 시각화2: 학과별 남녀합격률 시각화</p>
 <div class="cell" data-execution_count="330">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># 시각화예시 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2022-11-09-10wk-2_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+<p><img src="2022-11-09-10wk-2_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="330">
 <pre><code>&lt;ggplot: (8787281515073)&gt;</code></pre>
@@ -1280,9 +1290,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p><code>-</code> 시각화3: 학과별 지원자 수 시각화</p>
 <div class="cell" data-execution_count="332">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2022-11-09-10wk-2_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
+<p><img src="2022-11-09-10wk-2_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="332">
 <pre><code>&lt;ggplot: (8787281356149)&gt;</code></pre>
