@@ -237,12 +237,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/DV/dv1.html" class="sidebar-item-text sidebar-link">Dv1</a>
+  <a href="../../posts/DV/2022-11-09-10wk-2.html" class="sidebar-item-text sidebar-link">10wk-2 심슨의 역설</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../posts/DV/Untitled.html" class="sidebar-item-text sidebar-link">Untitled</a>
+  <a href="../../posts/DV/dv1.html" class="sidebar-item-text sidebar-link">Dv1</a>
   </div>
 </li>
       </ul>
@@ -325,6 +325,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../../posts/Python/2023-03-14-pandas1.html" class="sidebar-item-text sidebar-link active">Pandas 1단계</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../posts/Python/2023-03-14-pandas2.html" class="sidebar-item-text sidebar-link">Pandas 2단계</a>
+  </div>
+</li>
       </ul>
   </li>
           <li class="sidebar-item sidebar-item-section">
@@ -372,6 +377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#열의-이름-부여" id="toc-열의-이름-부여" class="nav-link" data-scroll-target="#열의-이름-부여">열의 이름 부여</a></li>
   <li><a href="#행의-이름-부여" id="toc-행의-이름-부여" class="nav-link" data-scroll-target="#행의-이름-부여">행의 이름 부여</a></li>
   <li><a href="#자료형-len-shape-for문의-반복변수" id="toc-자료형-len-shape-for문의-반복변수" class="nav-link" data-scroll-target="#자료형-len-shape-for문의-반복변수">자료형, len, shape, for문의 반복변수</a></li>
+  <li><a href="#pd.series" id="toc-pd.series" class="nav-link" data-scroll-target="#pd.series">pd.Series</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -1124,6 +1130,85 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>att
 mid</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="cf">for</span> k <span class="kw">in</span> {<span class="st">'att'</span>:[<span class="dv">30</span>,<span class="dv">40</span>,<span class="dv">50</span>],<span class="st">'mid'</span>:[<span class="dv">5</span>,<span class="dv">45</span>,<span class="dv">90</span>]}:</span>
+<span id="cb42-2"><a href="#cb42-2"></a>    <span class="bu">print</span>(k)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>att
+mid</code></pre>
+</div>
+</div>
+</section>
+<section id="pd.series" class="level3">
+<h3 class="anchored" data-anchor-id="pd.series">pd.Series</h3>
+<p><code>-</code> 2차원 ndarray가 데이터프레임에 대응한다면 1차원 ndarray는 pd.Series에 대응한다.</p>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>a<span class="op">=</span>pd.Series(np.random.randn(<span class="dv">10</span>))</span>
+<span id="cb44-2"><a href="#cb44-2"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
+<pre><code>0   -0.015761
+1    0.793164
+2   -0.194785
+3   -1.704138
+4    0.196202
+5   -0.542479
+6    0.134923
+7   -1.151843
+8    0.567016
+9    2.469013
+dtype: float64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="bu">type</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+<pre><code>pandas.core.series.Series</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a><span class="bu">len</span>(a)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="59">
+<pre><code>10</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>a.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>(10,)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="cf">for</span> value <span class="kw">in</span> a:</span>
+<span id="cb52-2"><a href="#cb52-2"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-0.01576052104052408
+0.7931636561267669
+-0.19478516128697446
+-1.7041378729481649
+0.19620173234455546
+-0.542479066364815
+0.13492305158609827
+-1.1518431416352932
+0.5670160023697828
+2.4690128371679556</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="cf">for</span> value <span class="kw">in</span> np.random.randn(<span class="dv">10</span>):</span>
+<span id="cb54-2"><a href="#cb54-2"></a>    <span class="bu">print</span>(value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-0.0864801362204059
+-0.9294913581613311
+-0.4818729848296065
+2.1539740078272693
+0.5075567770278344
+0.6907204209585092
+0.2885924769916613
+-0.5636921329605091
+-0.9741967151982581
+1.8705475972066663</code></pre>
 </div>
 </div>
 
