@@ -4,7 +4,14 @@
     "href": "2_dv2022.html",
     "title": "DV2022",
     "section": "",
-    "text": "This page is organized based on the contents of the Data Visualization (2022-2) and lecture notes of Professor Guebin Choi of Jeonbuk National University.\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nApr 1, 2023\n\n\n10wk-2 심슨의 역설\n\n\njiyunLim\n\n\n\n\n\n\nNo matching items"
+    "text": "This page is organized based on the contents of the Data Visualization (2022-2) and lecture notes of Professor Guebin Choi of Jeonbuk National University."
+  },
+  {
+    "objectID": "2_dv2022.html#contents",
+    "href": "2_dv2022.html#contents",
+    "title": "DV2022",
+    "section": "Contents",
+    "text": "Contents\n시각화 차트 소개 - boxplot, histogram, lineplot, scatterplot\n파이썬 데이터 시각화 패키지 사용법 - matplotlib, seaborn, plotnine/ggplot2\n데이터 시각화와 통계적 해석 - 히스토그램 이퀄라이제이션 - 표본상관계수, 앤스콤의 플랏, 무상관, 무상관과 독립\nData Wrangling - lambda, map - pandas: indexing\n인포그래픽과 데이터시각화 - 나이젤홈즈와 애드워드터프티, 찰스미나드의 도표"
   },
   {
     "objectID": "about.html",
