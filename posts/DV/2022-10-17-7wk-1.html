@@ -3739,7 +3739,7 @@ dtype: object</code></pre>
 </section>
 <section id="아이스크림을-많이-먹으면-걸리는-병-1" class="level1">
 <h1>아이스크림을 많이 먹으면 걸리는 병 (1)</h1>
-<p><code>-</code> ref- <a href="https://github.com/guebin/DV2022/blob/master/_notebooks/ds.pdf">데이터 과학자의 사고법: 더 나은 선택을 위한 통계학적 통찰의 힘</a></p>
+<p><code>-</code> ref- <a href="https://github.com/pinkocto/Quarto-Blog/blob/main/posts/DV/ds.pdf">데이터 과학자의 사고법: 더 나은 선택을 위한 통계학적 통찰의 힘</a></p>
 <ul>
 <li>구매할만한 책입니다</li>
 </ul>
@@ -3759,14 +3759,14 @@ dtype: object</code></pre>
 <p><code>-</code> 교재의 예제상황은 예를들면 아래와 같다.</p>
 <p>(숨은진짜상황1)</p>
 <p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \epsilon\]</span></p>
-<div class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="71">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>np.random.seed(<span class="dv">1</span>) </span>
 <span id="cb76-2"><a href="#cb76-2"></a>temp<span class="op">=</span> np.array([<span class="op">-</span><span class="fl">10.2</span>, <span class="op">-</span><span class="fl">5.2</span>, <span class="fl">0.1</span>, <span class="fl">10.1</span>, <span class="fl">12.2</span>, <span class="fl">14.7</span>, </span>
 <span id="cb76-3"><a href="#cb76-3"></a>                <span class="fl">25.4</span>, <span class="fl">26.8</span>, <span class="fl">28.9</span>, <span class="fl">35.1</span>, <span class="fl">32.2</span>, <span class="fl">34.6</span>])</span>
 <span id="cb76-4"><a href="#cb76-4"></a>eps<span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">12</span>,scale<span class="op">=</span><span class="dv">5</span>)</span>
 <span id="cb76-5"><a href="#cb76-5"></a>icecream<span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> temp <span class="op">*</span> <span class="dv">2</span> <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="49">
+<div class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>plt.plot(temp,icecream,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-17-7wk-1_files/figure-html/cell-62-output-1.png" class="img-fluid"></p>
@@ -3777,12 +3777,12 @@ dtype: object</code></pre>
 </ul>
 <p>(숨은진짜상황2)</p>
 <p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.5 \times \text{온도} + \epsilon\]</span> - 좌변은 소아마비임을 나타내는 어떠한 반응수치라고 생각하자.</p>
-<div class="cell" data-execution_count="50">
+<div class="cell" data-execution_count="73">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>np.random.seed(<span class="dv">2</span>) </span>
 <span id="cb78-2"><a href="#cb78-2"></a>eps <span class="op">=</span> np.random.normal(size<span class="op">=</span><span class="dv">12</span>,scale<span class="op">=</span><span class="dv">5</span>) </span>
 <span id="cb78-3"><a href="#cb78-3"></a>disease <span class="op">=</span> <span class="dv">30</span><span class="op">+</span> temp<span class="op">*</span> <span class="fl">0.5</span> <span class="op">+</span> eps</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="74">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>plt.plot(temp,disease,<span class="st">'.'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-17-7wk-1_files/figure-html/cell-64-output-1.png" class="img-fluid"></p>
@@ -3851,10 +3851,10 @@ dtype: object</code></pre>
 </section>
 <section id="숙제-수업시간에-한-내용-x" class="level1">
 <h1>숙제 (수업시간에 한 내용 X)</h1>
-<div class="cell" data-execution_count="64">
+<div class="cell" data-execution_count="75">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'a'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>],<span class="st">'b'</span>:[<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],<span class="st">'c'</span>:[<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>],<span class="st">'d'</span>:[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>]})</span>
 <span id="cb83-2"><a href="#cb83-2"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="64">
+<div class="cell-output cell-output-display" data-execution_count="75">
 
 <div>
 
@@ -3904,9 +3904,9 @@ dtype: object</code></pre>
 </div>
 <p>아래의 결과를 관찰하고 drop의 기능을 유추하라.</p>
 <p>(예시1)</p>
-<div class="cell" data-execution_count="65">
+<div class="cell" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>df.drop(columns<span class="op">=</span><span class="st">'a'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div class="cell-output cell-output-display" data-execution_count="76">
 
 <div>
 
@@ -3949,10 +3949,13 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+<ul>
+<li><code>a</code> 컬럼 삭제</li>
+</ul>
 <p>(예시2)</p>
-<div class="cell" data-execution_count="66">
+<div class="cell" data-execution_count="77">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>df.drop(columns<span class="op">=</span>[<span class="st">'a'</span>,<span class="st">'b'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="66">
+<div class="cell-output cell-output-display" data-execution_count="77">
 
 <div>
 
@@ -3990,9 +3993,62 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+<ul>
+<li><code>a</code>, <code>b</code> 컬럼 삭제</li>
+</ul>
 <p>(예시3)</p>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="78">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
 <div class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>df.drop(index<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>df.drop(index<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="67">
 
 <div>
@@ -4034,10 +4090,13 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+<ul>
+<li>첫번째 행 삭제</li>
+</ul>
 <p>(예시4)</p>
-<div class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>df.drop(index<span class="op">=</span><span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="71">
+<div class="cell" data-execution_count="79">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a>df.drop(index<span class="op">=</span><span class="bu">range</span>(<span class="dv">2</span>,<span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="79">
 
 <div>
 
@@ -4071,10 +4130,46 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
+<p>행 인덱스 2,3 (3번째, 4번째 행)에 해당하는 행 삭제</p>
 <p>문제: <code>df</code> 에서 a,c열을 삭제하고 첫행을 삭제하라.</p>
 <div class="cell" data-execution_count="78">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1"></a><span class="co">#출력결과는 아래와 같아야 한다. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a><span class="co">#출력결과는 아래와 같아야 한다. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="78">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>b</th>
+      <th>d</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a>df.drop(columns <span class="op">=</span> [<span class="st">'a'</span>,<span class="st">'c'</span>], index<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
 
 <div>
 
