@@ -11,7 +11,7 @@
     "href": "2_dv2022.html#contents",
     "title": "DV2022",
     "section": "Contents",
-    "text": "Contents\n시각화 차트 소개 - boxplot, histogram, lineplot, scatterplot\n파이썬 데이터 시각화 패키지 사용법 - matplotlib, seaborn, plotnine/ggplot2\n데이터 시각화와 통계적 해석 - 히스토그램 이퀄라이제이션 - 표본상관계수, 앤스콤의 플랏, 무상관, 무상관과 독립\nData Wrangling - lambda, map - pandas: indexing\n인포그래픽과 데이터시각화 - 나이젤홈즈와 애드워드터프티, 찰스미나드의 도표"
+    "text": "Contents\n1. 시각화 차트 소개\n\nboxplot, histogram, lineplot, scatterplot\n\n2. 파이썬 데이터 시각화 패키지 사용법\n\nmatplotlib, seaborn, plotnine/ggplot2\n\n3. 데이터 시각화와 통계적 해석\n\n히스토그램 이퀄라이제이션\n표본상관계수, 앤스콤의 플랏, 무상관, 무상관과 독립\n\n4. Data Wrangling\n\nlambda, map\npandas: indexing\n\n5. 인포그래픽과 데이터시각화\n\n나이젤홈즈와 애드워드터프티, 찰스미나드의 도표"
   },
   {
     "objectID": "about.html",
