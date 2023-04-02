@@ -7,6 +7,34 @@
     ]
   },
   {
+    "listing": "/3_etc.html",
+    "items": [
+      "/posts/R/2023-02-25-jt-test.html",
+      "/posts/R/2023-02-20-ts1.html",
+      "/posts/R/2023-02-20-simul_eq.html"
+    ]
+  },
+  {
+    "listing": "/1_ip2022.html",
+    "items": [
+      "/posts/Python/2023-03-14-pandas1.html",
+      "/posts/Python/2023-03-13-pandas0.html",
+      "/posts/Python/2023-03-14-pandas2.html",
+      "/posts/Python/2022-06-13-final.html",
+      "/posts/Python/2023-02-23-numpy4.html",
+      "/posts/Python/2023-02-23-class6.html",
+      "/posts/Python/2023-02-23-class9.html",
+      "/posts/Python/2023-02-23-class8.html",
+      "/posts/Python/2023-02-23-class10.html",
+      "/posts/Python/2023-02-23-class7.html",
+      "/posts/Python/2023-02-23-class5.html",
+      "/posts/Python/2023-02-15-class3.html",
+      "/posts/Python/2023-02-15-class1.html",
+      "/posts/Python/2023-02-15-class2.html",
+      "/posts/Python/2023-02-15-class4.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/posts/DV/dv1.html",

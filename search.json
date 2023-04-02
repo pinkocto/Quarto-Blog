@@ -14,6 +14,13 @@
     "text": "About this blog ~~~"
   },
   {
+    "objectID": "3_etc.html",
+    "href": "3_etc.html",
+    "title": "etc",
+    "section": "",
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nFeb 25, 2023\n\n\nJT test\n\n\njiyun Lim\n\n\n\n\nFeb 19, 2023\n\n\nts1\n\n\njiyun Lim\n\n\n\n\nFeb 19, 2023\n\n\nsimultaneous equation\n\n\njiyun Lim\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "posts/Python/2023-02-23-numpy4.html",
     "href": "posts/Python/2023-02-23-numpy4.html",
     "title": "Numpy 4단계(concat, stack)",
@@ -243,6 +250,13 @@
     "title": "Quarto-Blog",
     "section": "",
     "text": "# for test\nimport matplotlib.pyplot as plt\nplt.plot([1,2,3,4], [1,4,9,16],'ro')"
+  },
+  {
+    "objectID": "1_ip2022.html",
+    "href": "1_ip2022.html",
+    "title": "IP2022",
+    "section": "",
+    "text": "This page is organized based on the contents of the Introduction to Python (2022-1) and lecture notes of Professor Guebin Choi of Jeonbuk National University.\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMar 13, 2023\n\n\nPandas 1단계\n\n\njiyun Lim\n\n\n\n\nMar 13, 2023\n\n\nPandas 0단계\n\n\njiyun Lim\n\n\n\n\nMar 13, 2023\n\n\nPandas 2단계\n\n\njiyun Lim\n\n\n\n\nFeb 27, 2023\n\n\n2022 final exam\n\n\njiyun Lim\n\n\n\n\nFeb 23, 2023\n\n\nNumpy 4단계(concat, stack)\n\n\njiyun Lim\n\n\n\n\nFeb 23, 2023\n\n\nclass 6단계\n\n\njiyun Lim\n\n\n\n\nFeb 23, 2023\n\n\nclass 9단계\n\n\njiyun Lim\n\n\n\n\nFeb 23, 2023\n\n\nclass 8단계\n\n\njiyun Lim\n\n\n\n\nFeb 23, 2023\n\n\nclass 10단계\n\n\njiyun Lim\n\n\n\n\nFeb 23, 2023\n\n\nclass 7단계\n\n\njiyun Lim\n\n\n\n\nFeb 23, 2023\n\n\nclass 5단계\n\n\njiyun Lim\n\n\n\n\nFeb 15, 2023\n\n\nclass 3단계\n\n\njiyun Lim\n\n\n\n\nFeb 15, 2023\n\n\nclass 1단계\n\n\njiyun Lim\n\n\n\n\nFeb 15, 2023\n\n\nclass 2단계\n\n\njiyun Lim\n\n\n\n\nFeb 15, 2023\n\n\nclass 4단계\n\n\njiyun Lim\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
