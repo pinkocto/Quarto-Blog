@@ -238,6 +238,13 @@
     "text": "심슨의 역설을 bar plot으로 시각화하는 방법과 심슨의 역설이 왜 생기게 되는지에 대해 알아보자."
   },
   {
+    "objectID": "posts/DV/2022-11-09-10wk-2.html#버클리대학교의-입학데이터",
+    "href": "posts/DV/2022-11-09-10wk-2.html#버클리대학교의-입학데이터",
+    "title": "10wk-2 심슨의 역설",
+    "section": "버클리대학교의 입학데이터",
+    "text": "버클리대학교의 입학데이터\n\nhttps://github.com/pinkocto/Quarto-Blog/blob/main/posts/DV/ds.pdf\n\n- 주장: 버클리대학에 gender bias가 존재한다.\n\n1973년 가을학기의 입학통계에 따르면 지원하는 남성이 여성보다 훨씬 많이 합격했고, 그 차이가 너무 커서 우연의 일치라 보기 어렵다.\n\n\ndf=pd.read_csv(\"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv\",index_col=0,header=[0,1])\\\n.stack().stack().reset_index()\\\n.rename({'level_0':'department','level_1':'result','level_2':'gender',0:'count'},axis=1)\ndf\n\n\n\n\n\n  \n    \n      \n      department\n      result\n      gender\n      count\n    \n  \n  \n    \n      0\n      A\n      fail\n      female\n      19\n    \n    \n      1\n      A\n      fail\n      male\n      314\n    \n    \n      2\n      A\n      pass\n      female\n      89\n    \n    \n      3\n      A\n      pass\n      male\n      511\n    \n    \n      4\n      B\n      fail\n      female\n      7\n    \n    \n      5\n      B\n      fail\n      male\n      208\n    \n    \n      6\n      B\n      pass\n      female\n      18\n    \n    \n      7\n      B\n      pass\n      male\n      352\n    \n    \n      8\n      C\n      fail\n      female\n      391\n    \n    \n      9\n      C\n      fail\n      male\n      204\n    \n    \n      10\n      C\n      pass\n      female\n      202\n    \n    \n      11\n      C\n      pass\n      male\n      121\n    \n    \n      12\n      D\n      fail\n      female\n      244\n    \n    \n      13\n      D\n      fail\n      male\n      279\n    \n    \n      14\n      D\n      pass\n      female\n      131\n    \n    \n      15\n      D\n      pass\n      male\n      138\n    \n    \n      16\n      E\n      fail\n      female\n      299\n    \n    \n      17\n      E\n      fail\n      male\n      137\n    \n    \n      18\n      E\n      pass\n      female\n      94\n    \n    \n      19\n      E\n      pass\n      male\n      54\n    \n    \n      20\n      F\n      fail\n      female\n      103\n    \n    \n      21\n      F\n      fail\n      male\n      149\n    \n    \n      22\n      F\n      pass\n      female\n      238\n    \n    \n      23\n      F\n      pass\n      male\n      224"
+  },
+  {
     "objectID": "posts/DV/2022-11-09-10wk-2.html#시각화1-전체합격률",
     "href": "posts/DV/2022-11-09-10wk-2.html#시각화1-전체합격률",
     "title": "10wk-2 심슨의 역설",
