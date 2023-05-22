@@ -9,7 +9,7 @@
 <meta name="author" content="JiyunLim">
 <meta name="dcterms.date" content="2023-05-12">
 
-<title>Quarto-Blog - [TS] 2wk. 확률과정</title>
+<title>Quarto-Blog - [TS] 2wk. 확률과정과 정상성</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><strong>[TS]</strong> 2wk. 확률과정</h1>
+      <h1 class="quarto-secondary-nav-title"><strong>[TS]</strong> 2wk. 확률과정과 정상성</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -109,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block"><strong>[TS]</strong> 2wk. 확률과정</h1>
+      <h1 class="title d-none d-lg-block"><strong>[TS]</strong> 2wk. 확률과정과 정상성</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">STUDY</div>
                 <div class="quarto-category">TS</div>
@@ -182,12 +182,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#복습-확률변수" id="toc-복습-확률변수" class="nav-link active" data-scroll-target="#복습-확률변수">복습: 확률변수</a>
+  <li><a href="#확률변수-조금-특별한-성질을-가진-함수" id="toc-확률변수-조금-특별한-성질을-가진-함수" class="nav-link active" data-scroll-target="#확률변수-조금-특별한-성질을-가진-함수">확률변수: (조금 특별한 성질을 가진) 함수</a>
+  <ul class="collapse">
+  <li><a href="#동전예제" id="toc-동전예제" class="nav-link" data-scroll-target="#동전예제">동전예제</a></li>
+  <li><a href="#확률변수에-대한-오해-확률변수-값이-랜덤하게-바뀌는-변수" id="toc-확률변수에-대한-오해-확률변수-값이-랜덤하게-바뀌는-변수" class="nav-link" data-scroll-target="#확률변수에-대한-오해-확률변수-값이-랜덤하게-바뀌는-변수">확률변수에 대한 오해: 확률변수 = 값이 랜덤하게 바뀌는 변수</a></li>
+  <li><a href="#예제1" id="toc-예제1" class="nav-link" data-scroll-target="#예제1">예제1</a></li>
+  <li><a href="#요약" id="toc-요약" class="nav-link" data-scroll-target="#요약">요약</a></li>
+  <li><a href="#질문-확률변수-x의-모든-역상에-대하여-확률을-모순없이-정의가능" id="toc-질문-확률변수-x의-모든-역상에-대하여-확률을-모순없이-정의가능" class="nav-link" data-scroll-target="#질문-확률변수-x의-모든-역상에-대하여-확률을-모순없이-정의가능">질문: 확률변수 X의 모든 역상에 대하여 확률을 모순없이! 정의가능?</a></li>
+  <li><a href="#합의" id="toc-합의" class="nav-link" data-scroll-target="#합의">합의</a></li>
+  </ul></li>
+  <li><a href="#시계열" id="toc-시계열" class="nav-link" data-scroll-target="#시계열">시계열</a></li>
+  <li><a href="#복습-확률변수" id="toc-복습-확률변수" class="nav-link" data-scroll-target="#복습-확률변수">복습: 확률변수</a>
   <ul class="collapse">
   <li><a href="#기호정리" id="toc-기호정리" class="nav-link" data-scroll-target="#기호정리">기호정리</a></li>
   <li><a href="#용어정리1-starstarstar" id="toc-용어정리1-starstarstar" class="nav-link" data-scroll-target="#용어정리1-starstarstar">용어정리1 (<span class="math inline">\(\star\star\star\)</span>)</a></li>
   <li><a href="#용어정리2" id="toc-용어정리2" class="nav-link" data-scroll-target="#용어정리2">용어정리2</a></li>
-  <li><a href="#시계열" id="toc-시계열" class="nav-link" data-scroll-target="#시계열">시계열</a></li>
+  </ul></li>
+  <li><a href="#시계열-1" id="toc-시계열-1" class="nav-link" data-scroll-target="#시계열-1">시계열</a>
+  <ul class="collapse">
+  <li><a href="#교재의-표현정리" id="toc-교재의-표현정리" class="nav-link" data-scroll-target="#교재의-표현정리">교재의 표현정리</a></li>
+  <li><a href="#정상성" id="toc-정상성" class="nav-link" data-scroll-target="#정상성">정상성</a></li>
+  <li><a href="#예제1.-동전-3번던지기" id="toc-예제1.-동전-3번던지기" class="nav-link" data-scroll-target="#예제1.-동전-3번던지기">예제1. 동전 3번던지기</a></li>
+  </ul></li>
+  <li><a href="#stationary-종류" id="toc-stationary-종류" class="nav-link" data-scroll-target="#stationary-종류">Stationary 종류</a>
+  <ul class="collapse">
+  <li><a href="#strictly-stationary" id="toc-strictly-stationary" class="nav-link" data-scroll-target="#strictly-stationary">Strictly Stationary</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -198,6 +217,109 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="확률변수-조금-특별한-성질을-가진-함수" class="level2">
+<h2 class="anchored" data-anchor-id="확률변수-조금-특별한-성질을-가진-함수">확률변수: (조금 특별한 성질을 가진) 함수</h2>
+<ul>
+<li>정의역: <span class="math inline">\(\Omega\)</span></li>
+<li>치역: <span class="math inline">\(\mathbb{R}\)</span>의 부분집합</li>
+</ul>
+<section id="동전예제" class="level3">
+<h3 class="anchored" data-anchor-id="동전예제">동전예제</h3>
+<p><span class="math inline">\(\Omega = \{H,T\}\)</span></p>
+<p><span class="math inline">\(X: \Omega \to \mathbb{R}\)</span></p>
+<p><img src="2023-05-12-2wk_files/figure-html/a3293591-b997-491b-b1d6-d0393a6e93dd-1-19ddc5e6-2cc2-4f8b-9350-8e5071bf53a0.png" class="img-fluid"></p>
+<p><code>-</code> 기호</p>
+<p>집합: <span class="math inline">\(\Omega\)</span>, 원소: <span class="math inline">\(w\)</span>, <span class="math inline">\(\quad w\in \Omega\)</span></p>
+<p><span class="math inline">\(\Omega = \{H,T\} = \{w_1,w_2\}\)</span></p>
+<p><span class="math inline">\(X(w_1) = X(H)=0, X(w_2) = X(T)=1\)</span></p>
+<p><code>-</code> 주의</p>
+<ul>
+<li><span class="math inline">\(X: \Omega \to \mathbb{R}\)</span></li>
+<li><span class="math inline">\(P: \cal{F} \to [0,1]\)</span> (set function)</li>
+</ul>
+<p><strong><em>(참고)</em></strong> <span class="math inline">\(\cal{F}\)</span>: <span class="math inline">\(\Omega\)</span>의 부분집합 중 잴 수 있는 집합의 모임.</p>
+<p><img src="2023-05-12-2wk_files/figure-html/d35308bd-018f-495a-ba17-788b1d4977b6-1-61241801-a745-4628-8c69-ca0f8e0d5298.png" class="img-fluid"></p>
+</section>
+<section id="확률변수에-대한-오해-확률변수-값이-랜덤하게-바뀌는-변수" class="level3">
+<h3 class="anchored" data-anchor-id="확률변수에-대한-오해-확률변수-값이-랜덤하게-바뀌는-변수">확률변수에 대한 오해: 확률변수 = 값이 랜덤하게 바뀌는 변수</h3>
+<p><font color="red"><strong>“확률변수는 (특별한 성질을 가진) 함수다!”</strong><font></font></font></p><font color="red"><font>
+<p>함수: <span class="math inline">\(\begin{align*}&amp;y=f(x), \quad f: \text{function}, x: \text{input}, y:\text{outcome}\\ &amp; x=X(w) \quad X: \text{random variable}, w: \text{outcome}, x: \text{realization}\end{align*}\)</span></p>
+<p>보통 <span class="math inline">\(X(w)\)</span>에서 <span class="math inline">\((w)\)</span>를 생략하고, 간단히 <span class="math inline">\(X\)</span>로 표시 <span class="math inline">\(\to\)</span> 혼란의 이유!</p>
+<p><font color="red"><strong>“확률변수는 결과가 랜덤으로 변한다.”<font></font></strong></font></p><font color="red"><font>
+<p><code>1</code> 맵핑규칙은 변화없음.</p>
+<ul>
+<li><span class="math inline">\(H\to 0 \quad w_1 \to 0\)</span></li>
+<li><span class="math inline">\(T\to 1 \quad w_2 \to 1\)</span></li>
+</ul>
+<p><code>2</code> 입력. 즉, outcome은 실험결과에 따라 랜덤으로 변한다.</p>
+</font></font></font></font></section><font color="red"><font><font color="red"><font>
+<section id="예제1" class="level3">
+<h3 class="anchored" data-anchor-id="예제1">예제1</h3>
+<blockquote class="blockquote">
+<p>w.p는 with probability를 의미.</p>
+</blockquote>
+<p>확률변수 <span class="math inline">\(X = \begin{cases} 0, &amp; \text{w.p. } \frac{1}{2} \\ 1 &amp; \text{w.p. } \frac{1}{2}\end{cases}\)</span></p>
+<p><code>(i)</code> <span class="math inline">\(X\)</span>는 변수처럼 보임.</p>
+<p><code>(ii)</code> 변수의 값이 랜덤으로 변하는 것 같음</p>
+<p><span class="math inline">\(X(w) = \begin{cases} 0, &amp; w\in \{H\} \\ 1, &amp; w\in \{T\} \end{cases}\)</span></p>
+</section>
+<section id="요약" class="level3">
+<h3 class="anchored" data-anchor-id="요약">요약</h3>
+<ol type="1">
+<li>확률변수는 확률과 관련 없다.</li>
+<li>간접적으로는 관련있다. (<span class="math inline">\(\therefore\)</span> <span class="math inline">\(X\)</span>의 역상 <span class="math inline">\(= \Omega\)</span>의 부분집합 <span class="math inline">\(=P\)</span>의 정의역)</li>
+</ol>
+</section>
+<section id="질문-확률변수-x의-모든-역상에-대하여-확률을-모순없이-정의가능" class="level3">
+<h3 class="anchored" data-anchor-id="질문-확률변수-x의-모든-역상에-대하여-확률을-모순없이-정의가능">질문: 확률변수 X의 모든 역상에 대하여 확률을 모순없이! 정의가능?</h3>
+<p><code>-</code> 시계예제</p>
+<p><span class="math inline">\(\Omega=[0,2\pi) \qquad X: [0,2\pi)\to [0,2\pi)\)</span>인 항등함수.</p>
+<p><span class="math inline">\(X\)</span>는 항등함수 <span class="math inline">\(\Rightarrow\)</span> 비탈리 집합의 역상은 비탈리집합 <span class="math inline">\(\Rightarrow\)</span> 확률을 정의할 수 X</p>
+</section>
+<section id="합의" class="level3">
+<h3 class="anchored" data-anchor-id="합의">합의</h3>
+<p><font color="blue"><strong>“확률변수 <span class="math inline">\(X\)</span>를 그냥 함수가 아니라, 역상이 measurable set이 되는 함수라 하자.”</strong></font> <span class="math inline">\(\Leftrightarrow\)</span> <span class="math inline">\(X\)</span>를 <strong>가측함수</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>라고 하자.</p>
+</section>
+</font></font></font></font></section><font color="red"><font><font color="red"><font>
+<section id="시계열" class="level2">
+<h2 class="anchored" data-anchor-id="시계열">시계열</h2>
+<ul>
+<li>확률변수 <span class="math inline">\(X\)</span>: <span class="math inline">\(\Omega\to \mathbb{R}\)</span>인 특별한 함수.</li>
+<li>확률벡터 <span class="math inline">\(\bf{X}: \Omega\to \mathbb{R}^m\)</span>인 특별한 함수</li>
+</ul>
+<p><code>-</code> 기호</p>
+<p>확률변수: <span class="math inline">\(X(w) = x\)</span></p>
+<p>확률벡터: <span class="math inline">\(\bf{X}(w) = (x_1,\dots, x_m)\)</span> <span class="math inline">\(\to\)</span> 출력이 벡터임을 강조!</p>
+<p>확률변수: <span class="math inline">\(X\)</span></p>
+<p>확률벡터: <span class="math inline">\(\mathbf{X} = (X_1,\dots,X_m), \quad X_1,\dots,X_m\)</span>은 <span class="math inline">\(r.v.\)</span></p>
+<p><span class="math inline">\(\therefore \bf{X} = (X_1,\dots, X_m)(w) = (X_1(w),\dots,X_m(w))=(x_1,\dots,x_m)\)</span></p>
+<p><span class="math inline">\(x_1 = \text{2019-03-20} \\ x_2 = \text{2019-03-21} \\ \qquad \vdots\)</span></p>
+<p><span class="math inline">\(\therefore x_1,\dots, x_m \Rightarrow \text{2019-03-20}\)</span> 부터 순서대로 <span class="math inline">\(m\)</span>개의 삼전주식값을 나열</p>
+<p><strong><em>Note!</em></strong> : <span class="math inline">\(w\)</span>만 알면 <span class="math inline">\(x_1,\dots,x_m\)</span>의 값이 저절로 결정.</p>
+<p><span class="math inline">\(X_1(w) = x_1 \\ X_2(w) = x_2,\\ \qquad \vdots\)</span></p>
+<p><code>-</code> <strong>가능한 설명모형</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(14,000,605\)</span> 개의 평행세계</p></li>
+<li><p>우리는 이 중 하나의 세계에 <span class="math inline">\(\frac{1}{14,000,605}\)</span>의 “확률”로 선택되어져 살고있음.</p></li>
+</ol>
+<p><span class="math inline">\(\Rightarrow \Omega=\{w_1,w_2,\dots, w_{14,000,605}\}\)</span></p>
+<p><span class="math inline">\(P(\{w_1\})=P(\{w_2\})=\dots=P(\{w_{14,000,605}\})=\frac{1}{14,000,605}\)</span></p>
+<ol start="3" type="1">
+<li>하나의 평행세계가 선택 <span class="math inline">\(\Rightarrow\)</span> 그 평행세계의 모든 사건이 이미 결정.</li>
+</ol>
+<p>우리의 우주 <span class="math inline">\(=\)</span> <span class="math inline">\(777\)</span>번째 평행세계 <span class="math inline">\(\Rightarrow w=w_{777}\)</span></p>
+<p><img src="2023-05-12-2wk_files/figure-html/ee39f8bd-a4e2-4422-85e0-fb61a92c067e-1-0c482988-2136-4e9b-829e-a17846af63c1.png" class="img-fluid"></p>
+<p><code>-</code> <strong>반론</strong> : 미래는 고정되지 않음.</p>
+<p><span class="math inline">\(m+1\)</span> 시점은 총 <span class="math inline">\(52,210-38,590=13,620\)</span>개의 미래가 가능!</p>
+<p><code>-</code> <strong>반론의 반론</strong> : 처음부터 <span class="math inline">\(14,000,605 \times 13,620\)</span> 의 미래를 고려.</p>
+<ul>
+<li><p><span class="math inline">\(m\)</span>개의 삼전 주가 <span class="math inline">\(\Rightarrow 14,000,605\)</span></p></li>
+<li><p><span class="math inline">\(m+1\)</span>개의 삼전주가 <span class="math inline">\(\Rightarrow 14,000,605 \times 13,620\)</span></p></li>
+</ul>
+<p><code>-</code> <strong>동전 2회</strong></p>
+<p><span class="math inline">\(\Omega = \{\{H,H\}, \{H,T\}\,\{T,H\}, \{T,T\}\}\)</span></p>
+<p><span class="math inline">\(\{H,H\}: w_1 \\ \{H,T\}:w_2 \\ \{T,H\}: w_3 \\ \{T,T\}:w_4\)</span></p>
+</section>
 <section id="복습-확률변수" class="level2">
 <h2 class="anchored" data-anchor-id="복습-확률변수">복습: 확률변수</h2>
 <p><img src="2023-05-12-2wk_files/figure-html/6929237d-c375-4050-b223-5f33788f1e71-1-30ede8b8-2f25-423b-8243-0e8479e0959b.png" class="img-fluid"></p>
@@ -214,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
 <li>고정된 <span class="math inline">\(t \Rightarrow\)</span> random variable이 함수</li>
 </ul></li>
 </ul>
-<p><code>(참고)</code> : 고정된 <span class="math inline">\(X(w,t)\)</span>의 relization을 sample path 혹은 sample function이라고 부른다.</p>
+<p><code>(참고)</code> : 고정된 <span class="math inline">\(w\)</span>에 대한 <span class="math inline">\(X(w,t)\)</span>의 relization을 sample path 혹은 sample function이라고 부른다.</p>
 </section>
 <section id="용어정리1-starstarstar" class="level3">
 <h3 class="anchored" data-anchor-id="용어정리1-starstarstar">용어정리1 (<span class="math inline">\(\star\star\star\)</span>)</h3>
@@ -225,13 +347,24 @@ ul.task-list li input[type="checkbox"] {
 <section id="용어정리2" class="level3">
 <h3 class="anchored" data-anchor-id="용어정리2">용어정리2</h3>
 <p>모든 <span class="math inline">\(\omega\)</span>에 대하여 가능한 sample path를 모두 모은 뭉치. <span class="math inline">\(\Rightarrow\)</span> <strong>앙상블(ensemble)</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-12-2wk_files/figure-html/fcebef19-3b18-4aca-9e63-bc16e39a74ef-1-90cf2fe9-2d83-4aa9-815f-0c630ee86a22.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">앙상블(ensemble)</figcaption><p></p>
+</figure>
+</div>
 <p><img src="2023-05-12-2wk_files/figure-html/ff2bc9ec-8d7e-4148-b674-36f46589aeca-1-0eb9f55e-0832-46ea-960f-23664cb7ea2e.png" class="img-fluid"></p>
 <p>앙상블 mean: 1번 timeseries, <span class="math inline">\(\dots\)</span> 14,000,605번 timeseries를 다 더해서 평균을 낸 것</p>
 <ul>
-<li>앙상블 mean : <span class="math inline">\(\sum_{i=1}^{14,000,605}\frac{1}{14,000,605}\times(w_1,t) \Rightarrow \sim\)</span>어떤 함수값 (mean function이라고 표현을 많이 함.)</li>
+<li>앙상블 mean : <span class="math inline">\(\sum_{i=1}^{14,000,605}\frac{1}{14,000,605}\times(w_i,t) \Rightarrow \sim\)</span>어떤 함수값 (mean function이라고 표현을 많이 함.)</li>
 </ul>
-<p><img src="2023-05-12-2wk_files/figure-html/321fd373-e1df-4b04-a311-a3383baac8cd-1-bdba275c-7f28-4c50-9cc5-528ef5b14bff.png" class="img-fluid"></p>
-<p>결국 화률변수 <span class="math inline">\(X(w)\)</span>를 줄여서 <span class="math inline">\(X\)</span>로 쓰고, 확률벡터 <span class="math inline">\(\bf{X}(w)\)</span>를 줄여서 <span class="math inline">\(\bf{X}\)</span>라 쓰고, 확률과정 <span class="math inline">\(X(w,t)\)</span>를 줄여서 <span class="math inline">\(X(t)\)</span>라고 쓴다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-12-2wk_files/figure-html/321fd373-e1df-4b04-a311-a3383baac8cd-1-bdba275c-7f28-4c50-9cc5-528ef5b14bff.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Time Average: 하나의 평행세계의 모든 시점에 대해 평균낸 것.</figcaption><p></p>
+</figure>
+</div>
+<p>결국 확률변수 <span class="math inline">\(X(w)\)</span>를 줄여서 <span class="math inline">\(X\)</span>로 쓰고, 확률벡터 <span class="math inline">\(\bf{X}(w)\)</span>를 줄여서 <span class="math inline">\(\bf{X}\)</span>라 쓰고, 확률과정 <span class="math inline">\(X(w,t)\)</span>를 줄여서 <span class="math inline">\(X(t)\)</span>라고 쓴다.</p>
 <ul>
 <li><span class="math inline">\(X(w) \to X\)</span></li>
 <li><span class="math inline">\(\bf{X}(w) \to \bf{X}\)</span></li>
@@ -239,17 +372,121 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>연속 시계열은 확률과정 그 자체이고, 이산 시계열은 원소의 수가 무한한 확률벡터라고 생각할 수 있다.우리가 많이 다루는 것은 이산 시계열이다.</p>
 </section>
-<section id="시계열" class="level3">
-<h3 class="anchored" data-anchor-id="시계열">시계열</h3>
-<p>무한차원의 확률벡터 or. 확률과정의 smaple 버전이라고 생각할 수 있다. <span class="math inline">\((x_1, x_2, \dots, \dots)\)</span></p>
-<p><span class="math inline">\(\omega\)</span>: 평행세계의 인덱스</p>
-<p><span class="math inline">\(\{Z_t(w), \quad t=1,2,\dots\}\)</span></p>
+</section>
+<section id="시계열-1" class="level2">
+<h2 class="anchored" data-anchor-id="시계열-1">시계열</h2>
+<p>시계열: 무한차원의 확률벡터 or. <strong>확률과정의 smaple</strong> 버전이라고 생각할 수 있다. <span class="math inline">\((x_1, x_2, \dots, \dots)\)</span></p>
+<p><span class="math inline">\(\{Z_t(w), \quad t=1,2,\dots\}, \quad\)</span> <span class="math inline">\(\omega\)</span>: 평행세계의 인덱스</p>
+<section id="교재의-표현정리" class="level3">
+<h3 class="anchored" data-anchor-id="교재의-표현정리">교재의 표현정리</h3>
+<ol type="1">
+<li>확률과정: <span class="math inline">\(X(t)\)</span></li>
+<li>확률법칙: <span class="math inline">\(P\)</span></li>
+<li>확률공간: <span class="math inline">\((\Omega,\cal{F}, P)\)</span></li>
+<li>확률변수: <span class="math inline">\(X\)</span></li>
+<li>확률변수의 모임: <span class="math inline">\(\bf{X}, X(t)\)</span> <span class="math inline">\(\leftarrow\)</span> 확률벡터나 확률과정 모두 의미.</li>
+<li>집합 T: index set of random element<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+<ul>
+<li>T의 원소가 1개이면 <strong>확률변수</strong></li>
+<li>T의 원소가 유한개이면 <strong>확률벡터</strong></li>
+<li>T의 원소가 무한개이면 <strong>확률과정</strong></li>
+</ul></li>
+<li>연속형 확률과정 <span class="math inline">\(= \{X(t), \quad t\in (0,\infty)\}\)</span>
+<ul>
+<li>집합 T가 <span class="math inline">\((0,\infty)\)</span>와 같이 구간으로 표현된 경우.</li>
+</ul></li>
+<li>이산형 확률과정: (<span class="math inline">\(X_1,X_2,X_3,\dots), (\dots, X_{-1},X_0,X_1,X_2,\dots)\)</span>
+<ul>
+<li>집합T가 <span class="math inline">\(\{1,2,3,\dots\}, \{\dots,-1,0,1,2,\dots\}\)</span></li>
+</ul></li>
+<li>실현값 (realization)
+<ul>
+<li><span class="math inline">\(x\)</span> : 확률변수의 relization</li>
+<li><span class="math inline">\((x_1,\dots, x_m)\)</span> : 확률벡터의 relization</li>
+<li><span class="math inline">\(x(t)\)</span> : 확률과정의 relization</li>
+</ul></li>
+<li>표본통로 (sample path): <span class="math inline">\(x(t)\)</span></li>
+</ol>
+<section id="확률과정-노테이션-정리" class="level4">
+<h4 class="anchored" data-anchor-id="확률과정-노테이션-정리">확률과정 노테이션 정리</h4>
+<p><img src="2023-05-12-2wk_files/figure-html/30a9b513-9682-4288-bcfa-df736f4e5e65-1-dc728d93-8718-42d5-8bc3-cb6d9037c72d.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="정상성" class="level3">
+<h3 class="anchored" data-anchor-id="정상성">정상성</h3>
+<blockquote class="blockquote">
+<p>정상성 가정이 안되면 시계열분석의 의미가 없다.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-12-2wk_files/figure-html/73ef3d28-0bd5-4dec-a2d3-d95fba9206a3-1-fcca09e3-35e2-4e3c-addc-db5f532d9998.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ensemble</figcaption><p></p>
+</figure>
+</div>
+<p><img src="2023-05-12-2wk_files/figure-html/d369439c-a85e-4f91-95e8-68f0e13808d5-1-3797d044-3595-4bb1-ab73-3ab0b86eb75b.png" class="img-fluid"></p>
+</section>
+<section id="예제1.-동전-3번던지기" class="level3">
+<h3 class="anchored" data-anchor-id="예제1.-동전-3번던지기">예제1. 동전 3번던지기</h3>
+<p>동전을 3번 던지면 나올 수 있는 모든 경우의 수는 8가지. 따라서 평행세계가 8개 있다고 하자.</p>
+<p><span class="math inline">\(\Omega = \{w_1,\dots,w_8\} = \{HHH,\dots, TTT\}\)</span></p>
+<p><span class="math inline">\(P(w_1) = P(w_2) = \dots = P(w_8)=\frac{1}{8}\)</span></p>
+<ul>
+<li><p>$\bf{X}(HHH) = (X_1(HHH),X_2(HHH),X_3(HHH)) = (0,0,0) $확률벡터</p></li>
+<li><p>$\bf{X}(TTT) = (X_1(TTT),X_2(TTT),X_3(TTT)) = (1,1,1) $확률벡터</p></li>
+</ul>
+<p><code>-</code> 동전을 무한번 던진다? <span class="math inline">\(\to\)</span> 무한 개의 평행세계</p>
+<p><span class="math inline">\(X_t = (X_1,X_2,X_3,X_4,\dots) \leftarrow\)</span> 이산형확률과정 (베르누이 과정)</p>
+<p><span class="math inline">\(x_t = (x_1,x_2,x_3,x_4,\dots) \leftarrow\)</span> relization</p>
+<p>동전을 평생던져야 함.</p>
+<p><strong>현실적인 관측</strong> : <span class="math inline">\((x_1,\dots, x_{t^*-1})\leftarrow t^*-1\)</span></p>
+<p><strong>질문</strong> : <span class="math inline">\(E(X+t^*)=\frac{1}{2}\times 0 + \frac{1}{2}\times 1 = \frac{1}{2}\)</span></p>
+<p><strong>디펜스</strong> : 니가 동전이 공평한 동전인지 어떻게 아느냐?</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-12-2wk_files/figure-html/e2754720-aac2-4e33-9946-37ed8022747c-1-b2f2182b-228d-4869-bbab-0d4644bf32a9.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">큰수의 법칙: 동전을 계속던지다보면 1/2로 수렴하지 않느냐?</figcaption><p></p>
+</figure>
+</div>
+<p>계속 던지다 보니까 1/2이 나오잖아?</p>
+<p>하지만 시계열 문제에서는 이런식으로 대답을 못한다. 왜냐? <span class="math inline">\(n\)</span>이 하나밖에 없잖아..(반복실험 자체가 불가능하다.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>)</p>
+<p><strong>시계열 문제</strong> : <span class="math inline">\(n=1\)</span></p>
+<p>대안: <span class="math inline">\(\sum_{t=1}^{t^*-1}x_t/(t^*-1)\)</span>로 ensemble average를 추론.</p>
+<blockquote class="blockquote">
+<p><span class="math inline">\(\sum_{t=1}^{t^*-1}x_t/(t^*-1)\)</span>를 time average라고 함.</p>
+</blockquote>
+<p><img src="2023-05-12-2wk_files/figure-html/19a72f92-ad99-49b2-85d4-0a1854ed854c-1-47aba206-b6e6-4835-996e-525d8440d7e4.png" class="img-fluid"></p>
+<p><strong>iid 일경우</strong> : time average로 ensemble average를 추론. (주황선)</p>
+<p><span class="math inline">\(\Rightarrow\)</span> iid의 가정을 약화시키기 위한 노력이 필요함.</p>
+<p><span class="math inline">\(\Rightarrow\)</span> 이러한 노력의 결과물이 <strong>stationary 가정</strong>임.</p>
+<p>stationary 가정은 관측치끼리 독립일 필요도 없고 uncorrelated 되어야할 필요도 없다.</p>
+<p><span class="math inline">\(\Rightarrow\)</span> 정상성가정이 없다면 <span class="math inline">\(\Rightarrow\)</span> 시계열 분석을 할 이유가 없다.</p>
+<ul>
+<li>에르고딕..</li>
+</ul>
+<p><strong>iid일 경우 단점</strong> : 쓸모가 없다. iid를 가정할 수 있으면, 회귀분석을 돌리면 되는데 시계열을 돌릴 필요가 없다. iid가 안되기 때문에 시계열을 돌리는 것. &gt; 과거의 사건이 현재의 사건과 correlation이 있다고 믿고, 독립이 아니라고 믿기 때문에 분석이 어려운 것..</p>
+<p>결국 iid 보다 약한 가정을 찾다보니 stationary라는 가정이 생기게 됨.</p>
+</section>
+</section>
+<section id="stationary-종류" class="level2">
+<h2 class="anchored" data-anchor-id="stationary-종류">Stationary 종류</h2>
+<section id="strictly-stationary" class="level3">
+<h3 class="anchored" data-anchor-id="strictly-stationary">Strictly Stationary</h3>
+<p><span class="math inline">\(\{X_t\}\)</span> is strictly stationary</p>
+<p><span class="math inline">\(\Leftrightarrow \forall t_1,\dots,t_n \in T\)</span></p>
 
 
 </section>
 </section>
 
-</main> <!-- /main -->
+
+</font></font></font></font><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>measurable function<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>random variable, random vector, stochastic process 모두를 포함한다.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>우리가 살고있는 세계가 여러번 관측될 수는 없잖아<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main><font color="red"><font><font color="red"><font> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -383,8 +620,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-</div> <!-- /content -->
+</font></font></font></font></div><font color="red"><font><font color="red"><font> <!-- /content -->
 
 
 
-</body></html>
+</font></font></font></font></body></html>

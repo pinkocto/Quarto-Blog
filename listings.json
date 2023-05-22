@@ -9,8 +9,11 @@
     "listing": "/2_dv2022.html",
     "items": [
       "/posts/2_DV2022/dv1.html",
+      "/posts/2_DV2022/9999.html",
       "/posts/2_DV2022/2022-10-19-7wk-2.html",
       "/posts/2_DV2022/2022-11-09-10wk-2.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
       "/posts/2_DV2022/2022-10-17-7wk-1.html"
     ]
   },
@@ -54,6 +57,7 @@
     "listing": "/index.html",
     "items": [
       "/posts/2_DV2022/dv1.html",
+      "/posts/2_DV2022/9999.html",
       "/posts/4_TS2023/2023-05-14-2wk-2.html",
       "/posts/4_TS2023/2023-05-12-2wk.html",
       "/posts/4_TS2023/2023-05-10-1wk.html",
@@ -78,6 +82,8 @@
       "/posts/1_IP2022/2023-02-15-class1.html",
       "/posts/1_IP2022/2023-02-15-class2.html",
       "/posts/1_IP2022/2023-02-15-class4.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
       "/posts/2_DV2022/2022-10-17-7wk-1.html"
     ]
   }

@@ -4,7 +4,7 @@
     "href": "3_stbda2022.html",
     "title": "STBDA2022",
     "section": "",
-    "text": "This page is organized based on the contents of the Introduction to Python (2022-1) and lecture notes of Professor Guebin Choi of Jeonbuk National University.\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 8, 2023\n\n\n[STBDA] 1wk. 단순선형회귀**\n\n\nJiyunLim\n\n\n\n\n\n\nNo matching items"
+    "text": "This page is organized based on the contents of the Big Data Analysis Special Lecture (2022-1) and lecture notes of Professor Guebin Choi of Jeonbuk National University.\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 8, 2023\n\n\n[STBDA] 1wk. 단순선형회귀**\n\n\nJiyunLim\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "2_dv2022.html",
@@ -98,6 +98,90 @@
     "text": "# for test\nimport matplotlib.pyplot as plt\nplt.plot([1,2,3,4], [1,4,9,16],'ro')"
   },
   {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html",
+    "title": "05wk-1",
+    "section": "",
+    "text": "seaborn(2)–scatterplot, mpl미세먼지팁(2)"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#plt-복습",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#plt-복습",
+    "title": "05wk-1",
+    "section": "plt 복습",
+    "text": "plt 복습\n\nplt.plot(x1,y1,'o')\nplt.plot(x2,y2,'o')"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-array",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-array",
+    "title": "05wk-1",
+    "section": "sns: array",
+    "text": "sns: array\n\nsns.scatterplot(data=None,x=x1,y=y1)\nsns.scatterplot(data=None,x=x2,y=y2)\n\n<AxesSubplot:>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-wide-df",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-wide-df",
+    "title": "05wk-1",
+    "section": "sns: wide df",
+    "text": "sns: wide df\n\nsns.scatterplot(data=pd.DataFrame({'x':x1,'y':y1}),x='x',y='y')\nsns.scatterplot(data=pd.DataFrame({'x':x2,'y':y2}),x='x',y='y')\n#sns.scatterplot(data=None,x=x2,y=y2)\n\n<AxesSubplot:xlabel='x', ylabel='y'>\n\n\n\n\n\n\n억지로 그리긴 했는데 이 경우는 wide하게 만든 df는 별로 경쟁력이 없음"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-long-df",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-long-df",
+    "title": "05wk-1",
+    "section": "sns: long df",
+    "text": "sns: long df\n\nx= np.concatenate([x1,x2])\ny= np.concatenate([y1,y2])\ncat = ['x1']*len(x1) + ['x2']*len(x2)\ndf2 = pd.DataFrame({'x':x,'y':y,'cat':cat})\ndf2\n\n\n\n\n\n  \n    \n      \n      x\n      y\n      cat\n    \n  \n  \n    \n      0\n      2.023919\n      -0.400176\n      x1\n    \n    \n      1\n      1.229622\n      -1.763752\n      x1\n    \n    \n      2\n      -0.413211\n      2.293004\n      x1\n    \n    \n      3\n      -1.343073\n      0.404232\n      x1\n    \n    \n      4\n      1.062845\n      0.030775\n      x1\n    \n    \n      ...\n      ...\n      ...\n      ...\n    \n    \n      1995\n      2.226805\n      3.683857\n      x2\n    \n    \n      1996\n      2.768263\n      2.678292\n      x2\n    \n    \n      1997\n      2.525295\n      2.815478\n      x2\n    \n    \n      1998\n      1.750193\n      2.289812\n      x2\n    \n    \n      1999\n      1.153290\n      2.095922\n      x2\n    \n  \n\n2000 rows × 3 columns\n\n\n\n\nsns.scatterplot(data=df2,x='x',y='y',hue='cat') \n\n<AxesSubplot:xlabel='x', ylabel='y'>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#예제1",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#예제1",
+    "title": "05wk-1",
+    "section": "예제1",
+    "text": "예제1\n\nfig,ax = plt.subplots(1,3,figsize=(12,4))\nax[0].plot([1,2,4,3],'--o')\nsns.scatterplot(x=x1,y=y1,ax=ax[1])\nsns.scatterplot(x=x1,y=y1,ax=ax[2])\nsns.scatterplot(x=x2,y=y2,ax=ax[2])\nax[2].plot([1,2,4,3],'-r',lw=5)"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#예제2",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#예제2",
+    "title": "05wk-1",
+    "section": "예제2",
+    "text": "예제2\n\nimport cv2\n\n\n!wget https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg \nimg = cv2.imread('Unequalized_Hawkes_Bay_NZ.jpg',0)\n!rm Unequalized_Hawkes_Bay_NZ.jpg \n\n--2022-10-05 16:33:56--  https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg\nResolving upload.wikimedia.org (upload.wikimedia.org)... 103.102.166.240, 2001:df2:e500:ed1a::2:b\nConnecting to upload.wikimedia.org (upload.wikimedia.org)|103.102.166.240|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 110895 (108K) [image/jpeg]\nSaving to: ‘Unequalized_Hawkes_Bay_NZ.jpg’\n\nUnequalized_Hawkes_ 100%[===================>] 108.30K   548KB/s    in 0.2s    \n\n2022-10-05 16:33:57 (548 KB/s) - ‘Unequalized_Hawkes_Bay_NZ.jpg’ saved [110895/110895]\n\n\n\n\nimg2 = cv2.equalizeHist(img)\n\n\nimg.reshape(-1)\n\narray([127, 145, 149, ..., 146, 145, 144], dtype=uint8)\n\n\n\nfig,ax = plt.subplots(2,2,figsize=(10,5))\nax[0,0].imshow(img,vmin=0,vmax=255,cmap='gray')\nsns.histplot(img.reshape(-1),ax=ax[0,1],bins=15,lw=0,kde=True,color='C1')\nax[0,1].set_xlim(0,255)\nax[1,0].imshow(img2,vmin=0,vmax=255,cmap='gray')\nsns.histplot(img2.reshape(-1),ax=ax[1,1],bins=15,lw=0,kde=True,color='C1')\n\n<AxesSubplot:ylabel='Count'>\n\n\n\n\n\n- seaborn: figure-level vs axes-level 의 개념\nref: https://seaborn.pydata.org/tutorial/function_overview.html#figure-level-vs-axes-level-functions"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-간격조정",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-간격조정",
+    "title": "05wk-1",
+    "section": "축 간격조정",
+    "text": "축 간격조정\n\nimport matplotlib as mpl\n\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(3)) # 큰 눈금간격을 3으로\nax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(1)) # 작은 눈금간격을 1로"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-삭제",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-삭제",
+    "title": "05wk-1",
+    "section": "축 삭제",
+    "text": "축 삭제\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.xaxis.set_major_locator(mpl.ticker.NullLocator()) # x축 눈금삭제\nax.yaxis.set_major_locator(mpl.ticker.NullLocator()) # y축 눈금삭제"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-범위조정",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-범위조정",
+    "title": "05wk-1",
+    "section": "축 범위조정",
+    "text": "축 범위조정\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.set_ylim(-1,2) \nax.set_xlim(-5,35)\n#plt.ylim(-1,2)\n#plt.xlim(-5,35)\n\n(-5.0, 35.0)"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#gcf-gca",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#gcf-gca",
+    "title": "05wk-1",
+    "section": "gcf, gca",
+    "text": "gcf, gca\n- gcf\n\nplt.plot([1,2,3,2])\nfig = plt.gcf()\n\n\n\n\n\nfig.suptitle('suptitle')\n\nText(0.5, 0.98, 'suptitle')\n\n\n\nfig\n\n\n\n\n- gca\n\nfig\n\n\n\n\n\nax = fig.gca()\n\n\nax.set_title('title') \nfig"
+  },
+  {
+    "objectID": "posts/2_DV2022/9999.html",
+    "href": "posts/2_DV2022/9999.html",
+    "title": "Quarto-Blog",
+    "section": "",
+    "text": "!wget https://raw.githubusercontent.com/guebin/DV2022/main/posts/2022-10-03-5wk-1.ipynb\n\n--2023-05-21 02:24:58--  https://raw.githubusercontent.com/guebin/DV2022/main/posts/2022-10-03-5wk-1.ipynb\nResolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...\nConnecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 488865 (477K) [text/plain]\nSaving to: ‘2022-10-03-5wk-1.ipynb’\n\n2022-10-03-5wk-1.ip 100%[===================>] 477.41K  --.-KB/s    in 0.02s   \n\n2023-05-21 02:24:58 (25.0 MB/s) - ‘2022-10-03-5wk-1.ipynb’ saved [488865/488865]"
+  },
+  {
     "objectID": "posts/2_DV2022/2022-10-17-7wk-1.html",
     "href": "posts/2_DV2022/2022-10-17-7wk-1.html",
     "title": "07wk-1 [Pandas] 새로운 열 할당, 아이스크림을 많이 먹으면 걸리는 병(1)",
@@ -182,6 +266,160 @@
     "text": "Toy exam\n- 교재의 예제상황은 예를들면 아래와 같다.\n(숨은진짜상황1)\n\\[\\text{아이스크림 판매량} = 20 + 2 \\times \\text{온도} + \\epsilon\\]\n\nnp.random.seed(1) \ntemp= np.array([-10.2, -5.2, 0.1, 10.1, 12.2, 14.7, \n                25.4, 26.8, 28.9, 35.1, 32.2, 34.6])\neps= np.random.normal(size=12,scale=5)\nicecream= 20 + temp * 2 + eps\n\n\nplt.plot(temp,icecream,'.')\n\n\n\n\n\n온도와 아이스크림 판매량의 산점도\n\n(숨은진짜상황2)\n\\[\\text{소아마비 반응수치} = 30 + 0.5 \\times \\text{온도} + \\epsilon\\] - 좌변은 소아마비임을 나타내는 어떠한 반응수치라고 생각하자.\n\nnp.random.seed(2) \neps = np.random.normal(size=12,scale=5) \ndisease = 30+ temp* 0.5 + eps\n\n\nplt.plot(temp,disease,'.')\n\n\n\n\n\n온도와 소아마비의 산점도\n\n(우리가 데이터로부터 관측한 상황)\n- 아이스크림과 질병의 산점도를 그려보자.\n\nplt.plot(icecream,disease,'.')\n\n\n\n\n\n양의 상관관계에 있다.\n\n- 아이스크림 중 어떠한 물질이 소아마비를 일으키는것이 분명하므로 (인과성이 분명해보이니까) 아래와 같은 모형을 세우자. <– 여기서부터 틀렸음\n\\[{\\tt disease}_i =\\beta_0 +\\beta_1 {\\tt icecream}_i +\\epsilon_i,\\quad \\textbf{for} ~~ i=1,2,\\dots, 12\\]\n- 적절한 \\(\\beta_0\\)와 \\(\\beta_1\\)을 추정하면 우리는 아이스크림과 소아마비의 관계를 알 수 있다. <– 틀린주장\n\n틀린 모형\n도데체 우리가 뭘 잘못했는가?\n\n- 두 변수 사이에 상관관계가 있어도 실제 원인은 다른 변수에 숨겨져 있는 경우가 많다.\n(ex1)\n\n온도 \\(\\to\\) 익사\n온도 \\(\\to\\) 아이스크림\n아이스크림과 익사자도 양의 상관관계에 있을것이다.\n아이스크림을 먹이면 물에 빠져 죽는다 \\(\\to\\) 틀린주장\n사실 기온이 숨겨진 원인이다. 기온이 증가하면 아이스크림 판매량도 증가하고 폭염때문에 익사사고율도 높아지는 구조이다.\n\n(ex2)\n\n인구수 \\(\\to\\) 교회\n인구수 \\(\\to\\) 범죄건수\n지역별 교회와 범죄건수를 살펴보면 상관관계가 높게 나올것임\n교회를 지으면 범죄건수도 증가한다? \\(\\to\\) 틀린주장\n사실 인구가 숨겨진 요인임\n\n- ex2, ex1에 대하여 바른 분석을 하려면?\n\nex2: 인구가 비슷한 도시끼리 묶어서 비교해보면 교회와 범죄의 건수는 양의 상관관계에 있지 않을것임\nex1: 온도가 비슷한 그룹끼리 묶어보자.\n\n- 올바른 분석: 온도가 비슷한 그룹끼리 묶어서 그려보자. \\(\\to\\) 상관계수가 줄어들 것이다.\n\nplt.plot(icecream[:6],disease[:6],'.')\n\n\n\n\n\nplt.plot(icecream[6:],disease[6:],'.')\n\n\n\n\n\n진짜로 선형관계가 약해졌다.."
   },
   {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html",
+    "title": "05wk-2",
+    "section": "",
+    "text": "훌륭한 시각화, mpg 데이터 소개, plotnine(p9)을 이용한 고차원 산점도"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#애드워드-터프티",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#애드워드-터프티",
+    "title": "05wk-2",
+    "section": "애드워드 터프티",
+    "text": "애드워드 터프티\n- 데이터 시각화계의 거장\n- 터프티의 이론중 백미: 엄격한 미니멀리즘\n\n최소한의 잉크로 많은 정보를 전달할 수 있다면 그것이 바로 좋은 그래프이다.\n작은 지면 내에서 잉크를 최대한 적게 써서 짧은 시간 안에 많은 영감을 주어야 한다.\n\n- 데이터-잉크비: 데이터를 표현하는데 들아가는 잉크의 양 / 그래픽을 인쇄하는데 들어가는 잉크의 총량\n- 차트정크 (나이젤홈즈의 그래프)\n\n\n“Lurking behind chartjunk is contempt both for information and for the audience. Chartjunk promoters imagine that numbers and details are boring, dull, and tedious, requiring ornament to enliven. Cosmetic decoration, which frequently distorts the data, will never salvage an underlying lack of content. If the numbers are boring, then you’ve got the wrong numbers (…) Worse is contempt for our audience, designing as if readers were obtuse and uncaring. In fact, consumers of graphics are often more intelligent about the information at hand than those who fabricate the data decoration (…) The operating moral premise of information design should be that our readers are alert and caring; they may be busy, eager to get on with it, but they are not stupid.”\n\n\n차트정크 = 대중을 멸시 + 데이터에 대한 모독\n차트정크 옹호가는 숫자와 데이터가 지루하여 활기가 필요하다고 생각하는 모양이다..\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 제 생각: 글쎄…"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#찰스미나드의-도표",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#찰스미나드의-도표",
+    "title": "05wk-2",
+    "section": "찰스미나드의 도표",
+    "text": "찰스미나드의 도표\n\n인류역사상 가장 훌륭한 시각화\n\n\n- 터프티의 평\n\n지금까지 그려진 최고의 통계 그래픽일지도 모른다.\n여기에서는 군대의 크기, 2차원 평면상의 위치, 군대의 이동방향, 모스코바에서 퇴각하는 동안의 여러날짜, 온도 \\(\\to\\) 6차원의 변수\n백만번에 한번 이런 그림을 그릴수는 있겠지만 이러한 멋진 그래픽을 만드는 방법에 대한 원칙은 없다. \\(\\to\\) 미니멀리즘..\n\n- 왜 우수한 그래프일까?\n\n자료를 파악하는 기법은 최근까지도 산점도, 막대그래프, 라인플랏에 의존\n이러한 플랏의 단점은 고차원의 자료를 분석하기 어렵다는 것임\n미나드는 여러그램을 그리는 방법 대신에 한 그림에서 패널을 늘리는 방법을 선택함."
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#미나드처럼-그리는게-왜-어려운가",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#미나드처럼-그리는게-왜-어려운가",
+    "title": "05wk-2",
+    "section": "미나드처럼 그리는게 왜 어려운가?",
+    "text": "미나드처럼 그리는게 왜 어려운가?\n- 몸무게, 키, 성별, 국적\n\ndf1=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv')\ndf2=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv')  \ndf3=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv') \ndf4=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/foreign.csv')\n\n- 미나드의 접근방법\n\n_df = pd.concat([pd.concat([df1,df2],axis=1).assign(g='m'),df3.assign(g='f')])\ndf = pd.concat([_df.assign(g2='korea'),df4.assign(g2='foreign')]).reset_index(drop=True)\ndf\n\n\n\n\n\n  \n    \n      \n      w\n      h\n      g\n      g2\n    \n  \n  \n    \n      0\n      72.788217\n      183.486773\n      m\n      korea\n    \n    \n      1\n      66.606430\n      173.599877\n      m\n      korea\n    \n    \n      2\n      69.806324\n      173.237903\n      m\n      korea\n    \n    \n      3\n      67.449439\n      173.223805\n      m\n      korea\n    \n    \n      4\n      70.463183\n      174.931946\n      m\n      korea\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      1525\n      78.154632\n      188.324350\n      m\n      foreign\n    \n    \n      1526\n      74.754308\n      183.017979\n      f\n      foreign\n    \n    \n      1527\n      91.196208\n      190.100456\n      m\n      foreign\n    \n    \n      1528\n      87.770394\n      187.987255\n      m\n      foreign\n    \n    \n      1529\n      88.021995\n      193.456798\n      m\n      foreign\n    \n  \n\n1530 rows × 4 columns\n\n\n\n\nsns.scatterplot(data=df,x='w',y='h',hue='g',style='g2')\n\n<AxesSubplot:xlabel='w', ylabel='h'>\n\n\n\n\n\n- 어려운점: (1) 센스가 없어서 hue/style을 이용하여 그룹을 구분할 생각을 못함 (2) long df (=tidy data) 형태로 데이터를 정리할 생각을 못함 (3) long df 형태로 데이터를 변형하는 코드를 모름\n\n\n기획력부족 -> 훌륭한 시각화를 많이 볼 것\n\n\n데이터프레임에 대한 이해부족 -> tidydata에 대한 개념\n\n\n프로그래밍 능력 -> 코딩공부열심히 (pandas를 엄청 잘해야함)"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#방법1-rpy2-코랩-아닌경우-실습금지",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#방법1-rpy2-코랩-아닌경우-실습금지",
+    "title": "05wk-2",
+    "section": "방법1: rpy2 (코랩 아닌경우 실습금지)",
+    "text": "방법1: rpy2 (코랩 아닌경우 실습금지)\n\nimport rpy2\n%load_ext rpy2.ipython\n\n\n%%R \n### 여기는 R처럼 쓸 수 있다. \na <- c(1,2,3) \na+1\n\n[1] 2 3 4\n\n\n\na\n\nNameError: name 'a' is not defined\n\n\n\n%%R \nlibrary(tidyverse)\nmpg\n\n# A tibble: 234 × 11\n   manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class\n   <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>\n 1 audi         a4           1.8  1999     4 auto… f        18    29 p     comp…\n 2 audi         a4           1.8  1999     4 manu… f        21    29 p     comp…\n 3 audi         a4           2    2008     4 manu… f        20    31 p     comp…\n 4 audi         a4           2    2008     4 auto… f        21    30 p     comp…\n 5 audi         a4           2.8  1999     6 auto… f        16    26 p     comp…\n 6 audi         a4           2.8  1999     6 manu… f        18    26 p     comp…\n 7 audi         a4           3.1  2008     6 auto… f        18    27 p     comp…\n 8 audi         a4 quattro   1.8  1999     4 manu… 4        18    26 p     comp…\n 9 audi         a4 quattro   1.8  1999     4 auto… 4        16    25 p     comp…\n10 audi         a4 quattro   2    2008     4 manu… 4        20    28 p     comp…\n# … with 224 more rows\n# ℹ Use `print(n = ...)` to see more rows\n\n\n\nmpg\n\nNameError: name 'mpg' is not defined\n\n\n\n%R -o mpg # R에 있는 자료가 파이썬으로 넘어옴\n\n\nmpg\n\n\n\n\n\n  \n    \n      \n      manufacturer\n      model\n      displ\n      year\n      cyl\n      trans\n      drv\n      cty\n      hwy\n      fl\n      class\n    \n  \n  \n    \n      1\n      audi\n      a4\n      1.8\n      1999\n      4\n      auto(l5)\n      f\n      18\n      29\n      p\n      compact\n    \n    \n      2\n      audi\n      a4\n      1.8\n      1999\n      4\n      manual(m5)\n      f\n      21\n      29\n      p\n      compact\n    \n    \n      3\n      audi\n      a4\n      2.0\n      2008\n      4\n      manual(m6)\n      f\n      20\n      31\n      p\n      compact\n    \n    \n      4\n      audi\n      a4\n      2.0\n      2008\n      4\n      auto(av)\n      f\n      21\n      30\n      p\n      compact\n    \n    \n      5\n      audi\n      a4\n      2.8\n      1999\n      6\n      auto(l5)\n      f\n      16\n      26\n      p\n      compact\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      230\n      volkswagen\n      passat\n      2.0\n      2008\n      4\n      auto(s6)\n      f\n      19\n      28\n      p\n      midsize\n    \n    \n      231\n      volkswagen\n      passat\n      2.0\n      2008\n      4\n      manual(m6)\n      f\n      21\n      29\n      p\n      midsize\n    \n    \n      232\n      volkswagen\n      passat\n      2.8\n      1999\n      6\n      auto(l5)\n      f\n      16\n      26\n      p\n      midsize\n    \n    \n      233\n      volkswagen\n      passat\n      2.8\n      1999\n      6\n      manual(m5)\n      f\n      18\n      26\n      p\n      midsize\n    \n    \n      234\n      volkswagen\n      passat\n      3.6\n      2008\n      6\n      auto(s6)\n      f\n      17\n      26\n      p\n      midsize\n    \n  \n\n234 rows × 11 columns"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#방법2-저장된-csv파일을-통하여-데이터를-확보",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#방법2-저장된-csv파일을-통하여-데이터를-확보",
+    "title": "05wk-2",
+    "section": "방법2: 저장된 csv파일을 통하여 데이터를 확보",
+    "text": "방법2: 저장된 csv파일을 통하여 데이터를 확보\n\nmpg.to_csv(\"mpg.csv\",index=False)\n\n\npd.read_csv(\"mpg.csv\")\n\n\n\n\n\n  \n    \n      \n      manufacturer\n      model\n      displ\n      year\n      cyl\n      trans\n      drv\n      cty\n      hwy\n      fl\n      class\n    \n  \n  \n    \n      0\n      audi\n      a4\n      1.8\n      1999\n      4\n      auto(l5)\n      f\n      18\n      29\n      p\n      compact\n    \n    \n      1\n      audi\n      a4\n      1.8\n      1999\n      4\n      manual(m5)\n      f\n      21\n      29\n      p\n      compact\n    \n    \n      2\n      audi\n      a4\n      2.0\n      2008\n      4\n      manual(m6)\n      f\n      20\n      31\n      p\n      compact\n    \n    \n      3\n      audi\n      a4\n      2.0\n      2008\n      4\n      auto(av)\n      f\n      21\n      30\n      p\n      compact\n    \n    \n      4\n      audi\n      a4\n      2.8\n      1999\n      6\n      auto(l5)\n      f\n      16\n      26\n      p\n      compact\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      229\n      volkswagen\n      passat\n      2.0\n      2008\n      4\n      auto(s6)\n      f\n      19\n      28\n      p\n      midsize\n    \n    \n      230\n      volkswagen\n      passat\n      2.0\n      2008\n      4\n      manual(m6)\n      f\n      21\n      29\n      p\n      midsize\n    \n    \n      231\n      volkswagen\n      passat\n      2.8\n      1999\n      6\n      auto(l5)\n      f\n      16\n      26\n      p\n      midsize\n    \n    \n      232\n      volkswagen\n      passat\n      2.8\n      1999\n      6\n      manual(m5)\n      f\n      18\n      26\n      p\n      midsize\n    \n    \n      233\n      volkswagen\n      passat\n      3.6\n      2008\n      6\n      auto(s6)\n      f\n      17\n      26\n      p\n      midsize\n    \n  \n\n234 rows × 11 columns"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#방법3-github등에-공개된-csv를-읽어오기",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#방법3-github등에-공개된-csv를-읽어오기",
+    "title": "05wk-2",
+    "section": "방법3: github등에 공개된 csv를 읽어오기",
+    "text": "방법3: github등에 공개된 csv를 읽어오기\n\npd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/mpg.csv')\n\n\n\n\n\n  \n    \n      \n      manufacturer\n      model\n      displ\n      year\n      cyl\n      trans\n      drv\n      cty\n      hwy\n      fl\n      class\n    \n  \n  \n    \n      0\n      audi\n      a4\n      1.8\n      1999\n      4\n      auto(l5)\n      f\n      18\n      29\n      p\n      compact\n    \n    \n      1\n      audi\n      a4\n      1.8\n      1999\n      4\n      manual(m5)\n      f\n      21\n      29\n      p\n      compact\n    \n    \n      2\n      audi\n      a4\n      2.0\n      2008\n      4\n      manual(m6)\n      f\n      20\n      31\n      p\n      compact\n    \n    \n      3\n      audi\n      a4\n      2.0\n      2008\n      4\n      auto(av)\n      f\n      21\n      30\n      p\n      compact\n    \n    \n      4\n      audi\n      a4\n      2.8\n      1999\n      6\n      auto(l5)\n      f\n      16\n      26\n      p\n      compact\n    \n    \n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n      ...\n    \n    \n      229\n      volkswagen\n      passat\n      2.0\n      2008\n      4\n      auto(s6)\n      f\n      19\n      28\n      p\n      midsize\n    \n    \n      230\n      volkswagen\n      passat\n      2.0\n      2008\n      4\n      manual(m6)\n      f\n      21\n      29\n      p\n      midsize\n    \n    \n      231\n      volkswagen\n      passat\n      2.8\n      1999\n      6\n      auto(l5)\n      f\n      16\n      26\n      p\n      midsize\n    \n    \n      232\n      volkswagen\n      passat\n      2.8\n      1999\n      6\n      manual(m5)\n      f\n      18\n      26\n      p\n      midsize\n    \n    \n      233\n      volkswagen\n      passat\n      3.6\n      2008\n      6\n      auto(s6)\n      f\n      17\n      26\n      p\n      midsize\n    \n  \n\n234 rows × 11 columns\n\n\n\n- 깃허브 저장소에 아예 데이터만 따로 모아서 관리하는 것도 좋은 방법입니다."
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#data-설명",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#data-설명",
+    "title": "05wk-2",
+    "section": "data 설명",
+    "text": "data 설명\n- displ: 자동차의 엔진크기\n- hwy: 연료의 효율, 동일한 연료로 얼마나 멀리 가느냐?\n- 자세한 설명은 R에서 ?mpg를 이용해 스스로 찾아볼 것"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#python에서-plotnine을-이용한-산점도",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#python에서-plotnine을-이용한-산점도",
+    "title": "05wk-2",
+    "section": "python에서: plotnine을 이용한 산점도",
+    "text": "python에서: plotnine을 이용한 산점도\n\nggplot(data=mpg) + geom_point(mapping=aes(x='displ',y='hwy')) ## plotnine\n\n\n\n\n<ggplot: (8726736046009)>\n\n\n\n산점도 해석: 엔진크기가 클수록 효율이 낮음.\n\n- 빠르게 그리기: data=와 mapping=은 생략가능함\n\nggplot(mpg) + geom_point(aes(x='displ',y='hwy')) ## plotnine\n\n\n\n\n<ggplot: (8726735544581)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#r에서-ggplot2를-이용한-산점도",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#r에서-ggplot2를-이용한-산점도",
+    "title": "05wk-2",
+    "section": "R에서: ggplot2를 이용한 산점도",
+    "text": "R에서: ggplot2를 이용한 산점도\n- R에서도 거의 똑같은 문법으로 그릴 수 있음 (데이터프레임 혹은 티블에 저장된 column 이름을 사용할때 따옴표만 제거하면 된다!)\n\n%%R -w 800\nggplot(mpg) + geom_point(aes(x=displ,y=hwy)) ## plotnine"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#python에서-객체지향적인-느낌으로-산점도-그리기",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#python에서-객체지향적인-느낌으로-산점도-그리기",
+    "title": "05wk-2",
+    "section": "python에서: 객체지향적인 느낌으로 산점도 그리기",
+    "text": "python에서: 객체지향적인 느낌으로 산점도 그리기\nstep1: 도화지를 준비한다.\n\nfig = ggplot(data=mpg)\nfig\n\n\n\n\n<ggplot: (8726735085529)>\n\n\nstep2 변수와 에스테틱사이의 맵핑을 설정한다.\n\na1= aes(x='displ',y='hwy')\na1\n\n{'x': 'displ', 'y': 'hwy'}\n\n\nstep3 점들의 집합을 만든다. 즉 포인트 지옴을 만든다.\n\npoint1=geom_point(mapping=a1)\n\n\ngeom_point(): 점들을 그려! 어떻게?\na1에서 설정된 표를 보고\n\nstep4 도화지와 지옴을 합친다.\n\nfig+point1\n\n\n\n\n<ggplot: (8726775447877)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경",
+    "title": "05wk-2",
+    "section": "산점도 + 점크기변경",
+    "text": "산점도 + 점크기변경\n\nggplot(data=mpg) + geom_point(mapping = aes(x='displ',y='hwy',size='class'))\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n<ggplot: (8726734563561)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-투명도변경",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-투명도변경",
+    "title": "05wk-2",
+    "section": "산점도 + 투명도변경",
+    "text": "산점도 + 투명도변경\n\nggplot(data=mpg) + geom_point(mapping = aes(x='displ',y='hwy',alpha='class'))\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_alpha.py:70: PlotnineWarning: Using alpha for a discrete variable is not advised.\n\n\n\n\n\n<ggplot: (8726734989121)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-투명도점크기를-동시에-적용",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-투명도점크기를-동시에-적용",
+    "title": "05wk-2",
+    "section": "산점도 + 투명도/점크기를 동시에 적용",
+    "text": "산점도 + 투명도/점크기를 동시에 적용\n\nggplot(data=mpg) + geom_point(mapping = aes(x='displ',y='hwy',alpha='class',size='class'))\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_alpha.py:70: PlotnineWarning: Using alpha for a discrete variable is not advised.\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n<ggplot: (8726734522405)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-형태",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-형태",
+    "title": "05wk-2",
+    "section": "산점도 + 형태",
+    "text": "산점도 + 형태\n\nggplot(data=mpg) + geom_point(mapping = aes(x='displ',y='hwy',shape='class'))\n\n\n\n\n<ggplot: (8726734265229)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-색깔",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-색깔",
+    "title": "05wk-2",
+    "section": "산점도 + 색깔",
+    "text": "산점도 + 색깔\n\nggplot(data=mpg) + geom_point(mapping = aes(x='displ',y='hwy',color='class'))\n\n\n\n\n<ggplot: (8726734017473)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#객체지향적-느낌으로",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#객체지향적-느낌으로",
+    "title": "05wk-2",
+    "section": "객체지향적 느낌으로?",
+    "text": "객체지향적 느낌으로?\n\na2 = aes(x='displ', y='hwy', color='class') \n\n\na1,a2\n\n({'x': 'displ', 'y': 'hwy'}, {'x': 'displ', 'y': 'hwy', 'color': 'class'})\n\n\n\npoint2=geom_point(a2)\n\n\nfig+point2\n\n\n\n\n<ggplot: (8726733712885)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-색깔-적합선",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-색깔-적합선",
+    "title": "05wk-2",
+    "section": "산점도 + 색깔 + 적합선",
+    "text": "산점도 + 색깔 + 적합선\n- 일단 색깔이 없는 포인트 지옴부터 연습\n\nfig+point1\n\n\n\n\n<ggplot: (8726733452617)>\n\n\n\nline1 = geom_smooth(a1)\n\n\nfig+point1+line1\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726732994973)>\n\n\n- point1(색깔없는 포인트 지옴)을 point2(색깔있는 포인트 지옴)으로 언제든지 바꿔치기 가능!\n\nfig+point2+line1\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726732661565)>\n\n\n- 명령어로 한번에 그리기\n\nggplot(data=mpg) + \\\ngeom_point(mapping=aes(x='displ',y='hwy',color='class')) + \\\ngeom_smooth(mapping=aes(x='displ',y='hwy'))\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726732727485)>\n\n\n- 공통적인 맵핑규칙은 ggplot()쪽으로 빼기도 한다. (figure를 선언하는 곳에서 공통으로 선언함)\n\nggplot(data=mpg,mapping=aes(x='displ',y='hwy')) + \\\ngeom_point(mapping=aes(color='class')) + \\\ngeom_smooth()\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726733489953)>\n\n\n- R에서는 confidence interval도 geom_smooth()를 이용하여 확인할 수 있다.\n\n%%R -w 800\nggplot(data=mpg,mapping=aes(x=displ,y=hwy)) + geom_point(mapping=aes(color=class)) + geom_smooth()\n\nR[write to console]: `geom_smooth()` using method = 'loess' and formula 'y ~ x'"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔",
+    "title": "05wk-2",
+    "section": "산점도 + 점크기변경 + 색깔",
+    "text": "산점도 + 점크기변경 + 색깔\n- drv (전륜, 후륜, 4륜 구동)에 따라서 데이터를 시각화 하고 싶다.\n\nggplot(data=mpg, mapping=aes(x='displ',y='hwy')) + geom_point(mapping=aes(size='class',color='drv'),alpha=0.3)\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n<ggplot: (8726731152845)>\n\n\n\n모든 \\(x\\)에 대하여 붉은색 점들이 대부분 초록색과 보라색 점들에 비하여 아래쪽에 있음 \\(\\to\\) 4륜구동방식이 연비가 좋지 않음"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔-객체지향버전",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔-객체지향버전",
+    "title": "05wk-2",
+    "section": "산점도 + 점크기변경 + 색깔 (객체지향버전)",
+    "text": "산점도 + 점크기변경 + 색깔 (객체지향버전)\n- 맵핑규칙\n\na1,a2\n\n({'x': 'displ', 'y': 'hwy'}, {'x': 'displ', 'y': 'hwy', 'color': 'class'})\n\n\n\na3 = a2.copy() \n\n\na3['color'] = 'drv'\na3['size'] = 'class'\na3\n\n{'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'}\n\n\n\n아래와 같이 선언해도 괜찮음\n\na3= aes(x='displ',y='hwy',color='drv',size='class')\n\npoint3=geom_point(a3)\n\n\nfig+point3\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n<ggplot: (8726731065581)>\n\n\n\n그림의 전체적인 투명도를 조절하면 좋겠음\n\n\npoint3=geom_point(a3,alpha=0.2)\nfig+point3\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n\n\n\n\n\n<ggplot: (8726730819657)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔-선추가",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔-선추가",
+    "title": "05wk-2",
+    "section": "산점도 + 점크기변경 + 색깔 + 선추가",
+    "text": "산점도 + 점크기변경 + 색깔 + 선추가\n\nfig+point3+line1\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726730575253)>"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔-drv별로-선추가",
+    "href": "posts/2_DV2022/2022-10-06-5wk-2.html#산점도-점크기변경-색깔-drv별로-선추가",
+    "title": "05wk-2",
+    "section": "산점도 + 점크기변경 + 색깔 + drv별로 선추가",
+    "text": "산점도 + 점크기변경 + 색깔 + drv별로 선추가\n- 맵핑규칙\n\na1,a2,a3\n\n({'x': 'displ', 'y': 'hwy'},\n {'x': 'displ', 'y': 'hwy', 'color': 'class'},\n {'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'})\n\n\n\na4 = a2.copy() \na4['color']='drv'\na4\n\n{'x': 'displ', 'y': 'hwy', 'color': 'drv'}\n\n\n\nline2 = geom_smooth(a4)\n\n\nfig + point3 +line2\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726729919385)>\n\n\n- 선의 색깔을 동일하게 하고 선의 타입을 변경하여 drv를 표시하고 싶다면?\n\na1,a2,a3,a4\n\n({'x': 'displ', 'y': 'hwy'},\n {'x': 'displ', 'y': 'hwy', 'color': 'class'},\n {'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'},\n {'x': 'displ', 'y': 'hwy', 'color': 'drv'})\n\n\n\na5=a1.copy()\na5['linetype']='drv' \na5\n\n{'x': 'displ', 'y': 'hwy', 'linetype': 'drv'}\n\n\n\nline3 = geom_smooth(a5,size=0.5,color='gray')\n\n\nfig+point3+line3\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726732637457)>\n\n\n- 전체적인 추세선도 추가하고 싶다면?\n\nfig+point3+line3+line1\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726732939513)>\n\n\n- 그려보니까 역시 drv별로 그려지는 추세선은 색깔별로 구분하는게 좋겠음.\n\nline2 = geom_smooth(a4,size=0.5,linetype='dashed')\nfig+point3+line2+line1\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n<ggplot: (8726733678229)>\n\n\n- 고차원을 변수를 표현할 수 있는 무기는 다양하다.\n\n산점도(포인트지옴): 점의크기, 점의형태, 점의색깔, 점의투명도\n라인플랏(스무스지옴,라인지옴): 선의형태, 선의색깔, 선의굵기"
+  },
+  {
     "objectID": "posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html",
     "href": "posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html",
     "title": "[STBDA] 1wk. 단순선형회귀**",
@@ -219,9 +457,37 @@
   {
     "objectID": "posts/4_TS2023/2023-05-12-2wk.html",
     "href": "posts/4_TS2023/2023-05-12-2wk.html",
-    "title": "[TS] 2wk. 확률과정",
+    "title": "[TS] 2wk. 확률과정과 정상성",
     "section": "",
-    "text": "확률변수: \\(X(w) = x\\).\n확률벡터: \\(\\bf{X}(w) = \\left(X_1(w),\\dots,X_m(w)\\right)=(x_1,\\dots,x_m)\\)\n확률과정: \\(X(w,t) = x_t = x(t)\\)\n\n확률과정은 \\(w\\)와 \\(t\\)의 함수.\n\\(X(w,t)\\)를 \\(X_t(w)\\)로 표기하기도 함.\n고정된 \\(w \\Rightarrow\\) relization이 시간에 따른 함수\n고정된 \\(t \\Rightarrow\\) random variable이 함수\n\n\n(참고) : 고정된 \\(X(w,t)\\)의 relization을 sample path 혹은 sample function이라고 부른다.\n\n\n\n\\(\\Omega = \\{w_1,\\dots, w_{14,000,605}\\}\\) 이런 평행세계가 있다…\n\n각각의 \\(\\omega\\)에 매핑되는 함수(무한 개의 값들)가 있을 것이고, 시점을 \\(t_0\\)로 고정하면, 첫번째 평행세계에 대해서는 \\(X(w_1, t_0)\\), 두번째 평행세계에 대해서는 \\(X(w_2, t_0)\\), 세번째 평행세계에 대해서는 \\(X(w_3, t_0)\\)가 된다.\n\n\n\n모든 \\(\\omega\\)에 대하여 가능한 sample path를 모두 모은 뭉치. \\(\\Rightarrow\\) 앙상블(ensemble)\n\n앙상블 mean: 1번 timeseries, \\(\\dots\\) 14,000,605번 timeseries를 다 더해서 평균을 낸 것\n\n앙상블 mean : \\(\\sum_{i=1}^{14,000,605}\\frac{1}{14,000,605}\\times(w_1,t) \\Rightarrow \\sim\\)어떤 함수값 (mean function이라고 표현을 많이 함.)\n\n\n결국 화률변수 \\(X(w)\\)를 줄여서 \\(X\\)로 쓰고, 확률벡터 \\(\\bf{X}(w)\\)를 줄여서 \\(\\bf{X}\\)라 쓰고, 확률과정 \\(X(w,t)\\)를 줄여서 \\(X(t)\\)라고 쓴다.\n\n\\(X(w) \\to X\\)\n\\(\\bf{X}(w) \\to \\bf{X}\\)\n\\(X(w,t) \\to X(t)\\) 또는 \\(X_t\\)\n\n연속 시계열은 확률과정 그 자체이고, 이산 시계열은 원소의 수가 무한한 확률벡터라고 생각할 수 있다.우리가 많이 다루는 것은 이산 시계열이다.\n\n\n\n무한차원의 확률벡터 or. 확률과정의 smaple 버전이라고 생각할 수 있다. \\((x_1, x_2, \\dots, \\dots)\\)\n\\(\\omega\\): 평행세계의 인덱스\n\\(\\{Z_t(w), \\quad t=1,2,\\dots\\}\\)"
+    "text": "정의역: \\(\\Omega\\)\n치역: \\(\\mathbb{R}\\)의 부분집합\n\n\n\n\\(\\Omega = \\{H,T\\}\\)\n\\(X: \\Omega \\to \\mathbb{R}\\)\n\n- 기호\n집합: \\(\\Omega\\), 원소: \\(w\\), \\(\\quad w\\in \\Omega\\)\n\\(\\Omega = \\{H,T\\} = \\{w_1,w_2\\}\\)\n\\(X(w_1) = X(H)=0, X(w_2) = X(T)=1\\)\n- 주의\n\n\\(X: \\Omega \\to \\mathbb{R}\\)\n\\(P: \\cal{F} \\to [0,1]\\) (set function)\n\n(참고) \\(\\cal{F}\\): \\(\\Omega\\)의 부분집합 중 잴 수 있는 집합의 모임.\n\n\n\n\n“확률변수는 (특별한 성질을 가진) 함수다!”\n함수: \\(\\begin{align*}&y=f(x), \\quad f: \\text{function}, x: \\text{input}, y:\\text{outcome}\\\\ & x=X(w) \\quad X: \\text{random variable}, w: \\text{outcome}, x: \\text{realization}\\end{align*}\\)\n보통 \\(X(w)\\)에서 \\((w)\\)를 생략하고, 간단히 \\(X\\)로 표시 \\(\\to\\) 혼란의 이유!\n“확률변수는 결과가 랜덤으로 변한다.”\n1 맵핑규칙은 변화없음.\n\n\\(H\\to 0 \\quad w_1 \\to 0\\)\n\\(T\\to 1 \\quad w_2 \\to 1\\)\n\n2 입력. 즉, outcome은 실험결과에 따라 랜덤으로 변한다.\n\n\n\n\nw.p는 with probability를 의미.\n\n확률변수 \\(X = \\begin{cases} 0, & \\text{w.p. } \\frac{1}{2} \\\\ 1 & \\text{w.p. } \\frac{1}{2}\\end{cases}\\)\n(i) \\(X\\)는 변수처럼 보임.\n(ii) 변수의 값이 랜덤으로 변하는 것 같음\n\\(X(w) = \\begin{cases} 0, & w\\in \\{H\\} \\\\ 1, & w\\in \\{T\\} \\end{cases}\\)\n\n\n\n\n확률변수는 확률과 관련 없다.\n간접적으로는 관련있다. (\\(\\therefore\\) \\(X\\)의 역상 \\(= \\Omega\\)의 부분집합 \\(=P\\)의 정의역)\n\n\n\n\n- 시계예제\n\\(\\Omega=[0,2\\pi) \\qquad X: [0,2\\pi)\\to [0,2\\pi)\\)인 항등함수.\n\\(X\\)는 항등함수 \\(\\Rightarrow\\) 비탈리 집합의 역상은 비탈리집합 \\(\\Rightarrow\\) 확률을 정의할 수 X\n\n\n\n“확률변수 \\(X\\)를 그냥 함수가 아니라, 역상이 measurable set이 되는 함수라 하자.” \\(\\Leftrightarrow\\) \\(X\\)를 가측함수1라고 하자."
+  },
+  {
+    "objectID": "posts/4_TS2023/2023-05-12-2wk.html#시계열",
+    "href": "posts/4_TS2023/2023-05-12-2wk.html#시계열",
+    "title": "[TS] 2wk. 확률과정과 정상성",
+    "section": "시계열",
+    "text": "시계열\n\n확률변수 \\(X\\): \\(\\Omega\\to \\mathbb{R}\\)인 특별한 함수.\n확률벡터 \\(\\bf{X}: \\Omega\\to \\mathbb{R}^m\\)인 특별한 함수\n\n- 기호\n확률변수: \\(X(w) = x\\)\n확률벡터: \\(\\bf{X}(w) = (x_1,\\dots, x_m)\\) \\(\\to\\) 출력이 벡터임을 강조!\n확률변수: \\(X\\)\n확률벡터: \\(\\mathbf{X} = (X_1,\\dots,X_m), \\quad X_1,\\dots,X_m\\)은 \\(r.v.\\)\n\\(\\therefore \\bf{X} = (X_1,\\dots, X_m)(w) = (X_1(w),\\dots,X_m(w))=(x_1,\\dots,x_m)\\)\n\\(x_1 = \\text{2019-03-20} \\\\ x_2 = \\text{2019-03-21} \\\\ \\qquad \\vdots\\)\n\\(\\therefore x_1,\\dots, x_m \\Rightarrow \\text{2019-03-20}\\) 부터 순서대로 \\(m\\)개의 삼전주식값을 나열\nNote! : \\(w\\)만 알면 \\(x_1,\\dots,x_m\\)의 값이 저절로 결정.\n\\(X_1(w) = x_1 \\\\ X_2(w) = x_2,\\\\ \\qquad \\vdots\\)\n- 가능한 설명모형\n\n\\(14,000,605\\) 개의 평행세계\n우리는 이 중 하나의 세계에 \\(\\frac{1}{14,000,605}\\)의 “확률”로 선택되어져 살고있음.\n\n\\(\\Rightarrow \\Omega=\\{w_1,w_2,\\dots, w_{14,000,605}\\}\\)\n\\(P(\\{w_1\\})=P(\\{w_2\\})=\\dots=P(\\{w_{14,000,605}\\})=\\frac{1}{14,000,605}\\)\n\n하나의 평행세계가 선택 \\(\\Rightarrow\\) 그 평행세계의 모든 사건이 이미 결정.\n\n우리의 우주 \\(=\\) \\(777\\)번째 평행세계 \\(\\Rightarrow w=w_{777}\\)\n\n- 반론 : 미래는 고정되지 않음.\n\\(m+1\\) 시점은 총 \\(52,210-38,590=13,620\\)개의 미래가 가능!\n- 반론의 반론 : 처음부터 \\(14,000,605 \\times 13,620\\) 의 미래를 고려.\n\n\\(m\\)개의 삼전 주가 \\(\\Rightarrow 14,000,605\\)\n\\(m+1\\)개의 삼전주가 \\(\\Rightarrow 14,000,605 \\times 13,620\\)\n\n- 동전 2회\n\\(\\Omega = \\{\\{H,H\\}, \\{H,T\\}\\,\\{T,H\\}, \\{T,T\\}\\}\\)\n\\(\\{H,H\\}: w_1 \\\\ \\{H,T\\}:w_2 \\\\ \\{T,H\\}: w_3 \\\\ \\{T,T\\}:w_4\\)"
+  },
+  {
+    "objectID": "posts/4_TS2023/2023-05-12-2wk.html#복습-확률변수",
+    "href": "posts/4_TS2023/2023-05-12-2wk.html#복습-확률변수",
+    "title": "[TS] 2wk. 확률과정과 정상성",
+    "section": "복습: 확률변수",
+    "text": "복습: 확률변수\n\n\n기호정리\n\n확률변수: \\(X(w) = x\\).\n확률벡터: \\(\\bf{X}(w) = \\left(X_1(w),\\dots,X_m(w)\\right)=(x_1,\\dots,x_m)\\)\n확률과정: \\(X(w,t) = x_t = x(t)\\)\n\n확률과정은 \\(w\\)와 \\(t\\)의 함수.\n\\(X(w,t)\\)를 \\(X_t(w)\\)로 표기하기도 함.\n고정된 \\(w \\Rightarrow\\) relization이 시간에 따른 함수\n고정된 \\(t \\Rightarrow\\) random variable이 함수\n\n\n(참고) : 고정된 \\(w\\)에 대한 \\(X(w,t)\\)의 relization을 sample path 혹은 sample function이라고 부른다.\n\n\n용어정리1 (\\(\\star\\star\\star\\))\n\\(\\Omega = \\{w_1,\\dots, w_{14,000,605}\\}\\) 이런 평행세계가 있다…\n\n각각의 \\(\\omega\\)에 매핑되는 함수(무한 개의 값들)가 있을 것이고, 시점을 \\(t_0\\)로 고정하면, 첫번째 평행세계에 대해서는 \\(X(w_1, t_0)\\), 두번째 평행세계에 대해서는 \\(X(w_2, t_0)\\), 세번째 평행세계에 대해서는 \\(X(w_3, t_0)\\)가 된다.\n\n\n용어정리2\n모든 \\(\\omega\\)에 대하여 가능한 sample path를 모두 모은 뭉치. \\(\\Rightarrow\\) 앙상블(ensemble)\n\n\n\n앙상블(ensemble)\n\n\n\n앙상블 mean: 1번 timeseries, \\(\\dots\\) 14,000,605번 timeseries를 다 더해서 평균을 낸 것\n\n앙상블 mean : \\(\\sum_{i=1}^{14,000,605}\\frac{1}{14,000,605}\\times(w_i,t) \\Rightarrow \\sim\\)어떤 함수값 (mean function이라고 표현을 많이 함.)\n\n\n\n\nTime Average: 하나의 평행세계의 모든 시점에 대해 평균낸 것.\n\n\n결국 확률변수 \\(X(w)\\)를 줄여서 \\(X\\)로 쓰고, 확률벡터 \\(\\bf{X}(w)\\)를 줄여서 \\(\\bf{X}\\)라 쓰고, 확률과정 \\(X(w,t)\\)를 줄여서 \\(X(t)\\)라고 쓴다.\n\n\\(X(w) \\to X\\)\n\\(\\bf{X}(w) \\to \\bf{X}\\)\n\\(X(w,t) \\to X(t)\\) 또는 \\(X_t\\)\n\n연속 시계열은 확률과정 그 자체이고, 이산 시계열은 원소의 수가 무한한 확률벡터라고 생각할 수 있다.우리가 많이 다루는 것은 이산 시계열이다."
+  },
+  {
+    "objectID": "posts/4_TS2023/2023-05-12-2wk.html#시계열-1",
+    "href": "posts/4_TS2023/2023-05-12-2wk.html#시계열-1",
+    "title": "[TS] 2wk. 확률과정과 정상성",
+    "section": "시계열",
+    "text": "시계열\n시계열: 무한차원의 확률벡터 or. 확률과정의 smaple 버전이라고 생각할 수 있다. \\((x_1, x_2, \\dots, \\dots)\\)\n\\(\\{Z_t(w), \\quad t=1,2,\\dots\\}, \\quad\\) \\(\\omega\\): 평행세계의 인덱스\n\n교재의 표현정리\n\n확률과정: \\(X(t)\\)\n확률법칙: \\(P\\)\n확률공간: \\((\\Omega,\\cal{F}, P)\\)\n확률변수: \\(X\\)\n확률변수의 모임: \\(\\bf{X}, X(t)\\) \\(\\leftarrow\\) 확률벡터나 확률과정 모두 의미.\n집합 T: index set of random element2\n\nT의 원소가 1개이면 확률변수\nT의 원소가 유한개이면 확률벡터\nT의 원소가 무한개이면 확률과정\n\n연속형 확률과정 \\(= \\{X(t), \\quad t\\in (0,\\infty)\\}\\)\n\n집합 T가 \\((0,\\infty)\\)와 같이 구간으로 표현된 경우.\n\n이산형 확률과정: (\\(X_1,X_2,X_3,\\dots), (\\dots, X_{-1},X_0,X_1,X_2,\\dots)\\)\n\n집합T가 \\(\\{1,2,3,\\dots\\}, \\{\\dots,-1,0,1,2,\\dots\\}\\)\n\n실현값 (realization)\n\n\\(x\\) : 확률변수의 relization\n\\((x_1,\\dots, x_m)\\) : 확률벡터의 relization\n\\(x(t)\\) : 확률과정의 relization\n\n표본통로 (sample path): \\(x(t)\\)\n\n\n확률과정 노테이션 정리\n\n\n\n\n정상성\n\n정상성 가정이 안되면 시계열분석의 의미가 없다.\n\n\n\n\nensemble\n\n\n\n\n\n예제1. 동전 3번던지기\n동전을 3번 던지면 나올 수 있는 모든 경우의 수는 8가지. 따라서 평행세계가 8개 있다고 하자.\n\\(\\Omega = \\{w_1,\\dots,w_8\\} = \\{HHH,\\dots, TTT\\}\\)\n\\(P(w_1) = P(w_2) = \\dots = P(w_8)=\\frac{1}{8}\\)\n\n$\\bf{X}(HHH) = (X_1(HHH),X_2(HHH),X_3(HHH)) = (0,0,0) $확률벡터\n$\\bf{X}(TTT) = (X_1(TTT),X_2(TTT),X_3(TTT)) = (1,1,1) $확률벡터\n\n- 동전을 무한번 던진다? \\(\\to\\) 무한 개의 평행세계\n\\(X_t = (X_1,X_2,X_3,X_4,\\dots) \\leftarrow\\) 이산형확률과정 (베르누이 과정)\n\\(x_t = (x_1,x_2,x_3,x_4,\\dots) \\leftarrow\\) relization\n동전을 평생던져야 함.\n현실적인 관측 : \\((x_1,\\dots, x_{t^*-1})\\leftarrow t^*-1\\)\n질문 : \\(E(X+t^*)=\\frac{1}{2}\\times 0 + \\frac{1}{2}\\times 1 = \\frac{1}{2}\\)\n디펜스 : 니가 동전이 공평한 동전인지 어떻게 아느냐?\n\n\n\n큰수의 법칙: 동전을 계속던지다보면 1/2로 수렴하지 않느냐?\n\n\n계속 던지다 보니까 1/2이 나오잖아?\n하지만 시계열 문제에서는 이런식으로 대답을 못한다. 왜냐? \\(n\\)이 하나밖에 없잖아..(반복실험 자체가 불가능하다.3)\n시계열 문제 : \\(n=1\\)\n대안: \\(\\sum_{t=1}^{t^*-1}x_t/(t^*-1)\\)로 ensemble average를 추론.\n\n\\(\\sum_{t=1}^{t^*-1}x_t/(t^*-1)\\)를 time average라고 함.\n\n\niid 일경우 : time average로 ensemble average를 추론. (주황선)\n\\(\\Rightarrow\\) iid의 가정을 약화시키기 위한 노력이 필요함.\n\\(\\Rightarrow\\) 이러한 노력의 결과물이 stationary 가정임.\nstationary 가정은 관측치끼리 독립일 필요도 없고 uncorrelated 되어야할 필요도 없다.\n\\(\\Rightarrow\\) 정상성가정이 없다면 \\(\\Rightarrow\\) 시계열 분석을 할 이유가 없다.\n\n에르고딕..\n\niid일 경우 단점 : 쓸모가 없다. iid를 가정할 수 있으면, 회귀분석을 돌리면 되는데 시계열을 돌릴 필요가 없다. iid가 안되기 때문에 시계열을 돌리는 것. > 과거의 사건이 현재의 사건과 correlation이 있다고 믿고, 독립이 아니라고 믿기 때문에 분석이 어려운 것..\n결국 iid 보다 약한 가정을 찾다보니 stationary라는 가정이 생기게 됨."
+  },
+  {
+    "objectID": "posts/4_TS2023/2023-05-12-2wk.html#stationary-종류",
+    "href": "posts/4_TS2023/2023-05-12-2wk.html#stationary-종류",
+    "title": "[TS] 2wk. 확률과정과 정상성",
+    "section": "Stationary 종류",
+    "text": "Stationary 종류\n\nStrictly Stationary\n\\(\\{X_t\\}\\) is strictly stationary\n\\(\\Leftrightarrow \\forall t_1,\\dots,t_n \\in T\\)"
   },
   {
     "objectID": "posts/4_TS2023/2023-05-10-1wk.html",
@@ -431,7 +697,7 @@
     "href": "4_ts2023.html",
     "title": "TS2023",
     "section": "",
-    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 14, 2023\n\n\n[TS] 2wk-2. 확률과정과 정상성\n\n\nJiyunLim\n\n\n\n\nMay 12, 2023\n\n\n[TS] 2wk. 확률과정\n\n\nJiyunLim\n\n\n\n\nMay 10, 2023\n\n\n[TS] 1wk. 확률\n\n\nJiyunLim\n\n\n\n\n\n\nNo matching items"
+    "text": "Date\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nMay 14, 2023\n\n\n[TS] 2wk-2. 확률과정과 정상성\n\n\nJiyunLim\n\n\n\n\nMay 12, 2023\n\n\n[TS] 2wk. 확률과정과 정상성\n\n\nJiyunLim\n\n\n\n\nMay 10, 2023\n\n\n[TS] 1wk. 확률\n\n\nJiyunLim\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "5_study.html",
@@ -452,6 +718,6 @@
     "href": "index.html",
     "title": "2023 study blog",
     "section": "",
-    "text": "[TS] 2wk-2. 확률과정과 정상성\n\n\n\n\n\n\n\nSTUDY\n\n\nTS\n\n\n\n\n\n\n\n\n\n\n\nMay 14, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n  \n\n\n\n\n[TS] 2wk. 확률과정\n\n\n\n\n\n\n\nSTUDY\n\n\nTS\n\n\n\n\n\n\n\n\n\n\n\nMay 12, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n  \n\n\n\n\n[TS] 1wk. 확률\n\n\n\n\n\n\n\nSTUDY\n\n\nTS\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[STBDA] 1wk. 단순선형회귀**\n\n\n\n\n\n\n\nResearch\n\n\nSTGCN\n\n\nSOLAR\n\n\n\n\n\n\n\n\n\n\n\nMay 8, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n07wk-2 아이스크림을 많이 먹으면 걸리는 병(2)\n\n\n\n\n\n\n\n통계와 시각화\n\n\nplotnine\n\n\n아이스크림을 많이 먹으면 걸리는 병\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2023\n\n\njiyunLim\n\n\n\n\n\n\n  \n\n\n\n\n10wk-2 심슨의 역설\n\n\n\n\n\n\n\n통계와 시각화\n\n\nplotnine\n\n\n\n\n\n\n\n\n\n\n\nApr 1, 2023\n\n\njiyunLim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPandas 1단계\n\n\n\n\n\n\n\nPython\n\n\nPandas\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPandas 0단계\n\n\n\n\n\n\n\nPython\n\n\nPandas\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPandas 2단계\n\n\n\n\n\n\n\nPython\n\n\nPandas\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2022 final exam\n\n\n\n\n\n\n\npython\n\n\nclass\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJT test\n\n\n\n\n\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nFeb 25, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumpy 4단계(concat, stack)\n\n\n\n\n\n\n\nPython\n\n\nNumpy\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 6단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 9단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 8단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 10단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 7단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 5단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nts1\n\n\n\n\n\n\n\nR\n\n\nts\n\n\nbasic\n\n\n\n\ntimeseries study1\n\n\n\n\n\n\nFeb 19, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsimultaneous equation\n\n\n\n\n\n\n\nR\n\n\nlinear algebra\n\n\nbasic\n\n\n\n\nimplementation with R\n\n\n\n\n\n\nFeb 19, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 3단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n07wk-1 [Pandas] 새로운 열 할당, 아이스크림을 많이 먹으면 걸리는 병(1)\n\n\n\n\n\n\n\npandas\n\n\n통계와 시각화\n\n\n아이스크림을 많이 먹으면 걸리는 병\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2022\n\n\nJiyunLim\n\n\n\n\n\n\nNo matching items"
+    "text": "[TS] 2wk-2. 확률과정과 정상성\n\n\n\n\n\n\n\nSTUDY\n\n\nTS\n\n\n\n\n\n\n\n\n\n\n\nMay 14, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n  \n\n\n\n\n[TS] 2wk. 확률과정과 정상성\n\n\n\n\n\n\n\nSTUDY\n\n\nTS\n\n\n\n\n\n\n\n\n\n\n\nMay 12, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n  \n\n\n\n\n[TS] 1wk. 확률\n\n\n\n\n\n\n\nSTUDY\n\n\nTS\n\n\n\n\n\n\n\n\n\n\n\nMay 10, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n[STBDA] 1wk. 단순선형회귀**\n\n\n\n\n\n\n\nResearch\n\n\nSTGCN\n\n\nSOLAR\n\n\n\n\n\n\n\n\n\n\n\nMay 8, 2023\n\n\nJiyunLim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n07wk-2 아이스크림을 많이 먹으면 걸리는 병(2)\n\n\n\n\n\n\n\n통계와 시각화\n\n\nplotnine\n\n\n아이스크림을 많이 먹으면 걸리는 병\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2023\n\n\njiyunLim\n\n\n\n\n\n\n  \n\n\n\n\n10wk-2 심슨의 역설\n\n\n\n\n\n\n\n통계와 시각화\n\n\nplotnine\n\n\n\n\n\n\n\n\n\n\n\nApr 1, 2023\n\n\njiyunLim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPandas 1단계\n\n\n\n\n\n\n\nPython\n\n\nPandas\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPandas 0단계\n\n\n\n\n\n\n\nPython\n\n\nPandas\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPandas 2단계\n\n\n\n\n\n\n\nPython\n\n\nPandas\n\n\n\n\n\n\n\n\n\n\n\nMar 13, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n2022 final exam\n\n\n\n\n\n\n\npython\n\n\nclass\n\n\ntest\n\n\n\n\n\n\n\n\n\n\n\nFeb 27, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJT test\n\n\n\n\n\n\n\nR\n\n\n\n\n\n\n\n\n\n\n\nFeb 25, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNumpy 4단계(concat, stack)\n\n\n\n\n\n\n\nPython\n\n\nNumpy\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 6단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 9단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 8단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 10단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 7단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 5단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 23, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nts1\n\n\n\n\n\n\n\nR\n\n\nts\n\n\nbasic\n\n\n\n\ntimeseries study1\n\n\n\n\n\n\nFeb 19, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nsimultaneous equation\n\n\n\n\n\n\n\nR\n\n\nlinear algebra\n\n\nbasic\n\n\n\n\nimplementation with R\n\n\n\n\n\n\nFeb 19, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 3단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 1단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 2단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nclass 4단계\n\n\n\n\n\n\n\nclass\n\n\nPython\n\n\n\n\n\n\n\n\n\n\n\nFeb 15, 2023\n\n\njiyun Lim\n\n\n\n\n\n\n  \n\n\n\n\n05wk-2\n\n\n\n\n\n\n\n훌륭한 시각화\n\n\nplotnine\n\n\n\n\n\n\n\n\n\n\n\nOct 6, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n05wk-1\n\n\n\n\n\n\n\nseaborn\n\n\nmatplotlib\n\n\n\n\n\n\n\n\n\n\n\nOct 5, 2022\n\n\n최규빈\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n07wk-1 [Pandas] 새로운 열 할당, 아이스크림을 많이 먹으면 걸리는 병(1)\n\n\n\n\n\n\n\npandas\n\n\n통계와 시각화\n\n\n아이스크림을 많이 먹으면 걸리는 병\n\n\n\n\n\n\n\n\n\n\n\nApr 2, 2022\n\n\nJiyunLim\n\n\n\n\n\n\nNo matching items"
   }
 ]
