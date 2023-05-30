@@ -288,7 +288,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="b" class="level3">
 <h3 class="anchored" data-anchor-id="b">(b)</h3>
-<p>(a)의 시계열로부터 <span class="math inline">\(\rho_1\)</span>은 양수, <span class="math inline">\(0\)</span>, 혹은 음수 중 어느 값이라 기대되는가? - <span class="math inline">\(\rho_1&gt;0\)</span> 일 것으로 기대함.</p>
+<p>(a)의 시계열로부터 <span class="math inline">\(\rho_1\)</span>은 양수, <span class="math inline">\(0\)</span>, 혹은 음수 중 어느 값이라 기대되는가?</p>
+<ul>
+<li><span class="math inline">\(\rho_1&gt;0\)</span> 일 것으로 기대함.</li>
+</ul>
 </section>
 <section id="c" class="level3">
 <h3 class="anchored" data-anchor-id="c">(c)</h3>
@@ -563,13 +566,16 @@ Note
 </section>
 <section id="연습문제-5.5" class="level2">
 <h2 class="anchored" data-anchor-id="연습문제-5.5">연습문제 5.5</h2>
+<p>확률과정 <span class="math inline">\(Z_t=1+0.9Z_{t-1}+\epsilon_t\)</span>, <span class="math inline">\(t=1,2,\dots,100\)</span>으로부터 시계열 자료를 생성한 후 다음을 수행하라. 단, <span class="math inline">\(Z_0=10\)</span>의 값을 주고 <span class="math inline">\(\{\epsilon_t\}\)</span>는 <span class="math inline">\(\text{WN}\)</span> <span class="math inline">\(N(0,1)\)</span>이다.</p>
 <p>model: <span class="math inline">\(Z_t=1+0.9Z_{t-1}+\epsilon_t\)</span>, <span class="math inline">\(t=1,2,\dots,100\)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">set.seed</span>(<span class="dv">1306</span>)</span>
-<span id="cb35-2"><a href="#cb35-2"></a>zt<span class="ot">&lt;-</span><span class="fu">c</span>() </span>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">set.seed</span>(<span class="dv">1306</span>) <span class="co"># 평행세계의 인덱스 (1306번째 평행세계)</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>zt<span class="ot">&lt;-</span><span class="fu">c</span>() <span class="co"># relization된 값.</span></span>
 <span id="cb35-3"><a href="#cb35-3"></a>zt[<span class="dv">1</span>]<span class="ot">&lt;-</span><span class="dv">1</span><span class="fl">+0.9</span><span class="sc">*</span><span class="dv">10</span><span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">1</span>)</span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">100</span>) zt[i]<span class="ot">&lt;-</span><span class="dv">1</span><span class="fl">+0.9</span><span class="sc">*</span>zt[i<span class="dv">-1</span>]<span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">1</span>)</span>
-<span id="cb35-5"><a href="#cb35-5"></a>zt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="co"># zt[2]&lt;-1+0.9*[1]+rnorm(1)</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a><span class="co"># zt[3]&lt;-1+0.9*z[2]+rnorm(1)</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">100</span>) zt[i]<span class="ot">&lt;-</span><span class="dv">1</span><span class="fl">+0.9</span><span class="sc">*</span>zt[i<span class="dv">-1</span>]<span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">1</span>)</span>
+<span id="cb35-7"><a href="#cb35-7"></a>zt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] 10.777675 10.660962 11.129924 10.729653  9.382788  9.291090 10.412269
   [8]  9.280671  9.278990  9.050157  9.777134  9.382744  8.805521  8.574072
@@ -635,7 +641,7 @@ Note
 <section id="c-1" class="level3">
 <h3 class="anchored" data-anchor-id="c-1">(c)</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">pacf</span>(zt)<span class="sc">$</span>acf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">pacf</span>(zt)<span class="sc">$</span>acf <span class="co"># 정상인 AR(1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
