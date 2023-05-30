@@ -20,6 +20,8 @@
   {
     "listing": "/4_ts2023.html",
     "items": [
+      "/posts/4_TS2023/2023-05-20-6wk-연습문제5장.html",
+      "/posts/4_TS2023/2023-05-20.html",
       "/posts/4_TS2023/2023-05-14-2wk-2.html",
       "/posts/4_TS2023/2023-05-12-2wk.html",
       "/posts/4_TS2023/2023-05-10-1wk.html"
@@ -36,6 +38,7 @@
   {
     "listing": "/1_ip2022.html",
     "items": [
+      "/posts/1_IP2022/2023-05-27-class활용.html",
       "/posts/1_IP2022/2023-03-14-pandas1.html",
       "/posts/1_IP2022/2023-03-13-pandas0.html",
       "/posts/1_IP2022/2023-03-14-pandas2.html",
@@ -50,7 +53,8 @@
       "/posts/1_IP2022/2023-02-15-class3.html",
       "/posts/1_IP2022/2023-02-15-class1.html",
       "/posts/1_IP2022/2023-02-15-class2.html",
-      "/posts/1_IP2022/2023-02-15-class4.html"
+      "/posts/1_IP2022/2023-02-15-class4.html",
+      "/posts/1_IP2022/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html"
     ]
   },
   {
@@ -58,6 +62,9 @@
     "items": [
       "/posts/2_DV2022/dv1.html",
       "/posts/2_DV2022/9999.html",
+      "/posts/1_IP2022/2023-05-27-class활용.html",
+      "/posts/4_TS2023/2023-05-20-6wk-연습문제5장.html",
+      "/posts/4_TS2023/2023-05-20.html",
       "/posts/4_TS2023/2023-05-14-2wk-2.html",
       "/posts/4_TS2023/2023-05-12-2wk.html",
       "/posts/4_TS2023/2023-05-10-1wk.html",
@@ -84,6 +91,7 @@
       "/posts/1_IP2022/2023-02-15-class4.html",
       "/posts/2_DV2022/2022-10-06-5wk-2.html",
       "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/1_IP2022/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html",
       "/posts/2_DV2022/2022-10-17-7wk-1.html"
     ]
   }

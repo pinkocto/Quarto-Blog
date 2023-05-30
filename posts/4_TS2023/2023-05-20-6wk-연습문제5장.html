@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-05-20">
+
+<title>Quarto-Blog - 6wk. 연습문제5장 실습</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">6wk. 연습문제5장 실습</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">6wk. 연습문제5장 실습</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 20, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#연습문제-5.3" id="toc-연습문제-5.3" class="nav-link active" data-scroll-target="#연습문제-5.3">연습문제 5.3</a>
+  <ul class="collapse">
+  <li><a href="#a" id="toc-a" class="nav-link" data-scroll-target="#a">(a)</a></li>
+  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
+  <li><a href="#c" id="toc-c" class="nav-link" data-scroll-target="#c">(c)</a></li>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d">(d)</a></li>
+  <li><a href="#e" id="toc-e" class="nav-link" data-scroll-target="#e">(e)</a></li>
+  <li><a href="#f" id="toc-f" class="nav-link" data-scroll-target="#f">(f)</a></li>
+  <li><a href="#g" id="toc-g" class="nav-link" data-scroll-target="#g">(g)</a></li>
+  </ul></li>
+  <li><a href="#연습문제-5.5" id="toc-연습문제-5.5" class="nav-link" data-scroll-target="#연습문제-5.5">연습문제 5.5</a>
+  <ul class="collapse">
+  <li><a href="#a-1" id="toc-a-1" class="nav-link" data-scroll-target="#a-1">(a)</a></li>
+  <li><a href="#b-1" id="toc-b-1" class="nav-link" data-scroll-target="#b-1">(b)</a></li>
+  <li><a href="#c-1" id="toc-c-1" class="nav-link" data-scroll-target="#c-1">(c)</a></li>
+  <li><a href="#d-e" id="toc-d-e" class="nav-link" data-scroll-target="#d-e">(d)-(e)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="연습문제-5.3" class="level2">
+<h2 class="anchored" data-anchor-id="연습문제-5.3">연습문제 5.3</h2>
+<p>아래와 같이 자료를 입력한다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>zt<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">144.652</span>,<span class="fl">195.596</span>,<span class="fl">236.569</span>,<span class="fl">269.265</span>,<span class="fl">296.791</span>,<span class="fl">316.682</span>,<span class="fl">332.593</span>,<span class="fl">344.834</span>,<span class="fl">356.644</span>,</span>
+<span id="cb1-2"><a href="#cb1-2"></a>      <span class="fl">363.775</span>,<span class="fl">370.994</span>,<span class="fl">377.784</span>,<span class="fl">382.254</span>,<span class="fl">386.211</span>,<span class="fl">388.574</span>,<span class="fl">391.118</span>,<span class="fl">394.627</span>,<span class="fl">395.785</span>,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>      <span class="fl">395.693</span>,<span class="fl">396.811</span>,<span class="fl">397.249</span>,<span class="fl">397.433</span>,<span class="fl">398.767</span>,<span class="fl">398.971</span>,<span class="fl">399.108</span>,<span class="fl">400.958</span>,<span class="fl">398.660</span>,</span>
+<span id="cb1-4"><a href="#cb1-4"></a>      <span class="fl">399.348</span>,<span class="fl">398.293</span>,<span class="fl">397.886</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="a" class="level3">
+<h3 class="anchored" data-anchor-id="a">(a)</h3>
+<p>시계열 그림을 그려라.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">plot</span>(zt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="b" class="level3">
+<h3 class="anchored" data-anchor-id="b">(b)</h3>
+<p>(a)의 시계열로부터 <span class="math inline">\(\rho_1\)</span>은 양수, <span class="math inline">\(0\)</span>, 혹은 음수 중 어느 값이라 기대되는가? - <span class="math inline">\(\rho_1&gt;0\)</span> 일 것으로 기대함.</p>
+</section>
+<section id="c" class="level3">
+<h3 class="anchored" data-anchor-id="c">(c)</h3>
+<p><span class="math inline">\(Z_t\)</span>에 대하여 <span class="math inline">\(Z_{t-1}\)</span>의 산점도를 그려보고, 다시 <span class="math inline">\(\rho_1\)</span>은 어느 정도의 값이 되리라 기대되는가?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>yt<span class="ot">&lt;-</span><span class="fu">c</span>(zt<span class="sc">-</span><span class="fu">mean</span>(zt),<span class="dv">0</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>yt_lag1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,zt<span class="sc">-</span><span class="fu">mean</span>(zt))</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">plot</span>(yt,yt_lag1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag1)<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  yt_lag1 
+0.7867225 </code></pre>
+</div>
+</div>
+<ul>
+<li>acf의 계수값은 regression을 한 coefficient의 계수값이라고 생각해도 된다.</li>
+</ul>
+</section>
+<section id="d" class="level3">
+<h3 class="anchored" data-anchor-id="d">(d)</h3>
+<p>SACF <span class="math inline">\(\hat{\rho}_k,k=0,1,\dots,10\)</span> 를 구하여 표본상관도표를 그려라.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>acf_result<span class="ot">&lt;-</span><span class="fu">acf</span>(zt)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>acfvalues<span class="ot">&lt;-</span>acf_result<span class="sc">$</span>acf</span>
+<span id="cb6-3"><a href="#cb6-3"></a>acfvalues</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , 1
+
+             [,1]
+ [1,]  1.00000000
+ [2,]  0.78672246
+ [3,]  0.61310906
+ [4,]  0.47134840
+ [5,]  0.35543318
+ [6,]  0.26233059
+ [7,]  0.18488731
+ [8,]  0.11931704
+ [9,]  0.06197039
+[10,]  0.01524803
+[11,] -0.02785225
+[12,] -0.06548592
+[13,] -0.09652258
+[14,] -0.12428019
+[15,] -0.14821524</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">plot</span>(acf_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="e" class="level3">
+<h3 class="anchored" data-anchor-id="e">(e)</h3>
+<p><span class="math inline">\(Z_t\)</span>에 대하여 <span class="math inline">\(Z_{t-2}\)</span>의 산점도를 그려보고, 이 그림이 (d)에서 계산된 <span class="math inline">\(\hat{\rho}_2\)</span>에 상응하는지를 논하라.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>yt<span class="ot">&lt;-</span><span class="fu">c</span>(zt<span class="sc">-</span><span class="fu">mean</span>(zt),<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>yt_lag1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,zt<span class="sc">-</span><span class="fu">mean</span>(zt),<span class="dv">0</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>yt_lag2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,zt<span class="sc">-</span><span class="fu">mean</span>(zt))</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">plot</span>(yt,yt_lag2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag2)<span class="sc">$</span>coefficients[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  yt_lag2 
+0.6131091 </code></pre>
+</div>
+</div>
+<p><strong>sacf를 구하는 방법 1</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>gamma_0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(yt<span class="sc">*</span>yt)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>gamma_1 <span class="ot">&lt;-</span> <span class="fu">sum</span>(yt<span class="sc">*</span>yt_lag1)</span>
+<span id="cb12-3"><a href="#cb12-3"></a>rho1 <span class="ot">&lt;-</span> gamma_1<span class="sc">/</span>gamma_0</span>
+<span id="cb12-4"><a href="#cb12-4"></a>gamma_2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(yt<span class="sc">*</span>yt_lag2)</span>
+<span id="cb12-5"><a href="#cb12-5"></a>rho2 <span class="ot">&lt;-</span> gamma_2<span class="sc">/</span>gamma_0</span>
+<span id="cb12-6"><a href="#cb12-6"></a><span class="fu">cat</span>(rho1, rho2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.7867225 0.6131091</code></pre>
+</div>
+</div>
+<p><strong>sacf를 구하는 방법 2</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">acf</span>(zt)<span class="sc">$</span>acf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , 1
+
+             [,1]
+ [1,]  1.00000000
+ [2,]  0.78672246
+ [3,]  0.61310906
+ [4,]  0.47134840
+ [5,]  0.35543318
+ [6,]  0.26233059
+ [7,]  0.18488731
+ [8,]  0.11931704
+ [9,]  0.06197039
+[10,]  0.01524803
+[11,] -0.02785225
+[12,] -0.06548592
+[13,] -0.09652258
+[14,] -0.12428019
+[15,] -0.14821524</code></pre>
+</div>
+</div>
+<p><strong>sacf를 구하는 방법 3</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># (1) rho1을 구하는 법: yt ~ yt_lag1</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag1)<span class="sc">$</span>coef[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  yt_lag1 
+0.7867225 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># (2) rho2을 구하는 법: yt ~ yt_lag2</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag2)<span class="sc">$</span>coef[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  yt_lag2 
+0.6131091 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">1</span>))</span>
+<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">plot</span>(yt_lag1, yt)</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">plot</span>(yt_lag2, yt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>위에 있는 그래프의 기울기가 아래에 있는 그래프의 기울기보다 조금 더 가파르게 나타난다. (아주 미세한 차이지만..)</li>
+<li>즉, yt와 lag1의 correlation이 yt와 lag2의 correlation 보다 강하다고 추측을 할 수 있다.</li>
+</ul>
+</section>
+<section id="f" class="level3">
+<h3 class="anchored" data-anchor-id="f">(f)</h3>
+<p>SPACF <span class="math inline">\(\hat{\phi}_{kk},k=1,2,\dots,10\)</span>을 구하여 표본상관도표를 그려라.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>pacf_result<span class="ot">&lt;-</span><span class="fu">pacf</span>(zt)</span>
+<span id="cb21-2"><a href="#cb21-2"></a>pacfvalues<span class="ot">&lt;-</span>pacf_result<span class="sc">$</span>acf</span>
+<span id="cb21-3"><a href="#cb21-3"></a>pacfvalues</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , 1
+
+             [,1]
+ [1,]  0.78672246
+ [2,] -0.01528120
+ [3,] -0.01665983
+ [4,] -0.01737239
+ [5,] -0.01327075
+ [6,] -0.02047259
+ [7,] -0.02399628
+ [8,] -0.02955509
+ [9,] -0.02187769
+[10,] -0.03562721
+[11,] -0.03251304
+[12,] -0.02901910
+[13,] -0.03540586
+[14,] -0.03479451</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">plot</span>(pacf_result)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<ul>
+<li>파란 점선보다 작으면 <span class="math inline">\(0\)</span>으로 봐도 무방하다.</li>
+<li>PACF는 Lag=1일 때를 제외하고 나머지는 절삭된다. <span class="math inline">\(\to\)</span> Lag1은 의미있다. <span class="math inline">\(\to\)</span> AR(1) 모델로 추정.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">acf</span>(zt) <span class="co"># exponential 하게 감소</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">plot</span>(zt) <span class="co"># 이것만 보면 non-stationary 같음.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">plot</span>(zt[<span class="dv">15</span><span class="sc">:</span><span class="dv">30</span>]) <span class="co"># 무한대로 가면 stationary 하겠다!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="g" class="level3">
+<h3 class="anchored" data-anchor-id="g">(g)</h3>
+<p><span class="math inline">\(\hat{\phi}_{22}\)</span>의 의미:</p>
+<ol type="1">
+<li><p>교재의 설명: <span class="math inline">\(\hat{\phi}_{22}\)</span>는 <span class="math inline">\(Z_t\)</span>와 <span class="math inline">\(Z_{t+2}\)</span>로부터 <span class="math inline">\(Z_{t+1}\)</span>의 효과를 제거한후 2시차만큼 떨어진 <span class="math inline">\(Z_t\)</span>와 <span class="math inline">\(Z_{t+2}\)</span>의 순수한 상관계수. (p.199)</p></li>
+<li><p>좀더 엄밀한 정의</p></li>
+</ol>
+<ol type="1">
+<li>partial correlation (conditional correlation)</li>
+<li>coefficients in the multiple regression model</li>
+<li>(orthogonalization) partial regression coefficients – back fitting이라고도 함.</li>
+</ol>
+<section id="방법1" class="level4">
+<h4 class="anchored" data-anchor-id="방법1">(방법1)</h4>
+<p>lag=2에선 SPACF, 즉 <span class="math inline">\(\hat{\phi}_{22}\)</span>는 아래와 같이 구할수 있다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>pacfvalues[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.0152812</code></pre>
+</div>
+</div>
+</section>
+<section id="방법2" class="level4">
+<h4 class="anchored" data-anchor-id="방법2">(방법2)</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>lm1<span class="ot">&lt;-</span><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag1<span class="sc">+</span>yt_lag2)</span>
+<span id="cb29-2"><a href="#cb29-2"></a>lm1<span class="sc">$</span>coefficients[<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   yt_lag2 
+-0.0152812 </code></pre>
+</div>
+</div>
+</section>
+<section id="방법3" class="level4">
+<h4 class="anchored" data-anchor-id="방법3">(방법3)</h4>
+<ul>
+<li>step1: residual을 구한다.</li>
+<li>step2: residual끼리 regression</li>
+<li>step3: 적합한 모델의 coef</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>lm01<span class="ot">&lt;-</span><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag1)</span>
+<span id="cb31-2"><a href="#cb31-2"></a>lm21<span class="ot">&lt;-</span><span class="fu">lm</span>(yt_lag2<span class="sc">~</span>yt_lag1)</span>
+<span id="cb31-3"><a href="#cb31-3"></a>res1<span class="ot">&lt;-</span>lm01<span class="sc">$</span>residuals</span>
+<span id="cb31-4"><a href="#cb31-4"></a>res2<span class="ot">&lt;-</span>lm21<span class="sc">$</span>residuals</span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="fu">lm</span>(res1<span class="sc">~</span>res2)<span class="sc">$</span>coefficients[<span class="dv">2</span>] <span class="co"># pacf(zt)$acf[2]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      res2 
+-0.0152812 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">pacf</span>(zt)<span class="sc">$</span>acf[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.0152812</code></pre>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><code>lm1$coefficient[3]</code> : <span class="math inline">\(\phi_{21}\)</span></li>
+<li><code>lm(yt~yt_lag1)$coef[2]</code> : <span class="math inline">\(\phi_{11}\)</span></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+</section>
+<section id="연습문제-5.5" class="level2">
+<h2 class="anchored" data-anchor-id="연습문제-5.5">연습문제 5.5</h2>
+<p>model: <span class="math inline">\(Z_t=1+0.9Z_{t-1}+\epsilon_t\)</span>, <span class="math inline">\(t=1,2,\dots,100\)</span>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">set.seed</span>(<span class="dv">1306</span>)</span>
+<span id="cb35-2"><a href="#cb35-2"></a>zt<span class="ot">&lt;-</span><span class="fu">c</span>() </span>
+<span id="cb35-3"><a href="#cb35-3"></a>zt[<span class="dv">1</span>]<span class="ot">&lt;-</span><span class="dv">1</span><span class="fl">+0.9</span><span class="sc">*</span><span class="dv">10</span><span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">1</span>)</span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">100</span>) zt[i]<span class="ot">&lt;-</span><span class="dv">1</span><span class="fl">+0.9</span><span class="sc">*</span>zt[i<span class="dv">-1</span>]<span class="sc">+</span><span class="fu">rnorm</span>(<span class="dv">1</span>)</span>
+<span id="cb35-5"><a href="#cb35-5"></a>zt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 10.777675 10.660962 11.129924 10.729653  9.382788  9.291090 10.412269
+  [8]  9.280671  9.278990  9.050157  9.777134  9.382744  8.805521  8.574072
+ [15]  9.663666 10.008613 10.057641  9.088979  9.827647 10.221844 12.170445
+ [22] 12.868114 13.236760 12.939106 14.064829 14.689415 11.874574 10.117136
+ [29] 10.736236 11.427874 10.870493 11.926313 13.313631 12.119023 13.091750
+ [36] 11.537623 13.564257 12.867269 12.301226 12.746935 13.450774 14.667385
+ [43] 13.411673 15.307674 14.310807 13.122243 13.087510 11.151739 12.500317
+ [50] 12.134043 12.216240 13.294609 13.236690 13.206157 13.783242 12.746678
+ [57] 12.107156 11.286982 10.709525 10.366019  8.197414  9.075633  8.349393
+ [64]  9.305533  7.439775  8.190043  8.546629  8.696135 10.773879 10.591572
+ [71] 10.394556 10.902747  9.770263 10.122317 10.469193  9.587717  9.321004
+ [78]  8.713534  6.863494  8.102941  7.681025  7.309215  4.915844  5.597363
+ [85]  6.577784  7.037914  7.518736  6.669018  4.465009  5.514308  7.445960
+ [92]  6.222425  4.740820  5.294629  5.991279  5.196732  6.505054  6.643898
+ [99]  7.958164  9.135744</code></pre>
+</div>
+</div>
+<section id="a-1" class="level3">
+<h3 class="anchored" data-anchor-id="a-1">(a)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">plot</span>(zt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="b-1" class="level3">
+<h3 class="anchored" data-anchor-id="b-1">(b)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">acf</span>(zt)<span class="sc">$</span>acf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , 1
+
+           [,1]
+ [1,] 1.0000000
+ [2,] 0.9151428
+ [3,] 0.8532663
+ [4,] 0.7983751
+ [5,] 0.7465985
+ [6,] 0.6884379
+ [7,] 0.6189412
+ [8,] 0.5726526
+ [9,] 0.5286664
+[10,] 0.5073208
+[11,] 0.4852742
+[12,] 0.4497323
+[13,] 0.4147162
+[14,] 0.3788675
+[15,] 0.3569531
+[16,] 0.3327448
+[17,] 0.3041227
+[18,] 0.2785423
+[19,] 0.2625320
+[20,] 0.2264291
+[21,] 0.1947804</code></pre>
+</div>
+</div>
+</section>
+<section id="c-1" class="level3">
+<h3 class="anchored" data-anchor-id="c-1">(c)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">pacf</span>(zt)<span class="sc">$</span>acf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , 1
+
+              [,1]
+ [1,]  0.915142832
+ [2,]  0.097099164
+ [3,]  0.027803130
+ [4,]  0.002343684
+ [5,] -0.060069904
+ [6,] -0.111745287
+ [7,]  0.080637070
+ [8,]  0.010304596
+ [9,]  0.132408979
+[10,]  0.031574334
+[11,] -0.088386730
+[12,] -0.058457746
+[13,] -0.044925052
+[14,]  0.045494186
+[15,]  0.033808509
+[16,] -0.006926641
+[17,]  0.001553929
+[18,]  0.031117106
+[19,] -0.171366229
+[20,] -0.022407217</code></pre>
+</div>
+</div>
+</section>
+<section id="d-e" class="level3">
+<h3 class="anchored" data-anchor-id="d-e">(d)-(e)</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>yt<span class="ot">&lt;-</span><span class="fu">c</span>(zt,<span class="fu">mean</span>(zt),<span class="fu">mean</span>(zt))</span>
+<span id="cb42-2"><a href="#cb42-2"></a>yt_lag1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">mean</span>(zt),zt,<span class="fu">mean</span>(zt))</span>
+<span id="cb42-3"><a href="#cb42-3"></a>yt_lag2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fu">mean</span>(zt),<span class="fu">mean</span>(zt),zt)</span>
+<span id="cb42-4"><a href="#cb42-4"></a><span class="fu">plot</span>(yt,yt_lag1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag1)<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)     yt_lag1 
+  0.8585824   0.9151428 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">plot</span>(yt,yt_lag2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="2023-05-20-6wk-연습문제5장_files/figure-html/unnamed-chunk-22-2.png" class="img-fluid" width="672"></p>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">lm</span>(yt<span class="sc">~</span>yt_lag2)<span class="sc">$</span>coefficients</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)     yt_lag2 
+  1.4846471   0.8532663 </code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
