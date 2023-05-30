@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-05-14">
 
-<title>Quarto-Blog - TS2023</title>
+<title>Quarto-Blog - [TS] 3wk. 백색잡음과정 (White noise process)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -60,39 +60,10 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -102,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
@@ -112,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">
+    <a class="nav-link" href="../../about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -127,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">TS2023</h1>
+      <h1 class="quarto-secondary-nav-title"><strong>[TS]</strong> 3wk. 백색잡음과정 (White noise process)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -135,7 +106,39 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block"><strong>[TS]</strong> 3wk. 백색잡음과정 (White noise process)</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">STUDY</div>
+                <div class="quarto-category">TS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 14, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -147,128 +150,77 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./4_ts2023.html" class="sidebar-item-text sidebar-link active">TS2023</a>
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#white-noise" id="toc-white-noise" class="nav-link active" data-scroll-target="#white-noise">5.2.1 White noise</a>
+  <ul class="collapse">
+  <li><a href="#특징" id="toc-특징" class="nav-link" data-scroll-target="#특징">특징</a></li>
+  </ul></li>
+  <li><a href="#random-walk-process" id="toc-random-walk-process" class="nav-link" data-scroll-target="#random-walk-process">5.2.2 random walk process</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">TS2023</h1>
-</div>
-
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<section id="white-noise" class="level1">
+<h1>5.2.1 White noise</h1>
+<p><span class="math inline">\(\{\epsilon_t\}\)</span> is white noise iff<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. <span class="math inline">\(\epsilon_t \overset{\text{i.i.d.}}{\sim}(\mu,\sigma^2)\)</span> for all <span class="math inline">\(t\)</span>.</p>
+<p>회귀분석에서는 보통 normal 가정을 하는데<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 여기서는 normal 가정이 필요 없다. (uniform이나 다른 가정 가능)</p>
+<section id="특징" class="level2">
+<h2 class="anchored" data-anchor-id="특징">특징</h2>
+<p>for all <span class="math inline">\(t\)</span> <span class="math inline">\(\quad E(\epsilon_t)=\mu, V(\epsilon_t)=\sigma^2\)</span></p>
+<p>for all <span class="math inline">\(l\geq 0\)</span> <span class="math inline">\(\quad \text{Cov}(\epsilon_{t-l},\epsilon_t)=0\)</span> 여기서 <span class="math inline">\(l\)</span>은 lag의 약자.</p>
+<p>i.i.d. 가정을 약화시킨 가정이 stationary니까 위의 특징은 너무나도 당연한 것.</p>
+</section>
+</section>
+<section id="random-walk-process" class="level1">
+<h1>5.2.2 random walk process</h1>
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
 
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1684508400000" data-listing-file-modified-sort="1685457613561" data-listing-reading-time-sort="1.765" data-listing-title-sort="6wk. 연습문제5장 실습" data-listing-filename-sort="2023-05-20-6wk-연습문제5장.qmd">
-<td class="listing-date">
-May 20, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/4_TS2023/2023-05-20-6wk-연습문제5장.html" class="title">6wk. 연습문제5장 실습</a>
-</td>
-<td class="listing-author">
-JiyunLim
-</td>
-</tr>
-<tr data-index="1" data-categories="STUDY,TS" data-listing-date-sort="1683990000000" data-listing-file-modified-sort="1685458665875" data-listing-reading-time-sort="0.3" data-listing-title-sort="**[TS]** 3wk. 백색잡음과정 (White noise process)" data-listing-filename-sort="2023-05-14-3wk.ipynb">
-<td class="listing-date">
-May 14, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/4_TS2023/2023-05-14-3wk.html" class="title"><strong>[TS]</strong> 3wk. 백색잡음과정 (White noise process)</a>
-</td>
-<td class="listing-author">
-JiyunLim
-</td>
-</tr>
-<tr data-index="2" data-categories="STUDY,TS" data-listing-date-sort="1683817200000" data-listing-file-modified-sort="1685459681289" data-listing-reading-time-sort="4.96" data-listing-title-sort="**[TS]** 2wk. 확률과정과 정상성" data-listing-filename-sort="2023-05-12-2wk.ipynb">
-<td class="listing-date">
-May 12, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/4_TS2023/2023-05-12-2wk.html" class="title"><strong>[TS]</strong> 2wk. 확률과정과 정상성</a>
-</td>
-<td class="listing-author">
-JiyunLim
-</td>
-</tr>
-<tr data-index="3" data-categories="STUDY,TS" data-listing-date-sort="1683644400000" data-listing-file-modified-sort="1684490618138" data-listing-reading-time-sort="3.675" data-listing-title-sort="**[TS]** 1wk. 확률" data-listing-filename-sort="2023-05-10-1wk.ipynb">
-<td class="listing-date">
-May 10, 2023
-</td>
-<td class="listing-title">
-<a href="./posts/4_TS2023/2023-05-10-1wk.html" class="title"><strong>[TS]</strong> 1wk. 확률</a>
-</td>
-<td class="listing-author">
-JiyunLim
-</td>
-</tr>
-</tbody>
+</section>
 
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>if and only if의 약자, <span class="math inline">\(\Leftrightarrow\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>confidence interval을 구하기 위해서.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

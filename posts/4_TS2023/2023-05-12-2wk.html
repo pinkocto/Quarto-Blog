@@ -469,10 +469,16 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="stationary-종류" class="level2">
 <h2 class="anchored" data-anchor-id="stationary-종류">Stationary 종류</h2>
+<p>Stationary 과정은 크게 2가지 버전이 있다. Strictly Stationary 버전과 Weak Stationary 버전.</p>
+<p>Strictly Stationary가 더 엄밀한 의미에서의 정상성인데 다루기 힘들다. 어떤 시계열이 strictly stationary하다는 것을 밝히기 쉽지 않다. 그래서 약화된 버전인 Weak Stationary를 많이 사용한다.</p>
+<p>에러텀이 normal 일 경우에는 strictly stationary와 weak stationary의 정의가 같아진다.</p>
 <section id="strictly-stationary" class="level3">
 <h3 class="anchored" data-anchor-id="strictly-stationary">Strictly Stationary</h3>
-<p><span class="math inline">\(\{X_t\}\)</span> is strictly stationary</p>
-<p><span class="math inline">\(\Leftrightarrow \forall t_1,\dots,t_n \in T\)</span></p>
+<div class="alert alert-block alert-success">
+<p><b>Definition:</b><br> 시계열 <span class="math inline">\(\{X_t\}\)</span> is strictly stationary.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><span class="math inline">\(\Leftrightarrow \forall t_1,\dots,t_n \in T\)</span> &amp; <span class="math inline">\(h\in \mathbb{Z}\)</span>: <span class="math inline">\(\quad (X_{t_1},\dots,X_{t_n}) \overset{d}{=}(X_{t_1+h}, \dots, X_{t_n+h})\)</span></p>
+<p>시계열 <span class="math inline">\(X_t\)</span>의 모든 finite한 샘플에 대해 어떤 임의의 lag에 대해서 확률벡터가 뽑히게 될텐데 확률벡터의 결합분포는 확률벡터를 <span class="math inline">\(h\)</span>만큼 민 또 다른 확률벡터의 결합분포와 동일하다는 의미입니다.</p>
+</div>
 
 
 </section>
@@ -485,6 +491,7 @@ ul.task-list li input[type="checkbox"] {
 <li id="fn1"><p>measurable function<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>random variable, random vector, stochastic process 모두를 포함한다.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p>우리가 살고있는 세계가 여러번 관측될 수는 없잖아<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>교재에서는 강한 의미의 정상성이라고 표현합니다.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
