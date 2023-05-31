@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Quarto-Blog – quarto-input55bc2056</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#주차-5월2일-1" id="toc-주차-5월2일-1" class="nav-link active" data-scroll-target="#주차-5월2일-1">(9주차) 5월2일 (1)</a>
+  <ul class="collapse">
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#우도함수와-최대우도추정량" id="toc-우도함수와-최대우도추정량" class="nav-link" data-scroll-target="#우도함수와-최대우도추정량">우도함수와 최대우도추정량</a></li>
+  <li><a href="#중간고사-1번" id="toc-중간고사-1번" class="nav-link" data-scroll-target="#중간고사-1번">중간고사 1번</a></li>
+  <li><a href="#손실함수의-설계-선택" id="toc-손실함수의-설계-선택" class="nav-link" data-scroll-target="#손실함수의-설계-선택">손실함수의 설계 (선택)</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<section id="주차-5월2일-1" class="level1">
+<h1>(9주차) 5월2일 (1)</h1>
+<ul>
+<li>toc:true</li>
+<li>branch: master</li>
+<li>badges: true</li>
+<li>comments: true</li>
+<li>author: 최규빈</li>
+</ul>
+<section id="강의영상" class="level3">
+<h3 class="anchored" data-anchor-id="강의영상">강의영상</h3>
+<blockquote class="blockquote">
+<p>youtube: https://youtube.com/playlist?list=PLQqh36zP38-wrJ6CivKKBuJUN7ukm5OHr</p>
+</blockquote>
+</section>
+<section id="imports" class="level3">
+<h3 class="anchored" data-anchor-id="imports">imports</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf </span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> tensorflow.experimental.numpy <span class="im">as</span> tnp </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>tnp.experimental_enable_numpy_behavior()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="우도함수와-최대우도추정량" class="level3">
+<h3 class="anchored" data-anchor-id="우도함수와-최대우도추정량">우도함수와 최대우도추정량</h3>
+<p><strong>(예제)</strong></p>
+<p><span class="math inline">\(X_i \overset{iid}{\sim} Ber(p)\)</span>에서 얻은 샘플이 아래와 같다고 하자.</p>
+<div class="cell" data-outputid="1fce0dbe-a019-4747-9f95-5ec4ec72cf05">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>x<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>] </span>
+<span id="cb4-2"><a href="#cb4-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>[0, 1, 0, 1]</code></pre>
+</div>
+</div>
+<p><span class="math inline">\(p\)</span>는 얼마라고 볼 수 있는가? –&gt; 0.5</p>
+<p>왜?? <span class="math inline">\(p\)</span>가 0.5라고 주장할 수 있는 이론적 근거, 혹은 논리체계가 무엇인가?</p>
+<p><code>-</code> suppose: <span class="math inline">\(p=0.1\)</span> 이라고 하자.</p>
+<p>그렇다면 <span class="math inline">\((x_1,x_2,x_3,x_4)=(0,1,0,1)\)</span>와 같은 샘플이 얻어질 확률이 아래와 같다.</p>
+<div class="cell" data-outputid="3867167e-be2a-409e-aa55-6641fa972f88">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="fl">0.9</span> <span class="op">*</span> <span class="fl">0.1</span> <span class="op">*</span> <span class="fl">0.9</span> <span class="op">*</span> <span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0.008100000000000001</code></pre>
+</div>
+</div>
+<p><code>-</code> suppose: <span class="math inline">\(p=0.2\)</span> 이라고 하자.</p>
+<p>그렇다면 <span class="math inline">\((x_1,x_2,x_3,x_4)=(0,1,0,1)\)</span>와 같은 샘플이 얻어질 확률이 아래와 같다.</p>
+<div class="cell" data-outputid="83cc9ea5-345e-4397-cdee-a902d1e14046">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="fl">0.8</span> <span class="op">*</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="fl">0.8</span> <span class="op">*</span> <span class="fl">0.2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>0.025600000000000008</code></pre>
+</div>
+</div>
+<p><code>-</code> 질문1: <span class="math inline">\(p=0.1\)</span>인것 같냐? 아니면 <span class="math inline">\(p=0.2\)</span>인것 같냐? -&gt; <span class="math inline">\(p=0.2\)</span> - 왜?? <span class="math inline">\(p=0.2\)</span>일 <del>확률</del>이 더 크다!</p>
+<hr>
+<p><strong><em>(여기서 잠깐 중요한것) 확률이라는 말을 함부로 쓸 수 없다.</em></strong></p>
+<p><code>-</code> 0.0256은 “<span class="math inline">\(p=0.2\)</span>일 경우 샘플 (0,1,0,1)이 얻어질 확률”이지 “<span class="math inline">\(p=0.2\)</span>일 확률”은 아니다.</p>
+<p>“<span class="math inline">\(p=0.2\)</span>인 확률” 이라는 개념이 성립하려면 아래코드에서 <code>sum([(1-p)*p*(1-p)*p for p in _plist])</code>이 1보다는 작아야 한다. (그런데 1보다 크다)</p>
+<div class="cell" data-outputid="8b8364bf-7fc9-46fb-e716-6419a51c5c0d">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>_plist <span class="op">=</span> np.linspace(<span class="fl">0.499</span>,<span class="fl">0.501</span>,<span class="dv">1000</span>) </span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="bu">sum</span>([(<span class="dv">1</span><span class="op">-</span>p)<span class="op">*</span>p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)<span class="op">*</span>p <span class="cf">for</span> p <span class="kw">in</span> _plist])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="111">
+<pre><code>62.49983299986714</code></pre>
+</div>
+</div>
+<p><code>-</code> 확률이라는 말을 쓸 수 없지만 확률의 느낌은 있음 -&gt; 가능도라는 말을 쓰자. - 0.0256 <span class="math inline">\(=\)</span> <span class="math inline">\(p\)</span>가 0.2일 경우 샘플 (0,1,0,1)이 얻어질 확률 <span class="math inline">\(=\)</span> <span class="math inline">\(p\)</span>가 0.2일 가능도</p>
+<hr>
+<p><code>-</code> 다시 질문1로 돌아가자! - 질문1: <span class="math inline">\(p=0.1\)</span>인 것 같냐? 아니면 <span class="math inline">\(p=0.2\)</span>인 것 같냐? -&gt; 답 <span class="math inline">\(p=0.2\)</span> -&gt; 왜? <span class="math inline">\(p=0.2\)</span>인 가능도가 더 크니까! - 질문2: <span class="math inline">\(p=0.2\)</span>인 것 같냐? 아니면 <span class="math inline">\(p=0.3\)</span>인 것 같냐? -&gt; 답 <span class="math inline">\(p=0.3\)</span> -&gt; 왜? <span class="math inline">\(p=0.3\)</span>인 가능도가 더 크니까! - 질문3: …</p>
+<p><code>-</code> 궁극의 질문: <span class="math inline">\(p\)</span>가 뭐일 것 같아? - <span class="math inline">\(p\)</span>가 입력으로 들어가면 가능도가 계산되는 함수를 만들자. - 그 함수를 최대화하는 <span class="math inline">\(p\)</span>를 찾자. - 그 <span class="math inline">\(p\)</span>가 궁극의 질문에 대한 대답이 된다.</p>
+<p><code>-</code> 잠깐 용어정리 - 가능도함수 <span class="math inline">\(=\)</span> 우도함수 <span class="math inline">\(=\)</span> likelihood function <span class="math inline">\(:=\)</span> <span class="math inline">\(L(p)\)</span> - <span class="math inline">\(p\)</span>의 maximum likelihood estimator <span class="math inline">\(=\)</span> p의 MLE <span class="math inline">\(:=\)</span> <span class="math inline">\(\hat{p}^{mle}\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\text{argmax}_p L(p)\)</span> <span class="math inline">\(=\)</span> <span class="math inline">\(\hat{p}\)</span></p>
+<p>(예제의 풀이)</p>
+<p><code>-</code> 이 예제의 경우 가능도함수를 정의하자. - <span class="math inline">\(L(p)\)</span>: <span class="math inline">\(p\)</span>의 가능도함수 = <span class="math inline">\(p\)</span>가 모수일때 샘플 (0,1,0,1)이 얻어질 확률 = <span class="math inline">\(p\)</span>가 모수일때 <span class="math inline">\(x_1\)</span>이 0일 확률 <span class="math inline">\(\times \dots \times\)</span> <span class="math inline">\(p\)</span>가 모수일때 <span class="math inline">\(x_4\)</span>가 1일 확률 - <span class="math inline">\(L(p)=\prod_{i=1}^{4} f(x_i;p)= \prod_{i=1}^{4}p^{x_i}(1-p)^{1-x_i}\)</span></p>
+<blockquote class="blockquote">
+<p>note: 참고로 이 과정을 일반화 하면 <span class="math inline">\(X_1,\dots,X_n \overset{iid}{\sim} Ber(p)\)</span> 일때 <span class="math inline">\(p\)</span>의 likelihood function은 <span class="math inline">\(\prod_{i=1}^{n}p^{x_i}(1-p)^{1-x_i}\)</span> 라고 볼 수 있다.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>note: 더 일반화: <span class="math inline">\(x_1,\dots,x_n\)</span>이 pdf가 <span class="math inline">\(f(x)\)</span>인 분포에서 뽑힌 서로 독립인 샘플일때 likelihood function은 <span class="math inline">\(\prod_{i=1}^{n}f(x_i)\)</span>라고 볼 수 있다.</p>
+</blockquote>
+<p><code>-</code> 이 예제의 경우 <span class="math inline">\(p\)</span>의 최대우도추정량을 구하면</p>
+<p><span class="math display">\[\hat{p}^{mle} = \text{argmax}_p L(p) = \text{argmax}_p  \big\{ p^2(1-p)^2 \big\}= \frac{1}{2}\]</span></p>
+</section>
+<section id="중간고사-1번" class="level3">
+<h3 class="anchored" data-anchor-id="중간고사-1번">중간고사 1번</h3>
+<p><code>(1)</code> <span class="math inline">\(N(\mu,\sigma)\)</span>에서 얻은 샘플이 아래와 같다고 할때 <span class="math inline">\(\mu,\sigma\)</span>의 MLE를 구하여라.</p>
+<pre><code>&lt;tf.Tensor: shape=(10000,), dtype=float64, numpy=
+array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
+        5.01072291, -1.13050477])&gt;</code></pre>
+<p><code>(2)</code> <span class="math inline">\(Ber(p)\)</span>에서 얻은 샘플이 아래와 같다고 할 때 <span class="math inline">\(p\)</span>의 MLE를 구하여라.</p>
+<pre><code>&lt;tf.Tensor: shape=(10000,), dtype=int64, numpy=array([1, 1, 1, ..., 0, 0, 1])&gt;</code></pre>
+<p><code>(3)</code> <span class="math inline">\(y_i = \beta_0 + \beta_1 x_i + \epsilon_i\)</span>, <span class="math inline">\(\epsilon_i \overset{iid}{\sim} N(0,1)\)</span> 일때 <span class="math inline">\((\beta_0,\beta_1)\)</span>의 MLE를 구하여라. (회귀모형)</p>
+<p>(풀이) 가능도함수</p>
+<p><span class="math display">\[L(\beta_0,\beta_1)=\prod_{i=1}^{n}f(y_i), \quad f(y_i)=\frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}(y_i-\mu_i)^2}, \quad \mu_i=\beta_0+\beta_1 x_i\]</span></p>
+<p>를 최대화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>을 구하면된다. 그런데 이것은 아래를 최소화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>을 구하는 것과 같다.</p>
+<p><span class="math display">\[-\log L(\beta_0,\beta_1) = \sum_{i=1}^{n}(y_i-\beta_0-\beta_1x_i)^2\]</span></p>
+<p>위의 식은 SSE와 같다. 결국 오차항이 정규분포를 따르는 회귀모형의 MLE는 MSE를 최소화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>을 구하면 된다.</p>
+<p><strong>중간고사 1-(3)의 다른 풀이</strong></p>
+<p>step1: 생성</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>x<span class="op">=</span> tf.constant(np.arange(<span class="dv">1</span>,<span class="dv">10001</span>)<span class="op">/</span><span class="dv">10000</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>y<span class="op">=</span> tnp.random.randn(<span class="dv">10000</span>) <span class="op">+</span> (<span class="fl">0.5</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>step2: minimize MSEloss (원래는 maximize log-likelihood)</p>
+<ul>
+<li>maximize likelihood였던 문제를 minimize MSEloss로 바꾸어도 되는근거? 주어진 함수(=가능도함수)를 최대화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>은 MSE를 최소화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>과 동일하므로</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>beta0<span class="op">=</span> tf.Variable(<span class="fl">1.0</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>beta1<span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2000</span>):</span>
+<span id="cb15-4"><a href="#cb15-4"></a>    <span class="cf">with</span> tf.GradientTape() <span class="im">as</span> tape: </span>
+<span id="cb15-5"><a href="#cb15-5"></a>        <span class="co">#minus_log_likelihood = tf.reduce_sum((y-beta0-beta1*x)**2)</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>        loss <span class="op">=</span>  tf.reduce_sum((y<span class="op">-</span>beta0<span class="op">-</span>beta1<span class="op">*</span>x)<span class="op">**</span><span class="dv">2</span>)</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    slope1, slope2 <span class="op">=</span> tape.gradient(loss,[beta0,beta1]) </span>
+<span id="cb15-8"><a href="#cb15-8"></a>    beta0.assign_sub(slope1<span class="op">*</span> <span class="fl">0.1</span><span class="op">/</span><span class="dv">10000</span>) <span class="co"># N=10000 </span></span>
+<span id="cb15-9"><a href="#cb15-9"></a>    beta1.assign_sub(slope2<span class="op">*</span> <span class="fl">0.1</span><span class="op">/</span><span class="dv">10000</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="3fc207f6-3a5e-4dee-89e6-3de6231d7880">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>beta0,beta1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="49">
+<pre><code>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=0.49661896&gt;,
+ &lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=2.0051448&gt;)</code></pre>
+</div>
+</div>
+<p><code>-</code> 문제를 풀면서 생각해보니 손실함수는 <code>-로그가능도함수</code>로 선택하면 될 것 같다? - 손실함수를 선택하는 기준이 -로그가능도함수만 존재하는 것은 아니나 대부분 그러하긴함</p>
+<p><code>(4)</code> 출제하지 못한 중간고사 문제</p>
+<p>아래의 모형을 생각하자. - <span class="math inline">\(Y_i \overset{iid}{\sim} Ber(\pi_i)\)</span> - <span class="math inline">\(\pi_i = \frac{\exp(w_0+w_1x_i)}{1+\exp(w_0+w_1x_i)}=\frac{\exp(-1+5x_i)}{1+\exp(-1+5x_i)}\)</span></p>
+<p>아래는 위의 모형에서 얻은 샘플이다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="op">=</span> tnp.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2000</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>pi <span class="op">=</span> tnp.exp(<span class="op">-</span><span class="dv">1</span><span class="op">+</span><span class="dv">5</span><span class="op">*</span>x) <span class="op">/</span> (<span class="dv">1</span><span class="op">+</span>tnp.exp(<span class="op">-</span><span class="dv">1</span><span class="op">+</span><span class="dv">5</span><span class="op">*</span>x))</span>
+<span id="cb18-3"><a href="#cb18-3"></a>y <span class="op">=</span> np.random.binomial(<span class="dv">1</span>,pi)</span>
+<span id="cb18-4"><a href="#cb18-4"></a>y <span class="op">=</span> tf.constant(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>함수 <span class="math inline">\(L(w_0,w_1)\)</span>을 최대화하는 <span class="math inline">\((w_0,w_1)\)</span>를 <code>tf.GradeintTape()</code>를 활용하여 추정하라. (경사하강법 혹은 경사상승법을 사용하고 <span class="math inline">\((w_0,w_1)\)</span>의 초기값은 모두 0.1로 설정할 것)</p>
+<p><span class="math display">\[L(w_0,w_1)=\prod_{i=1}^{n}f(y_i), \quad f(x_i)={\pi_i}^{y_i}(1-\pi_i)^{1-y_i},\quad \pi_i=\text{sigmoid}(w_0+w_1x_i)\]</span></p>
+<p>(풀이1)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>w0hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span>
+<span id="cb19-2"><a href="#cb19-2"></a>w1hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>): </span>
+<span id="cb20-2"><a href="#cb20-2"></a>    <span class="cf">with</span> tf.GradientTape() <span class="im">as</span> tape: </span>
+<span id="cb20-3"><a href="#cb20-3"></a>        pihat <span class="op">=</span> tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x) <span class="op">/</span> (<span class="dv">1</span><span class="op">+</span>tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x))</span>
+<span id="cb20-4"><a href="#cb20-4"></a>        pdf <span class="op">=</span> pihat<span class="op">**</span>y <span class="op">*</span> (<span class="dv">1</span><span class="op">-</span>pihat)<span class="op">**</span>(<span class="dv">1</span><span class="op">-</span>y) </span>
+<span id="cb20-5"><a href="#cb20-5"></a>        logL <span class="op">=</span> tf.reduce_mean(tnp.log(pdf)) </span>
+<span id="cb20-6"><a href="#cb20-6"></a>    slope1,slope2 <span class="op">=</span> tape.gradient(logL,[w0hat,w1hat])</span>
+<span id="cb20-7"><a href="#cb20-7"></a>    w0hat.assign_add(slope1<span class="op">*</span><span class="fl">0.1</span>) </span>
+<span id="cb20-8"><a href="#cb20-8"></a>    w1hat.assign_add(slope2<span class="op">*</span><span class="fl">0.1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="aa74f5bb-7808-4a88-d4fc-7450315202d2">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>w0hat,w1hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="118">
+<pre><code>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=-0.8875932&gt;,
+ &lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=4.3785405&gt;)</code></pre>
+</div>
+</div>
+<p>(해석) - 로지스틱에서 가능도함수와 BCEloss의 관계</p>
+<p><span class="math inline">\(L(w_0,w_1)\)</span>를 최대화하는 <span class="math inline">\(w_0,w_1\)</span>은 아래를 최소화하는 <span class="math inline">\(w_0,w_1\)</span>와 같다.</p>
+<p><span class="math display">\[-\log L(w_0,w_1) = - \sum_{i=1}^{n}\big(y_i \log(\pi_i) + (1-y_i)\log(1-\pi_i)\big)\]</span></p>
+<p>이것은 최적의 <span class="math inline">\(w_0,w_1\)</span>을 <span class="math inline">\(\hat{w}_0,\hat{w}_1\)</span>이라고 하면 <span class="math inline">\(\hat{\pi}_i=\frac{\exp(\hat{w}_0+\hat{w}_1x_i)}{1+\exp(\hat{w}_0+\hat{w}_1x_i)}=\hat{y}_i\)</span>이 되고 따라서 위의 식은 <span class="math inline">\(n\times\)</span>BCEloss의 형태임을 쉽게 알 수 있다.</p>
+<p>결국 로지스틱 모형에서 <span class="math inline">\((w_0,w_1)\)</span>의 MLE를 구하기 위해서는 BCEloss를 최소화하는 <span class="math inline">\((w_0,w_1)\)</span>을 구하면 된다!</p>
+<p>(풀이2)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>w0hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span>
+<span id="cb23-2"><a href="#cb23-2"></a>w1hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>): </span>
+<span id="cb24-2"><a href="#cb24-2"></a>    <span class="cf">with</span> tf.GradientTape() <span class="im">as</span> tape: </span>
+<span id="cb24-3"><a href="#cb24-3"></a>        yhat <span class="op">=</span> tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x) <span class="op">/</span> (<span class="dv">1</span><span class="op">+</span>tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x))</span>
+<span id="cb24-4"><a href="#cb24-4"></a>        loss <span class="op">=</span> tf.losses.binary_crossentropy(y,yhat)</span>
+<span id="cb24-5"><a href="#cb24-5"></a>    slope1,slope2 <span class="op">=</span> tape.gradient(loss,[w0hat,w1hat])</span>
+<span id="cb24-6"><a href="#cb24-6"></a>    w0hat.assign_sub(slope1<span class="op">*</span><span class="fl">0.1</span>) </span>
+<span id="cb24-7"><a href="#cb24-7"></a>    w1hat.assign_sub(slope2<span class="op">*</span><span class="fl">0.1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="163d1abb-256f-43c9-978a-628c292a8fb8">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>w0hat,w1hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="137">
+<pre><code>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=-0.8875934&gt;,
+ &lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=4.3785415&gt;)</code></pre>
+</div>
+</div>
+</section>
+<section id="손실함수의-설계-선택" class="level3">
+<h3 class="anchored" data-anchor-id="손실함수의-설계-선택">손실함수의 설계 (선택)</h3>
+<p><code>-</code> 회귀분석이든 로지스틱이든 손실함수는 minus_log_likelihood 로 선택한다. - 그런데 (오차항이 정규분포인) 회귀분석 일때는 minus_log_likelihood 가 MSEloss가 되고 - 로지스틱일때는 minus_log_likelihood 가 BCEloss가 된다</p>
+<p><code>-</code> minus_log_likelihood가 손실함수를 선택하는 유일한 기준은 아니다. &lt;— 참고만하세요, 이 수업에서는 안중요합니다. - 오차항이 대칭이고 서로독립이며 등분산 가정을 만족하는 어떠한 분포에서의 회귀모형이 있다고 하자. 이 회귀모형에서 <span class="math inline">\(\hat{\beta}\)</span>은 여전히 MSEloss를 최소화하는 <span class="math inline">\(\beta\)</span>를 구함으로써 얻을 수 있다. - 이 경우 MSEloss를 쓰는 이론적근거? <span class="math inline">\(\hat{\beta}\)</span>이 BLUE가 되기 때문임 (가우스-마코프정리)</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
