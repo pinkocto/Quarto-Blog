@@ -188,7 +188,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#motive1-과거의-값에-계수값-반영" id="toc-motive1-과거의-값에-계수값-반영" class="nav-link" data-scroll-target="#motive1-과거의-값에-계수값-반영">motive1 : 과거의 값에 계수값 반영</a></li>
   <li><a href="#motive2-기울기-텀-추가" id="toc-motive2-기울기-텀-추가" class="nav-link" data-scroll-target="#motive2-기울기-텀-추가">motive2 : 기울기 텀 추가</a></li>
-  <li><a href="#ar모델의-정상성-확인" id="toc-ar모델의-정상성-확인" class="nav-link" data-scroll-target="#ar모델의-정상성-확인">AR모델의 정상성 확인</a></li>
+  <li><a href="#ar모델의-정상성-확인" id="toc-ar모델의-정상성-확인" class="nav-link" data-scroll-target="#ar모델의-정상성-확인">AR모델의 정상성 확인</a>
+  <ul class="collapse">
+  <li><a href="#예제-연습문제-5.1-h" id="toc-예제-연습문제-5.1-h" class="nav-link" data-scroll-target="#예제-연습문제-5.1-h"><code>-</code> 예제 (연습문제 5.1 (h))</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -294,7 +297,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="alert alert-block alert-warning">
 <p><b>AR process의 정상성을 체크하는 법 (교재 p215, p246):</b><br><br> 1. 특성방정식을 구한다.<br> 2. 특성방정식을 <span class="math inline">\(B\)</span>에 대하여 푼다.<br> 3. 모든 근의 절댓값이 1보다 큰지 조사한다.</p>
 </div>
-<p><code>-</code> 예제 (연습문제 5.1 (h))</p>
+<section id="예제-연습문제-5.1-h" class="level3">
+<h3 class="anchored" data-anchor-id="예제-연습문제-5.1-h"><code>-</code> 예제 (연습문제 5.1 (h))</h3>
 <p>다음 모형에 의해 설명되는 확률과정 <span class="math inline">\(\{Z_t\}\)</span>는 정상성을 갖는지 조사하라.</p>
 <p><span class="math inline">\(Z_t=100+0.5Z_{t-1}+\epsilon_t, \quad \{\epsilon_t\}\)</span>는 <span class="math inline">\(WN(0,5)\)</span> 이다.</p>
 <p><strong><em><code>(sol)</code></em></strong></p>
@@ -318,7 +322,13 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math inline">\(E(Y_t) = 0 + 0 + \dots + 0 = 0\)</span></p>
 <p><strong><font color="blue">관점2 (0: 시작, <span class="math inline">\(\infty\)</span>: 끝)</font></strong></p>
 <p><span class="math inline">\(Z_t = 100 + 0.5Z_{t-1}+\epsilon_t\)</span></p>
-<p><span class="math inline">\(Z_0 = 0 \\ Z_1 = 100 + 1\cdot\frac{1}{2}+\epsilon_1\\ Z_2 = 100 + (100+\epsilon_1)\frac{1}{2}+\epsilon_2\\ Z_3 = 100 + (100+(100+\epsilon_1)\frac{1}{2} + \epsilon_2) + \epsilon_3\\ Z_t = 100 + 100\times\frac{1}{2}+ 100\times \frac{1}{4} + \dots\)</span></p>
+<ul>
+<li><span class="math inline">\(Z_0 = 0\)</span></li>
+<li><span class="math inline">\(Z_1 = 100 + 1\cdot\frac{1}{2}+\epsilon_1\)</span></li>
+<li><span class="math inline">\(Z_2 = 100 + (100+\epsilon_1)\frac{1}{2}+\epsilon_2\)</span></li>
+<li><span class="math inline">\(Z_3 = 100 + (100+(100+\epsilon_1)\frac{1}{2} + \epsilon_2) + \epsilon_3\)</span></li>
+<li><span class="math inline">\(Z_t = 100 + 100\times\frac{1}{2}+ 100\times \frac{1}{4} + \dots\)</span></li>
+</ul>
 <p><span class="math inline">\(\therefore E(Z_t) = \frac{100}{1-\frac{1}{2}}=200\)</span> <span class="math inline">\(\quad \leftarrow \text{not depend on t}\)</span></p>
 <p>관점1과 2의 결과는 동일하다.</p>
 <p>$Y_t = <em>t + 0.5</em>{t-1} + 0.5^2_{t-2} + $</p>
@@ -335,6 +345,7 @@ ul.task-list li input[type="checkbox"] {
 <p>특성방정식을 이용해 푼 결과와 동일하다. 특성방정식 매우 좋은 방법이였음..</p>
 
 
+</section>
 </section>
 </section>
 
