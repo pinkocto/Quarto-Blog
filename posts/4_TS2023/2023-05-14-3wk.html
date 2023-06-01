@@ -188,8 +188,22 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#motive1-과거의-값에-계수값-반영" id="toc-motive1-과거의-값에-계수값-반영" class="nav-link" data-scroll-target="#motive1-과거의-값에-계수값-반영">motive1 : 과거의 값에 계수값 반영</a></li>
   <li><a href="#motive2-기울기-텀-추가" id="toc-motive2-기울기-텀-추가" class="nav-link" data-scroll-target="#motive2-기울기-텀-추가">motive2 : 기울기 텀 추가</a></li>
-  <li><a href="#ar모델의-정상성-확인" id="toc-ar모델의-정상성-확인" class="nav-link" data-scroll-target="#ar모델의-정상성-확인">AR모델의 정상성 확인</a></li>
-  <li><a href="#예제-연습문제-5.1-h" id="toc-예제-연습문제-5.1-h" class="nav-link" data-scroll-target="#예제-연습문제-5.1-h">예제 (연습문제 5.1 (h))</a></li>
+  <li><a href="#ar모델의-정상성-확인" id="toc-ar모델의-정상성-확인" class="nav-link" data-scroll-target="#ar모델의-정상성-확인">AR모델의 정상성 확인</a>
+  <ul class="collapse">
+  <li><a href="#연습문제-5.1-h" id="toc-연습문제-5.1-h" class="nav-link" data-scroll-target="#연습문제-5.1-h">연습문제 5.1 (h)</a></li>
+  <li><a href="#연습문제-5.1-i" id="toc-연습문제-5.1-i" class="nav-link" data-scroll-target="#연습문제-5.1-i">연습문제 5.1 (i)</a></li>
+  </ul></li>
+  <li><a href="#ar1-특성방정식보다-쉽게-정상성-판단하는-법" id="toc-ar1-특성방정식보다-쉽게-정상성-판단하는-법" class="nav-link" data-scroll-target="#ar1-특성방정식보다-쉽게-정상성-판단하는-법">AR(1): 특성방정식보다 쉽게 정상성 판단하는 법</a></li>
+  <li><a href="#ar2과정이-정상일-조건" id="toc-ar2과정이-정상일-조건" class="nav-link" data-scroll-target="#ar2과정이-정상일-조건">AR(2)과정이 정상일 조건</a>
+  <ul class="collapse">
+  <li><a href="#연습문제-5.1-h-1" id="toc-연습문제-5.1-h-1" class="nav-link" data-scroll-target="#연습문제-5.1-h-1">연습문제 5.1 (h)</a></li>
+  <li><a href="#연습문제-5.1-i-1" id="toc-연습문제-5.1-i-1" class="nav-link" data-scroll-target="#연습문제-5.1-i-1">연습문제 5.1 (i)</a></li>
+  <li><a href="#연습문제-5.1-l" id="toc-연습문제-5.1-l" class="nav-link" data-scroll-target="#연습문제-5.1-l">연습문제 5.1 (l)</a></li>
+  </ul></li>
+  <li><a href="#ar1-acf를-구하자.-교재-6.1.1" id="toc-ar1-acf를-구하자.-교재-6.1.1" class="nav-link" data-scroll-target="#ar1-acf를-구하자.-교재-6.1.1"><code>#</code> AR(1) acf를 구하자. (교재 6.1.1)</a></li>
+  <li><a href="#gammah와-textacfh의-성질-교재-5.3" id="toc-gammah와-textacfh의-성질-교재-5.3" class="nav-link" data-scroll-target="#gammah와-textacfh의-성질-교재-5.3"><span class="math inline">\(\gamma(h)\)</span>와 <span class="math inline">\(\text{acf}(h)\)</span>의 성질 (교재 5.3)</a></li>
+  <li><a href="#ar2-textacf를-구하라." id="toc-ar2-textacf를-구하라." class="nav-link" data-scroll-target="#ar2-textacf를-구하라."><code>#</code> <span class="math inline">\(AR(2)\)</span> <span class="math inline">\(\text{ACF}\)</span>를 구하라.</a></li>
+  <li><a href="#교재6.1.2-ar2의-acf-형태." id="toc-교재6.1.2-ar2의-acf-형태." class="nav-link" data-scroll-target="#교재6.1.2-ar2의-acf-형태.">교재6.1.2 AR(2)의 ACF 형태.</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -295,9 +309,8 @@ ul.task-list li input[type="checkbox"] {
 <div class="alert alert-block alert-warning">
 <p><b>AR process의 정상성을 체크하는 법 (교재 p215, p246):</b><br><br> 1. 특성방정식을 구한다.<br> 2. 특성방정식을 <span class="math inline">\(B\)</span>에 대하여 푼다.<br> 3. 모든 근의 절댓값이 1보다 큰지 조사한다.</p>
 </div>
-</section>
-<section id="예제-연습문제-5.1-h" class="level2">
-<h2 class="anchored" data-anchor-id="예제-연습문제-5.1-h">예제 (연습문제 5.1 (h))</h2>
+<section id="연습문제-5.1-h" class="level3">
+<h3 class="anchored" data-anchor-id="연습문제-5.1-h">연습문제 5.1 (h)</h3>
 <p>다음 모형에 의해 설명되는 확률과정 <span class="math inline">\(\{Z_t\}\)</span>는 정상성을 갖는지 조사하라.</p>
 <p><span class="math inline">\(Z_t=100+0.5Z_{t-1}+\epsilon_t, \quad \{\epsilon_t\}\)</span>는 <span class="math inline">\(WN(0,5)\)</span> 이다.</p>
 <p><strong><em><code>(sol)</code></em></strong></p>
@@ -342,6 +355,140 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math inline">\(Cov(Y_t, Y_{t-k}) = \sigma^2\cdot\frac{0.5^k}{1-0.5^2} \quad \leftarrow \text{not depend on t}\)</span></p>
 <p><span class="math inline">\(\Rightarrow \{Y_t\} \text{ is stationary!}\)</span></p>
 <p>특성방정식을 이용해 푼 결과와 동일하다. 특성방정식 매우 좋은 방법이였음..</p>
+</section>
+<section id="연습문제-5.1-i" class="level3">
+<h3 class="anchored" data-anchor-id="연습문제-5.1-i">연습문제 5.1 (i)</h3>
+<p><span class="math inline">\(Z_t = 1.3Z_{t-1}+\epsilon_t, \quad \epsilon_t \overset{iid}{\sim}(0,1)\)</span></p>
+<p><code>(sol1)</code></p>
+<p>특성방정식: <span class="math inline">\(1-1.3B = 0 \Rightarrow B = \frac{1}{1.3}\)</span></p>
+<p><span class="math inline">\(\Rightarrow\)</span> <strong>“비정상시계열”</strong></p>
+<p><code>(sol2)</code></p>
+<p><span class="math inline">\(Z_t = \epsilon_t + 1.3\epsilon_{t-1} + 1.3^2\epsilon_{t-2}+\dots\)</span></p>
+<p>$V(Z_t)=$ <strong>“비정상시계열”</strong></p>
+</section>
+</section>
+<section id="ar1-특성방정식보다-쉽게-정상성-판단하는-법" class="level2">
+<h2 class="anchored" data-anchor-id="ar1-특성방정식보다-쉽게-정상성-판단하는-법">AR(1): 특성방정식보다 쉽게 정상성 판단하는 법</h2>
+<blockquote class="blockquote">
+<p>단, AR(1) 모델 한정해서 정상성 체크. (p191, p218)</p>
+</blockquote>
+<p><span class="math inline">\(\begin{align*}AR(1): Z_t &amp;= \phi Z_{t-1} + \epsilon_t\\ \Rightarrow Z_t &amp;= \phi BZ_t + \epsilon\end{align*}\)</span></p>
+<p><span class="math inline">\(\therefore\)</span> 특성방정식<span class="math inline">\(=1-\phi B = 0 \to B=\frac{1}{\phi}\)</span></p>
+<p>따라서 <span class="math inline">\(|\frac{1}{\phi}| &gt; 1\)</span>인지만 체크하면 됨. <span class="math inline">\(\Leftrightarrow |\phi| &lt; 1\)</span></p>
+<ul>
+<li>교재: 절편 무시/ 분산 &amp; Cov 유한</li>
+</ul>
+<p><strong>결국 AR(1): 현재 = <span class="math inline">\(\phi\)</span>과거 + 오차</strong><a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> 에서</p>
+<ul>
+<li>$|| &lt; 1 $ 과거의 효과가 점차 사라진다.</li>
+<li>랜덤워크와의 차이점은 계수를 적당히 조절해서 수렴시키게 만들 수 있다는 것. 즉, 정상성을 만족하도록 만들 수 있다는 특징이 있다.</li>
+</ul>
+</section>
+<section id="ar2과정이-정상일-조건" class="level2">
+<h2 class="anchored" data-anchor-id="ar2과정이-정상일-조건">AR(2)과정이 정상일 조건</h2>
+<p><span class="math inline">\(Z_t = \phi_1 Z_{t-1} + \phi_2Z_{t-2} + \epsilon_t\)</span></p>
+<p><span class="math inline">\(Z_t = \phi+1BZ_t + \phi_2B^2Z_t + \epsilon_t\)</span></p>
+<p>특성방정식: <span class="math inline">\(1-\phi_2B - \phi_2B^2 = 0\)</span></p>
+<p>근<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> : <span class="math inline">\(\frac{\phi_1\pm \sqrt{\phi_1^2+4\phi_2}}{-2\phi_2}\quad\)</span> 근의 절댓값이 1보다 클 조건.</p>
+<div class="alert alert-block alert-warning">
+<p><b>AR(2) 모델한정 정상성 쉽게 판단하는 법:</b><br><br> 1. <span class="math inline">\(\phi_1 + \phi_2 &lt; 1\)</span><br> 2. <span class="math inline">\(\phi_2 - \phi_1 &lt; 1\)</span><br> 3. <span class="math inline">\(|\phi_2| &lt; 1\)</span> <br><br></p>
+<p>다음 조건과 같은 조건을 만족하는 AR(2) 과정을 정상이라고 하며, 특성방정식의 근의 절대값이 1보다 커야한다는 조건과 동치이다.</p>
+</div>
+<section id="연습문제-5.1-h-1" class="level3">
+<h3 class="anchored" data-anchor-id="연습문제-5.1-h-1">연습문제 5.1 (h)</h3>
+<p><span class="math inline">\(Z_t = 100 + 0.5Z_{t-1} + \epsilon_t\)</span></p>
+<p>절편무시, <span class="math inline">\(0.5 &lt; 1 \Rightarrow\)</span> “정상”</p>
+</section>
+<section id="연습문제-5.1-i-1" class="level3">
+<h3 class="anchored" data-anchor-id="연습문제-5.1-i-1">연습문제 5.1 (i)</h3>
+<p><span class="math inline">\(Z_t = 1.3Z_{t-t} + \epsilon_t\)</span></p>
+<p><span class="math inline">\(1.3 &gt; 1 \Rightarrow\)</span> “비정상”</p>
+</section>
+<section id="연습문제-5.1-l" class="level3">
+<h3 class="anchored" data-anchor-id="연습문제-5.1-l">연습문제 5.1 (l)</h3>
+<p><span class="math inline">\(Z_t = 0.12 + Z_{t-1} + \epsilon_t\)</span></p>
+<p>절편무시 <span class="math inline">\(\phi=1 \Rightarrow\)</span> “비정상”</p>
+<hr>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/886b0213-6630-4e30-b8f3-6a970ce013ad-1-31e80ce5-7025-4628-b9a5-017835e65b52.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">자기공분산함수와 자기상관함수</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="ar1-acf를-구하자.-교재-6.1.1" class="level2">
+<h2 class="anchored" data-anchor-id="ar1-acf를-구하자.-교재-6.1.1"><code>#</code> AR(1) acf를 구하자. (교재 6.1.1)</h2>
+<p>Leg <span class="math inline">\(\{Z_t\}\)</span> be <span class="math inline">\(AR(1)\)</span> with <span class="math inline">\(\phi\)</span>. i.e</p>
+<p><span class="math inline">\(\begin{align*}Z_t &amp;= \phi Z_{t-1} +\epsilon_t, \quad \epsilon_t\sim (0,\sigma^2) \\ &amp;=\epsilon_t + \phi \epsilon_{t-1} + \phi^2\epsilon_{t-2}+\dots\end{align*}\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/a0972853-c39e-4085-8714-5f3aa782fe4f-1-b35beeb1-0fa2-45b8-9fd2-5aa46cbf874c.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">$Cov(Z_t, Z_{t-h})</figcaption><p></p>
+</figure>
+</div>
+<p><span class="math inline">\(\therefore Cov(Z_t, Z_{t-h}) = \frac{\phi^h}{1-\phi^2}\sigma^2=\gamma(h)\)</span></p>
+<p><span class="math inline">\(acf(h)=\frac{\gamma(h)}{\gamma(0)}=\frac{\frac{\phi^h}{1-\phi^2}}{\frac{1}{1-\phi^2}}=\phi^h\)</span><a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/aa8acbff-7008-4acd-ac01-a122ce02a8e3-1-692f7dd5-78df-47b7-a388-34565ae03446.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">acf를 쉽게 계산하는 방법 따윈 없어.. 정석대로 하자.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="gammah와-textacfh의-성질-교재-5.3" class="level2">
+<h2 class="anchored" data-anchor-id="gammah와-textacfh의-성질-교재-5.3"><span class="math inline">\(\gamma(h)\)</span>와 <span class="math inline">\(\text{acf}(h)\)</span>의 성질 (교재 5.3)</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/f4d4c8ab-d545-476c-bfac-7facd41151b8-1-508f387f-1d6d-477a-b2c1-f05d24e75e1b.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">성질1. 분산은 시간에 depend 하지 않으니까~</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/fbbb53cd-f17d-4517-acbc-c5b4d41c6f2e-1-b75d3a32-a377-48ab-b967-c9120408127d.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">성질2.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/f7b34701-5d45-4a25-a37b-0075c3382e13-1-7a40d83b-5efa-4b0f-930c-74c8250b3700.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">성질3.</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/14d230da-e405-4705-845d-38263848532c-1-ebce9b23-e076-4cb2-ade0-2e281a28f371.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">성질4. 코쉬-슈바르츠로 증명 가능</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="ar2-textacf를-구하라." class="level2">
+<h2 class="anchored" data-anchor-id="ar2-textacf를-구하라."><code>#</code> <span class="math inline">\(AR(2)\)</span> <span class="math inline">\(\text{ACF}\)</span>를 구하라.</h2>
+<p><img src="2023-05-14-3wk_files/figure-html/ae093c5b-f5b9-4af9-afba-97a4f562e28d-1-b6778386-78d4-4e15-b814-1d2489f1a965.png" class="img-fluid"></p>
+<p><img src="2023-05-14-3wk_files/figure-html/4b072d15-df07-4482-9e58-39640053896d-1-1194c5f4-4efd-4005-b7aa-beb58908c159.png" class="img-fluid"></p>
+<p><img src="2023-05-14-3wk_files/figure-html/7579ba71-a7f1-44c5-b0f5-5381506fe3e5-1-5d40c635-be25-4412-b1a8-cb22f98bd8b5.png" class="img-fluid"></p>
+<p><img src="2023-05-14-3wk_files/figure-html/c83460e2-1ddc-4598-adb5-023694e5ef35-1-6e745863-41df-4121-a008-cb0d70a26e53.png" class="img-fluid"></p>
+<p><img src="2023-05-14-3wk_files/figure-html/66b7e09d-f67a-4213-93d5-5bf018c1f078-1-7922ffcb-86f3-4140-999b-423e9d9abdb9.png" class="img-fluid"></p>
+<p><img src="2023-05-14-3wk_files/figure-html/74505302-9bdd-41ea-abea-7d1fade840eb-1-d094840e-bbdd-4869-886b-5cd09bd901b4.png" class="img-fluid"></p>
+<p><img src="2023-05-14-3wk_files/figure-html/20aec2da-48ab-4a5a-8fbf-0a2e1414cfdc-1-62febda0-72eb-457d-a5d4-cf7b4a867df4.png" class="img-fluid"></p>
+<p><img src="2023-05-14-3wk_files/figure-html/486e775d-6145-4924-84d6-6197b6018a89-1-3b678058-0a20-4646-8ae2-b0edc0f1c42c.png" class="img-fluid"></p>
+</section>
+<section id="교재6.1.2-ar2의-acf-형태." class="level2">
+<h2 class="anchored" data-anchor-id="교재6.1.2-ar2의-acf-형태.">교재6.1.2 AR(2)의 ACF 형태.</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/76a95e59-7a3c-4993-b2b1-deeaf0b26b38-1-91d5b58f-56bf-4d41-a1c6-bbfb43d38668.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">AR(2)의 ACF 형태</figcaption><p></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-05-14-3wk_files/figure-html/d37027e8-bd63-456b-8b7d-0d9f4b7e3755-1-2e9d3afb-9406-46a1-8874-72d04f45d740.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Type1. 지수적으로 감소, Type2. 점차 소멸하는 sin 함수</figcaption><p></p>
+</figure>
+</div>
+<p><img src="2023-05-14-3wk_files/figure-html/ee82e36c-ed21-4716-ab2b-aedf161ebb1a-1-e48734bf-b51e-4985-bf84-ce7584990861.png" class="img-fluid"></p>
 
 
 </section>
@@ -360,6 +507,9 @@ ul.task-list li input[type="checkbox"] {
 <li id="fn7"><p>절편이 있는 AR모델<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn8"><p>절편이 없는 AR모델<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn9"><p><span class="math inline">\(Y_{-\infty}=0\)</span>, 관점 <span class="math inline">\(\Rightarrow t\)</span> :시작, <span class="math inline">\(-\infty\)</span>:끝<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p><span class="math inline">\(\phi\)</span>는 계수를 의미. <span class="math inline">\(0.3, 1.2, 1.8,...\)</span> 등등<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>이차방정식 근의 공식 이용<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>교재 5.3 참고<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
