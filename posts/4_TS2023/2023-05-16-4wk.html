@@ -249,11 +249,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#sacf-widehatacf" id="toc-sacf-widehatacf" class="nav-link" data-scroll-target="#sacf-widehatacf"><code>#</code> <span class="math inline">\(SACF, \widehat{ACF}\)</span></a>
-  <ul class="collapse">
+  <li><a href="#sacf-widehatacf" id="toc-sacf-widehatacf" class="nav-link" data-scroll-target="#sacf-widehatacf"><code>#</code> <span class="math inline">\(SACF, \widehat{ACF}\)</span></a></li>
   <li><a href="#연습문제-5.2" id="toc-연습문제-5.2" class="nav-link" data-scroll-target="#연습문제-5.2">연습문제 5.2</a></li>
   <li><a href="#r-실습" id="toc-r-실습" class="nav-link" data-scroll-target="#r-실습">R 실습</a></li>
-  </ul></li>
   </ul>
 </nav>
     </div>
@@ -330,8 +328,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>교재 5.3, p193</p>
 </blockquote>
 <p><span class="math inline">\(\widehat{acf} = \hat{\rho}(h)=\frac{\hat{\gamma}(h)}{\hat{\gamma}(0)}, \quad \hat{\gamma}(h) = \frac{\sum_{i=1}^{n-h}(Z_t-\bar{Z})(Z_{t+h}-\bar{Z})}{n}, h=0,1,2,\dots\)</span></p>
-<section id="연습문제-5.2" class="level2">
-<h2 class="anchored" data-anchor-id="연습문제-5.2">연습문제 5.2</h2>
+</section>
+<section id="연습문제-5.2" class="level1">
+<h1>연습문제 5.2</h1>
 <p>다음의 시계열이 주어졌다. SACF <span class="math inline">\(\hat{\rho}_k, k=1,2,3\)</span>과 <span class="math inline">\(\hat{\phi}_{kk},k=1,2,3\)</span>을 직접 계산하라.</p>
 <p><span class="math inline">\(Z_t = \{\dots, 7,6,5,8,9,4,5,5,4,6,7,8,5,6,5,\dots\}\)</span></p>
 <p><span class="math inline">\(\bar{Z} = \frac{90}{15}=6\)</span></p>
@@ -443,8 +442,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>위의 내용을 실습을 통해서 확인해보자.</li>
 </ul>
 </section>
-<section id="r-실습" class="level2">
-<h2 class="anchored" data-anchor-id="r-실습">R 실습</h2>
+<section id="r-실습" class="level1">
+<h1>R 실습</h1>
 <p>다음의 시계열이 주어졌다. SACF <span class="math inline">\(\hat{\rho}_k, k=1,2,3\)</span>과 <span class="math inline">\(\hat{\phi}_{kk},k=1,2,3\)</span>을 직접 계산하라.</p>
 <div class="cell" data-execution_count="50">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>zt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">5</span>)</span>
@@ -557,7 +556,6 @@ rho0:  1</code></pre>
 </ul>
 
 
-</section>
 </section>
 
 
