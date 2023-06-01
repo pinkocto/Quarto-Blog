@@ -183,14 +183,12 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#white-noise" id="toc-white-noise" class="nav-link active" data-scroll-target="#white-noise">5.2.1 White noise</a></li>
-  <li><a href="#random-walk-process" id="toc-random-walk-process" class="nav-link" data-scroll-target="#random-walk-process">5.2.2 random walk process</a>
-  <ul class="collapse">
+  <li><a href="#random-walk-process" id="toc-random-walk-process" class="nav-link" data-scroll-target="#random-walk-process">5.2.2 random walk process</a></li>
   <li><a href="#auto-regressive-process-ar" id="toc-auto-regressive-process-ar" class="nav-link" data-scroll-target="#auto-regressive-process-ar">5.2.5 auto-regressive process (AR)</a>
   <ul class="collapse">
-  <li><a href="#motive1-과거의-값에-계수값-반영" id="toc-motive1-과거의-값에-계수값-반영" class="nav-link" data-scroll-target="#motive1-과거의-값에-계수값-반영"><code>-</code> motive1 : 과거의 값에 계수값 반영</a></li>
-  <li><a href="#motive2-기울기-텀-추가" id="toc-motive2-기울기-텀-추가" class="nav-link" data-scroll-target="#motive2-기울기-텀-추가"><code>-</code> motive2 : 기울기 텀 추가</a></li>
+  <li><a href="#motive1-과거의-값에-계수값-반영" id="toc-motive1-과거의-값에-계수값-반영" class="nav-link" data-scroll-target="#motive1-과거의-값에-계수값-반영">motive1 : 과거의 값에 계수값 반영</a></li>
+  <li><a href="#motive2-기울기-텀-추가" id="toc-motive2-기울기-텀-추가" class="nav-link" data-scroll-target="#motive2-기울기-텀-추가">motive2 : 기울기 텀 추가</a></li>
   <li><a href="#ar모델의-정상성-확인" id="toc-ar모델의-정상성-확인" class="nav-link" data-scroll-target="#ar모델의-정상성-확인">AR모델의 정상성 확인</a></li>
-  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -218,7 +216,7 @@ ul.task-list li input[type="checkbox"] {
 <p><code>-</code> 특징: 합리적이고, 실용적인듯함.</p>
 <ul>
 <li>현재 = 과거 + 오차 (=랜덤한 변동)</li>
-<li>$Z_t = Z_{t-1} + $ 변동</li>
+<li><span class="math inline">\(Z_t = Z_{t-1} +\)</span> 변동</li>
 </ul>
 <p><code>-</code> 단점: 쓸모가 없다. &lt;- non-stationary 모델이기 때문에</p>
 <p><code>(1)</code> 처음을 <span class="math inline">\(t\)</span>시점으로 두고 <span class="math inline">\(-\infty\)</span>로 보내는 방법</p>
@@ -243,12 +241,13 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><span class="math inline">\(t\to \infty\)</span> 이므로, 결국 <span class="math inline">\(t\sigma^2\to \infty\)</span></p>
 <p>이것이 교재의 논리이고, 결국 위에서의 논리와 일치한다. (시작과 끝을 어디로 놓던지 상관없다. 단지 아래와 같이 생각한다면 <span class="math inline">\(t\)</span>시점을 무한대로 보내줘야 한다는 차이가 존재함.)</p>
-<section id="auto-regressive-process-ar" class="level2">
-<h2 class="anchored" data-anchor-id="auto-regressive-process-ar">5.2.5 auto-regressive process (AR)</h2>
+</section>
+<section id="auto-regressive-process-ar" class="level1">
+<h1>5.2.5 auto-regressive process (AR)</h1>
 <p><span class="math inline">\(\{Z_t\}\)</span> is auto regressive process iff.</p>
 <p><span class="math inline">\(Z_t = \phi_1 Z_{t-1} + \phi_2 Z_{t-2} + \phi_3 Z_{t-3} + \dots + \phi_p Z_{t-p} + \epsilon_t\)</span></p>
-<section id="motive1-과거의-값에-계수값-반영" class="level3">
-<h3 class="anchored" data-anchor-id="motive1-과거의-값에-계수값-반영"><code>-</code> motive1 : 과거의 값에 계수값 반영</h3>
+<section id="motive1-과거의-값에-계수값-반영" class="level2">
+<h2 class="anchored" data-anchor-id="motive1-과거의-값에-계수값-반영">motive1 : 과거의 값에 계수값 반영</h2>
 <p>랜덤워크 방식이 너무 아까움.. 분산이 안터지는 방법이 없을까?</p>
 <p><span class="math inline">\(Z_t = 0.999Z_{t-1} + \epsilon_t, \quad \epsilon_t \sim (0,\sigma^2)\)</span></p>
 <ul>
@@ -261,8 +260,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>따라서 Stationary 하다!</p>
 </section>
-<section id="motive2-기울기-텀-추가" class="level3">
-<h3 class="anchored" data-anchor-id="motive2-기울기-텀-추가"><code>-</code> motive2 : 기울기 텀 추가</h3>
+<section id="motive2-기울기-텀-추가" class="level2">
+<h2 class="anchored" data-anchor-id="motive2-기울기-텀-추가">motive2 : 기울기 텀 추가</h2>
 <p>좀 더 좋은 모델을 만들고 싶은 욕심이 생긴다..</p>
 <p>이런 모델을 생각해본다.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -279,12 +278,63 @@ ul.task-list li input[type="checkbox"] {
 <p>위의 두 모티브에 따라 Stationary를 만들기 위해 계수를 고려하고, 기울기를 적당히 추가해 고려하면 좀 더 일반적이고 설명이 잘 되는 모델을 만들 수 있을 것 같다.</p>
 <p>근데 결국 Stationary가 안되면 쓸모가 없으니까 모티브2의 모델이 Stationary를 만족하는지 확인해 볼 필요가 있다.</p>
 </section>
-<section id="ar모델의-정상성-확인" class="level3">
-<h3 class="anchored" data-anchor-id="ar모델의-정상성-확인">AR모델의 정상성 확인</h3>
+<section id="ar모델의-정상성-확인" class="level2">
+<h2 class="anchored" data-anchor-id="ar모델의-정상성-확인">AR모델의 정상성 확인</h2>
 <p><code>-</code> AR Process</p>
+<p><span class="math inline">\(\{Z_t\}\)</span> is AR process iff.</p>
+<p><span class="math inline">\(Z_t = \phi_1Z_{t-1} + \phi_2Z_{t-2} + \dots + \phi_pZ_{t-p} + \epsilon_t\)</span></p>
+<p><span class="math inline">\(BZ_t = Z_{t-1}\)</span>를 만족하는 <span class="math inline">\(B\)</span><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>를 생각하자.</p>
+<p><span class="math inline">\(BZ_{t-1} = Z_{t-2}\)</span></p>
+<p><span class="math inline">\(BBZ_{t} = Z_{t-2}\)</span></p>
+<p><span class="math inline">\(B^2Z_t = Z_{t-2}\)</span></p>
+<p><span class="math inline">\(\therefore Z_t = \phi_1BZ_t + \phi_2B^2Z_t + \dots \phi_pB^pZ_t + \epsilon_t\)</span></p>
+<p><span class="math inline">\(Z_t - \phi_1BZ_t - \phi_2B^2Z_t - \dots - \phi_pB^pZ_t = \epsilon_t\)</span></p>
+<p><span class="math inline">\((1-\phi_1B-\phi_2B^2-\dots-\phi_pB^p)Z_t = \epsilon_t\)</span></p>
+<p>여기에서 <span class="math inline">\((1-\phi_1B-\phi_2B^2-\dots-\phi_pB^p)=0\)</span>으로 놓은 식을 특성방정식 이라고 합니다.</p>
+<div class="alert alert-block alert-warning">
+<p><b>AR process의 정상성을 체크하는 법 (교재 p215, p246):</b><br><br> 1. 특성방정식을 구한다.<br> 2. 특성방정식을 <span class="math inline">\(B\)</span>에 대하여 푼다.<br> 3. 모든 근의 절댓값이 1보다 큰지 조사한다.</p>
+</div>
+<p><code>-</code> 예제 (연습문제 5.1 (h))</p>
+<p>다음 모형에 의해 설명되는 확률과정 <span class="math inline">\(\{Z_t\}\)</span>는 정상성을 갖는지 조사하라.</p>
+<p><span class="math inline">\(Z_t=100+0.5Z_{t-1}+\epsilon_t, \quad \{\epsilon_t\}\)</span>는 <span class="math inline">\(WN(0,5)\)</span> 이다.</p>
+<p><strong><em><code>(sol)</code></em></strong></p>
+<p><span class="math inline">\(Z_t = 100 + 0.5Z_{t-1} + \epsilon_t.\)</span><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p><span class="math inline">\(\Leftrightarrow Z_t-200 = 0.5(Z_{t-1}-200) + \epsilon_t.\)</span></p>
+<p>여기서 <span class="math inline">\(Z_t - 200 = Y_t\)</span>로 놓고, <span class="math inline">\(Z_{t-1}-200=Y_{t-1}\)</span>로 놓으면,</p>
+<p><span class="math inline">\(Y_t = 0.5Y_{t-1} + \epsilon_t.\)</span><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<p><span class="math inline">\(\{Z_t\}\)</span>의 정상성을 파악하는 일은 <span class="math inline">\(\{Y_t\}\)</span>의 정상성을 파악하기만 하면 충분함.</p>
+<p><strong><em><code>(참고)</code></em></strong> 절편은 생략해도 됩니다. 절편이 있든 없든 AR모델의 정상성을 체크하고 AR모델의 성질을 파악하는 것은 차이가 없어요.</p>
+<p><span class="math inline">\(Y_t = 0.5Y_{t-1} + \epsilon_t.\)</span>에서 <span class="math inline">\(\{Y_t\}\)</span>가 정상인지만 판단하면 됩니다.</p>
+<p><span class="math inline">\(\Leftrightarrow Y_t = 0.5BY_t +\epsilon_t\)</span></p>
+<p><span class="math inline">\(\Leftrightarrow Y_t-0.5BY_t = \epsilon_t\)</span></p>
+<p><span class="math inline">\(\Leftrightarrow (1-0.5B)Y_t = \epsilon_t\)</span></p>
+<p><span class="math inline">\(\therefore\)</span> 특성방정식: <span class="math inline">\(1-0.5B=0 \Rightarrow B=2 \Rightarrow |B|&gt;1 \Rightarrow \{Y_t\}\)</span>는 정상.</p>
+<p><span class="math inline">\(\Rightarrow \{Z_t\}\)</span>도 정상</p>
+<p><strong><em><code>(다른 풀이)</code></em></strong> – 결과는 특성방정식을 이용해 푼 결과와 동일.</p>
+<p><strong><font color="blue">관점1 (t: 시작, <span class="math inline">\(-\infty\)</span>: 끝)</font></strong></p>
+<p><span class="math inline">\(E(Z_t) = E(Y_t+200) = 200\)</span></p>
+<p><span class="math inline">\(Y_t = 0.5Y_{t-1} +\epsilon_t\)</span></p>
+<p><span class="math inline">\(\quad = \epsilon_t + 0.5\epsilon_{t-1} + 0.5^2\epsilon_{t-2} + \dots + Y_{-\infty}.\)</span><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
+<p><span class="math inline">\(E(Y_t) = 0 + 0 + \dots + 0 = 0\)</span></p>
+<p><strong><font color="blue">관점2 (0: 시작, <span class="math inline">\(\infty\)</span>: 끝)</font></strong></p>
+<p><span class="math inline">\(Z_t = 100 + 0.5Z_{t-1}+\epsilon_t\)</span></p>
+<p><span class="math inline">\(Z_0 = 0 \\ Z_1 = 100 + 1\cdot\frac{1}{2}+\epsilon_1\\ Z_2 = 100 + (100+\epsilon_1)\frac{1}{2}+\epsilon_2\\ Z_3 = 100 + (100+(100+\epsilon_1)\frac{1}{2} + \epsilon_2) + \epsilon_3\\ Z_t = 100 + 100\times\frac{1}{2}+ 100\times \frac{1}{4} + \dots\)</span></p>
+<p><span class="math inline">\(\therefore E(Z_t) = \frac{100}{1-\frac{1}{2}}=200\)</span> <span class="math inline">\(\quad \leftarrow \text{not depend on t}\)</span></p>
+<p>관점1과 2의 결과는 동일하다.</p>
+<p>$Y_t = <em>t + 0.5</em>{t-1} + 0.5^2_{t-2} + $</p>
+<p><span class="math inline">\(V(Y_t) = 1 + 0.5^2 + 0.5^4 + \dots = \frac{1}{1-0.5^2}=\frac{4}{3}\)</span> <span class="math inline">\(\quad \leftarrow \text{not depend on t}\)</span></p>
+<p><strong><em>lag=1:</em></strong> <span class="math inline">\(\quad Cov(Y_t, Y_{t-1})\)</span></p>
+<p><span class="math inline">\(Cov(Y_t, Y_{t-1}) = Cov( \epsilon_t + 0.5\epsilon_{t-1} + 0.5^2\epsilon_{t-2} + \cdots, 0 +\epsilon_{t-1} + 0.5\epsilon_{t-2} + 0.5^2\epsilon_{t-3} + \cdots)\)</span></p>
+<p><span class="math inline">\(\begin{align*}\therefore Cov(Y_t, Y_{t-1}) &amp;= 0+ 0.5\sigma^2 + 0.5^3\sigma^2 + 0.5^5\sigma^2 + \cdots \\ &amp;= \left(\frac{0.5}{1-0.5^2}\right)\sigma^2\end{align*}\)</span> <span class="math inline">\(\quad \leftarrow \text{not depend on t}\)</span></p>
+<p><strong><em>lag=2:</em></strong> <span class="math inline">\(\quad Cov(Y_t, Y_{t-2})\)</span></p>
+<p><span class="math inline">\(Cov(Y_t, Y_{t-2}) = Cov( \epsilon_t + 0.5\epsilon_{t-1} + 0.5^2\epsilon_{t-2} + \cdots, 0 + 0 +\epsilon_{t-2} + 0.5\epsilon_{t-3} + 0.5^2\epsilon_{t-4} + \cdots)\)</span></p>
+<p><span class="math inline">\(\begin{align*}\therefore Cov(Y_t, Y_{t-2}) &amp;= 0+ 0+ 0.5^2\sigma^2 + 0.5^4\sigma^2 + 0.5^6\sigma^2 + \cdots \\ &amp;= \left(\frac{0.5^2}{1-0.5^2}\right)\sigma^2\end{align*}\)</span> <span class="math inline">\(\quad \leftarrow \text{not depend on t}\)</span></p>
+<p><strong><em>lag=k:</em></strong> <span class="math inline">\(\quad Cov(Y_t, Y_{t-k})\)</span></p>
+<p><span class="math inline">\(Cov(Y_t, Y_{t-k}) = \sigma^2\cdot\frac{0.5^k}{1-0.5^2} \quad \leftarrow \text{not depend on t}\)</span></p>
+<p><span class="math inline">\(\Rightarrow \{Y_t\} \text{ is stationary!}\)</span></p>
+<p>특성방정식을 이용해 푼 결과와 동일하다. 특성방정식 매우 좋은 방법이였음..</p>
 
 
-</section>
 </section>
 </section>
 
@@ -297,6 +347,10 @@ ul.task-list li input[type="checkbox"] {
 <li id="fn3"><p>너무나 당연해, iid조건을 약화시켜 만든것이 stationary니까!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn4"><p>편의상 <span class="math inline">\(Z_{-\infty}=0\)</span>으로 생각<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn5"><p>기세를 넣어보고 싶다. 기세를 좀 더 수학적으로 표현하면 기울기<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>back operator라고 합니다. <span class="math inline">\(B\)</span>는 사실 변수는 아니라 operator인데 여기서는 변수처럼 취급할 것 입니다.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>절편이 있는 AR모델<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>절편이 없는 AR모델<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p><span class="math inline">\(Y_{-\infty}=0\)</span>, 관점 <span class="math inline">\(\Rightarrow t\)</span> :시작, <span class="math inline">\(-\infty\)</span>:끝<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
