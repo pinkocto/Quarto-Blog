@@ -250,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="2023-05-16-4wk_files/figure-html/4327673b-279b-471b-848f-c59c5bfbc04a-1-137f2906-c23d-43ef-8903-8560dd4a3c06.png" class="img-fluid"></p>
 <p>즉, <code>답변</code>의 논리가 성립하려면 “ACF가 모델을 유일하게 결정” 한다는 전제가 필요.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
 <p>당연히 성립 안합니다.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
-<p><code>-</code> 반론: “ACF가 모델을 유일하게 결정못함” But. 모델의 범위를 “정상시계열”에 한정하면 “ACF가 모델을 유일하게 결정함.” &lt;– 매우매우 중요합니다.</p>
+<p><code>-</code> 반론: “ACF가 모델을 유일하게 결정못함” But. 모델의 범위를 “정상시계열”에 한정하면 “ACF가 모델을 유일하게 결정함.” &lt;- 매우매우 중요합니다.</p>
 <p><code>-</code> 결론: ACF를 파악하는 일이 매우 중요함.</p>
 <p>시계열의 처음과 끝은 ACF..!</p>
 <p>모델을 선택할 수 있어요! 우리가 배운 AR모델에 한하여 생각해보면, AR모델에 대한 이론적인 ACF를 계산을 했잖아요. AR모델은 이런 모양이다~ 그런데 정상시계열에 한정해서 역도 성립한다고 했죠? AR모델이면 ACF가 이런모양이다 이건 당연히 성립하는데, 정상시계열에 한정하여 ACF를 그렸더니 이런 모양이 나왔어 그럼 AR모델이네? 이런 논리가 맞다는 말입니다.</p>
@@ -264,6 +264,111 @@ ul.task-list li input[type="checkbox"] {
 <p><code>-</code> 연습문제 5.2</p>
 <p>다음의 시계열이 주어졌다. SACF <span class="math inline">\(\hat{\rho}_k, k=1,2,3\)</span>과 <span class="math inline">\(\hat{\phi}_{kk},k=1,2,3\)</span>을 직접 계산하라.</p>
 <p><span class="math inline">\(Z_t = \{\dots, 7,6,5,8,9,4,5,5,4,6,7,8,6,7,6,\dots\}\)</span></p>
+<p><span class="math inline">\(\bar{Z} = \frac{90}{15}=6\)</span></p>
+<p><code>-</code> <span class="math inline">\(h=0: lag=0\)</span></p>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>t</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Z_{t}-\bar{Z}\)</span></td>
+<td>1</td>
+<td>0</td>
+<td>-1</td>
+<td>2</td>
+<td>3</td>
+<td>-2</td>
+<td>-1</td>
+<td>-1</td>
+<td>-2</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>-1</td>
+<td>0</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Z_{t+h}-\bar{Z}\)</span></td>
+<td>1</td>
+<td>0</td>
+<td>-1</td>
+<td>2</td>
+<td>3</td>
+<td>-2</td>
+<td>-1</td>
+<td>-1</td>
+<td>-2</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>-1</td>
+<td>0</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td>x</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>9</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(\widehat{cov}(Z_t-\bar{Z}, Z_t-\bar{Z})= \frac{32}{15}\)</span></li>
+</ul>
+<p><code>-</code> <span class="math inline">\(h=1 : lag=1\)</span></p>
+<p><img src="2023-05-16-4wk_files/figure-html/0f2c1102-d908-4113-98e4-f9932f4675c7-1-b2ae37b4-9474-40a3-9263-74742dceff61.png" class="img-fluid"></p>
+<p><code>-</code> <span class="math inline">\(h=2 : lag=2\)</span></p>
+<p><img src="2023-05-16-4wk_files/figure-html/88a1065d-447b-4652-8f17-840c2c262347-1-9fb83f51-958f-48e6-bf2e-7371debe827a.png" class="img-fluid"></p>
 
 
 </section>
