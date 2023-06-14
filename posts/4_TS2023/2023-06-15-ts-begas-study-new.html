@@ -386,7 +386,7 @@ The following objects are masked from ‘package:base’:
 <ul>
 <li><strong>Boxcox먼저 (등분산) , seasonal, 차분, 계절차분 순서 중요!</strong></li>
 </ul>
-<p>시즈널, 트렌드, 분산이상한데 분산맞춰주는게 우산.</p>
+<p>시즈널, 트렌드, 분산이상한데 분산맞춰주는게 우선.</p>
 <div class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#분산 안정화를 위한 BoxCox 변환</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>lambda <span class="ot">&lt;-</span> <span class="fu">BoxCox.lambda</span>(origin)</span>
