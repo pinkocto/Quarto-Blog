@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="jiyunLim">
+<meta name="dcterms.date" content="2023-05-28">
+
+<title>Quarto-Blog - [TS] 8wk. ARIMA</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><strong>[TS]</strong> 8wk. ARIMA</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block"><strong>[TS]</strong> 8wk. ARIMA</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">STUDY</div>
+                <div class="quarto-category">TS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>jiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 28, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#장.-arima" id="toc-장.-arima" class="nav-link active" data-scroll-target="#장.-arima">7장. ARIMA</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="장.-arima" class="level1">
+<h1>7장. ARIMA</h1>
+<p>의문: 정말 비정상시계열은 분석할 수 없을까요?</p>
+<p>비정상 시계열의 대표적인 특징:</p>
+<ol type="1">
+<li>시계열의 수준이 시간에 따라 다르다. (수준=평균)</li>
+<li>시계열이 추세를 가진다. (시계열이 증가하거나, 감소하는 추세가 보인다.)</li>
+<li>시계열이 계절성을 보인다.</li>
+<li>시계열의 분산이 시간에 따라 변한다.</li>
+</ol>
+<p>2.3은 사실 1에 포함되는 개념.</p>
+<p>아래와 같은 자료를 생각해보자.</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>e <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>t <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>trend <span class="ot">&lt;-</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span><span class="sc">/</span><span class="dv">1000</span>)<span class="sc">*</span><span class="dv">30</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="do">## 1:1000 =1,2,3,...,1000인 벡터가 만들어짐.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>0.03</li><li>0.06</li><li>0.09</li><li>0.12</li><li>0.15</li><li>0.18</li><li>0.21</li><li>0.24</li><li>0.27</li><li>0.3</li><li>0.33</li><li>0.36</li><li>0.39</li><li>0.42</li><li>0.45</li><li>0.48</li><li>0.51</li><li>0.54</li><li>0.57</li><li>0.6</li><li>0.63</li><li>0.66</li><li>0.69</li><li>0.72</li><li>0.75</li><li>0.78</li><li>0.81</li><li>0.84</li><li>0.87</li><li>0.9</li><li>0.93</li><li>0.96</li><li>0.99</li><li>1.02</li><li>1.05</li><li>1.08</li><li>1.11</li><li>1.14</li><li>1.17</li><li>1.2</li><li>1.23</li><li>1.26</li><li>1.29</li><li>1.32</li><li>1.35</li><li>1.38</li><li>1.41</li><li>1.44</li><li>1.47</li><li>1.5</li><li>1.53</li><li>1.56</li><li>1.59</li><li>1.62</li><li>1.65</li><li>1.68</li><li>1.71</li><li>1.74</li><li>1.77</li><li>1.8</li><li>1.83</li><li>1.86</li><li>1.89</li><li>1.92</li><li>1.95</li><li>1.98</li><li>2.01</li><li>2.04</li><li>2.07</li><li>2.1</li><li>2.13</li><li>2.16</li><li>2.19</li><li>2.22</li><li>2.25</li><li>2.28</li><li>2.31</li><li>2.34</li><li>2.37</li><li>2.4</li><li>2.43</li><li>2.46</li><li>2.49</li><li>2.52</li><li>2.55</li><li>2.58</li><li>2.61</li><li>2.64</li><li>2.67</li><li>2.7</li><li>2.73</li><li>2.76</li><li>2.79</li><li>2.82</li><li>2.85</li><li>2.88</li><li>2.91</li><li>2.94</li><li>2.97</li><li>3</li><li>3.03</li><li>3.06</li><li>3.09</li><li>3.12</li><li>3.15</li><li>3.18</li><li>3.21</li><li>3.24</li><li>3.27</li><li>3.3</li><li>3.33</li><li>3.36</li><li>3.39</li><li>3.42</li><li>3.45</li><li>3.48</li><li>3.51</li><li>3.54</li><li>3.57</li><li>3.6</li><li>3.63</li><li>3.66</li><li>3.69</li><li>3.72</li><li>3.75</li><li>3.78</li><li>3.81</li><li>3.84</li><li>3.87</li><li>3.9</li><li>3.93</li><li>3.96</li><li>3.99</li><li>4.02</li><li>4.05</li><li>4.08</li><li>4.11</li><li>4.14</li><li>4.17</li><li>4.2</li><li>4.23</li><li>4.26</li><li>4.29</li><li>4.32</li><li>4.35</li><li>4.38</li><li>4.41</li><li>4.44</li><li>4.47</li><li>4.5</li><li>4.53</li><li>4.56</li><li>4.59</li><li>4.62</li><li>4.65</li><li>4.68</li><li>4.71</li><li>4.74</li><li>4.77</li><li>4.8</li><li>4.83</li><li>4.86</li><li>4.89</li><li>4.92</li><li>4.95</li><li>4.98</li><li>5.01</li><li>5.04</li><li>5.07</li><li>5.1</li><li>5.13</li><li>5.16</li><li>5.19</li><li>5.22</li><li>5.25</li><li>5.28</li><li>5.31</li><li>5.34</li><li>5.37</li><li>5.4</li><li>5.43</li><li>5.46</li><li>5.49</li><li>5.52</li><li>5.55</li><li>5.58</li><li>5.61</li><li>5.64</li><li>5.67</li><li>5.7</li><li>5.73</li><li>5.76</li><li>5.79</li><li>5.82</li><li>5.85</li><li>5.88</li><li>5.91</li><li>5.94</li><li>5.97</li><li>6</li><li>⋯</li><li>24.03</li><li>24.06</li><li>24.09</li><li>24.12</li><li>24.15</li><li>24.18</li><li>24.21</li><li>24.24</li><li>24.27</li><li>24.3</li><li>24.33</li><li>24.36</li><li>24.39</li><li>24.42</li><li>24.45</li><li>24.48</li><li>24.51</li><li>24.54</li><li>24.57</li><li>24.6</li><li>24.63</li><li>24.66</li><li>24.69</li><li>24.72</li><li>24.75</li><li>24.78</li><li>24.81</li><li>24.84</li><li>24.87</li><li>24.9</li><li>24.93</li><li>24.96</li><li>24.99</li><li>25.02</li><li>25.05</li><li>25.08</li><li>25.11</li><li>25.14</li><li>25.17</li><li>25.2</li><li>25.23</li><li>25.26</li><li>25.29</li><li>25.32</li><li>25.35</li><li>25.38</li><li>25.41</li><li>25.44</li><li>25.47</li><li>25.5</li><li>25.53</li><li>25.56</li><li>25.59</li><li>25.62</li><li>25.65</li><li>25.68</li><li>25.71</li><li>25.74</li><li>25.77</li><li>25.8</li><li>25.83</li><li>25.86</li><li>25.89</li><li>25.92</li><li>25.95</li><li>25.98</li><li>26.01</li><li>26.04</li><li>26.07</li><li>26.1</li><li>26.13</li><li>26.16</li><li>26.19</li><li>26.22</li><li>26.25</li><li>26.28</li><li>26.31</li><li>26.34</li><li>26.37</li><li>26.4</li><li>26.43</li><li>26.46</li><li>26.49</li><li>26.52</li><li>26.55</li><li>26.58</li><li>26.61</li><li>26.64</li><li>26.67</li><li>26.7</li><li>26.73</li><li>26.76</li><li>26.79</li><li>26.82</li><li>26.85</li><li>26.88</li><li>26.91</li><li>26.94</li><li>26.97</li><li>27</li><li>27.03</li><li>27.06</li><li>27.09</li><li>27.12</li><li>27.15</li><li>27.18</li><li>27.21</li><li>27.24</li><li>27.27</li><li>27.3</li><li>27.33</li><li>27.36</li><li>27.39</li><li>27.42</li><li>27.45</li><li>27.48</li><li>27.51</li><li>27.54</li><li>27.57</li><li>27.6</li><li>27.63</li><li>27.66</li><li>27.69</li><li>27.72</li><li>27.75</li><li>27.78</li><li>27.81</li><li>27.84</li><li>27.87</li><li>27.9</li><li>27.93</li><li>27.96</li><li>27.99</li><li>28.02</li><li>28.05</li><li>28.08</li><li>28.11</li><li>28.14</li><li>28.17</li><li>28.2</li><li>28.23</li><li>28.26</li><li>28.29</li><li>28.32</li><li>28.35</li><li>28.38</li><li>28.41</li><li>28.44</li><li>28.47</li><li>28.5</li><li>28.53</li><li>28.56</li><li>28.59</li><li>28.62</li><li>28.65</li><li>28.68</li><li>28.71</li><li>28.74</li><li>28.77</li><li>28.8</li><li>28.83</li><li>28.86</li><li>28.89</li><li>28.92</li><li>28.95</li><li>28.98</li><li>29.01</li><li>29.04</li><li>29.07</li><li>29.1</li><li>29.13</li><li>29.16</li><li>29.19</li><li>29.22</li><li>29.25</li><li>29.28</li><li>29.31</li><li>29.34</li><li>29.37</li><li>29.4</li><li>29.43</li><li>29.46</li><li>29.49</li><li>29.52</li><li>29.55</li><li>29.58</li><li>29.61</li><li>29.64</li><li>29.67</li><li>29.7</li><li>29.73</li><li>29.76</li><li>29.79</li><li>29.82</li><li>29.85</li><li>29.88</li><li>29.91</li><li>29.94</li><li>29.97</li><li>30</li></ol>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
