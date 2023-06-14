@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-06-16">
 
-<title>Quarto-Blog – ts-begas</title>
+<title>Quarto-Blog - 0616 TS 공부</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,7 +163,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">0616 TS 공부</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -169,7 +171,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">0616 TS 공부</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">STUDY</div>
+                <div class="quarto-category">TS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 16, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -226,7 +260,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="2">
+
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(forecast)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tseries)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(ggplot2)</span>
@@ -235,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <section id="data-load" class="level1">
 <h1>Data Load</h1>
-<div class="cell" data-execution_count="3">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#============================================================</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="co"># Data Load</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co"># - 1949년 ~ 1960년 까지의 월별 비행기 탑승 고객 수</span></span>
@@ -266,13 +301,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 </div>
 </div>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">class</span>(origin) <span class="co"># ts 객체</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 'ts'
 </div>
 </div>
-<div class="cell" data-execution_count="13">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">start</span>(origin)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">end</span>(origin)</span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="fu">frequency</span>(origin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -299,13 +334,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="eda" class="level1">
 <h1>EDA</h1>
-<div class="cell" data-execution_count="5">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># 시도표</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="fu">plot</span>(origin)</span>
 <span id="cb5-3"><a href="#cb5-3"></a><span class="co"># 데이터에 이분산이 존재함을 확인일 수 있음</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a><span class="co"># 분산 안정화를 위한 데이터 변환 필요</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-14-ts-begas_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div class="cell" data-execution_count="6">
@@ -315,177 +350,289 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-4"><a href="#cb6-4"></a><span class="fu">plot</span>(tran_org)</span>
 <span id="cb6-5"><a href="#cb6-5"></a><span class="co"># BoxCox 변환 이후 이분산의 효과가 줄어 든것을 확인</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-14-ts-begas_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">BoxCox.lambda</span>(origin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">BoxCox.lambda</span>(origin) <span class="co"># 로그변환</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 -0.294715585559316
 </div>
 </div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>tran_org</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># 정규성 및 Corr</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co"># Hist Plot</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">hist</span>(tran_org,<span class="at">prob=</span><span class="cn">TRUE</span>,<span class="dv">12</span>)</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="fu">lines</span>(<span class="fu">density</span>(tran_org))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-
-<table class="dataframe table table-sm table-striped">
-<caption>A Time Series: 12 × 12</caption>
-<thead>
-    <tr><th></th><th scope="col">Jan</th><th scope="col">Feb</th><th scope="col">Mar</th><th scope="col">Apr</th><th scope="col">May</th><th scope="col">Jun</th><th scope="col">Jul</th><th scope="col">Aug</th><th scope="col">Sep</th><th scope="col">Oct</th><th scope="col">Nov</th><th scope="col">Dec</th></tr>
-</thead>
-<tbody>
-    <tr><th scope="row">1949</th><td>2.548484</td><td>2.561375</td><td>2.588408</td><td>2.582937</td><td>2.567506</td><td>2.593720</td><td>2.615089</td><td>2.615089</td><td>2.595457</td><td>2.563441</td><td>2.529834</td><td>2.561375</td></tr>
-    <tr><th scope="row">1950</th><td>2.555038</td><td>2.577299</td><td>2.603899</td><td>2.593720</td><td>2.575381</td><td>2.616631</td><td>2.646225</td><td>2.646225</td><td>2.629937</td><td>2.590196</td><td>2.552878</td><td>2.602242</td></tr>
-    <tr><th scope="row">1951</th><td>2.610379</td><td>2.618160</td><td>2.656279</td><td>2.636912</td><td>2.648795</td><td>2.656279</td><td>2.680103</td><td>2.680103</td><td>2.663443</td><td>2.635540</td><td>2.611963</td><td>2.640966</td></tr>
-    <tr><th scope="row">1952</th><td>2.647515</td><td>2.658701</td><td>2.673640</td><td>2.659900</td><td>2.662270</td><td>2.699009</td><td>2.709884</td><td>2.720049</td><td>2.690331</td><td>2.671428</td><td>2.648795</td><td>2.674735</td></tr>
-    <tr><th scope="row">1953</th><td>2.676904</td><td>2.676904</td><td>2.715050</td><td>2.714201</td><td>2.709007</td><td>2.720866</td><td>2.737089</td><td>2.742835</td><td>2.715895</td><td>2.692301</td><td>2.658701</td><td>2.682201</td></tr>
-    <tr><th scope="row">1954</th><td>2.685298</td><td>2.668053</td><td>2.714201</td><td>2.707236</td><td>2.713347</td><td>2.737089</td><td>2.762580</td><td>2.756933</td><td>2.733382</td><td>2.709007</td><td>2.684272</td><td>2.709007</td></tr>
-    <tr><th scope="row">1955</th><td>2.720049</td><td>2.712489</td><td>2.739270</td><td>2.740706</td><td>2.741419</td><td>2.770363</td><td>2.796341</td><td>2.787869</td><td>2.768604</td><td>2.744238</td><td>2.715895</td><td>2.747003</td></tr>
-    <tr><th scope="row">1956</th><td>2.751056</td><td>2.746317</td><td>2.771524</td><td>2.769193</td><td>2.772100</td><td>2.801088</td><td>2.818144</td><td>2.814820</td><td>2.791921</td><td>2.765020</td><td>2.742129</td><td>2.765020</td></tr>
-    <tr><th scope="row">1957</th><td>2.770363</td><td>2.761963</td><td>2.792420</td><td>2.788382</td><td>2.791921</td><td>2.821786</td><td>2.837892</td><td>2.838594</td><td>2.814399</td><td>2.787869</td><td>2.764414</td><td>2.782096</td></tr>
-    <tr><th scope="row">1958</th><td>2.784223</td><td>2.772100</td><td>2.795371</td><td>2.788382</td><td>2.795857</td><td>2.826872</td><td>2.846724</td><td>2.851232</td><td>2.814399</td><td>2.793903</td><td>2.767420</td><td>2.782631</td></tr>
-    <tr><th scope="row">1959</th><td>2.794394</td><td>2.785275</td><td>2.815241</td><td>2.810978</td><td>2.820985</td><td>2.840332</td><td>2.864126</td><td>2.867216</td><td>2.837187</td><td>2.815659</td><td>2.795371</td><td>2.814820</td></tr>
-    <tr><th scope="row">1960</th><td>2.819775</td><td>2.808794</td><td>2.820583</td><td>2.836477</td><td>2.840332</td><td>2.860370</td><td>2.883509</td><td>2.879580</td><td>2.852177</td><td>2.836477</td><td>2.808352</td><td>2.825716</td></tr>
-</tbody>
-</table>
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># 정규성 및 Corr</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="co"># Hist Plot</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">hist</span>(tran_org,<span class="at">prob=</span><span class="cn">TRUE</span>,<span class="dv">12</span>)</span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">lines</span>(<span class="fu">density</span>(tran_org))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Q-Q PLOT</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">qqnorm</span>(tran_org)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">qqline</span>(tran_org)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Q-Q PLOT</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">qqnorm</span>(tran_org)</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">qqline</span>(tran_org)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># 상관관계 확인</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">lag.plot</span>(tran_org,<span class="dv">12</span>,<span class="at">do.lines=</span><span class="cn">FALSE</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#전반적으로 데이터는 정규분포를 따르고 시차가 12일때 상관관계가 높음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># 상관관계 확인</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">lag.plot</span>(tran_org,<span class="dv">12</span>,<span class="at">do.lines=</span><span class="cn">FALSE</span>)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#전반적으로 데이터는 정규분포를 따르고 시차가 12일때 상관관계가 높음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
 </div>
 </section>
 <section id="시계열-분해-및-회귀분석-이용-예측" class="level1">
 <h1>시계열 분해 및 회귀분석 이용 예측</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>stl_tran_org <span class="ot">&lt;-</span> <span class="fu">stl</span>(tran_org, <span class="at">s.window =</span> <span class="dv">12</span>)</span>
-<span id="cb12-2"><a href="#cb12-2"></a></span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">plot</span>(stl_tran_org)</span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># 1차 Trend와 Seasonality 존재</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># 잔차는 White Noise로 판단</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a></span>
-<span id="cb12-7"><a href="#cb12-7"></a><span class="co"># 계절형 Dummy 변수 생성</span></span>
-<span id="cb12-8"><a href="#cb12-8"></a>M <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">cycle</span>(tran_org))</span>
-<span id="cb12-9"><a href="#cb12-9"></a>stl_tran_org_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(stl_tran_org<span class="sc">$</span>time.series)</span>
-<span id="cb12-10"><a href="#cb12-10"></a></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co"># 회귀 모형 생성</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="co"># 모형식 : tran_org=trend∗β1+M1∗d1+...+M11∗d11+ϵ</span></span>
-<span id="cb12-13"><a href="#cb12-13"></a>model_stl <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> tran_org<span class="sc">~</span> <span class="dv">0</span><span class="sc">+</span>stl_tran_org_df<span class="sc">$</span>trend<span class="sc">+</span>M, <span class="at">na.action =</span> <span class="cn">NULL</span>)</span>
-<span id="cb12-14"><a href="#cb12-14"></a><span class="fu">summary</span>(model_stl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>stl_tran_org <span class="ot">&lt;-</span> <span class="fu">stl</span>(tran_org, <span class="at">s.window =</span> <span class="dv">12</span>)</span>
+<span id="cb11-2"><a href="#cb11-2"></a></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">plot</span>(stl_tran_org)</span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># 1차 Trend와 Seasonality 존재</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># 잔차는 White Noise로 판단</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># 잔차 검정</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="co"># time Plot</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="fu">plot</span>(<span class="fu">resid</span>(model_stl))</span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># Hist Plot</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a><span class="fu">hist</span>(<span class="fu">resid</span>(model_stl),<span class="at">prob=</span><span class="cn">TRUE</span>,<span class="dv">12</span>)</span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="fu">lines</span>(<span class="fu">density</span>(<span class="fu">resid</span>(model_stl)))</span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co"># Q-Q PLOT</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a><span class="fu">qqnorm</span>(<span class="fu">resid</span>(model_stl))</span>
-<span id="cb13-9"><a href="#cb13-9"></a><span class="fu">qqline</span>(<span class="fu">resid</span>(model_stl))</span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co"># Q-Q Plot과 Histogram을 확인하면 양쪽 끝이 두텁지만 White Noise라고 판단하기 어려움이 없음</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a></span>
-<span id="cb13-12"><a href="#cb13-12"></a></span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="fu">plot</span>(<span class="fu">spline</span>(<span class="fu">time</span>(origin), origin),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xlab=</span><span class="st">'Time'</span>,<span class="at">ylab=</span><span class="st">'Pop'</span>)</span>
-<span id="cb13-14"><a href="#cb13-14"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># 원 데이터 및 fitted 데이터의 비교</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="co"># BoxCox 역변환 필요 함</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(model_stl<span class="sc">$</span>fitted.values, <span class="at">lambda =</span> <span class="fu">BoxCox.lambda</span>(origin)), <span class="at">col=</span><span class="st">'red'</span>)</span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">mean</span>((origin <span class="sc">-</span> <span class="fu">InvBoxCox</span>(model_stl<span class="sc">$</span>fitted.values, <span class="at">lambda =</span> <span class="fu">BoxCox.lambda</span>(origin)))<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># 계절형 Dummy 변수 생성</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>M <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">cycle</span>(tran_org))</span>
+<span id="cb12-3"><a href="#cb12-3"></a>stl_tran_org_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(stl_tran_org<span class="sc">$</span>time.series)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># 회귀 모형 생성</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="co"># 모형식 : tran_org=trend∗β1+M1∗d1+...+M11∗d11+ϵ</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>model_stl <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> tran_org<span class="sc">~</span> <span class="dv">0</span><span class="sc">+</span>stl_tran_org_df<span class="sc">$</span>trend<span class="sc">+</span>M, <span class="at">na.action =</span> <span class="cn">NULL</span>)</span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">summary</span>(model_stl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>
+Call:
+lm(formula = tran_org ~ 0 + stl_tran_org_df$trend + M, na.action = NULL)
+
+Residuals:
+       Min         1Q     Median         3Q        Max 
+-0.0208982 -0.0030056  0.0003675  0.0032375  0.0186285 
+
+Coefficients:
+                       Estimate Std. Error t value Pr(&gt;|t|)    
+stl_tran_org_df$trend  1.003132   0.006557 152.982  &lt; 2e-16 ***
+M1                    -0.025890   0.017899  -1.446  0.15043    
+M2                    -0.029141   0.017911  -1.627  0.10614    
+M3                    -0.002850   0.017923  -0.159  0.87389    
+M4                    -0.009503   0.017936  -0.530  0.59713    
+M5                    -0.010617   0.017948  -0.592  0.55519    
+M6                     0.012901   0.017961   0.718  0.47386    
+M7                     0.032071   0.017974   1.784  0.07669 .  
+M8                     0.030402   0.017986   1.690  0.09335 .  
+M9                     0.004045   0.017998   0.225  0.82255    
+M10                   -0.023032   0.018011  -1.279  0.20322    
+M11                   -0.052048   0.018023  -2.888  0.00454 ** 
+M12                   -0.028326   0.018036  -1.571  0.11870    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.006548 on 131 degrees of freedom
+Multiple R-squared:      1, Adjusted R-squared:      1 
+F-statistic: 1.92e+06 on 13 and 131 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># 잔차 검정</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">1</span>))</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># time Plot</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">plot</span>(<span class="fu">resid</span>(model_stl))</span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co"># Hist Plot</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">hist</span>(<span class="fu">resid</span>(model_stl),<span class="at">prob=</span><span class="cn">TRUE</span>,<span class="dv">12</span>)</span>
+<span id="cb15-8"><a href="#cb15-8"></a><span class="fu">lines</span>(<span class="fu">density</span>(<span class="fu">resid</span>(model_stl)))</span>
+<span id="cb15-9"><a href="#cb15-9"></a><span class="co"># Q-Q PLOT</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a><span class="fu">qqnorm</span>(<span class="fu">resid</span>(model_stl))</span>
+<span id="cb15-11"><a href="#cb15-11"></a><span class="fu">qqline</span>(<span class="fu">resid</span>(model_stl))</span>
+<span id="cb15-12"><a href="#cb15-12"></a><span class="co"># Q-Q Plot과 Histogram을 확인하면 양쪽 끝이 두텁지만 White Noise라고 판단하기 어려움이 없음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">plot</span>(<span class="fu">spline</span>(<span class="fu">time</span>(origin), origin),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xlab=</span><span class="st">'Time'</span>,<span class="at">ylab=</span><span class="st">'Pop'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a></span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="co"># 원 데이터 및 fitted 데이터의 비교</span></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co"># BoxCox 역변환 필요 함</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(model_stl<span class="sc">$</span>fitted.values, <span class="at">lambda =</span> <span class="fu">BoxCox.lambda</span>(origin)), <span class="at">col=</span><span class="st">'red'</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a><span class="fu">mean</span>((origin <span class="sc">-</span> <span class="fu">InvBoxCox</span>(model_stl<span class="sc">$</span>fitted.values, <span class="at">lambda =</span> <span class="fu">BoxCox.lambda</span>(origin)))<span class="sc">^</span><span class="dv">2</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+81.1421060592885
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
 </div>
 </section>
 <section id="지수평활을-이용한-예측" class="level1">
 <h1>지수평활을 이용한 예측</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#============================================================</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="co"># 지수평활을 이용한 예측</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="co">#============================================================</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">plot</span>(<span class="fu">stl</span>(origin, <span class="at">s.window=</span><span class="dv">12</span>))</span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="co"># Trend 및 Seasonality 존재</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co"># Holt-Winter 지수평활 모형이 적합</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a></span>
-<span id="cb15-9"><a href="#cb15-9"></a><span class="co">#HoltWinters 모형 생성</span></span>
-<span id="cb15-10"><a href="#cb15-10"></a>model_es <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(origin, <span class="at">seasonal =</span> <span class="st">"multiplicative"</span>)</span>
-<span id="cb15-11"><a href="#cb15-11"></a></span>
-<span id="cb15-12"><a href="#cb15-12"></a><span class="co"># 원 데이터 및 fitted 데이터의 비교</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a><span class="co"># plot</span></span>
-<span id="cb15-14"><a href="#cb15-14"></a><span class="fu">plot</span>(<span class="fu">spline</span>(<span class="fu">time</span>(origin), origin),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xlab=</span><span class="st">'Time'</span>,<span class="at">ylab=</span><span class="st">'Pop'</span>)</span>
-<span id="cb15-15"><a href="#cb15-15"></a><span class="fu">lines</span>(model_es<span class="sc">$</span>fitted[,<span class="dv">1</span>], <span class="at">col=</span><span class="st">'red'</span>)</span>
-<span id="cb15-16"><a href="#cb15-16"></a><span class="co"># mse 125.5</span></span>
-<span id="cb15-17"><a href="#cb15-17"></a><span class="fu">mean</span>((origin<span class="sc">-</span>model_es<span class="sc">$</span>fitted[,<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">#============================================================</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># 지수평활을 이용한 예측</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co">#============================================================</span></span>
+<span id="cb17-4"><a href="#cb17-4"></a></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="fu">plot</span>(<span class="fu">stl</span>(origin, <span class="at">s.window=</span><span class="dv">12</span>))</span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="co"># Trend 및 Seasonality 존재</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="co"># Holt-Winter 지수평활 모형이 적합</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co">#HoltWinters 모형 생성</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>model_es <span class="ot">&lt;-</span> <span class="fu">HoltWinters</span>(origin, <span class="at">seasonal =</span> <span class="st">"multiplicative"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># 원 데이터 및 fitted 데이터의 비교</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co"># plot</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="fu">plot</span>(<span class="fu">spline</span>(<span class="fu">time</span>(origin), origin),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xlab=</span><span class="st">'Time'</span>,<span class="at">ylab=</span><span class="st">'Pop'</span>)</span>
+<span id="cb18-7"><a href="#cb18-7"></a><span class="fu">lines</span>(model_es<span class="sc">$</span>fitted[,<span class="dv">1</span>], <span class="at">col=</span><span class="st">'red'</span>)</span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="co"># mse 125.5</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a><span class="fu">mean</span>((origin<span class="sc">-</span>model_es<span class="sc">$</span>fitted[,<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+125.536195962121
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+</div>
 </div>
 </section>
 <section id="arima를-이용한-예측" class="level1">
 <h1>ARIMA를 이용한 예측</h1>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># 데이터 탐색 및 모형식별</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="co"># 시도표</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="fu">plot</span>(origin)</span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co"># 데이터의 이분산과 1차 추세가 존재함</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="co"># 분산 안정화를 위한 Box Cox 변환과 1차 차분 필요</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># 분산 안정화 및 차분</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a>tran_org <span class="ot">&lt;-</span> <span class="fu">BoxCox</span>(origin, <span class="fu">BoxCox.lambda</span>(origin))</span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="fu">plot</span>(tran_org)</span>
-<span id="cb16-10"><a href="#cb16-10"></a>tran_diff_org <span class="ot">&lt;-</span> <span class="fu">diff</span>(tran_org)</span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="fu">plot</span>(tran_diff_org)</span>
-<span id="cb16-12"><a href="#cb16-12"></a></span>
-<span id="cb16-13"><a href="#cb16-13"></a><span class="co"># ACF, PACF를 통한 탐색</span></span>
-<span id="cb16-14"><a href="#cb16-14"></a><span class="fu">layout</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
-<span id="cb16-15"><a href="#cb16-15"></a><span class="fu">acf</span>(tran_diff_org, <span class="at">lag.max =</span> <span class="dv">24</span>)</span>
-<span id="cb16-16"><a href="#cb16-16"></a><span class="fu">pacf</span>(tran_diff_org, <span class="at">lag.max=</span><span class="dv">24</span>)</span>
-<span id="cb16-17"><a href="#cb16-17"></a></span>
-<span id="cb16-18"><a href="#cb16-18"></a><span class="co"># 계절 차분 및 ACF, PACF를 통한 탐색</span></span>
-<span id="cb16-19"><a href="#cb16-19"></a>tran_sdiff_org <span class="ot">&lt;-</span> <span class="fu">diff</span>(tran_diff_org, <span class="at">lag =</span> <span class="dv">12</span>)</span>
-<span id="cb16-20"><a href="#cb16-20"></a></span>
-<span id="cb16-21"><a href="#cb16-21"></a><span class="fu">acf</span>(tran_sdiff_org, <span class="at">lag.max =</span> <span class="dv">24</span>)</span>
-<span id="cb16-22"><a href="#cb16-22"></a><span class="co"># acf는 lag=1,3,12에서 0이 아닌값 가짐  비계절 시차 4부터 절단 -&gt; MA(3), 계절 -&gt; 시차 2부터 절단 SMA(1)</span></span>
-<span id="cb16-23"><a href="#cb16-23"></a></span>
-<span id="cb16-24"><a href="#cb16-24"></a><span class="fu">pacf</span>(tran_sdiff_org, <span class="at">lag.max =</span> <span class="dv">24</span>)</span>
-<span id="cb16-25"><a href="#cb16-25"></a><span class="co"># 시차 2와 8에서 0보다 큰 값을 가지지만 정확한 모형을 찾기 위해 auto.arima를 통해 aic가 최소가 되는 order 값 구함</span></span>
-<span id="cb16-26"><a href="#cb16-26"></a></span>
-<span id="cb16-27"><a href="#cb16-27"></a><span class="fu">auto.arima</span>(tran_sdiff_org, <span class="at">max.p =</span> <span class="dv">3</span>, <span class="at">max.q=</span><span class="dv">3</span>, <span class="at">max.Q=</span><span class="dv">1</span>)</span>
-<span id="cb16-28"><a href="#cb16-28"></a><span class="fu">auto.arima</span>(tran_org, <span class="at">max.p =</span> <span class="dv">3</span>, <span class="at">max.q=</span><span class="dv">3</span>, <span class="at">max.Q=</span><span class="dv">1</span>)</span>
-<span id="cb16-29"><a href="#cb16-29"></a><span class="co"># 모형 구축</span></span>
-<span id="cb16-30"><a href="#cb16-30"></a></span>
-<span id="cb16-31"><a href="#cb16-31"></a>model_arima <span class="ot">&lt;-</span> <span class="fu">arima</span>(tran_sdiff_org, <span class="at">order=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">period =</span> <span class="dv">12</span>))</span>
-<span id="cb16-32"><a href="#cb16-32"></a>model_arima <span class="ot">&lt;-</span> <span class="fu">arima</span>(tran_org, <span class="at">order=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">period =</span> <span class="dv">12</span>))</span>
-<span id="cb16-33"><a href="#cb16-33"></a></span>
-<span id="cb16-34"><a href="#cb16-34"></a><span class="co"># 모형 검진</span></span>
-<span id="cb16-35"><a href="#cb16-35"></a><span class="co"># 잔차 검정</span></span>
-<span id="cb16-36"><a href="#cb16-36"></a><span class="fu">tsdiag</span>(model_arima)</span>
-<span id="cb16-37"><a href="#cb16-37"></a><span class="co"># 독립성 검정</span></span>
-<span id="cb16-38"><a href="#cb16-38"></a><span class="fu">Box.test</span>(model_arima<span class="sc">$</span>residuals, <span class="at">type=</span><span class="st">"Ljung-Box"</span>)</span>
-<span id="cb16-39"><a href="#cb16-39"></a><span class="co"># 잔차의 독립성, 등분산성, 정규성 만족</span></span>
-<span id="cb16-40"><a href="#cb16-40"></a></span>
-<span id="cb16-41"><a href="#cb16-41"></a><span class="co"># 원 데이터 및 fitted 데이터의 비교</span></span>
-<span id="cb16-42"><a href="#cb16-42"></a><span class="fu">plot</span>(<span class="fu">spline</span>(<span class="fu">time</span>(origin), origin),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xlab=</span><span class="st">'Time'</span>,<span class="at">ylab=</span><span class="st">'Pop'</span>)</span>
-<span id="cb16-43"><a href="#cb16-43"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(<span class="fu">fitted</span>(model_arima), <span class="fu">BoxCox.lambda</span>(origin)), <span class="at">col=</span><span class="st">'red'</span>)</span>
-<span id="cb16-44"><a href="#cb16-44"></a><span class="fu">mean</span>((origin <span class="sc">-</span> <span class="fu">InvBoxCox</span>(<span class="fu">fitted</span>(model_arima), <span class="fu">BoxCox.lambda</span>(origin)))<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb16-45"><a href="#cb16-45"></a></span>
-<span id="cb16-46"><a href="#cb16-46"></a><span class="co"># 12개월 예측</span></span>
-<span id="cb16-47"><a href="#cb16-47"></a>arima_fit <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_arima, <span class="at">n.ahead=</span><span class="dv">12</span>) <span class="co">#BoxCox 변환 데이터 사용</span></span>
-<span id="cb16-48"><a href="#cb16-48"></a>lambda <span class="ot">&lt;-</span> <span class="fu">BoxCox.lambda</span>(origin)</span>
-<span id="cb16-49"><a href="#cb16-49"></a><span class="fu">ts.plot</span>(origin, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1950</span>,<span class="dv">1965</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>))</span>
-<span id="cb16-50"><a href="#cb16-50"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(arima_fit<span class="sc">$</span>pred, lambda),<span class="at">col=</span><span class="st">"red"</span>)</span>
-<span id="cb16-51"><a href="#cb16-51"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(arima_fit<span class="sc">$</span>pred<span class="fl">+1.96</span><span class="sc">*</span>arima_fit<span class="sc">$</span>se, lambda),<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lty=</span><span class="dv">1</span>)</span>
-<span id="cb16-52"><a href="#cb16-52"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(arima_fit<span class="sc">$</span>pred<span class="fl">-1.96</span><span class="sc">*</span>arima_fit<span class="sc">$</span>se, lambda),<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lty=</span><span class="dv">1</span>)</span>
-<span id="cb16-53"><a href="#cb16-53"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># 데이터 탐색 및 모형식별</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="co"># 시도표</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="fu">plot</span>(origin)</span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="co"># 데이터의 이분산과 1차 추세가 존재함</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="co"># 분산 안정화를 위한 Box Cox 변환과 1차 차분 필요</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># 분산 안정화 및 차분</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>tran_org <span class="ot">&lt;-</span> <span class="fu">BoxCox</span>(origin, <span class="fu">BoxCox.lambda</span>(origin))</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">plot</span>(tran_org)</span>
+<span id="cb20-4"><a href="#cb20-4"></a>tran_diff_org <span class="ot">&lt;-</span> <span class="fu">diff</span>(tran_org)</span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="fu">plot</span>(tran_diff_org)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="52">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># ACF, PACF를 통한 탐색</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">layout</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>)</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">acf</span>(tran_diff_org, <span class="at">lag.max =</span> <span class="dv">24</span>)</span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="fu">pacf</span>(tran_diff_org, <span class="at">lag.max=</span><span class="dv">24</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># 계절 차분 및 ACF, PACF를 통한 탐색</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>tran_sdiff_org <span class="ot">&lt;-</span> <span class="fu">diff</span>(tran_diff_org, <span class="at">lag =</span> <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">acf</span>(tran_sdiff_org, <span class="at">lag.max =</span> <span class="dv">24</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="co"># acf는 lag=1,3,12에서 0이 아닌값 가짐  비계절 시차 4부터 절단 -&gt; MA(3), 계절 -&gt; 시차 2부터 절단 SMA(1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="56">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">pacf</span>(tran_sdiff_org, <span class="at">lag.max =</span> <span class="dv">24</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="co"># 시차 2와 8에서 0보다 큰 값을 가지지만 정확한 모형을 찾기 위해 auto.arima를 통해 aic가 최소가 되는 order 값 구함</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">auto.arima</span>(tran_sdiff_org, <span class="at">max.p =</span> <span class="dv">3</span>, <span class="at">max.q=</span><span class="dv">3</span>, <span class="at">max.Q=</span><span class="dv">1</span>)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">auto.arima</span>(tran_org, <span class="at">max.p =</span> <span class="dv">3</span>, <span class="at">max.q=</span><span class="dv">3</span>, <span class="at">max.Q=</span><span class="dv">1</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co"># 모형 구축</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Series: tran_sdiff_org 
+ARIMA(0,0,1)(0,0,1)[12] with zero mean 
+
+Coefficients:
+          ma1     sma1
+      -0.4355  -0.5847
+s.e.   0.0908   0.0725
+
+sigma^2 = 5.789e-05:  log likelihood = 451.59
+AIC=-897.18   AICc=-896.99   BIC=-888.55</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>Series: tran_org 
+ARIMA(0,1,1)(0,1,1)[12] 
+
+Coefficients:
+          ma1     sma1
+      -0.4355  -0.5847
+s.e.   0.0908   0.0725
+
+sigma^2 = 5.855e-05:  log likelihood = 451.6
+AIC=-897.19   AICc=-897.01   BIC=-888.57</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>model_arima <span class="ot">&lt;-</span> <span class="fu">arima</span>(tran_sdiff_org, <span class="at">order=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">period =</span> <span class="dv">12</span>))</span>
+<span id="cb28-2"><a href="#cb28-2"></a>model_arima <span class="ot">&lt;-</span> <span class="fu">arima</span>(tran_org, <span class="at">order=</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>), <span class="at">period =</span> <span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="59">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># 모형 검진</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="co"># 잔차 검정</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">tsdiag</span>(model_arima)</span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="co"># 독립성 검정</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">Box.test</span>(model_arima<span class="sc">$</span>residuals, <span class="at">type=</span><span class="st">"Ljung-Box"</span>)</span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="co"># 잔차의 독립성, 등분산성, 정규성 만족</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>
+    Box-Ljung test
+
+data:  model_arima$residuals
+X-squared = 0.15595, df = 1, p-value = 0.6929</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="61">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># 원 데이터 및 fitted 데이터의 비교</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">plot</span>(<span class="fu">spline</span>(<span class="fu">time</span>(origin), origin),<span class="at">type=</span><span class="st">'l'</span>,<span class="at">xlab=</span><span class="st">'Time'</span>,<span class="at">ylab=</span><span class="st">'Pop'</span>)</span>
+<span id="cb32-3"><a href="#cb32-3"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(<span class="fu">fitted</span>(model_arima), <span class="fu">BoxCox.lambda</span>(origin)), <span class="at">col=</span><span class="st">'red'</span>)</span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="fu">mean</span>((origin <span class="sc">-</span> <span class="fu">InvBoxCox</span>(<span class="fu">fitted</span>(model_arima), <span class="fu">BoxCox.lambda</span>(origin)))<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+107.241415231708
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-29-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># 12개월 예측</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>arima_fit <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_arima, <span class="at">n.ahead=</span><span class="dv">12</span>) <span class="co">#BoxCox 변환 데이터 사용</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>lambda <span class="ot">&lt;-</span> <span class="fu">BoxCox.lambda</span>(origin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ts.plot</span>(origin, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">1950</span>,<span class="dv">1965</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1000</span>))</span>
+<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(arima_fit<span class="sc">$</span>pred, lambda),<span class="at">col=</span><span class="st">"red"</span>)</span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(arima_fit<span class="sc">$</span>pred<span class="fl">+1.96</span><span class="sc">*</span>arima_fit<span class="sc">$</span>se, lambda),<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lty=</span><span class="dv">1</span>)</span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="fu">lines</span>(<span class="fu">InvBoxCox</span>(arima_fit<span class="sc">$</span>pred<span class="fl">-1.96</span><span class="sc">*</span>arima_fit<span class="sc">$</span>se, lambda),<span class="at">col=</span><span class="st">"blue"</span>,<span class="at">lty=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-14-ts-begas_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
 </div>
 
 
