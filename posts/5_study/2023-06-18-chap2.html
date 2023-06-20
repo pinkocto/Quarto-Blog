@@ -244,7 +244,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#신경망의-수학적-구성요소" id="toc-신경망의-수학적-구성요소" class="nav-link active" data-scroll-target="#신경망의-수학적-구성요소">2. 신경망의 수학적 구성요소</a></li>
+  <li><a href="#신경망의-수학적-구성요소" id="toc-신경망의-수학적-구성요소" class="nav-link active" data-scroll-target="#신경망의-수학적-구성요소">2. 신경망의 수학적 구성요소</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">2.1</a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2.2</a>
+  <ul class="collapse">
+  <li><a href="#스칼라-od텐서" id="toc-스칼라-od텐서" class="nav-link" data-scroll-target="#스칼라-od텐서">2.2.1 스칼라 (OD텐서)</a></li>
+  </ul></li>
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2.3</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -254,8 +262,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="신경망의-수학적-구성요소" class="level2">
-<h2 class="anchored" data-anchor-id="신경망의-수학적-구성요소">2. 신경망의 수학적 구성요소</h2>
+<section id="신경망의-수학적-구성요소" class="level1">
+<h1>2. 신경망의 수학적 구성요소</h1>
 <p>케라스 파이썬 라이브러리를 사용하여 손글씨 숫자 분류를 학습하는 구체적인 신경망 예제를 살펴보겠습니다.</p>
 <p>흑백 손글씨 숫자 이미지 (<span class="math inline">\(28 \times 28\)</span> 픽셀)를 10개의 범주(0에서 9까지)로 분류하는 것입니다. 1980년대 미국 국립표준기술연구소(NIST)에서 수집한 6만개의 훈련 이미지와 1만개의 테스트 이미지로 구성되어 있습니다.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -271,6 +279,8 @@ Note
 <p>머신러닝에서 분류 문제의 <strong>범주(category)</strong> 를 <strong>클래스(class)</strong> 라고 합니다. 데이터 포인트는 <strong>샘플(sample)</strong> 이라고 합니다. 특정 샘플의 클래스는 <strong>레이블(label)</strong> 이라고 합니다.</p>
 </div>
 </div>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section">2.1</h2>
 <p><code>-</code> 케라스에서 MNIST 데이터셋 적재</p>
 <p>MNIST 데이터셋은 Numpy 배열 형태로 케라스에 이미 포함되어 있습니다.</p>
 <div class="cell" data-execution_count="2">
@@ -322,11 +332,102 @@ Note
 <li><strong><code>훈련과 테스트 과정을 모니터링할 지표</code></strong> : 여기에서는 정확도(정확히 분류된 이미지의 비율)만 고려하겠습니다.</li>
 </ul>
 <p><code>-</code> 컴파일 단계</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>network.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="st">'rmsprop'</span>,</span>
+<span id="cb13-2"><a href="#cb13-2"></a>                loss <span class="op">=</span> <span class="st">'categorical_crossentropy'</span>,</span>
+<span id="cb13-3"><a href="#cb13-3"></a>                metrics<span class="op">=</span> [<span class="st">'accuracy'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>훈련 시작 전에 데이터를 네트워크에 맞는 크기로 바꾸고 모든 값을 <span class="math inline">\(0\)</span> 과 <span class="math inline">\(1\)</span> 사이로 스케일을 조정합니다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p><code>-</code> 이미지 데이터 준비</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>train_images <span class="op">=</span> train_images.reshape((<span class="dv">60000</span>, <span class="dv">28</span><span class="op">*</span><span class="dv">28</span>))</span>
+<span id="cb14-2"><a href="#cb14-2"></a>train_images <span class="op">=</span> train_images.astype(<span class="st">'float32'</span>)<span class="op">/</span><span class="dv">255</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a>test_images <span class="op">=</span> test_images.reshape((<span class="dv">10000</span>, <span class="dv">28</span><span class="op">*</span><span class="dv">28</span>))</span>
+<span id="cb14-5"><a href="#cb14-5"></a>test_images <span class="op">=</span> test_images.astype(<span class="st">'float32'</span>)<span class="op">/</span><span class="dv">255</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 레이블 준비</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="im">from</span> keras.utils <span class="im">import</span> to_categorical</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a>train_labels <span class="op">=</span> to_categorical(train_labels)</span>
+<span id="cb15-4"><a href="#cb15-4"></a>test_labels <span class="op">=</span> to_categorical(test_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>train_labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>array([[0., 0., 0., ..., 0., 0., 0.],
+       [1., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 1., 0.]], dtype=float32)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>test_labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>array([[0., 0., 0., ..., 1., 0., 0.],
+       [0., 0., 1., ..., 0., 0., 0.],
+       [0., 1., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]], dtype=float32)</code></pre>
+</div>
+</div>
+<ul>
+<li>신경망 훈련준비 완료!</li>
+</ul>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>network.fit(train_images, train_labels, epochs<span class="op">=</span><span class="dv">5</span>, batch_size<span class="op">=</span><span class="dv">128</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/5
+469/469 [==============================] - 1s 1ms/step - loss: 0.2646 - accuracy: 0.9231
+Epoch 2/5
+469/469 [==============================] - 1s 1ms/step - loss: 0.1079 - accuracy: 0.9679
+Epoch 3/5
+469/469 [==============================] - 1s 1ms/step - loss: 0.0707 - accuracy: 0.9790
+Epoch 4/5
+469/469 [==============================] - 1s 1ms/step - loss: 0.0512 - accuracy: 0.9849
+Epoch 5/5
+469/469 [==============================] - 1s 1ms/step - loss: 0.0377 - accuracy: 0.9885</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>&lt;keras.callbacks.History at 0x7f02cc03f880&gt;</code></pre>
+</div>
+</div>
+<p>훈련하는동안 2개의 정보가 출력도비니다. 훈련 데이터에 댛나 네트워크 손실과 정확도!</p>
+<p>테스트 세트에서도 모델이 잘 작동하는지 확인해봅시다.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>test_loss, test_acc <span class="op">=</span> network.evaluate(test_images, test_labels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>313/313 [==============================] - 0s 470us/step - loss: 0.0605 - accuracy: 0.9815</code></pre>
+</div>
+</div>
+</section>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1">2.2</h2>
+<section id="스칼라-od텐서" class="level3">
+<h3 class="anchored" data-anchor-id="스칼라-od텐서">2.2.1 스칼라 (OD텐서)</h3>
+<p>하나의 숫자만 담고있는 텐서를 <strong>스칼라</strong> 또는 (스칼라 텐서, 0차원 텐서, 0D텐서) 라고 부릅니다.</p>
+</section>
+</section>
+<section id="section-2" class="level2">
+<h2 class="anchored" data-anchor-id="section-2">2.3</h2>
 
 
 </section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>신경망은 입력 데이터의 스케일에 민감하여 적절한 데이터 전처리 과정이 필요합니다. 이미지의 경우 보통 픽셀의 최댓값인 <span class="math inline">\(255\)</span>로 나누어 사용합니다.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
