@@ -250,6 +250,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">2.2</a>
   <ul class="collapse">
   <li><a href="#스칼라-od텐서" id="toc-스칼라-od텐서" class="nav-link" data-scroll-target="#스칼라-od텐서">2.2.1 스칼라 (OD텐서)</a></li>
+  <li><a href="#벡터1d-텐서" id="toc-벡터1d-텐서" class="nav-link" data-scroll-target="#벡터1d-텐서">2.2.2 벡터(1D 텐서)</a></li>
+  <li><a href="#행렬2d-텐서" id="toc-행렬2d-텐서" class="nav-link" data-scroll-target="#행렬2d-텐서">2.2.3 행렬(2D 텐서)</a></li>
+  <li><a href="#d텐서와-고차원-텐서" id="toc-d텐서와-고차원-텐서" class="nav-link" data-scroll-target="#d텐서와-고차원-텐서">2.2.4 3D텐서와 고차원 텐서</a></li>
   </ul></li>
   <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2.3</a></li>
   </ul></li>
@@ -409,9 +412,95 @@ Epoch 5/5
 </section>
 <section id="section-1" class="level2">
 <h2 class="anchored" data-anchor-id="section-1">2.2</h2>
+<p>최근의 모든 머신러닝 시스템은 일반적으로 텐서를 기본 데이터 구조로 사용합니다.</p>
+<p>핵심적으로 텐서는 데이터를 위한 컨테이너(container)입니다. 거의 항상 수치형 데이터를 다루므로 숫자를 위한 컨테이너입니다. 텐서는 임의의 차원 개수를 가지는 행렬의 일반화된 모습입니다.</p>
 <section id="스칼라-od텐서" class="level3">
 <h3 class="anchored" data-anchor-id="스칼라-od텐서">2.2.1 스칼라 (OD텐서)</h3>
-<p>하나의 숫자만 담고있는 텐서를 <strong>스칼라</strong> 또는 (스칼라 텐서, 0차원 텐서, 0D텐서) 라고 부릅니다.</p>
+<p>하나의 숫자만 담고있는 텐서를 <strong>스칼라</strong> 또는 (스칼라 텐서, 0차원 텐서, 0D텐서) 라고 부릅니다. 넘파이에서는 float32나 float64 타입의 숫자가 스칼라 텐서(또는 배열 스칼라) 입니다. 스칼라 텐서의 축 개수는 <span class="math inline">\(0\)</span>개 입니다. 텐서의 축 개수를 <strong>랭크(rank)</strong> 라고도 부릅니다.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb25-2"><a href="#cb25-2"></a>x <span class="op">=</span> np.array(<span class="dv">12</span>)</span>
+<span id="cb25-3"><a href="#cb25-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>array(12)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>x.ndim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>0</code></pre>
+</div>
+</div>
+</section>
+<section id="벡터1d-텐서" class="level3">
+<h3 class="anchored" data-anchor-id="벡터1d-텐서">2.2.2 벡터(1D 텐서)</h3>
+<p>숫자의 배열을 <strong>벡터(vector)</strong> 또는 1D 텐서라고 부릅니다.</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>x <span class="op">=</span> np.array([<span class="dv">12</span>,<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">14</span>,<span class="dv">7</span>])</span>
+<span id="cb29-2"><a href="#cb29-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>array([12,  3,  6, 14,  7])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>x.ndim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>1</code></pre>
+</div>
+</div>
+<ul>
+<li>5개의 원소를 가지고 있으므로 이 벡터는 5D 벡터.</li>
+<li>5D벡터와 5D텐서 혼동하지 말기! (5D벡터는 하나의 축을따라 5개의 차원을 가진것이고, 5D텐서는 5개의 축을 가진 것!)</li>
+</ul>
+</section>
+<section id="행렬2d-텐서" class="level3">
+<h3 class="anchored" data-anchor-id="행렬2d-텐서">2.2.3 행렬(2D 텐서)</h3>
+<p>벡터의 배열이 <strong>행렬(matrix)</strong> 또는 2D텐서 입니다. 행렬에는 2개의 축이 있습니다.</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>x <span class="op">=</span> np.array([[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],[<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">0</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]])</span>
+<span id="cb33-2"><a href="#cb33-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>array([[1, 2, 3, 4, 5],
+       [6, 7, 8, 9, 0],
+       [4, 5, 6, 7, 8]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>x.ndim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>2</code></pre>
+</div>
+</div>
+</section>
+<section id="d텐서와-고차원-텐서" class="level3">
+<h3 class="anchored" data-anchor-id="d텐서와-고차원-텐서">2.2.4 3D텐서와 고차원 텐서</h3>
+<p>이런 행렬들을 하나의 새로운 배열로 합치면 숫자가 채워진 직육면체 형태로 해석할 수 있는 3D텐서가 만들어집니다.</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># 넘파이에서 3D 텐서</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>x <span class="op">=</span> np.array([[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],[<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">0</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]],[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],[<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">0</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]],[[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>],[<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">0</span>],[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>]]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>array([[[1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 0],
+        [4, 5, 6, 7, 8]],
+
+       [[1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 0],
+        [4, 5, 6, 7, 8]],
+
+       [[1, 2, 3, 4, 5],
+        [6, 7, 8, 9, 0],
+        [4, 5, 6, 7, 8]]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>x.ndim</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>3</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="section-2" class="level2">

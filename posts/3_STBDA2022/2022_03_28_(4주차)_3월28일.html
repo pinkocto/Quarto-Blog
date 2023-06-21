@@ -3333,6 +3333,9 @@ ERGRKrHAiIhIlVhgRESkSiwwIiJSJRYYERGpEguMiIhU6f8BNsMTSlvtoXIAAAAASUVORK5CYII=\
 <pre><code>([-10.0, -9.99], [36.0, 35.94002362785341])</code></pre>
 </div>
 </div>
+<ul>
+<li>beta값과 그에 대응되는 loss값</li>
+</ul>
 <p><code>-</code> for</p>
 <div class="cell" data-execution_count="158">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1"></a>beta <span class="op">=</span> tf.Variable(<span class="op">-</span><span class="fl">10.0</span>) </span>
@@ -3345,9 +3348,9 @@ ERGRKrHAiIhIlVhgRESkSiwwIiJSJRYYERGpEguMiIhU6f8BNsMTSlvtoXIAAAAASUVORK5CYII=\
 <span id="cb121-8"><a href="#cb121-8"></a>    <span class="cf">with</span> tf.GradientTape(persistent<span class="op">=</span><span class="va">True</span>) <span class="im">as</span> tape: </span>
 <span id="cb121-9"><a href="#cb121-9"></a>        tape.watch(beta) </span>
 <span id="cb121-10"><a href="#cb121-10"></a>        loss <span class="op">=</span> (beta<span class="op">/</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb121-11"><a href="#cb121-11"></a>    beta.assign_sub(tape.gradient(loss,beta)<span class="op">*</span>alpha) </span>
-<span id="cb121-12"><a href="#cb121-12"></a>    beta_lst.append(beta.numpy())</span>
-<span id="cb121-13"><a href="#cb121-13"></a>    loss_lst.append((beta.numpy()<span class="op">/</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb121-11"><a href="#cb121-11"></a>    beta.assign_sub(tape.gradient(loss,beta)<span class="op">*</span>alpha)  <span class="co"># beta update</span></span>
+<span id="cb121-12"><a href="#cb121-12"></a>    beta_lst.append(beta.numpy()) <span class="co"># update된 beta 추가</span></span>
+<span id="cb121-13"><a href="#cb121-13"></a>    loss_lst.append((beta.numpy()<span class="op">/</span><span class="dv">2</span><span class="op">-</span><span class="dv">1</span>)<span class="op">**</span><span class="dv">2</span>) <span class="co"># loss 계산</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-outputid="dfbd0a49-250a-4f67-a95a-270d44fdddcb" data-execution_count="159">
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1"></a>fig <span class="op">=</span> plt.figure() </span>
@@ -25698,6 +25701,9 @@ RKrEAiMiIlVigRERkSr9fx4q0jskOo7WAAAAAElFTkSuQmCC\
 </script>
 </div>
 </div>
+<ul>
+<li>너무 느려… 왜 <span class="math inline">\(\alpha\)</span> 를 바꿔야할지 알듯하다..</li>
+</ul>
 </section>
 </section>
 </section>
