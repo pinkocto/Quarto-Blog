@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-06-22">
+
+<title>Quarto-Blog - 푸리에변환</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">푸리에변환</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">푸리에변환</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">푸리에변환</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 22, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#chap1.-인트로" id="toc-chap1.-인트로" class="nav-link active" data-scroll-target="#chap1.-인트로">Chap1. 인트로</a></li>
+  <li><a href="#chap6.-푸리에-변환의-이해를-위한-준비" id="toc-chap6.-푸리에-변환의-이해를-위한-준비" class="nav-link" data-scroll-target="#chap6.-푸리에-변환의-이해를-위한-준비">Chap6. 푸리에 변환의 이해를 위한 준비</a></li>
+  <li><a href="#chap-7.-푸리에-해석" id="toc-chap-7.-푸리에-해석" class="nav-link" data-scroll-target="#chap-7.-푸리에-해석">Chap 7. 푸리에 해석</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="chap1.-인트로" class="level3">
+<h3 class="anchored" data-anchor-id="chap1.-인트로">Chap1. 인트로</h3>
+<p>전파나 음파는 모두 시간과 함께 변화하는 [파형] 이라고 할 수 있다. 보통 자연계에 존재하는 파형은 단순한 파형이 아니라 복잡한 파형으로 나타나고 있다.</p>
+<p>여기서 복잡하다는 것은 몇 개의 단순한 파형들이 합성돼서 만들어진다고 생각하면 된다. 단순한 파형들의 합성으로 복잡한 파형이 만들어진다는 개념이 [푸리에 변환] 의 기저를 이루고 있는 것.</p>
+<p>달리 말하면, <strong><font color="blue">단순한 파형들의 합성이 어떤 주파수나 세기로 성립되어 있는지를 수학적으로 구하는 방법이 [푸리에 변환]</font></strong>.</p>
+<p>푸리에 변환을 실행하려면, 원칙적으로는 파형이 일정 주기를 가져야한다. 그래서 복잡한 파형을 짧은 부분들로 나눠서 그 구간에서 파형이 반복된다고 가정하는 것이다.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Untitled_files/figure-html/d6923799-40ec-4e52-8cc8-5f97ef491d20-1-24096a54-0994-41cd-8655-44f2013b5ab2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">푸리에 변환의 이미지</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="chap6.-푸리에-변환의-이해를-위한-준비" class="level3">
+<h3 class="anchored" data-anchor-id="chap6.-푸리에-변환의-이해를-위한-준비">Chap6. 푸리에 변환의 이해를 위한 준비</h3>
+<section id="삼각함수의-합으로-파형-만들기" class="level4">
+<h4 class="anchored" data-anchor-id="삼각함수의-합으로-파형-만들기">1. 삼각함수의 합으로 파형 만들기</h4>
+<p>직교하는 함수의 합을 이용해서 다양한 파형을 만들어보자.</p>
+<p><code>-</code> <span class="math inline">\(y=a\cos x + b\sin x\)</span></p>
+<p>같은 주기를 가지는 <span class="math inline">\(\sin mx\)</span>와 <span class="math inline">\(\cos mx\)</span>을 더하는 것으로 시작해보자. (<span class="math inline">\(m=1\)</span>)</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">def</span> sin_wave(amp, freq, time):</span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="cf">return</span> amp<span class="op">*</span>np.sin(np.pi<span class="op">*</span>freq<span class="op">*</span>time)</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">def</span> cos_wave(amp, freq, time):</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="cf">return</span> amp<span class="op">*</span>np.cos(np.pi<span class="op">*</span>freq<span class="op">*</span>time)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> <span class="math inline">\(a=1, b=1\)</span></p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>time <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">2</span>,<span class="fl">0.001</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a>cos1 <span class="op">=</span> cos_wave(<span class="dv">1</span>,<span class="dv">1</span>,time)</span>
+<span id="cb3-3"><a href="#cb3-3"></a>sin1 <span class="op">=</span> sin_wave(<span class="dv">1</span>,<span class="dv">1</span>,time)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>plt.plot(time, cos1, label<span class="op">=</span><span class="st">'cosx'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>plt.plot(time, sin1, label<span class="op">=</span><span class="st">'sinx'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a>plt.plot(time, cos1<span class="op">+</span>sin1, label<span class="op">=</span><span class="st">'cosx + sinx'</span>)</span>
+<span id="cb3-7"><a href="#cb3-7"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7fe65f0982e0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>모양은 별로 안변함..</li>
+<li>진폭이 커진다.</li>
+</ul>
+<p><code>-</code> <span class="math inline">\(a=1, b=-1\)</span></p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>time <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">2</span>,<span class="fl">0.001</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>cos1 <span class="op">=</span> cos_wave(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,time)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>sin1 <span class="op">=</span> sin_wave(<span class="dv">1</span>,<span class="dv">1</span>, time)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>plt.plot(time, cos1, label<span class="op">=</span><span class="st">'-cosx'</span>)</span>
+<span id="cb5-5"><a href="#cb5-5"></a>plt.plot(time, sin1, label<span class="op">=</span><span class="st">'sinx'</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>plt.plot(time, sin1<span class="op">+</span>cos1, label<span class="op">=</span><span class="st">'-cosx+sinx'</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb5-8"><a href="#cb5-8"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7fe65f2180a0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>덧셈의 값은 진폭이 합성된 크기가 된다.</li>
+<li>위상<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>이 변한다.</li>
+</ul>
+</section>
+<section id="acos-x와-bsin-x의-합성" class="level4">
+<h4 class="anchored" data-anchor-id="acos-x와-bsin-x의-합성">2. <span class="math inline">\(a\cos x\)</span>와 <span class="math inline">\(b\sin x\)</span>의 합성</h4>
+<p>함수들을 그대로의 형태로 다루는 것이 아니라 어떤 [직교하는 함수의 조합] 으로 다룬다고 생각해야 한다. 실제로는 <span class="math inline">\(\sin x\)</span>와 <span class="math inline">\(\cos x\)</span>라는 단 2개의 함수로 다양한 위상의 <span class="math inline">\(\sin(x+\theta)\)</span>를 만들 수 있다.</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>time <span class="op">=</span> np.arange(<span class="dv">0</span>,<span class="dv">2</span>,<span class="fl">0.001</span>)</span>
+<span id="cb7-2"><a href="#cb7-2"></a>cos1 <span class="op">=</span> cos_wave(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">1</span>,time)</span>
+<span id="cb7-3"><a href="#cb7-3"></a>sin1 <span class="op">=</span> sin_wave(<span class="dv">1</span>,<span class="dv">1</span>, time)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>cos2 <span class="op">=</span> cos_wave(<span class="dv">1</span>,<span class="dv">1</span>,time)</span>
+<span id="cb7-5"><a href="#cb7-5"></a>sin2 <span class="op">=</span> sin_wave(<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="dv">1</span>,time)</span>
+<span id="cb7-6"><a href="#cb7-6"></a>plt.plot(time, sin1<span class="op">+</span>cos1, label<span class="op">=</span><span class="st">'0.5cosx+sinx'</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>plt.plot(time, cos2<span class="op">+</span>sin2, label<span class="op">=</span><span class="st">'cosx+0.5sinx'</span>)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>plt.axhline(y<span class="op">=</span><span class="dv">0</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb7-9"><a href="#cb7-9"></a>plt.axhline(y<span class="op">=</span><span class="dv">1</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10"></a>plt.axhline(y<span class="op">=-</span><span class="dv">1</span>, color<span class="op">=</span><span class="st">'grey'</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="38">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7fe65eda0430&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li><span class="math inline">\(\sin\)</span>과 <span class="math inline">\(\cos\)</span> 만으로 나타낼 수 있다는 것은 이 <span class="math inline">\(2\)</span>개가 [직교]라는 성질을 가지고 있다는 것과 같다.</li>
+<li>[직교하고 있다] = [다른 방법을 통해서는 나타낼 수 없다.] 라는 성질도 가지고 있음.</li>
+</ul>
+<p><code>-</code> 다른 방법을 통해서는 나타낼수 없다??</p>
+<p>아래와 같은 <span class="math inline">\(x\)</span>축과 <span class="math inline">\(y\)</span>축이 교차된 직각으로 교차된 그래프를 생각해보자.</p>
+<div class="cell" data-execution_count="53">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>plt.xlim(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a>plt.ylim(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>plt.annotate(<span class="st">""</span>, xy<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">0</span>), xytext<span class="op">=</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">0</span>), arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">"-&gt;"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, color<span class="op">=</span><span class="st">'black'</span>))</span>
+<span id="cb9-4"><a href="#cb9-4"></a>plt.annotate(<span class="st">""</span>, xy<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">10</span>), xytext<span class="op">=</span>(<span class="dv">0</span>, <span class="op">-</span><span class="dv">10</span>), arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">"-&gt;"</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, color<span class="op">=</span><span class="st">'black'</span>))</span>
+<span id="cb9-5"><a href="#cb9-5"></a>plt.xlabel(<span class="st">'X-axis'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6"></a>plt.ylabel(<span class="st">'Y-axis'</span>)</span>
+<span id="cb9-7"><a href="#cb9-7"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Untitled_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>이 그래프도 관점만 바꾸면 <span class="math inline">\(y=0\)</span>이란 상수식이 <span class="math inline">\(x\)</span>축을 나타내고, <span class="math inline">\(x=0\)</span>이라는 상수식이 <span class="math inline">\(y\)</span>축을 나타낸다고도 할 수 있다. 즉, <span class="math inline">\(x\)</span>축과 <span class="math inline">\(y\)</span>축의 기본 그래프는 상수식 <span class="math inline">\(x=0\)</span>과 <span class="math inline">\(y=0\)</span>의 그래프가 직교하는 그래프라는 것이다.</p>
+<p><span class="math inline">\(x\)</span>축은 <span class="math inline">\(y\)</span>축을 아무리 정수배해도 나타낼 수 없다. <span class="math inline">\(0\)</span>은 몇 배를 해도 <span class="math inline">\(0\)</span> 밖에 되지 않으니까!</p>
+<p><span class="math inline">\(x\)</span>축 위의 적당한 값은 <span class="math inline">\(x=0\)</span> (<span class="math inline">\(y\)</span>축)을 몇배해도 만들 수 없다. <span class="math inline">\(y\)</span>축도 마찬가지이다. 이것은 곧 [직교한다] 라는 말이 [다른 방법으로는 나타낼 수 없다] 라는 뜻.</p>
+<p><code>-</code> 이것을 <span class="math inline">\(\sin, \cos\)</span>함수에 적용시켜보자.</p>
+<ul>
+<li><p>위와 동일한 논리로 <span class="math inline">\(\cos x\)</span>라는 함수는 <span class="math inline">\(b\sin x\)</span>의 <span class="math inline">\(b\)</span>를 아무리 변화시켜도 만들어 낼 수 없다.</p></li>
+<li><p>마찬가지로 <span class="math inline">\(\sin x\)</span>는 <span class="math inline">\(a\cos x\)</span>의 <span class="math inline">\(a\)</span>를 아무리 변화시켜도 만들어 낼 수 없다.</p></li>
+<li><p><span class="math inline">\(\sin 3x\)</span>도 <span class="math inline">\(\sin x\)</span>로부터는 만들어 낼 수 없다. 왜냐? 이것은 <span class="math inline">\(\sin x\)</span>와 <span class="math inline">\(\sin 3x\)</span>가 직교하고 있기 때문!</p></li>
+<li><p><span class="math inline">\(x\)</span>축과 <span class="math inline">\(y\)</span>축의 경우, 직교하는 것이 단 둘뿐이었지만 <span class="math inline">\(\sin x\)</span>나 <span class="math inline">\(\sin 2x\)</span>나 <span class="math inline">\(\sin 3x\)</span> 등등은 모두 서로에게 직교하는 함수인 것.</p></li>
+<li><p><span class="math inline">\(\cos x\)</span>와 <span class="math inline">\(\cos 2x, \cos 3, \dots\)</span>와 <span class="math inline">\(\cos\)</span>도 주기가 다른 것들끼리는 서로 직교하고 있다.</p></li>
+<li><p><span class="math inline">\(\cos nx\)</span>와 <span class="math inline">\(\cos nx\)</span>는 주기가 같아도 직교하고 있다.</p></li>
+</ul>
+<p>이렇게 서로 직교하는 함수를 조합함으로써 다양한 형태의 함수를 만들어 낼 수 있다. 다른 삼각함수로는 만들어 낼 수 없는, 서로 직교하는 각각의 삼각함수는 다양한 파형을 만들어 내는 기준단위로서 존재 의의가 있는 것이다.</p>
+<p><code>-</code> 합성된 파형은 진폭이 바뀐다.</p>
+<p>다시 처음으로 돌아가서 <span class="math inline">\(\sin x\)</span>와 <span class="math inline">\(\cos x\)</span>의 크기(<span class="math inline">\(a\)</span>와 <span class="math inline">\(b\)</span>)에 따라 합성된 파형은 진폭도 바뀌게 된다.</p>
+<p>이것은 <span class="math inline">\(\sin x\)</span>와 <span class="math inline">\(\cos x\)</span>의 합성을 원주 위를 회전하는 벡터로 바꿔서 생각하면 이해하기 쉽다.</p>
+<p>피타고라스 정리를 적용시켜보면</p>
+<p><span class="math inline">\(a^2+b^2=r^2\)</span> 이므로 <span class="math inline">\(r=\sqrt{a^2+b^2},\quad (r&gt;0)\)</span></p>
+<p>합성된 <span class="math inline">\((a+b)\)</span>라는 벡터를 반지름이 <span class="math inline">\(r\)</span>인 원에 대입해보면,</p>
+<p><span class="math inline">\(a^2+b^2=r^2\)</span> 이라는 관계가 있다는 것을 알 수 있음. 이 식을 <span class="math inline">\(r\)</span>에 대해서 정리하면</p>
+<p><span class="math inline">\(r=\sqrt{a^2+b^2}\)</span> 이 된다.</p>
+<p>결국 <span class="math inline">\(a\cos x + b\sin x\)</span>의 크기가 <span class="math inline">\(\sqrt{a^2+b^2}\)</span> 이 된다는 말.</p>
+<p><code>-</code> 예제 : <span class="math inline">\(a=2, b=2\)</span>의 파형의 크기는?</p>
+<p><span class="math inline">\(2\cos x+2\sin x\)</span>의 파형의 크기(진폭)는</p>
+<p><span class="math inline">\(\therefore r=\sqrt{2^2+2^2}=\sqrt{8}=2.82842712\dots\)</span></p>
+<p>이처럼 <span class="math inline">\(a\)</span>와 <span class="math inline">\(b\)</span>를 적당하게 조합하면 주기는 바꿀 수 없지만 진폭과 위상은 자유자재로 바꿀 수 있다.</p>
+<p>즉, 주기는 같아도 여러가지 형태의 파형을 만들 수 있다.</p>
+</section>
+<section id="푸리에-급수" class="level4">
+<h4 class="anchored" data-anchor-id="푸리에-급수">4. 푸리에 급수</h4>
+<p><code>-</code> 푸리에 급수</p>
+<p><span class="math inline">\(\sin\)</span> 이나 <span class="math inline">\(\cos\)</span>을 개수와 상관없이 여러 개를 더하면 더 복잡한 함수를 만들어 낼 수 있다.</p>
+<p><span class="math inline">\(\begin{align*}F(x) &amp;= \frac{1}{2}a_0 + a_1\cos x + a_2\cos 2x + a_3\cos 3x + \dots + a_n\cos nx + \dots \\ &amp;+b_1\sin x + b_2\sin 2x + b_3 \sin 3x + \dots b_n\sin nx+ \dots \\ &amp;= \frac{1}{2}a_0 + \sum_{n=1}^\infty (a_n\cos nx + b_n \sin nx)\end{align*}\)</span></p>
+<ul>
+<li><span class="math inline">\(\frac{1}{2}a_0\)</span> : 삼각함수에 의해 함성된 파형 전체를 상하로 이동시킬 수 있도록 하기 위해 있는 것이라 생각하자.</li>
+<li>[푸리에 급수 전개]는 함수 <span class="math inline">\(F(x)\)</span>가 어떤 주기를 가지고 있을 때, 즉 [주기함수]일 때 합성에 이용되는 것이 전제되어 있어햐 한다.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li><span class="math inline">\(a_1,a_2,a_3,\dots, b_1,b_2,\dots\)</span>은 푸리에 계수</li>
+<li>푸리에 계수 값을 알면 <span class="math inline">\(F(x)\)</span>의 파형의 형태를 결정할 수 있다.
+<ul>
+<li><span class="math inline">\(\cos nx\)</span> 나 <span class="math inline">\(\sin nx\)</span>의 앞에 붙는 <span class="math inline">\(n\)</span> <span class="math inline">\(\to\)</span> 주파수</li>
+<li><span class="math inline">\(\sin, \cos\)</span>의 크기를 결정하는 계수 <span class="math inline">\(a_n, b_n\)</span> <span class="math inline">\(\to\)</span> 푸리에 계수</li>
+</ul></li>
+</ul>
+<p>삼각함수의 주기와 푸리에 계수를 조합하면 다양한 파형을 만들어 낼 수 있다. 이 공식이 푸리에 급수..</p>
+<ul>
+<li>여러 개의 함수를 조합해서 만들어 내는 것이 “합성”</li>
+<li>한 함수가 어떤 조합으로 이루어졌는지를 알아보는 것이 “변환”</li>
+<li>합성과 변환은 서로 역의 관계</li>
+</ul>
+<p>푸리에 급수를 역으로 하면 푸리에 변환을 이용하여 파형을 해석하는 푸리에 해석이 가능하다.</p>
+<p>원래의 파형 <span class="math inline">\(F(x)\)</span>에서 푸리에 계수에 등장한 <span class="math inline">\(a_0, a_n, b_n\)</span>을 구하는 일을 <strong>푸리에 계수를 구한다</strong> 라고 한다.</p>
+</section>
+</section>
+<section id="chap-7.-푸리에-해석" class="level3">
+<h3 class="anchored" data-anchor-id="chap-7.-푸리에-해석">Chap 7. 푸리에 해석</h3>
+<p><code>-</code> 푸리에 계수</p>
+<p><span class="math inline">\(a_n = \frac{1}{\pi}\int_{0}^{2\pi} F(x) \cos nx dx\)</span></p>
+<p><span class="math inline">\(b_n = \frac{1}{\pi}\int_0^{2\pi}F(x)\sin nx dx\)</span></p>
+<p><span class="math inline">\(a_0 = \frac{1}{2\pi}\int_0^{2\pi}F(x)dx\)</span></p>
+<p>하나의 주파 성분에는 <span class="math inline">\(\sin\)</span>함수의 성분과 <span class="math inline">\(\cos\)</span>함수의 성분이 들어있고, 그것들에 대응하는 푸리에 계수는 <span class="math inline">\(b_n\)</span>과 <span class="math inline">\(a_n\)</span>으로 표시하고 있다. 그러나 스펙트럼에는 각각의 성분의 계수가 아닌 그 주파수의 크기에 주목해야한다.</p>
+<p>4번째 단계에서 계산된 <span class="math inline">\(r_n\)</span>을 <span class="math inline">\(n\)</span>이 작은 순서부터 오른쪽으로 일렬로 늘어놓아 그래프로 그린 것이 <strong>스펙트럼</strong> 이다.</p>
+<p>푸리에 변환으로 주파수 분석을 할 경우엔 변수를 시간함수로 생각하기 때문에 변수를 <span class="math inline">\(t\)</span>로 바꿔서 <span class="math inline">\(F(t)\)</span>로 쓰기도 한다. 이렇게 하면 함수의 변수가 시간인 것을 강하게 나타내주기 때문.</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>그래프의 출발점<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>주기함수가 아닌 경웅는 어떤 구간으로 잘라내서 이 구간이 반복되고 있다고 가정함으로써 파형을 합성.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

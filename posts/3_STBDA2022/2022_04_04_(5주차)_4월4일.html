@@ -524,7 +524,11 @@ array([[2.58366721],
 </section>
 <section id="풀이3-벡터버전-손실함수의-도함수이용" class="level4">
 <h4 class="anchored" data-anchor-id="풀이3-벡터버전-손실함수의-도함수이용">풀이3: 벡터버전, 손실함수의 도함수이용</h4>
-<p><code>-</code> 포인트 - <span class="math inline">\(loss'(\beta)=-2X'y +2X'X\beta\)</span> - <span class="math inline">\(\beta_{new} = \beta_{old} - \alpha \times loss'(\beta_{old})\)</span></p>
+<p><code>-</code> 포인트</p>
+<ul>
+<li><span class="math inline">\(loss'(\beta)=-2X'y +2X'X\beta\)</span></li>
+<li><span class="math inline">\(\beta_{new} = \beta_{old} - \alpha \times loss'(\beta_{old})\)</span></li>
+</ul>
 <p><code>-</code> 풀이</p>
 <div class="cell" data-outputid="767cff45-5f98-4ecd-c28c-ce499076c006" data-execution_count="94">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>y<span class="op">=</span>y.reshape(N,<span class="dv">1</span>)</span>
