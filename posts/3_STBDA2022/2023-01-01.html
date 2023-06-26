@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-01-01">
 
-<title>Quarto-Blog – quarto-inputf9141857</title>
+<title>Quarto-Blog - Jupyter</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">Jupyter</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -166,7 +168,38 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">Jupyter</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Tip</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 1, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -213,22 +246,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="op">!</span>wget https:<span class="op">//</span>raw.githubusercontent.com<span class="op">/</span>guebin<span class="op">/</span>DV2022<span class="op">/</span>main<span class="op">/</span>posts<span class="op">/</span><span class="dv">2022</span><span class="op">-</span><span class="dv">10</span><span class="op">-</span><span class="dv">0</span><span class="er">3</span><span class="op">-</span><span class="dv">5</span><span class="er">wk</span><span class="op">-</span><span class="fl">1.</span><span class="er">ipynb</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>--2023-05-21 02:24:58--  https://raw.githubusercontent.com/guebin/DV2022/main/posts/2022-10-03-5wk-1.ipynb
-Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...
-Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 488865 (477K) [text/plain]
-Saving to: ‘2022-10-03-5wk-1.ipynb’
 
-2022-10-03-5wk-1.ip 100%[===================&gt;] 477.41K  --.-KB/s    in 0.02s   
-
-2023-05-21 02:24:58 (25.0 MB/s) - ‘2022-10-03-5wk-1.ipynb’ saved [488865/488865]
-</code></pre>
-</div>
-</div>
+<p>ref: <a href="https://guebin.github.io/STBDA2022/2022/05/09/(10%EC%A3%BC%EC%B0%A8)-5%EC%9B%949%EC%9D%BC.html">STBDA 10주차 (2번째 동영상)</a></p>
+<p><code>-</code> 파이썬 / 주피터 설치</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a>conda create <span class="op">-</span>n test python<span class="op">=</span><span class="fl">3.9</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a>conda env <span class="bu">list</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a>conda activate test</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># conda라는 앱스토어에서 jupyterlab을 깐다. (conda-forge라는 커뮤니티에서 검증이 된 (추천목록) 패키지들을 깔겠다..)</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># 여러 솔루션 중 하나</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>conda install <span class="op">-</span>c conda<span class="op">-</span>forge jupyterlab </span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>jupyter lab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>주피터 설치 완료</li>
+</ul>
+<p><code>-</code> 주피터에서 슬라이드 쇼</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co">## test 환경 활성화</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>conda activte test</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">## jupyter notebook slide show</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>conda install <span class="op">-</span>c conda<span class="op">-</span>forge rise</span>
+<span id="cb2-7"><a href="#cb2-7"></a>jupyter notebook</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
