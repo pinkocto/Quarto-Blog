@@ -9,7 +9,7 @@
 <meta name="author" content="JiyunLim">
 <meta name="dcterms.date" content="2023-06-24">
 
-<title>Quarto-Blog -</title>
+<title>Quarto-Blog - semi/non/parametric models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">semi/non/parametric models</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -106,7 +106,35 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">semi/non/parametric models</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">June 24, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -156,11 +184,15 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#가법모델additive-models" id="toc-가법모델additive-models" class="nav-link" data-scroll-target="#가법모델additive-models">가법모델(additive models)</a></li>
   </ul></li>
   <li><a href="#커널모델" id="toc-커널모델" class="nav-link" data-scroll-target="#커널모델">2.2 커널모델</a></li>
+  <li><a href="#semi-parametric" id="toc-semi-parametric" class="nav-link" data-scroll-target="#semi-parametric">semi-parametric</a></li>
+  <li><a href="#nonparametric" id="toc-nonparametric" class="nav-link" data-scroll-target="#nonparametric">nonparametric</a></li>
+  <li><a href="#parametric" id="toc-parametric" class="nav-link" data-scroll-target="#parametric">parametric</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
+
 
 
 
@@ -217,6 +249,33 @@ ul.task-list li input[type="checkbox"] {
 <p>커널 모델의 또 다른 특징은 입력 <span class="math inline">\(\bf x\)</span>가 벡터가 아닌 경우에도 비교적 쉽게 확장이 가능하다는 점이다.</p>
 <p>커널모델 식 (2.2)의 경우, 입력 <span class="math inline">\(x\)</span>는 커널 함수 <span class="math inline">\(K(x,x')\)</span>에서 <span class="math inline">\(x\)</span>와 <span class="math inline">\(x'\)</span> 사이에만 존재하므로 두 개의 입력 <span class="math inline">\(x\)</span>와 <span class="math inline">\(x'\)</span>에 대한 커널 함수만 정의되어 있다면, 입력 <span class="math inline">\(\bf x\)</span>는 어떤 값을 취해도 상관없다. 예를 들면, 입력 <span class="math inline">\(\bf x\)</span>가 문자열, 트리, 그래프 등인 경우에대한 커널 함수가 제안된 바가 있다.</p>
 <p>이렇듯 커널함수를 사용한 머신러닝 알고리즘은 <strong>커널법</strong> 이라 불리며 활발히 연구되고 있다.</p>
+</section>
+<section id="semi-parametric" class="level2">
+<h2 class="anchored" data-anchor-id="semi-parametric">semi-parametric</h2>
+<ul>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Semiparametric_regression" class="uri">https://en.wikipedia.org/wiki/Semiparametric_regression</a></li>
+</ul>
+<p><img src="2023-06-24-파라메트릭_files/figure-html/ef29d1af-9fce-434c-8248-f61535e04802-1-3b0ee137-a467-4ae8-83f8-50bf690989bb.png" class="img-fluid"></p>
+</section>
+<section id="nonparametric" class="level2">
+<h2 class="anchored" data-anchor-id="nonparametric">nonparametric</h2>
+<ul>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_statistics" class="uri">https://en.wikipedia.org/wiki/Nonparametric_statistics</a></li>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_regression" class="uri">https://en.wikipedia.org/wiki/Nonparametric_regression</a></li>
+</ul>
+<p><img src="2023-06-24-파라메트릭_files/figure-html/37391e2e-e8ea-4432-b1d7-5134d51bbb3d-1-cfe67443-03fc-4d8f-93ec-20ebaabe87df.png" class="img-fluid"></p>
+</section>
+<section id="parametric" class="level2">
+<h2 class="anchored" data-anchor-id="parametric">parametric</h2>
+<ul>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Parametric_statistics" class="uri">https://en.wikipedia.org/wiki/Parametric_statistics</a></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-06-24-파라메트릭_files/figure-html/c44de822-5bb2-4c70-a84d-0953f4ee51a6-1-c58e05ab-fc9d-4938-8c92-99de72352f61.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">ref: 위키</figcaption><p></p>
+</figure>
+</div>
 
 
 </section>
