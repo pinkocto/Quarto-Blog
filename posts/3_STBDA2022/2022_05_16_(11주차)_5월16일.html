@@ -265,29 +265,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="imports" class="level3">
 <h3 class="anchored" data-anchor-id="imports">imports</h3>
-<div class="cell">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> tensorflow.experimental.numpy <span class="im">as</span> tnp</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-4"><a href="#cb1-4"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>tnp.experimental_enable_numpy_behavior()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>(x_train, y_train), (x_test, y_test) <span class="op">=</span> tf.keras.datasets.fashion_mnist.load_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>X <span class="op">=</span> tf.constant(x_train.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">28</span>,<span class="dv">28</span>,<span class="dv">1</span>),dtype<span class="op">=</span>tf.float64)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>y <span class="op">=</span> tf.keras.utils.to_categorical(y_train)</span>
 <span id="cb4-3"><a href="#cb4-3"></a>XX <span class="op">=</span> tf.constant(x_test.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">28</span>,<span class="dv">28</span>,<span class="dv">1</span>),dtype<span class="op">=</span>tf.float64)</span>
 <span id="cb4-4"><a href="#cb4-4"></a>yy <span class="op">=</span> tf.keras.utils.to_categorical(y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 첫시도</p>
-<div class="cell" data-outputid="32046465-0aa6-4bd2-f567-321d8c46c6a9">
+<div class="cell" data-outputid="32046465-0aa6-4bd2-f567-321d8c46c6a9" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>net1 <span class="op">=</span> tf.keras.Sequential()</span>
 <span id="cb5-2"><a href="#cb5-2"></a>net1.add(tf.keras.layers.Flatten())</span>
-<span id="cb5-3"><a href="#cb5-3"></a>net1.add(tf.keras.layers.Dense(<span class="dv">500</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
+<span id="cb5-3"><a href="#cb5-3"></a>net1.add(tf.keras.layers.Dense(<span class="dv">500</span>,activation<span class="op">=</span><span class="st">'relu'</span>)) <span class="co"># flatten(): x의 shape을 네트워크 모양에 따라 바꾸지 않아도 된다.</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a>net1.add(tf.keras.layers.Dense(<span class="dv">500</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
 <span id="cb5-5"><a href="#cb5-5"></a>net1.add(tf.keras.layers.Dense(<span class="dv">500</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
 <span id="cb5-6"><a href="#cb5-6"></a>net1.add(tf.keras.layers.Dense(<span class="dv">500</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
@@ -296,47 +296,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-9"><a href="#cb5-9"></a>net1.fit(X,y,epochs<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Epoch 1/5
-1875/1875 [==============================] - 2s 1ms/step - loss: 1.2243 - accuracy: 0.7894
+1875/1875 [==============================] - 5s 3ms/step - loss: 1.1752 - accuracy: 0.7889
 Epoch 2/5
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.4534 - accuracy: 0.8388
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.4585 - accuracy: 0.8347
 Epoch 3/5
-1875/1875 [==============================] - 2s 1ms/step - loss: 0.4161 - accuracy: 0.8502
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.4124 - accuracy: 0.8537
 Epoch 4/5
-1875/1875 [==============================] - 2s 907us/step - loss: 0.4019 - accuracy: 0.8569
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.3948 - accuracy: 0.8602
 Epoch 5/5
-1875/1875 [==============================] - 2s 973us/step - loss: 0.3873 - accuracy: 0.8622</code></pre>
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.3813 - accuracy: 0.8649</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="36">
-<pre><code>&lt;keras.callbacks.History at 0x7f38111302b0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>&lt;keras.callbacks.History at 0x7f7fc8338f40&gt;</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="72adf266-e9df-4d3d-9666-1a8a69ce831b">
+<div class="cell" data-outputid="72adf266-e9df-4d3d-9666-1a8a69ce831b" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>net1.evaluate(XX,yy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>313/313 [==============================] - 0s 835us/step - loss: 0.4163 - accuracy: 0.8504</code></pre>
+<pre><code>313/313 [==============================] - 0s 735us/step - loss: 0.4072 - accuracy: 0.8473</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="37">
-<pre><code>[0.41634100675582886, 0.8503999710083008]</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>[0.40723177790641785, 0.8472999930381775]</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="fab67763-d01a-4300-ac41-1697f80d1a31">
+<div class="cell" data-outputid="fab67763-d01a-4300-ac41-1697f80d1a31" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>net1.summary()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Model: "sequential_6"
+<pre><code>Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
 =================================================================
- flatten_6 (Flatten)         (None, 784)               0         
+ flatten (Flatten)           (None, 784)               0         
                                                                  
- dense_22 (Dense)            (None, 500)               392500    
+ dense (Dense)               (None, 500)               392500    
                                                                  
- dense_23 (Dense)            (None, 500)               250500    
+ dense_1 (Dense)             (None, 500)               250500    
                                                                  
- dense_24 (Dense)            (None, 500)               250500    
+ dense_2 (Dense)             (None, 500)               250500    
                                                                  
- dense_25 (Dense)            (None, 500)               250500    
+ dense_3 (Dense)             (None, 500)               250500    
                                                                  
- dense_26 (Dense)            (None, 10)                5010      
+ dense_4 (Dense)             (None, 10)                5010      
                                                                  
 =================================================================
 Total params: 1,149,010
