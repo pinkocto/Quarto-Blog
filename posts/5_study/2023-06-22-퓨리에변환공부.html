@@ -248,6 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#chap6.-푸리에-변환의-이해를-위한-준비" id="toc-chap6.-푸리에-변환의-이해를-위한-준비" class="nav-link" data-scroll-target="#chap6.-푸리에-변환의-이해를-위한-준비">Chap6. 푸리에 변환의 이해를 위한 준비</a></li>
   <li><a href="#chap-7.-푸리에-해석" id="toc-chap-7.-푸리에-해석" class="nav-link" data-scroll-target="#chap-7.-푸리에-해석">Chap 7. 푸리에 해석</a></li>
   <li><a href="#to-read" id="toc-to-read" class="nav-link" data-scroll-target="#to-read">To read</a></li>
+  <li><a href="#푸리에-급수와-주파수-분석에서의-활용" id="toc-푸리에-급수와-주파수-분석에서의-활용" class="nav-link" data-scroll-target="#푸리에-급수와-주파수-분석에서의-활용">푸리에 급수와 주파수 분석에서의 활용</a></li>
   </ul>
 </nav>
     </div>
@@ -445,6 +446,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>나이퀴스트 이론: <a href="https://ralasun.github.io/signal%20analysis/2021/07/01/nyq/" class="uri">https://ralasun.github.io/signal%20analysis/2021/07/01/nyq/</a></li>
 <li>kernel : <a href="https://sonsnotation.blogspot.com/2020/11/11-1-kernel.html" class="uri">https://sonsnotation.blogspot.com/2020/11/11-1-kernel.html</a></li>
 </ul>
+<hr>
+</section>
+<section id="푸리에-급수와-주파수-분석에서의-활용" class="level3">
+<h3 class="anchored" data-anchor-id="푸리에-급수와-주파수-분석에서의-활용">푸리에 급수와 주파수 분석에서의 활용</h3>
+<p>Fourier series는 다음 두 식으로 구성된다.</p>
+<p><code>(1)</code> <span class="math inline">\(x(t) = \sum_{k=-\infty}^\infty a_k \exp(j\frac{2\pi k}{T}t)\)</span></p>
+<p><code>(2)</code> <span class="math inline">\(a_k = \frac{1}{T}\int_{0}^T x(t) \exp(-j\frac{2\pi k}{T}t)dt\)</span></p>
+<p>1번식: 연속신호(함수)는 무한차원의 벡터이고, 이것은 기저벡터의 선형결합으로 재구성할 수 있음.</p>
+<p>2번식: 위 신호를 구성하는 각 기저벡터는 얼마만큼의 기여도를 갖고 있는지? <span class="math inline">\(\to\)</span> 주파수 분석에 활용 가능</p>
 
 
 </section>

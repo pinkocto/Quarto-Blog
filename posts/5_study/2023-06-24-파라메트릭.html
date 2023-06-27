@@ -184,9 +184,13 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#가법모델additive-models" id="toc-가법모델additive-models" class="nav-link" data-scroll-target="#가법모델additive-models">가법모델(additive models)</a></li>
   </ul></li>
   <li><a href="#커널모델" id="toc-커널모델" class="nav-link" data-scroll-target="#커널모델">2.2 커널모델</a></li>
-  <li><a href="#semi-parametric" id="toc-semi-parametric" class="nav-link" data-scroll-target="#semi-parametric">semi-parametric</a></li>
-  <li><a href="#nonparametric" id="toc-nonparametric" class="nav-link" data-scroll-target="#nonparametric">nonparametric</a></li>
   <li><a href="#parametric" id="toc-parametric" class="nav-link" data-scroll-target="#parametric">parametric</a></li>
+  <li><a href="#nonparametric" id="toc-nonparametric" class="nav-link" data-scroll-target="#nonparametric">nonparametric</a></li>
+  <li><a href="#semi-parametric" id="toc-semi-parametric" class="nav-link" data-scroll-target="#semi-parametric">semi-parametric</a>
+  <ul class="collapse">
+  <li><a href="#semiparametric-regression" id="toc-semiparametric-regression" class="nav-link" data-scroll-target="#semiparametric-regression">semiparametric regression</a></li>
+  <li><a href="#difference-between-a-parametric-and-non-parametric-model" id="toc-difference-between-a-parametric-and-non-parametric-model" class="nav-link" data-scroll-target="#difference-between-a-parametric-and-non-parametric-model">difference between a parametric and non-parametric model?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -250,21 +254,6 @@ ul.task-list li input[type="checkbox"] {
 <p>커널모델 식 (2.2)의 경우, 입력 <span class="math inline">\(x\)</span>는 커널 함수 <span class="math inline">\(K(x,x')\)</span>에서 <span class="math inline">\(x\)</span>와 <span class="math inline">\(x'\)</span> 사이에만 존재하므로 두 개의 입력 <span class="math inline">\(x\)</span>와 <span class="math inline">\(x'\)</span>에 대한 커널 함수만 정의되어 있다면, 입력 <span class="math inline">\(\bf x\)</span>는 어떤 값을 취해도 상관없다. 예를 들면, 입력 <span class="math inline">\(\bf x\)</span>가 문자열, 트리, 그래프 등인 경우에대한 커널 함수가 제안된 바가 있다.</p>
 <p>이렇듯 커널함수를 사용한 머신러닝 알고리즘은 <strong>커널법</strong> 이라 불리며 활발히 연구되고 있다.</p>
 </section>
-<section id="semi-parametric" class="level2">
-<h2 class="anchored" data-anchor-id="semi-parametric">semi-parametric</h2>
-<ul>
-<li>ref: <a href="https://en.wikipedia.org/wiki/Semiparametric_regression" class="uri">https://en.wikipedia.org/wiki/Semiparametric_regression</a></li>
-</ul>
-<p><img src="2023-06-24-파라메트릭_files/figure-html/ef29d1af-9fce-434c-8248-f61535e04802-1-3b0ee137-a467-4ae8-83f8-50bf690989bb.png" class="img-fluid"></p>
-</section>
-<section id="nonparametric" class="level2">
-<h2 class="anchored" data-anchor-id="nonparametric">nonparametric</h2>
-<ul>
-<li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_statistics" class="uri">https://en.wikipedia.org/wiki/Nonparametric_statistics</a></li>
-<li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_regression" class="uri">https://en.wikipedia.org/wiki/Nonparametric_regression</a></li>
-</ul>
-<p><img src="2023-06-24-파라메트릭_files/figure-html/37391e2e-e8ea-4432-b1d7-5134d51bbb3d-1-cfe67443-03fc-4d8f-93ec-20ebaabe87df.png" class="img-fluid"></p>
-</section>
 <section id="parametric" class="level2">
 <h2 class="anchored" data-anchor-id="parametric">parametric</h2>
 <ul>
@@ -276,8 +265,41 @@ ul.task-list li input[type="checkbox"] {
 <p></p><figcaption class="figure-caption">ref: 위키</figcaption><p></p>
 </figure>
 </div>
+</section>
+<section id="nonparametric" class="level2">
+<h2 class="anchored" data-anchor-id="nonparametric">nonparametric</h2>
+<ul>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_statistics" class="uri">https://en.wikipedia.org/wiki/Nonparametric_statistics</a></li>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_regression" class="uri">https://en.wikipedia.org/wiki/Nonparametric_regression</a></li>
+</ul>
+<p><img src="2023-06-24-파라메트릭_files/figure-html/37391e2e-e8ea-4432-b1d7-5134d51bbb3d-1-cfe67443-03fc-4d8f-93ec-20ebaabe87df.png" class="img-fluid"></p>
+</section>
+<section id="semi-parametric" class="level2">
+<h2 class="anchored" data-anchor-id="semi-parametric">semi-parametric</h2>
+<ul>
+<li>ref: <a href="https://en.wikipedia.org/wiki/Semiparametric_regression" class="uri">https://en.wikipedia.org/wiki/Semiparametric_regression</a></li>
+</ul>
+<p><img src="2023-06-24-파라메트릭_files/figure-html/ef29d1af-9fce-434c-8248-f61535e04802-1-3b0ee137-a467-4ae8-83f8-50bf690989bb.png" class="img-fluid"></p>
+<section id="semiparametric-regression" class="level3">
+<h3 class="anchored" data-anchor-id="semiparametric-regression">semiparametric regression</h3>
+<p>In statistics, semiparametric regression includes regression models that combine parametric and nonparametric models. They are often used in situations where the fully nonparametric model may not perform well or when the researcher wants to use a parametric model but the functional form with respect to a subset of the regressors or the density of the errors is not known. Semiparametric regression models are a particular type of semiparametric modelling and, since semiparametric models contain a parametric component, they rely on parametric assumptions and may be misspecified and inconsistent, just like a fully parametric model.</p>
+<p><code>-</code> Partially linear models</p>
+<p><span class="math inline">\(Y_i = X'_i \beta + g(Z_i) + u_i, \quad i=1,\dots,n\)</span></p>
+<ul>
+<li><span class="math inline">\(Y_i\)</span> : 종속 변수</li>
+<li><span class="math inline">\(X_i\)</span> : <span class="math inline">\(p\times 1\)</span> vector of explanatory variables.</li>
+<li><span class="math inline">\(\beta\)</span> ; <span class="math inline">\(p\times 1\)</span> vector of unknown parameters <span class="math inline">\(Z_i \in R^q\)</span></li>
+</ul>
+</section>
+<section id="difference-between-a-parametric-and-non-parametric-model" class="level3">
+<h3 class="anchored" data-anchor-id="difference-between-a-parametric-and-non-parametric-model">difference between a parametric and non-parametric model?</h3>
+<p>In a parametric model, the number of parameters is fixed with respect to the sample size. In a nonparametric model, the (effective) number of parameters can grow with the sample size.</p>
+<p>In an OLS regression, the number of parameters will always be the length of β , plus one for the variance.</p>
+<p>A neural net with fixed architecture and no weight decay would be a parametric model.</p>
+<p>But if you have weight decay, then the value of the decay parameter selected by cross-validation will generally get smaller with more data. This can be interpreted as an increase in the effective number of parameters with increasing sample size.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
