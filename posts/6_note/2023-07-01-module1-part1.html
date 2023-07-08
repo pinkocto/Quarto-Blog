@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-07-03">
+
+<title>Quarto-Blog - [Module1] AI Ethics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">[Module1] AI Ethics</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">[Module1] AI Ethics</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Module1</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 3, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../6_note.html" class="sidebar-item-text sidebar-link">NOTE</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#데이터를-잘-해석하고-있는가" id="toc-데이터를-잘-해석하고-있는가" class="nav-link active" data-scroll-target="#데이터를-잘-해석하고-있는가">데이터를 잘 해석하고 있는가?</a></li>
+  <li><a href="#데이터-전처리와-분석-방법은-적절한가" id="toc-데이터-전처리와-분석-방법은-적절한가" class="nav-link" data-scroll-target="#데이터-전처리와-분석-방법은-적절한가">데이터 전처리와 분석 방법은 적절한가?</a></li>
+  <li><a href="#학습에-쓰는-데이터가-충분한가" id="toc-학습에-쓰는-데이터가-충분한가" class="nav-link" data-scroll-target="#학습에-쓰는-데이터가-충분한가">학습에 쓰는 데이터가 충분한가</a></li>
+  <li><a href="#black-box-algorithm" id="toc-black-box-algorithm" class="nav-link" data-scroll-target="#black-box-algorithm">Black box algorithm</a></li>
+  <li><a href="#handling-the-web-data" id="toc-handling-the-web-data" class="nav-link" data-scroll-target="#handling-the-web-data">Handling the web data</a></li>
+  <li><a href="#결론" id="toc-결론" class="nav-link" data-scroll-target="#결론">결론</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="데이터를-잘-해석하고-있는가" class="level2">
+<h2 class="anchored" data-anchor-id="데이터를-잘-해석하고-있는가">데이터를 잘 해석하고 있는가?</h2>
+<ul>
+<li>초콜렛을 많이 먹으면 노벨상을 탄다?</li>
+<li>상관관계는 인과관계와 다르다.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-07-01-module1-part1_files/figure-html/1e7cd0a0-1f17-4558-a6f3-e84ba3c963d1-1-6ae73ea5-825e-4caa-97ea-5fcc4b339fd4.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Figure 1. Correlation between Countries’ Annual Per Capita Chocolate Consumption and the Number of Nobel Laureates per 10 Million Population.</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="데이터-전처리와-분석-방법은-적절한가" class="level2">
+<h2 class="anchored" data-anchor-id="데이터-전처리와-분석-방법은-적절한가">데이터 전처리와 분석 방법은 적절한가?</h2>
+<ul>
+<li>Error bar 추가하기</li>
+<li>적합한 통계 테스트 찾기</li>
+<li>아웃라이어 제거하기</li>
+<li>데이터 표준화 하기</li>
+<li>EDA (exploratory data analysis) 충분한 시간을 보내기</li>
+</ul>
+</section>
+<section id="학습에-쓰는-데이터가-충분한가" class="level2">
+<h2 class="anchored" data-anchor-id="학습에-쓰는-데이터가-충분한가">학습에 쓰는 데이터가 충분한가</h2>
+<p><img src="2023-07-01-module1-part1_files/figure-html/02e07641-ded3-4915-83aa-d63fb6ed69ce-1-3c059f1b-1fba-4037-bc2a-4afcdac9a395.png" class="img-fluid"></p>
+<ul>
+<li>데이터 학습의 결과가 적절한 수준인지에 대한 인식이 있어야 함.</li>
+<li>학습(training) 데이터는 테스트(testing) 데이터와 달라야 함.</li>
+</ul>
+</section>
+<section id="black-box-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="black-box-algorithm">Black box algorithm</h2>
+<p><code>-</code> AI 모델의 결정에 설명력 더하기</p>
+<p><img src="2023-07-01-module1-part1_files/figure-html/b4bbc341-d16c-4efa-a454-ffb4607be0c0-1-e4f00d3c-0274-403b-b4dd-0a1db699afbf.png" class="img-fluid"></p>
+<ul>
+<li>흔히 AI 기반 학습 알고리즘은 설명 가능하지 않고 블랙박스 형태라는 단점이 존재</li>
+<li>High risk 결정에서는 설명력도 정확도 만큼이나 중요해짐.</li>
+<li>Saliency map, SHAP과 같이 post-hoc explainability를 제공하는 기술이 생김.</li>
+</ul>
+<p><code>-</code> 학습 결과가 바뀔 수 있는 위험성</p>
+<p><img src="2023-07-01-module1-part1_files/figure-html/94341a56-dd60-43dc-95a1-4394a5cc25e7-1-61bf89f4-a280-49f4-8a38-be31933a69e4.png" class="img-fluid"></p>
+<ul>
+<li>One pixel attack으 예시에서는 픽셀 하나만 바뀔 경우 알고리즘 학습 결과가 달라짐.</li>
+</ul>
+</section>
+<section id="handling-the-web-data" class="level2">
+<h2 class="anchored" data-anchor-id="handling-the-web-data">Handling the web data</h2>
+<p><code>-</code> 의견의 대표성: Spiral of silence</p>
+<p><img src="2023-07-01-module1-part1_files/figure-html/602ddb7f-22ae-49e2-88a3-1098765ea222-1-0467f6fd-175a-4ea2-8d52-830a7f8c674d.png" class="img-fluid"></p>
+<p><code>-</code> 오정보의 빠른 확산으로 인한 인포데믹 현상</p>
+<ul>
+<li><strong>인포데믹(infodemic)</strong> : 사실정보와 더불어 오정보의 양이 늘어 구분이 어려워지는 정보 과부화 현상.</li>
+</ul>
+</section>
+<section id="결론" class="level2">
+<h2 class="anchored" data-anchor-id="결론">결론</h2>
+<p>: 데이터 분석과 AI 학습에서 유의할점</p>
+<p><code>-</code> 데이터의 확보, 전처리, 분석, 해석의 전 과정이 중요</p>
+<p>고품질의 데이터가 입력되었을 때 학습 결과도 유의미하며, 데이터가 가지는 오차 범위와 특이점, 대표성에 대한 충분한 이해를 가지고 접근해야 함.</p>
+<p><code>-</code> 알고리즘의 설명력, 편향, 신뢰의 문제에 주의</p>
+<p>블랙박스 알고리즘이 실제 사회에서 사용되기 위해서는 많은 경우 설명력 보강이 필요하며, 노이즈와 데이터 가변성에도 대처 가능한 알고리즘을 개발하도록 노력.</p>
+<p>AI가 다양한 사회 서비스에서 인간 결정을 돕거나 대체함에 따라 윤리적 의사결정이 확보되도록 점검.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
