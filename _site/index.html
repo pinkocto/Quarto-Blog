@@ -71,7 +71,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 25,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
 
@@ -112,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page">
+    <a class="nav-link" href="./about.html">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -163,156 +164,41 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">About</a>
+  <a href="./1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Posts</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">DV</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/DV/2022-11-09-10wk-2.html" class="sidebar-item-text sidebar-link">10wk-2 심슨의 역설</a>
+  <a href="./2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/DV/dv1.html" class="sidebar-item-text sidebar-link">Dv1</a>
+  <a href="./3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
   </div>
 </li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Python</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2022-06-13-final.html" class="sidebar-item-text sidebar-link">2022 final exam</a>
+  <a href="./4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-23-class10.html" class="sidebar-item-text sidebar-link">class 10단계</a>
+  <a href="./5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-15-class1.html" class="sidebar-item-text sidebar-link">class 1단계</a>
+  <a href="./6_note.html" class="sidebar-item-text sidebar-link">NOTE</a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-15-class2.html" class="sidebar-item-text sidebar-link">class 2단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-15-class3.html" class="sidebar-item-text sidebar-link">class 3단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-15-class4.html" class="sidebar-item-text sidebar-link">class 4단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-23-class5.html" class="sidebar-item-text sidebar-link">class 5단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-23-class6.html" class="sidebar-item-text sidebar-link">class 6단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-23-class7.html" class="sidebar-item-text sidebar-link">class 7단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-23-class8.html" class="sidebar-item-text sidebar-link">class 8단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-23-class9.html" class="sidebar-item-text sidebar-link">class 9단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-02-23-numpy4.html" class="sidebar-item-text sidebar-link">Numpy 4단계(concat, stack)</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-03-13-pandas0.html" class="sidebar-item-text sidebar-link">Pandas 0단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-03-14-pandas1.html" class="sidebar-item-text sidebar-link">Pandas 1단계</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/Python/2023-03-14-pandas2.html" class="sidebar-item-text sidebar-link">Pandas 2단계</a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">R</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/R/2023-02-25-jt-test.html" class="sidebar-item-text sidebar-link">JT test</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/R/2023-02-20-simul_eq.html" class="sidebar-item-text sidebar-link">simultaneous equation</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./posts/R/2023-02-20-ts1.html" class="sidebar-item-text sidebar-link">ts1</a>
-  </div>
-</li>
-      </ul>
-  </li>
-      </ul>
-  </li>
     </ul>
     </div>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(20)</span></div><div class="category" data-category="Numpy">Numpy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Pandas">Pandas <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(14)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="basic">basic <span class="quarto-category-count">(2)</span></div><div class="category" data-category="class">class <span class="quarto-category-count">(11)</span></div><div class="category" data-category="linear algebra">linear algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="plotnine">plotnine <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="test">test <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ts">ts <span class="quarto-category-count">(1)</span></div><div class="category" data-category="통계와 시각화">통계와 시각화 <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(70)</span></div><div class="category" data-category="Class">Class <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Module1">Module1 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Module2">Module2 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Numpy">Numpy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Pandas">Pandas <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Python">Python <span class="quarto-category-count">(15)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(2)</span></div><div class="category" data-category="STUDY">STUDY <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Study">Study <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TS">TS <span class="quarto-category-count">(18)</span></div><div class="category" data-category="Tip">Tip <span class="quarto-category-count">(1)</span></div><div class="category" data-category="basic">basic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="class">class <span class="quarto-category-count">(12)</span></div><div class="category" data-category="linear algebra">linear algebra <span class="quarto-category-count">(1)</span></div><div class="category" data-category="matplotlib">matplotlib <span class="quarto-category-count">(1)</span></div><div class="category" data-category="pandas">pandas <span class="quarto-category-count">(1)</span></div><div class="category" data-category="plotnine">plotnine <span class="quarto-category-count">(3)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(2)</span></div><div class="category" data-category="seaborn">seaborn <span class="quarto-category-count">(1)</span></div><div class="category" data-category="test">test <span class="quarto-category-count">(2)</span></div><div class="category" data-category="딥러닝 스터디">딥러닝 스터디 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="빅데이터분석특강">빅데이터분석특강 <span class="quarto-category-count">(12)</span></div><div class="category" data-category="아이스크림을 많이 먹으면 걸리는 병">아이스크림을 많이 먹으면 걸리는 병 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="통계와 시각화">통계와 시각화 <span class="quarto-category-count">(3)</span></div><div class="category" data-category="푸리에변환">푸리에변환 <span class="quarto-category-count">(1)</span></div><div class="category" data-category="훌륭한 시각화">훌륭한 시각화 <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-body" id="quarto-document-content">
 
@@ -325,16 +211,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1680365482730" data-listing-reading-time-sort="0">
+<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1680437727434" data-listing-reading-time-sort="0">
 <div class="thumbnail">
-<a href="./posts/DV/dv1.html">
+<a href="./posts/2_DV2022/dv1.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/DV/dv1.html"></a></p>
+</a><p><a href="./posts/2_DV2022/dv1.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/DV/dv1.html">
+<a href="./posts/2_DV2022/dv1.html">
 <h3 class="no-anchor listing-title">
 </h3>
 <div class="listing-subtitle">
@@ -346,19 +232,1726 @@ ul.task-list li input[type="checkbox"] {
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/DV/dv1.html"> </a>
+<a href="./posts/2_DV2022/dv1.html"> </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="통계와 시각화,plotnine" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1680365705678" data-listing-reading-time-sort="0.685">
+<div class="quarto-post image-right" data-index="1" data-listing-file-modified-sort="1684603573695" data-listing-reading-time-sort="0">
 <div class="thumbnail">
-<a href="./posts/DV/2022-11-09-10wk-2.html">
+<a href="./posts/2_DV2022/9999.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/DV/2022-11-09-10wk-2.html"></a></p>
+</a><p><a href="./posts/2_DV2022/9999.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/DV/2022-11-09-10wk-2.html">
+<a href="./posts/2_DV2022/9999.html">
+<h3 class="no-anchor listing-title">
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2_DV2022/9999.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-file-modified-sort="1687753536442" data-listing-reading-time-sort="2.765">
+<div class="thumbnail">
+<p><a href="./posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Comparison_image_neural_networks.svg/2560px-Comparison_image_neural_networks.svg.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html">
+<h3 class="no-anchor listing-title">
+(12주차) 5월23일
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-xOfpHJG0LrtYt4TUVgqUNy
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html"> </a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="3" data-categories="Module1" data-listing-date-sort="1688310000000" data-listing-file-modified-sort="1688452364684" data-listing-reading-time-sort="1.1">
+<div class="thumbnail">
+<p><a href="./posts/6_note/2023-07-01-module1-part1.html"> <img src="./posts/6_note/attachment:6ae73ea5-825e-4caa-97ea-5fcc4b339fd4.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/6_note/2023-07-01-module1-part1.html">
+<h3 class="no-anchor listing-title">
+[Module1] AI Ethics
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Module1'); return false;">
+Module1
+</div>
+</div>
+<a href="./posts/6_note/2023-07-01-module1-part1.html">
+<div class="listing-description">
+<code>-</code> AI 모델의 결정에 설명력 더하기
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/6_note/2023-07-01-module1-part1.html">
+<div class="listing-date">
+Jul 3, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-categories="Module2" data-listing-date-sort="1688310000000" data-listing-file-modified-sort="1688373177082" data-listing-reading-time-sort="0.095">
+<div class="thumbnail">
+<a href="./posts/6_note/2023-07-01-module2-part1.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/6_note/2023-07-01-module2-part1.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/6_note/2023-07-01-module2-part1.html">
+<h3 class="no-anchor listing-title">
+[Module2] Mathmatrics for ML
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Module2'); return false;">
+Module2
+</div>
+</div>
+<a href="./posts/6_note/2023-07-01-module2-part1.html">
+<div class="listing-description">
+Determinant and Trace
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/6_note/2023-07-01-module2-part1.html">
+<div class="listing-date">
+Jul 3, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1687705200000" data-listing-file-modified-sort="1688832857888" data-listing-reading-time-sort="1.24">
+<div class="thumbnail">
+<p><a href="./posts/5_study/1_ML/2023-06-26-kernel-regression.html"> <img src="./posts/5_study/1_ML/attachment:cb6fe896-3fd2-4156-91ea-ea7c02b46779.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/1_ML/2023-06-26-kernel-regression.html">
+<h3 class="no-anchor listing-title">
+kernel regression
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+선형 모델에서는 다항식이나 삼각다항식 등 기저 함수를 훈련 표본 <span class="math inline">\(\{(x_i, y_i)\}_{i=1}^n\)</span>과 관계없이 결정해왔다. 이와 달리 커널모델은 기저함수의 설계에 입력 표본 <span class="math inline">\(\{x_i\}_{i=1}^n\)</span>을 이용한다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/1_ML/2023-06-26-kernel-regression.html">
+<div class="listing-date">
+Jun 26, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1687618800000" data-listing-file-modified-sort="1688832772819" data-listing-reading-time-sort="3.09">
+<div class="thumbnail">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-25-fft-python.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/5_study/0_Fourier Transformation/2023-06-25-fft-python.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-25-fft-python.html">
+<h3 class="no-anchor listing-title">
+Fourier Transformation
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+ref: https://towardsdatascience.com/fourier-transform-the-practical-python-implementation-acdd32f1b96a
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-25-fft-python.html">
+<div class="listing-date">
+Jun 25, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1687532400000" data-listing-file-modified-sort="1688362339728" data-listing-reading-time-sort="4.3">
+<div class="thumbnail">
+<p><a href="./posts/5_study/1_ML/2023-06-24-parametric_vs_nonparametric.html"> <img src="./posts/5_study/1_ML/attachment:c58e05ab-fc9d-4938-8c92-99de72352f61.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/1_ML/2023-06-24-parametric_vs_nonparametric.html">
+<h3 class="no-anchor listing-title">
+semi/non/parametric models
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+비선형 입출력 함수도 표현할 수 있도록 확장한 것이 파라미터에 대한 선형 모델이다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/1_ML/2023-06-24-parametric_vs_nonparametric.html">
+<div class="listing-date">
+Jun 24, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1687446000000" data-listing-file-modified-sort="1688362471673" data-listing-reading-time-sort="0.04">
+<div class="thumbnail">
+<a href="./posts/5_study/1_ML/2023-06-28-커널리그레션_교수님.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/5_study/1_ML/2023-06-28-커널리그레션_교수님.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/1_ML/2023-06-28-커널리그레션_교수님.html">
+<h3 class="no-anchor listing-title">
+<strong>[PINKOCTO]</strong> 커널리그레션
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<span class="math display">\[y_i= \sum_{i=1}^{5}\theta_i\exp\left(-\frac{|x-x_i|^2}{2h^2}\right)\]</span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/1_ML/2023-06-28-커널리그레션_교수님.html">
+<div class="listing-date">
+Jun 23, 2023
+</div>
+<div class="listing-author">
+신록예찬
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1687446000000" data-listing-file-modified-sort="1688832937328" data-listing-reading-time-sort="5.38">
+<div class="thumbnail">
+<p><a href="./posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html"> <img src="./posts/5_study/0_Fourier Transformation/attachment:7ebe5889-44d5-4a67-b81d-54a7ba35ff7e.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html">
+<h3 class="no-anchor listing-title">
+<strong>[PINKOCTO]</strong> 퓨리에변환(detailed)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<code>-</code> Notations: 일반적으로 신호처리에서 사용하는 notation은 통계학에서 사용하는 notation과 다른데 대충 정리하면 아래와 같다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html">
+<div class="listing-date">
+Jun 23, 2023
+</div>
+<div class="listing-author">
+신록예찬
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="10" data-listing-date-sort="1687446000000" data-listing-file-modified-sort="1688431506342" data-listing-reading-time-sort="1.005">
+<div class="thumbnail">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-23-퓨리에변환4jy.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/5_study/0_Fourier Transformation/2023-06-23-퓨리에변환4jy.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-23-퓨리에변환4jy.html">
+<h3 class="no-anchor listing-title">
+<strong>[Essays]</strong> 퓨리에변환4jy
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<span class="math display">\[f_i = 2\times \sin(2\pi t_i) + 1 \times \sin(4\pi t_i) + 3\times\sin(6\pi t_i)+\epsilon_i, \quad t_i = \frac{i}{1000}\]</span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-23-퓨리에변환4jy.html">
+<div class="listing-date">
+Jun 23, 2023
+</div>
+<div class="listing-author">
+신록예찬
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="11" data-categories="푸리에변환" data-listing-date-sort="1687359600000" data-listing-file-modified-sort="1688832732827" data-listing-reading-time-sort="4.195">
+<div class="thumbnail">
+<p><a href="./posts/5_study/0_Fourier Transformation/2023-06-22-퓨리에변환공부-책정리.html"> <img src="./posts/5_study/0_Fourier Transformation/attachment:24096a54-0994-41cd-8655-44f2013b5ab2.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-22-퓨리에변환공부-책정리.html">
+<h3 class="no-anchor listing-title">
+푸리에변환
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('푸리에변환'); return false;">
+푸리에변환
+</div>
+</div>
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-22-퓨리에변환공부-책정리.html">
+<div class="listing-description">
+전파나 음파는 모두 시간과 함께 변화하는 [파형] 이라고 할 수 있다. 보통 자연계에 존재하는 파형은 단순한 파형이 아니라 복잡한 파형으로 나타나고 있다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/0_Fourier Transformation/2023-06-22-퓨리에변환공부-책정리.html">
+<div class="listing-date">
+Jun 22, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="12" data-listing-date-sort="1687273200000" data-listing-file-modified-sort="1687767859395" data-listing-reading-time-sort="9.89">
+<div class="thumbnail">
+<a href="./posts/1_IP2022/2023-06-21-13wk-1.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/1_IP2022/2023-06-21-13wk-1.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/1_IP2022/2023-06-21-13wk-1.html">
+<h3 class="no-anchor listing-title">
+13wk-1: 깊은복사와 얕은복사
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+모르고 살았다면 더 좋았을 내용
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/1_IP2022/2023-06-21-13wk-1.html">
+<div class="listing-date">
+Jun 21, 2023
+</div>
+<div class="listing-author">
+최규빈
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-categories="딥러닝 스터디" data-listing-date-sort="1687014000000" data-listing-file-modified-sort="1687766893656" data-listing-reading-time-sort="3.275">
+<div class="thumbnail">
+<a href="./posts/5_study/2_DL/2023-06-18-chap2.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/5_study/2_DL/2023-06-18-chap2.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/2_DL/2023-06-18-chap2.html">
+<h3 class="no-anchor listing-title">
+Chap2. 신경망의 수학적 구성요소
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('딥러닝 스터디'); return false;">
+딥러닝 스터디
+</div>
+</div>
+<a href="./posts/5_study/2_DL/2023-06-18-chap2.html">
+<div class="listing-description">
+케라스 파이썬 라이브러리를 사용하여 손글씨 숫자 분류를 학습하는 구체적인 신경망 예제를 살펴보겠습니다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/2_DL/2023-06-18-chap2.html">
+<div class="listing-date">
+Jun 18, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="14" data-categories="STUDY,TS" data-listing-date-sort="1686841200000" data-listing-file-modified-sort="1686838008819" data-listing-reading-time-sort="4.73">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-06-16-begas-수정본.html"> <img src="./posts/4_TS2023/attachment:a91351dc-296e-4792-8512-f9c98cdff48d.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-06-16-begas-수정본.html">
+<h3 class="no-anchor listing-title">
+0616 시계열 실습 (수정본)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-06-16-begas-수정본.html">
+<div class="listing-description">
+시간의 흐름에 따라서 관측된 데이터를 시계열 자료라고 한다. 시게열 분석을 위해서는 정상성을 만족해야한다. 정상성은 시점에 상관없이 시계열의 특성이 일정하다는 것을 의미하며, 이를 만족한 다는 것은 다음과 같은 것을 말한다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-06-16-begas-수정본.html">
+<div class="listing-date">
+Jun 16, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="15" data-categories="STUDY,TS" data-listing-date-sort="1686841200000" data-listing-file-modified-sort="1686782275307" data-listing-reading-time-sort="2.15">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/2023-06-15-ts-begas-study-new.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/2023-06-15-ts-begas-study-new.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-06-15-ts-begas-study-new.html">
+<h3 class="no-anchor listing-title">
+0616 TS 공부
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-06-15-ts-begas-study-new.html">
+<div class="listing-description">
+시즈널, 트렌드, 분산이상한데 분산맞춰주는게 우선.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-06-15-ts-begas-study-new.html">
+<div class="listing-date">
+Jun 16, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="16" data-categories="STUDY,TS" data-listing-date-sort="1686841200000" data-listing-file-modified-sort="1686782539987" data-listing-reading-time-sort="0.49">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/2023-06-14-ts-begas.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/2023-06-14-ts-begas.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-06-14-ts-begas.html">
+<h3 class="no-anchor listing-title">
+0616 TS 공부 (origin)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-06-14-ts-begas.html">
+<div class="listing-description">
+<strong>Boxcox먼저 (등분산) , seasonal, 차분, 계절차분 순서 중요!</strong>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-06-14-ts-begas.html">
+<div class="listing-date">
+Jun 16, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="17" data-categories="STUDY,TS" data-listing-date-sort="1686841200000" data-listing-file-modified-sort="1686782054062" data-listing-reading-time-sort="1.985">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/2023-06-14-ts-begas_guebin.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/2023-06-14-ts-begas_guebin.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-06-14-ts-begas_guebin.html">
+<h3 class="no-anchor listing-title">
+0616 TS 공부 (교수님)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-06-14-ts-begas_guebin.html">
+<div class="listing-description">
+시즈널, 트렌드, 분산이상한데 분산맞춰주는게 우산.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-06-14-ts-begas_guebin.html">
+<div class="listing-date">
+Jun 16, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="18" data-listing-date-sort="1686668400000" data-listing-file-modified-sort="1686825384404" data-listing-reading-time-sort="6.43">
+<div class="thumbnail">
+<a href="./posts/5_study/3_Stat/2023-05-13-추정 for JY.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/5_study/3_Stat/2023-05-13-추정 for JY.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/5_study/3_Stat/2023-05-13-추정 for JY.html">
+<h3 class="no-anchor listing-title">
+<strong>[Essays]</strong> 추정 for JY
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<code>-</code> 비편향추정량(UB)란 <span class="math inline">\(\theta\)</span>의 추정량 중
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_study/3_Stat/2023-05-13-추정 for JY.html">
+<div class="listing-date">
+Jun 14, 2023
+</div>
+<div class="listing-author">
+신록예찬
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="19" data-categories="빅데이터분석특강" data-listing-date-sort="1685372400000" data-listing-file-modified-sort="1687795273907" data-listing-reading-time-sort="2.065">
+<div class="thumbnail">
+<p><a href="./posts/3_STBDA2022/2022_05_16_(11주차)_5월16일.html"> <img src="https://github.com/guebin/2021BDA/blob/master/_notebooks/2021-11-04-conv.png?raw=true" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_05_16_(11주차)_5월16일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 11wk. MaxPool2D, Conv2D
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_05_16_(11주차)_5월16일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-wlEuWT75L4hqGNEwoPpjWw
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_05_16_(11주차)_5월16일.html">
+<div class="listing-date">
+May 30, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="20" data-categories="빅데이터분석특강" data-listing-date-sort="1685199600000" data-listing-file-modified-sort="1687767841311" data-listing-reading-time-sort="7.49">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_05_09_(10주차)_5월9일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_05_09_(10주차)_5월9일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_05_09_(10주차)_5월9일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 10wk. Softmax / 다양한 평가지표
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_05_09_(10주차)_5월9일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-zvc1QWi-Li-2GAeW91oicn
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_05_09_(10주차)_5월9일.html">
+<div class="listing-date">
+May 28, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="21" data-categories="Python,Class,Study" data-listing-date-sort="1685113200000" data-listing-file-modified-sort="1687747782654" data-listing-reading-time-sort="1.375">
+<div class="thumbnail">
+<a href="./posts/1_IP2022/2023-05-27-class활용.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/1_IP2022/2023-05-27-class활용.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/1_IP2022/2023-05-27-class활용.html">
+<h3 class="no-anchor listing-title">
+Class 활용
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Class'); return false;">
+Class
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Study'); return false;">
+Study
+</div>
+</div>
+<a href="./posts/1_IP2022/2023-05-27-class활용.html">
+<div class="listing-description">
+앞서 정의했던 Character 클래스를 이용해서 몬스터 클래스를 정의할 수 있다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/1_IP2022/2023-05-27-class활용.html">
+<div class="listing-date">
+May 27, 2023
+</div>
+<div class="listing-author">
+jiyun Lim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="22" data-categories="빅데이터분석특강" data-listing-date-sort="1685026800000" data-listing-file-modified-sort="1687742909949" data-listing-reading-time-sort="4.095">
+<div class="thumbnail">
+<p><a href="./posts/3_STBDA2022/2022_05_02_(9주차)_5월2일(2).html"> <img src="./posts/3_STBDA2022/attachment:b26b0736-6f75-4fa0-992b-ab485b5851b2.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_05_02_(9주차)_5월2일(2).html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 9wk-2. 경사하강법 / 확률적경사하강법
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_05_02_(9주차)_5월2일(2).html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-wvV9xuYHvx0Gn7KDGNJbwj
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_05_02_(9주차)_5월2일(2).html">
+<div class="listing-date">
+May 26, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="23" data-categories="빅데이터분석특강" data-listing-date-sort="1684854000000" data-listing-file-modified-sort="1687750933240" data-listing-reading-time-sort="3.465">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_05_01_(9주차)_5월2일(1).html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_05_01_(9주차)_5월2일(1).html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_05_01_(9주차)_5월2일(1).html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 9wk. Likelihood function
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_05_01_(9주차)_5월2일(1).html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-wrJ6CivKKBuJUN7ukm5OHr
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_05_01_(9주차)_5월2일(1).html">
+<div class="listing-date">
+May 24, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="24" data-categories="STUDY,TS" data-listing-date-sort="1684854000000" data-listing-file-modified-sort="1686765076861" data-listing-reading-time-sort="4.085">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/ts8week_2.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/ts8week_2.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/ts8week_2.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 8wk-2. 7장 연습문제
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/ts8week_2.html">
+<div class="listing-description">
+<span class="math display">\[
+(1-B)Z_t=5+(1-0.5B)\epsilon_t
+\]</span> 정리하면 <span class="math display">\[
+Z_t=5+Z_{t-1}+\epsilon_t-0.5\epsilon_{t-1}
+\]</span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/ts8week_2.html">
+<div class="listing-date">
+May 24, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="25" data-categories="STUDY,TS" data-listing-date-sort="1684854000000" data-listing-file-modified-sort="1686766050170" data-listing-reading-time-sort="0.005">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-06-15-12wk.html"> <img data-src="./posts/4_TS2023/attachment:f148679b-91fa-45ee-abfb-df6775b6e88c.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-06-15-12wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 12wk. 추세 (++)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-06-15-12wk.html">
+<div class="listing-description">
+
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-06-15-12wk.html">
+<div class="listing-date">
+May 24, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="26" data-categories="STUDY,TS" data-listing-date-sort="1684854000000" data-listing-file-modified-sort="1686765103649" data-listing-reading-time-sort="2.72">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/ts8week_1.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/ts8week_1.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/ts8week_1.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 7wk. ARIMA
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/ts8week_1.html">
+<div class="listing-description">
+의문: 정말 비정상시계열은 분석할수 없을까요?
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/ts8week_1.html">
+<div class="listing-date">
+May 24, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="27" data-categories="STUDY,TS" data-listing-date-sort="1684854000000" data-listing-file-modified-sort="1687346280897" data-listing-reading-time-sort="0.425">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-05-26-7wk-2.html"> <img data-src="./posts/4_TS2023/attachment:00297474-712e-4d47-a7c6-40fb01a302da.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-26-7wk-2.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 7wk-2. 6장 연습문제 (++)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-26-7wk-2.html">
+<div class="listing-description">
+<span class="math inline">\(\gamma_{q+1} = \phi_1\gamma_q + \phi_2\gamma_{q-1} + \dots +\phi_p\gamma_{q-p+1}\)</span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-26-7wk-2.html">
+<div class="listing-date">
+May 24, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="28" data-categories="STUDY,TS" data-listing-date-sort="1684854000000" data-listing-file-modified-sort="1686718501461" data-listing-reading-time-sort="0.3">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/2023-05-24-7wk.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/2023-05-24-7wk.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-24-7wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 7wk. 5~6장 연습문제 (Ongoing)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-24-7wk.html">
+<div class="listing-description">
+유한차수 MA모델은 정상임.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-24-7wk.html">
+<div class="listing-date">
+May 24, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="29" data-categories="빅데이터분석특강" data-listing-date-sort="1684681200000" data-listing-file-modified-sort="1687750173851" data-listing-reading-time-sort="1.955">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_04_25_중간고사.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_04_25_중간고사.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_04_25_중간고사.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 중간고사
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_04_25_중간고사.html">
+<div class="listing-description">
+<code>(1)</code> 아래는 <span class="math inline">\(X_i \overset{iid}{\sim} N(3,2^2)\)</span> 를 생성하는 코드이다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_04_25_중간고사.html">
+<div class="listing-date">
+May 22, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="30" data-categories="STUDY,TS" data-listing-date-sort="1684681200000" data-listing-file-modified-sort="1686713395266" data-listing-reading-time-sort="4.185">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-05-22-6kw-2.html"> <img data-src="./posts/4_TS2023/attachment:ebddc8ee-d30f-4e31-9b8c-6d610413ab2a.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-22-6kw-2.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 6wk. wold의 관찰 / MA / ARMA
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-22-6kw-2.html">
+<div class="listing-description">
+<span class="math inline">\(\begin{cases}X_t = p_t + z_t \\ z_t = \epsilon_t + \psi_1\epsilon_{t-1} + \psi \epsilon_{t-2} + \dots\end{cases}\)</span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-22-6kw-2.html">
+<div class="listing-date">
+May 22, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="31" data-categories="빅데이터분석특강" data-listing-date-sort="1684508400000" data-listing-file-modified-sort="1687402379458" data-listing-reading-time-sort="4.21">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_04_18_(7주차)_4월18일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_04_18_(7주차)_4월18일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_04_18_(7주차)_4월18일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 7wk. Piece-wise LR / Logistic Regression
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_04_18_(7주차)_4월18일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-ws3T1xD-bBU46dtduUlwmP
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_04_18_(7주차)_4월18일.html">
+<div class="listing-date">
+May 20, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="32" data-categories="STUDY,TS" data-listing-date-sort="1684508400000" data-listing-file-modified-sort="1686705587818" data-listing-reading-time-sort="2.395">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/2023-05-20-6wk.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/2023-05-20-6wk.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-20-6wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 6wk. 연습문제5장(3,4번) 실습
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-20-6wk.html">
+<div class="listing-description">
+연습문제 5.3, 5.4 실습
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-20-6wk.html">
+<div class="listing-date">
+May 20, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="33" data-categories="STUDY,TS" data-listing-date-sort="1684422000000" data-listing-file-modified-sort="1686148578446" data-listing-reading-time-sort="1.525">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/2023-05-19-5wk.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/2023-05-19-5wk.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-19-5wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 5wk. PACF
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-19-5wk.html">
+<div class="listing-description">
+suppose <span class="math inline">\(Y_t = \phi Y_{t-1} + \epsilon_t, \quad \epsilon_t \sim \begin{cases} 1 &amp; wp \frac{1}{2} \\ -1 &amp; wp \frac{1}{2}\end{cases}, \text{with } \phi=0.5\)</span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-19-5wk.html">
+<div class="listing-date">
+May 19, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="34" data-categories="빅데이터분석특강" data-listing-date-sort="1684335600000" data-listing-file-modified-sort="1687360362782" data-listing-reading-time-sort="3.315">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_04_11_(6주차)_4월11일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_04_11_(6주차)_4월11일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_04_11_(6주차)_4월11일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 6wk. 회귀모형 적합 with keras
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_04_11_(6주차)_4월11일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-zueMdNhXiDTIMD-Dz5sbBD
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_04_11_(6주차)_4월11일.html">
+<div class="listing-date">
+May 18, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="35" data-categories="STUDY,TS" data-listing-date-sort="1684335600000" data-listing-file-modified-sort="1686013784368" data-listing-reading-time-sort="0.31">
+<div class="thumbnail">
+<a href="./posts/4_TS2023/2023-05-18-4wk-2.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/4_TS2023/2023-05-18-4wk-2.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-18-4wk-2.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 4wk-2. PACF
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-18-4wk-2.html">
+<div class="listing-description">
+우선 PACF가 등장하게 된 모티브는 ACF가 아쉬운 점이 있었던 것.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-18-4wk-2.html">
+<div class="listing-date">
+May 18, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="36" data-categories="빅데이터분석특강" data-listing-date-sort="1684162800000" data-listing-file-modified-sort="1687360439475" data-listing-reading-time-sort="2.305">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_04_04_(5주차)_4월4일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_04_04_(5주차)_4월4일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_04_04_(5주차)_4월4일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 5wk. optimizer를 이용한 최적화
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_04_04_(5주차)_4월4일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-wVWUAZ5xT35INvWbNOXpBx
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_04_04_(5주차)_4월4일.html">
+<div class="listing-date">
+May 16, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="37" data-categories="STUDY,TS" data-listing-date-sort="1684162800000" data-listing-file-modified-sort="1685958230103" data-listing-reading-time-sort="2.92">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-05-16-4wk.html"> <img data-src="./posts/4_TS2023/attachment:137f2906-c23d-43ef-8903-8560dd4a3c06.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-16-4wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 4wk. ACF
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-16-4wk.html">
+<div class="listing-description">
+모델을 세운다 <span class="math inline">\(\Rightarrow\)</span> 정상인지 check! (이 과정이 매우 고통스럽다..) <span class="math inline">\(\Rightarrow\)</span> (1) 특성방정식을 풀어서 단위근의 절대값이 ~~ (2) 모델별로 암기<sup>2</sup>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-16-4wk.html">
+<div class="listing-date">
+May 16, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="38" data-categories="빅데이터분석특강" data-listing-date-sort="1683990000000" data-listing-file-modified-sort="1687346713692" data-listing-reading-time-sort="2.86">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_03_28_(4주차)_3월28일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_03_28_(4주차)_3월28일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_03_28_(4주차)_3월28일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 4wk. 미분 / 경사하강법
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_03_28_(4주차)_3월28일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-xGxAT-3Sq_jpD-eBxpsT8L
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_03_28_(4주차)_3월28일.html">
+<div class="listing-date">
+May 14, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="39" data-categories="STUDY,TS" data-listing-date-sort="1683990000000" data-listing-file-modified-sort="1686707629836" data-listing-reading-time-sort="6.255">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-05-14-3wk.html"> <img data-src="./posts/4_TS2023/attachment:b203c855-a95b-4748-b1c5-7ff5ea15b4dc.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-14-3wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 3wk. 여러가지 확률과정 (random walk, AR)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-14-3wk.html">
+<div class="listing-description">
+<span class="math inline">\(\{\epsilon_t\}\)</span> is white noise iff<sup>1</sup>. <span class="math inline">\(\epsilon_t \overset{\text{i.i.d.}}{\sim}(\mu,\sigma^2)\)</span> for all <span class="math inline">\(t\)</span>.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-14-3wk.html">
+<div class="listing-date">
+May 14, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="40" data-categories="STUDY,TS" data-listing-date-sort="1683903600000" data-listing-file-modified-sort="1685549736219" data-listing-reading-time-sort="0.365">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-05-13-5장연습.html"> <img data-src="./posts/4_TS2023/attachment:174efa56-1adf-4806-9703-9b275704eb2f.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-13-5장연습.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 2wk-2. 연습문제 5.1
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-13-5장연습.html">
+<div class="listing-description">
+다음의 모형들에 의해 설명되는 확률과정 <span class="math inline">\(\{Z_t\}\)</span>는 정상성을 갖는가? 이를 논하라.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-13-5장연습.html">
+<div class="listing-date">
+May 13, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="41" data-categories="빅데이터분석특강" data-listing-date-sort="1683817200000" data-listing-file-modified-sort="1687397301841" data-listing-reading-time-sort="3.095">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_03_21_(3주차)_3월21일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_03_21_(3주차)_3월21일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_03_21_(3주차)_3월21일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 3wk. 텐서플로우 intro2 (tf.GradientTape())
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_03_21_(3주차)_3월21일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-yCZH5zqsORTEkCZ082SCYc
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_03_21_(3주차)_3월21일.html">
+<div class="listing-date">
+May 12, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="42" data-categories="STUDY,TS" data-listing-date-sort="1683817200000" data-listing-file-modified-sort="1685620663475" data-listing-reading-time-sort="5.73">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-05-12-2wk.html"> <img data-src="./posts/4_TS2023/attachment:19ddc5e6-2cc2-4f8b-9350-8e5071bf53a0.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-12-2wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 2wk. 확률과정과 정상성
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-12-2wk.html">
+<div class="listing-description">
+<span class="math inline">\(\Omega = \{H,T\}\)</span>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-12-2wk.html">
+<div class="listing-date">
+May 12, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="43" data-categories="빅데이터분석특강" data-listing-date-sort="1683644400000" data-listing-file-modified-sort="1687271814878" data-listing-reading-time-sort="1.865">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 2wk. 텐서플로우 intro1 (tf.constant선언, tnp사용법)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-z8oR8bQZHR0mpy_9OcsWOz
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html">
+<div class="listing-date">
+May 10, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="44" data-categories="STUDY,TS" data-listing-date-sort="1683644400000" data-listing-file-modified-sort="1685620455149" data-listing-reading-time-sort="3.66">
+<div class="thumbnail">
+<p><a href="./posts/4_TS2023/2023-05-10-1wk.html"> <img data-src="./posts/4_TS2023/attachment:aeb179b9-e065-4025-8618-b1c2ff1271eb.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_TS2023/2023-05-10-1wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[TS]</strong> 1wk. 확률
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('STUDY'); return false;">
+STUDY
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('TS'); return false;">
+TS
+</div>
+</div>
+<a href="./posts/4_TS2023/2023-05-10-1wk.html">
+<div class="listing-description">
+확률 <span class="math inline">\(\to\)</span> 확률변수 <span class="math inline">\(\to\)</span> 확률과정 <span class="math inline">\(\to\)</span> 시계열
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_TS2023/2023-05-10-1wk.html">
+<div class="listing-date">
+May 10, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="45" data-categories="빅데이터분석특강" data-listing-date-sort="1683471600000" data-listing-file-modified-sort="1687270121514" data-listing-reading-time-sort="3.77">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html">
+<h3 class="no-anchor listing-title">
+<strong>[STBDA]</strong> 1wk. 강의소개 및 단순선형회귀
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('빅데이터분석특강'); return false;">
+빅데이터분석특강
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html">
+<div class="listing-description">
+youtube: https://youtube.com/playlist?list=PLQqh36zP38-yKGpQh49tnRrA-o2Odea8r
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html">
+<div class="listing-date">
+May 8, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="46" data-categories="통계와 시각화,plotnine,아이스크림을 많이 먹으면 걸리는 병" data-listing-date-sort="1680361200000" data-listing-file-modified-sort="1680444786456" data-listing-reading-time-sort="2.09">
+<div class="thumbnail">
+<a href="./posts/2_DV2022/2022-10-19-7wk-2.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/2_DV2022/2022-10-19-7wk-2.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/2_DV2022/2022-10-19-7wk-2.html">
+<h3 class="no-anchor listing-title">
+07wk-2 아이스크림을 많이 먹으면 걸리는 병(2)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('통계와 시각화'); return false;">
+통계와 시각화
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('plotnine'); return false;">
+plotnine
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('아이스크림을 많이 먹으면 걸리는 병'); return false;">
+아이스크림을 많이 먹으면 걸리는 병
+</div>
+</div>
+<a href="./posts/2_DV2022/2022-10-19-7wk-2.html">
+<div class="listing-description">
+아이스크림을 많이 먹으면 걸리는 병(2)
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2_DV2022/2022-10-19-7wk-2.html">
+<div class="listing-date">
+Apr 2, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="47" data-categories="통계와 시각화,plotnine" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1680436387836" data-listing-reading-time-sort="1.05">
+<div class="thumbnail">
+<p><a href="./posts/2_DV2022/2022-11-09-10wk-2.html"> <img data-src="./posts/2_DV2022/Simpson's_paradox.png" class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2_DV2022/2022-11-09-10wk-2.html">
 <h3 class="no-anchor listing-title">
 10wk-2 심슨의 역설
 </h3>
@@ -374,14 +1967,14 @@ ul.task-list li input[type="checkbox"] {
 plotnine
 </div>
 </div>
-<a href="./posts/DV/2022-11-09-10wk-2.html">
+<a href="./posts/2_DV2022/2022-11-09-10wk-2.html">
 <div class="listing-description">
-https://youtube.com/playlist?list=PLQqh36zP38-wB73rDChn234r4ded7tDV_
+심슨의 역설을 bar plot으로 시각화하는 방법과 왜 생기게 되는지에 대해 알아보자.
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/DV/2022-11-09-10wk-2.html">
+<a href="./posts/2_DV2022/2022-11-09-10wk-2.html">
 <div class="listing-date">
 Apr 1, 2023
 </div>
@@ -391,16 +1984,16 @@ jiyunLim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Python,Pandas" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678785196375" data-listing-reading-time-sort="0.645">
+<div class="quarto-post image-right" data-index="48" data-categories="Python,Pandas" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678785196375" data-listing-reading-time-sort="0.645">
 <div class="thumbnail">
-<a href="./posts/Python/2023-03-14-pandas1.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas1.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-03-14-pandas1.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-03-14-pandas1.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-03-14-pandas1.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas1.html">
 <h3 class="no-anchor listing-title">
 Pandas 1단계
 </h3>
@@ -416,14 +2009,14 @@ Python
 Pandas
 </div>
 </div>
-<a href="./posts/Python/2023-03-14-pandas1.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas1.html">
 <div class="listing-description">
 데이터프레임 선언, 행<span class="math inline">\(\cdot\)</span>열 이름부여, 자료형, pd.Series
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-03-14-pandas1.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas1.html">
 <div class="listing-date">
 Mar 13, 2023
 </div>
@@ -433,16 +2026,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="3" data-categories="Python,Pandas" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678784874391" data-listing-reading-time-sort="1.565">
+<div class="quarto-post image-right" data-index="49" data-categories="Python,Pandas" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678784874391" data-listing-reading-time-sort="1.565">
 <div class="thumbnail">
-<a href="./posts/Python/2023-03-13-pandas0.html">
+<a href="./posts/1_IP2022/2023-03-13-pandas0.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-03-13-pandas0.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-03-13-pandas0.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-03-13-pandas0.html">
+<a href="./posts/1_IP2022/2023-03-13-pandas0.html">
 <h3 class="no-anchor listing-title">
 Pandas 0단계
 </h3>
@@ -458,14 +2051,14 @@ Python
 Pandas
 </div>
 </div>
-<a href="./posts/Python/2023-03-13-pandas0.html">
+<a href="./posts/1_IP2022/2023-03-13-pandas0.html">
 <div class="listing-description">
 판다스를 왜 써야할까?, pandas 개발동기
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-03-13-pandas0.html">
+<a href="./posts/1_IP2022/2023-03-13-pandas0.html">
 <div class="listing-date">
 Mar 13, 2023
 </div>
@@ -475,16 +2068,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-categories="Python,Pandas" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678805419435" data-listing-reading-time-sort="0.575">
+<div class="quarto-post image-right" data-index="50" data-categories="Python,Pandas" data-listing-date-sort="1678633200000" data-listing-file-modified-sort="1678805419435" data-listing-reading-time-sort="0.575">
 <div class="thumbnail">
-<a href="./posts/Python/2023-03-14-pandas2.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas2.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-03-14-pandas2.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-03-14-pandas2.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-03-14-pandas2.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas2.html">
 <h3 class="no-anchor listing-title">
 Pandas 2단계
 </h3>
@@ -500,14 +2093,14 @@ Python
 Pandas
 </div>
 </div>
-<a href="./posts/Python/2023-03-14-pandas2.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas2.html">
 <div class="listing-description">
 하나 혹은 여러개의 col<span class="math inline">\(\cdot\)</span>row 선택하는 법
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-03-14-pandas2.html">
+<a href="./posts/1_IP2022/2023-03-14-pandas2.html">
 <div class="listing-date">
 Mar 13, 2023
 </div>
@@ -517,16 +2110,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="5" data-categories="python,class,test" data-listing-date-sort="1677423600000" data-listing-file-modified-sort="1679138044518" data-listing-reading-time-sort="6.515">
+<div class="quarto-post image-right" data-index="51" data-categories="python,class,test" data-listing-date-sort="1677423600000" data-listing-file-modified-sort="1685171560111" data-listing-reading-time-sort="6.7">
 <div class="thumbnail">
-<a href="./posts/Python/2022-06-13-final.html">
+<a href="./posts/1_IP2022/2022-06-13-final.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2022-06-13-final.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2022-06-13-final.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2022-06-13-final.html">
+<a href="./posts/1_IP2022/2022-06-13-final.html">
 <h3 class="no-anchor listing-title">
 2022 final exam
 </h3>
@@ -545,14 +2138,14 @@ class
 test
 </div>
 </div>
-<a href="./posts/Python/2022-06-13-final.html">
+<a href="./posts/1_IP2022/2022-06-13-final.html">
 <div class="listing-description">
-아래코드를 이용하여 numpy, matplotlib, pandas를 import하라.
+ref: <strong>기말고사 풀이 링크</strong>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2022-06-13-final.html">
+<a href="./posts/1_IP2022/2022-06-13-final.html">
 <div class="listing-date">
 Feb 27, 2023
 </div>
@@ -562,12 +2155,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="6" data-categories="R" data-listing-date-sort="1677250800000" data-listing-file-modified-sort="1677333565000" data-listing-reading-time-sort="0.98">
+<div class="quarto-post image-right" data-index="52" data-categories="R" data-listing-date-sort="1677250800000" data-listing-file-modified-sort="1684490048697" data-listing-reading-time-sort="0.98">
 <div class="thumbnail">
-<p><a href="./posts/R/2023-02-25-jt-test.html"> <img src="./posts/R/jt-test-ex.png" class="thumnail-image"> </a></p>
+<a href="./posts/5_study/2023-02-25-jt-test.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/5_study/2023-02-25-jt-test.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/R/2023-02-25-jt-test.html">
+<a href="./posts/5_study/2023-02-25-jt-test.html">
 <h3 class="no-anchor listing-title">
 JT test
 </h3>
@@ -580,14 +2177,14 @@ JT test
 R
 </div>
 </div>
-<a href="./posts/R/2023-02-25-jt-test.html">
+<a href="./posts/5_study/2023-02-25-jt-test.html">
 <div class="listing-description">
 For large sample sizes, J is approximately normally distributed with mean 0 and variance 1. When we use the normal approximation, we compute.
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/R/2023-02-25-jt-test.html">
+<a href="./posts/5_study/2023-02-25-jt-test.html">
 <div class="listing-date">
 Feb 25, 2023
 </div>
@@ -597,16 +2194,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-categories="Python,Numpy" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677154294000" data-listing-reading-time-sort="1.29">
+<div class="quarto-post image-right" data-index="53" data-categories="Python,Numpy" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677154294000" data-listing-reading-time-sort="1.29">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-23-numpy4.html">
+<a href="./posts/1_IP2022/2023-02-23-numpy4.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-23-numpy4.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-23-numpy4.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-23-numpy4.html">
+<a href="./posts/1_IP2022/2023-02-23-numpy4.html">
 <h3 class="no-anchor listing-title">
 Numpy 4단계(concat, stack)
 </h3>
@@ -622,14 +2219,14 @@ Python
 Numpy
 </div>
 </div>
-<a href="./posts/Python/2023-02-23-numpy4.html">
+<a href="./posts/1_IP2022/2023-02-23-numpy4.html">
 <div class="listing-description">
 Numpy array를 결합하는 기능들에 대해 알아보자. (<code>np.concatenate</code>, <code>np.concat</code>)
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-23-numpy4.html">
+<a href="./posts/1_IP2022/2023-02-23-numpy4.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -639,16 +2236,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677458645000" data-listing-reading-time-sort="0.88">
+<div class="quarto-post image-right" data-index="54" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677458645000" data-listing-reading-time-sort="0.88">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-23-class6.html">
+<a href="./posts/1_IP2022/2023-02-23-class6.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-23-class6.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-23-class6.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-23-class6.html">
+<a href="./posts/1_IP2022/2023-02-23-class6.html">
 <h3 class="no-anchor listing-title">
 class 6단계
 </h3>
@@ -664,14 +2261,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-23-class6.html">
+<a href="./posts/1_IP2022/2023-02-23-class6.html">
 <div class="listing-description">
 상속, 사용자정의 자료형
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-23-class6.html">
+<a href="./posts/1_IP2022/2023-02-23-class6.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -681,16 +2278,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677504071000" data-listing-reading-time-sort="1.955">
+<div class="quarto-post image-right" data-index="55" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677504071000" data-listing-reading-time-sort="1.955">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-23-class9.html">
+<a href="./posts/1_IP2022/2023-02-23-class9.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-23-class9.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-23-class9.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-23-class9.html">
+<a href="./posts/1_IP2022/2023-02-23-class9.html">
 <h3 class="no-anchor listing-title">
 class 9단계
 </h3>
@@ -706,14 +2303,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-23-class9.html">
+<a href="./posts/1_IP2022/2023-02-23-class9.html">
 <div class="listing-description">
 global/local 변수, 인스턴스/클래스 변수, 인스턴스/클래스 메서드
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-23-class9.html">
+<a href="./posts/1_IP2022/2023-02-23-class9.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -723,16 +2320,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="10" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677499314000" data-listing-reading-time-sort="2">
+<div class="quarto-post image-right" data-index="56" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677499314000" data-listing-reading-time-sort="2">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-23-class8.html">
+<a href="./posts/1_IP2022/2023-02-23-class8.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-23-class8.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-23-class8.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-23-class8.html">
+<a href="./posts/1_IP2022/2023-02-23-class8.html">
 <h3 class="no-anchor listing-title">
 class 8단계
 </h3>
@@ -748,14 +2345,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-23-class8.html">
+<a href="./posts/1_IP2022/2023-02-23-class8.html">
 <div class="listing-description">
 for문 복습, iterable object
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-23-class8.html">
+<a href="./posts/1_IP2022/2023-02-23-class8.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -765,16 +2362,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="11" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677507717000" data-listing-reading-time-sort="1.735">
+<div class="quarto-post image-right" data-index="57" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677507717000" data-listing-reading-time-sort="1.735">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-23-class10.html">
+<a href="./posts/1_IP2022/2023-02-23-class10.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-23-class10.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-23-class10.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-23-class10.html">
+<a href="./posts/1_IP2022/2023-02-23-class10.html">
 <h3 class="no-anchor listing-title">
 class 10단계
 </h3>
@@ -790,14 +2387,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-23-class10.html">
+<a href="./posts/1_IP2022/2023-02-23-class10.html">
 <div class="listing-description">
 문자열 join, matplotlib, 참조와 에일리어싱
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-23-class10.html">
+<a href="./posts/1_IP2022/2023-02-23-class10.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -807,16 +2404,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677464870000" data-listing-reading-time-sort="1.74">
+<div class="quarto-post image-right" data-index="58" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677464870000" data-listing-reading-time-sort="1.74">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-23-class7.html">
+<a href="./posts/1_IP2022/2023-02-23-class7.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-23-class7.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-23-class7.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-23-class7.html">
+<a href="./posts/1_IP2022/2023-02-23-class7.html">
 <h3 class="no-anchor listing-title">
 class 7단계
 </h3>
@@ -832,14 +2429,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-23-class7.html">
+<a href="./posts/1_IP2022/2023-02-23-class7.html">
 <div class="listing-description">
 함수형 프로그래밍, callable object, 파이썬의 비밀
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-23-class7.html">
+<a href="./posts/1_IP2022/2023-02-23-class7.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -849,16 +2446,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="13" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677456456000" data-listing-reading-time-sort="1.035">
+<div class="quarto-post image-right" data-index="59" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1677456456000" data-listing-reading-time-sort="1.035">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-23-class5.html">
+<a href="./posts/1_IP2022/2023-02-23-class5.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-23-class5.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-23-class5.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-23-class5.html">
+<a href="./posts/1_IP2022/2023-02-23-class5.html">
 <h3 class="no-anchor listing-title">
 class 5단계
 </h3>
@@ -874,14 +2471,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-23-class5.html">
+<a href="./posts/1_IP2022/2023-02-23-class5.html">
 <div class="listing-description">
 특정 자료형에 한정하여 print 이외에 파이썬 내부기능을 재정의해보자.
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-23-class5.html">
+<a href="./posts/1_IP2022/2023-02-23-class5.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -891,61 +2488,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="14" data-categories="R,ts,basic" data-listing-date-sort="1676732400000" data-listing-file-modified-sort="1676820033000" data-listing-reading-time-sort="0.155">
+<div class="quarto-post image-right" data-index="60" data-categories="R,linear algebra,basic" data-listing-date-sort="1676732400000" data-listing-file-modified-sort="1676825488000" data-listing-reading-time-sort="0.8">
 <div class="thumbnail">
-<a href="./posts/R/2023-02-20-ts1.html">
+<a href="./posts/5_study/2023-02-20-simul_eq.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/R/2023-02-20-ts1.html"></a></p>
+</a><p><a href="./posts/5_study/2023-02-20-simul_eq.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/R/2023-02-20-ts1.html">
-<h3 class="no-anchor listing-title">
-ts1
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ts'); return false;">
-ts
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('basic'); return false;">
-basic
-</div>
-</div>
-<a href="./posts/R/2023-02-20-ts1.html">
-<div class="listing-description">
-<p>timeseries study1</p>
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/R/2023-02-20-ts1.html">
-<div class="listing-date">
-Feb 19, 2023
-</div>
-<div class="listing-author">
-jiyun Lim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="15" data-categories="R,linear algebra,basic" data-listing-date-sort="1676732400000" data-listing-file-modified-sort="1676825488000" data-listing-reading-time-sort="0.8">
-<div class="thumbnail">
-<a href="./posts/R/2023-02-20-simul_eq.html">
-<div class="thumbnail-image">
-
-</div>
-</a><p><a href="./posts/R/2023-02-20-simul_eq.html"></a></p>
-</div>
-<div class="body">
-<a href="./posts/R/2023-02-20-simul_eq.html">
+<a href="./posts/5_study/2023-02-20-simul_eq.html">
 <h3 class="no-anchor listing-title">
 simultaneous equation
 </h3>
@@ -964,14 +2516,14 @@ linear algebra
 basic
 </div>
 </div>
-<a href="./posts/R/2023-02-20-simul_eq.html">
+<a href="./posts/5_study/2023-02-20-simul_eq.html">
 <div class="listing-description">
 <p>implementation with R</p>
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/R/2023-02-20-simul_eq.html">
+<a href="./posts/5_study/2023-02-20-simul_eq.html">
 <div class="listing-date">
 Feb 19, 2023
 </div>
@@ -981,16 +2533,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="16" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677143658000" data-listing-reading-time-sort="0.765">
+<div class="quarto-post image-right" data-index="61" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677143658000" data-listing-reading-time-sort="0.765">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-15-class3.html">
+<a href="./posts/1_IP2022/2023-02-15-class3.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-15-class3.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-15-class3.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-15-class3.html">
+<a href="./posts/1_IP2022/2023-02-15-class3.html">
 <h3 class="no-anchor listing-title">
 class 3단계
 </h3>
@@ -1006,14 +2558,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-15-class3.html">
+<a href="./posts/1_IP2022/2023-02-15-class3.html">
 <div class="listing-description">
 이 단계에서는 클래스오브젝트에 소속된 변수와 인스턴스오브젝트에 소속된 변수를 설명한다.
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-15-class3.html">
+<a href="./posts/1_IP2022/2023-02-15-class3.html">
 <div class="listing-date">
 Feb 15, 2023
 </div>
@@ -1023,16 +2575,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="17" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677147108000" data-listing-reading-time-sort="1.555">
+<div class="quarto-post image-right" data-index="62" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677147108000" data-listing-reading-time-sort="1.555">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-15-class1.html">
+<a href="./posts/1_IP2022/2023-02-15-class1.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-15-class1.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-15-class1.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-15-class1.html">
+<a href="./posts/1_IP2022/2023-02-15-class1.html">
 <h3 class="no-anchor listing-title">
 class 1단계
 </h3>
@@ -1048,14 +2600,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-15-class1.html">
+<a href="./posts/1_IP2022/2023-02-15-class1.html">
 <div class="listing-description">
 클래스 선언 및 사용 예시
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-15-class1.html">
+<a href="./posts/1_IP2022/2023-02-15-class1.html">
 <div class="listing-date">
 Feb 15, 2023
 </div>
@@ -1065,16 +2617,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="18" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677143651000" data-listing-reading-time-sort="2.725">
+<div class="quarto-post image-right" data-index="63" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677143651000" data-listing-reading-time-sort="2.725">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-15-class2.html">
+<a href="./posts/1_IP2022/2023-02-15-class2.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-15-class2.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-15-class2.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-15-class2.html">
+<a href="./posts/1_IP2022/2023-02-15-class2.html">
 <h3 class="no-anchor listing-title">
 class 2단계
 </h3>
@@ -1090,14 +2642,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-15-class2.html">
+<a href="./posts/1_IP2022/2023-02-15-class2.html">
 <div class="listing-description">
 <code>-</code> STOOOP을 다시 복습
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-15-class2.html">
+<a href="./posts/1_IP2022/2023-02-15-class2.html">
 <div class="listing-date">
 Feb 15, 2023
 </div>
@@ -1107,16 +2659,16 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="19" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677509556000" data-listing-reading-time-sort="3.665">
+<div class="quarto-post image-right" data-index="64" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1677509556000" data-listing-reading-time-sort="3.665">
 <div class="thumbnail">
-<a href="./posts/Python/2023-02-15-class4.html">
+<a href="./posts/1_IP2022/2023-02-15-class4.html">
 <div class="thumbnail-image">
 
 </div>
-</a><p><a href="./posts/Python/2023-02-15-class4.html"></a></p>
+</a><p><a href="./posts/1_IP2022/2023-02-15-class4.html"></a></p>
 </div>
 <div class="body">
-<a href="./posts/Python/2023-02-15-class4.html">
+<a href="./posts/1_IP2022/2023-02-15-class4.html">
 <h3 class="no-anchor listing-title">
 class 4단계
 </h3>
@@ -1132,14 +2684,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/Python/2023-02-15-class4.html">
+<a href="./posts/1_IP2022/2023-02-15-class4.html">
 <div class="listing-description">
 프린트 가로채기 <code>__str__</code>, <code>__repr__</code> (파이썬의 비밀2,3)
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/Python/2023-02-15-class4.html">
+<a href="./posts/1_IP2022/2023-02-15-class4.html">
 <div class="listing-date">
 Feb 15, 2023
 </div>
@@ -1149,10 +2701,222 @@ jiyun Lim
 </a>
 </div>
 </div>
+<div class="quarto-post image-right" data-index="65" data-categories="Tip" data-listing-date-sort="1672498800000" data-listing-file-modified-sort="1687758994329" data-listing-reading-time-sort="0.235">
+<div class="thumbnail">
+<a href="./posts/3_STBDA2022/2023-01-01.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/3_STBDA2022/2023-01-01.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/3_STBDA2022/2023-01-01.html">
+<h3 class="no-anchor listing-title">
+Jupyter
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Tip'); return false;">
+Tip
+</div>
+</div>
+<a href="./posts/3_STBDA2022/2023-01-01.html">
+<div class="listing-description">
+ref: STBDA 10주차 (2번째 동영상)
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/3_STBDA2022/2023-01-01.html">
+<div class="listing-date">
+Jan 1, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="66" data-categories="훌륭한 시각화,plotnine" data-listing-date-sort="1664982000000" data-listing-file-modified-sort="1684603463827" data-listing-reading-time-sort="3.97">
+<div class="thumbnail">
+<p><a href="./posts/2_DV2022/2022-10-06-5wk-2.html"> <img data-src="https://github.com/guebin/2021DV/blob/master/_notebooks/2021-10-06-fig1.jpeg?raw=true " class="thumnail-image"> </a></p>
+</div>
+<div class="body">
+<a href="./posts/2_DV2022/2022-10-06-5wk-2.html">
+<h3 class="no-anchor listing-title">
+05wk-2
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('훌륭한 시각화'); return false;">
+훌륭한 시각화
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('plotnine'); return false;">
+plotnine
+</div>
+</div>
+<a href="./posts/2_DV2022/2022-10-06-5wk-2.html">
+<div class="listing-description">
+훌륭한 시각화, mpg 데이터 소개, plotnine(p9)을 이용한 고차원 산점도
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2_DV2022/2022-10-06-5wk-2.html">
+<div class="listing-date">
+Oct 6, 2022
+</div>
+<div class="listing-author">
+최규빈
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="67" data-categories="seaborn,matplotlib" data-listing-date-sort="1664895600000" data-listing-file-modified-sort="1684603508695" data-listing-reading-time-sort="0.41">
+<div class="thumbnail">
+<a href="./posts/2_DV2022/2022-10-03-5wk-1.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/2_DV2022/2022-10-03-5wk-1.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/2_DV2022/2022-10-03-5wk-1.html">
+<h3 class="no-anchor listing-title">
+05wk-1
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('seaborn'); return false;">
+seaborn
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('matplotlib'); return false;">
+matplotlib
+</div>
+</div>
+<a href="./posts/2_DV2022/2022-10-03-5wk-1.html">
+<div class="listing-description">
+seaborn(2)–scatterplot, mpl미세먼지팁(2)
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2_DV2022/2022-10-03-5wk-1.html">
+<div class="listing-date">
+Oct 5, 2022
+</div>
+<div class="listing-author">
+최규빈
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="68" data-categories="python,class,test" data-listing-date-sort="1654700400000" data-listing-file-modified-sort="1685119204573" data-listing-reading-time-sort="1.585">
+<div class="thumbnail">
+<a href="./posts/1_IP2022/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/1_IP2022/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/1_IP2022/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html">
+<h3 class="no-anchor listing-title">
+2021 final exam solution
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
+python
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('class'); return false;">
+class
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('test'); return false;">
+test
+</div>
+</div>
+<a href="./posts/1_IP2022/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html">
+<div class="listing-description">
+<strong>LINK HERE!</strong>
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/1_IP2022/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html">
+<div class="listing-date">
+Jun 9, 2022
+</div>
+<div class="listing-author">
+GuebinChoi
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="69" data-categories="pandas,통계와 시각화,아이스크림을 많이 먹으면 걸리는 병" data-listing-date-sort="1648825200000" data-listing-file-modified-sort="1683973222393" data-listing-reading-time-sort="2.705">
+<div class="thumbnail">
+<a href="./posts/2_DV2022/2022-10-17-7wk-1.html">
+<div class="thumbnail-image">
+
+</div>
+</a><p><a href="./posts/2_DV2022/2022-10-17-7wk-1.html"></a></p>
+</div>
+<div class="body">
+<a href="./posts/2_DV2022/2022-10-17-7wk-1.html">
+<h3 class="no-anchor listing-title">
+07wk-1 [Pandas] 새로운 열 할당, 아이스크림을 많이 먹으면 걸리는 병(1)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('pandas'); return false;">
+pandas
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('통계와 시각화'); return false;">
+통계와 시각화
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('아이스크림을 많이 먹으면 걸리는 병'); return false;">
+아이스크림을 많이 먹으면 걸리는 병
+</div>
+</div>
+<a href="./posts/2_DV2022/2022-10-17-7wk-1.html">
+<div class="listing-description">
+판다스– 인덱싱(2), 판다스–새로운열의할당(1), 아이스크림을 많이 먹으면 걸리는 병(1)
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/2_DV2022/2022-10-17-7wk-1.html">
+<div class="listing-date">
+Apr 2, 2022
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

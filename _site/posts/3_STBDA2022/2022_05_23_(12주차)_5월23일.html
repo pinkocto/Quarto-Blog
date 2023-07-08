@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Quarto-Blog – quarto-inputda135241</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../6_note.html" class="sidebar-item-text sidebar-link">NOTE</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#주차-5월23일" id="toc-주차-5월23일" class="nav-link active" data-scroll-target="#주차-5월23일">(12주차) 5월23일</a>
+  <ul class="collapse">
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link" data-scroll-target="#강의영상">강의영상</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">imports</a></li>
+  <li><a href="#cnn" id="toc-cnn" class="nav-link" data-scroll-target="#cnn">CNN</a>
+  <ul class="collapse">
+  <li><a href="#conv의-역할" id="toc-conv의-역할" class="nav-link" data-scroll-target="#conv의-역할">CONV의 역할</a></li>
+  <li><a href="#maxpool" id="toc-maxpool" class="nav-link" data-scroll-target="#maxpool">MAXPOOL</a></li>
+  <li><a href="#cnn-아키텍처의-표현방법" id="toc-cnn-아키텍처의-표현방법" class="nav-link" data-scroll-target="#cnn-아키텍처의-표현방법">CNN 아키텍처의 표현방법</a></li>
+  <li><a href="#discusstion-about-cnn" id="toc-discusstion-about-cnn" class="nav-link" data-scroll-target="#discusstion-about-cnn">Discusstion about CNN</a></li>
+  <li><a href="#cnn의-모티브" id="toc-cnn의-모티브" class="nav-link" data-scroll-target="#cnn의-모티브">CNN의 모티브</a></li>
+  <li><a href="#cnn-신경망의-기본구조" id="toc-cnn-신경망의-기본구조" class="nav-link" data-scroll-target="#cnn-신경망의-기본구조">CNN 신경망의 기본구조</a></li>
+  </ul></li>
+  <li><a href="#모형의-성능을-올리기-위한-노력들" id="toc-모형의-성능을-올리기-위한-노력들" class="nav-link" data-scroll-target="#모형의-성능을-올리기-위한-노력들">모형의 성능을 올리기 위한 노력들</a>
+  <ul class="collapse">
+  <li><a href="#dropout" id="toc-dropout" class="nav-link" data-scroll-target="#dropout">dropout</a></li>
+  <li><a href="#train-val-test" id="toc-train-val-test" class="nav-link" data-scroll-target="#train-val-test">train / val / test</a></li>
+  <li><a href="#조기종료" id="toc-조기종료" class="nav-link" data-scroll-target="#조기종료">조기종료</a></li>
+  <li><a href="#하이퍼파라메터-선택" id="toc-하이퍼파라메터-선택" class="nav-link" data-scroll-target="#하이퍼파라메터-선택">하이퍼파라메터 선택</a></li>
+  </ul></li>
+  <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">숙제</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+<section id="주차-5월23일" class="level1">
+<h1>(12주차) 5월23일</h1>
+<ul>
+<li>toc:true</li>
+<li>branch: master</li>
+<li>badges: true</li>
+<li>comments: true</li>
+<li>author: 최규빈</li>
+</ul>
+<section id="강의영상" class="level2">
+<h2 class="anchored" data-anchor-id="강의영상">강의영상</h2>
+<blockquote class="blockquote">
+<p>youtube: https://youtube.com/playlist?list=PLQqh36zP38-xOfpHJG0LrtYt4TUVgqUNy</p>
+</blockquote>
+</section>
+<section id="imports" class="level2">
+<h2 class="anchored" data-anchor-id="imports">imports</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> tensorflow.experimental.numpy <span class="im">as</span> tnp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>tnp.experimental_enable_numpy_behavior()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cnn" class="level2">
+<h2 class="anchored" data-anchor-id="cnn">CNN</h2>
+<section id="conv의-역할" class="level3">
+<h3 class="anchored" data-anchor-id="conv의-역할">CONV의 역할</h3>
+<p><code>-</code> 데이터생성 (그냥 흑백대비 데이터)</p>
+<div class="cell" data-outputid="bbc34ad1-a620-4afc-a805-d9d0a6cf2c31">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>_X1 <span class="op">=</span> tnp.ones([<span class="dv">50</span>,<span class="dv">25</span>])<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>_X1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>&lt;tf.Tensor: shape=(50, 25), dtype=float64, numpy=
+array([[10., 10., 10., ..., 10., 10., 10.],
+       [10., 10., 10., ..., 10., 10., 10.],
+       [10., 10., 10., ..., 10., 10., 10.],
+       ...,
+       [10., 10., 10., ..., 10., 10., 10.],
+       [10., 10., 10., ..., 10., 10., 10.],
+       [10., 10., 10., ..., 10., 10., 10.]])&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="88048fff-b88f-438f-df25-41e5f920e281">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>_X2 <span class="op">=</span> tnp.zeros([<span class="dv">50</span>,<span class="dv">25</span>])<span class="op">*</span><span class="dv">10</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>_X2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>&lt;tf.Tensor: shape=(50, 25), dtype=float64, numpy=
+array([[0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       ...,
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.],
+       [0., 0., 0., ..., 0., 0., 0.]])&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="a58f0704-2ca1-49a6-8f69-fec6965e4712">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>tf.concat([_X1,_X2],axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>&lt;tf.Tensor: shape=(50, 50), dtype=float64, numpy=
+array([[10., 10., 10., ...,  0.,  0.,  0.],
+       [10., 10., 10., ...,  0.,  0.,  0.],
+       [10., 10., 10., ...,  0.,  0.,  0.],
+       ...,
+       [10., 10., 10., ...,  0.,  0.,  0.],
+       [10., 10., 10., ...,  0.,  0.,  0.],
+       [10., 10., 10., ...,  0.,  0.,  0.]])&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="eb00dcf3-cedb-4898-bded-211a258837fb">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>_noise <span class="op">=</span> tnp.random.randn(<span class="dv">50</span><span class="op">*</span><span class="dv">50</span>).reshape(<span class="dv">50</span>,<span class="dv">50</span>)</span>
+<span id="cb10-2"><a href="#cb10-2"></a>_noise</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>&lt;tf.Tensor: shape=(50, 50), dtype=float64, numpy=
+array([[-0.30380244,  0.06484819,  0.60069937, ..., -0.49237769,
+         1.72552047,  0.32319886],
+       [-0.1442766 ,  0.32071132,  0.27135225, ...,  0.12584098,
+         1.77500838,  0.30678486],
+       [-0.98493241,  0.70428041, -0.10798709, ..., -0.07145503,
+         0.11185082,  1.4473293 ],
+       ...,
+       [ 0.41430467, -0.67483518, -0.46844066, ...,  0.76154689,
+        -1.60328529, -0.37098601],
+       [-1.65297477, -1.45893833, -1.7887122 , ..., -0.81344932,
+        -0.21032504, -0.53206832],
+       [-0.2352507 , -0.77675024, -2.01329394, ..., -1.41071477,
+        -1.20259288,  0.07060629]])&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>XXX <span class="op">=</span> tf.concat([_X1,_X2],axis<span class="op">=</span><span class="dv">1</span>) <span class="op">+</span> _noise</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>XXX<span class="op">=</span>XXX.reshape(<span class="dv">1</span>,<span class="dv">50</span>,<span class="dv">50</span>,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="367a706f-d5c8-4569-c1f2-b6393146a5c7">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>plt.imshow(XXX.reshape(<span class="dv">50</span>,<span class="dv">50</span>),cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f6769d77f10&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> conv layer 생성</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>conv <span class="op">=</span> tf.keras.layers.Conv2D(<span class="dv">2</span>,(<span class="dv">2</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="f3eb8ee6-019d-42b5-9b57-18c16b9c14b9">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>conv.weights <span class="co"># 처음에는 가중치가 없음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>[]</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="56c26cea-dec7-46ac-9970-aaeeee9d2438">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>conv(XXX) <span class="co"># 가중치를 만들기 위해서 XXX를 conv에 한번 통과시킴</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>conv.weights <span class="co"># 이제 가중치가 생김</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>[&lt;tf.Variable 'conv2d_1/kernel:0' shape=(2, 2, 1, 2) dtype=float32, numpy=
+ array([[[[ 0.06554878,  0.39761645]],
+ 
+         [[-0.4267348 , -0.376472  ]]],
+ 
+ 
+        [[[ 0.2653011 ,  0.42274743]],
+ 
+         [[ 0.4461723 , -0.6650867 ]]]], dtype=float32)&gt;,
+ &lt;tf.Variable 'conv2d_1/bias:0' shape=(2,) dtype=float32, numpy=array([0., 0.], dtype=float32)&gt;]</code></pre>
+</div>
+</div>
+<p><code>-</code> 가중치의 값을 확인해보자.</p>
+<div class="cell" data-outputid="ac545f6e-87ee-42aa-c1c4-b9b4c428bc1e">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>conv.weights[<span class="dv">0</span>] <span class="co"># kernel에 해당하는것</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>&lt;tf.Variable 'conv2d_1/kernel:0' shape=(2, 2, 1, 2) dtype=float32, numpy=
+array([[[[ 0.06554878,  0.39761645]],
+
+        [[-0.4267348 , -0.376472  ]]],
+
+
+       [[[ 0.2653011 ,  0.42274743]],
+
+        [[ 0.4461723 , -0.6650867 ]]]], dtype=float32)&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="c3f3e2d2-ae01-437b-e01f-2c2dc5588e04">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>conv.weights[<span class="dv">1</span>] <span class="co"># bias에 해당하는것</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>&lt;tf.Variable 'conv2d_1/bias:0' shape=(2,) dtype=float32, numpy=array([0., 0.], dtype=float32)&gt;</code></pre>
+</div>
+</div>
+<p><code>-</code> 필터값을 원하는 것으로 변경해보자.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>w0 <span class="op">=</span> [[<span class="fl">0.25</span>,<span class="fl">0.25</span>],[<span class="fl">0.25</span>,<span class="fl">0.25</span>]] <span class="co"># 잡티를 제거하는 효과를 준다.</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>w1 <span class="op">=</span> [[<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">1.0</span>],[<span class="op">-</span><span class="fl">1.0</span>,<span class="fl">1.0</span>]] <span class="co"># 경계를 찾기 좋아보이는 필터이다. (엣지검출)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="93b992ec-824a-467f-f3c6-6238cf513c79">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>w<span class="op">=</span>np.concatenate([np.array(w0).reshape(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>),np.array(w1).reshape(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>,<span class="dv">1</span>)],axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb26-2"><a href="#cb26-2"></a>w</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>array([[[[ 0.25, -1.  ]],
+
+        [[ 0.25,  1.  ]]],
+
+
+       [[[ 0.25, -1.  ]],
+
+        [[ 0.25,  1.  ]]]])</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="edc41b87-f8b1-4682-b47a-6144b9173402">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>b<span class="op">=</span> np.array([<span class="fl">0.0</span>,<span class="fl">0.0</span>])</span>
+<span id="cb28-2"><a href="#cb28-2"></a>b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>array([0., 0.])</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="052601e6-6851-4aa0-f265-ff731b44bd87">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>conv.set_weights([w,b])</span>
+<span id="cb30-2"><a href="#cb30-2"></a>conv.get_weights()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="50">
+<pre><code>[array([[[[ 0.25, -1.  ]],
+ 
+         [[ 0.25,  1.  ]]],
+ 
+ 
+        [[[ 0.25, -1.  ]],
+ 
+         [[ 0.25,  1.  ]]]], dtype=float32),
+ array([0., 0.], dtype=float32)]</code></pre>
+</div>
+</div>
+<ul>
+<li>첫번째는 평균을 구하는 필터,</li>
+<li>두번째는 엣지를 검출하는 필터</li>
+</ul>
+<p><code>-</code> 필터를 넣은 결과를 확인</p>
+<div class="cell" data-outputid="cb657811-82c5-47a7-cc3e-9c17cf78bb80">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>XXX0<span class="op">=</span>conv(XXX)[...,<span class="dv">0</span>] <span class="co"># 채널0</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>XXX0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="61">
+<pre><code>&lt;tf.Tensor: shape=(1, 49, 49), dtype=float32, numpy=
+array([[[ 9.984369  , 10.314403  , 10.114662  , ..., -0.2716803 ,
+          0.78349805,  1.032628  ],
+        [ 9.973946  , 10.29709   , 10.011451  , ..., -0.78137755,
+          0.4853113 ,  0.91024333],
+        [ 9.694317  , 10.180944  , 10.165418  , ..., -1.1441237 ,
+         -0.10771888,  0.0131253 ],
+        ...,
+        [ 9.950029  ,  9.197831  ,  9.421099  , ...,  0.2848997 ,
+         -0.24674678, -0.35682005],
+        [ 9.156889  ,  8.902268  ,  9.352164  , ...,  0.01892059,
+         -0.46637818, -0.67916614],
+        [ 8.969021  ,  8.490577  ,  9.140195  , ..., -0.2541374 ,
+         -0.9092705 , -0.46859497]]], dtype=float32)&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="4387904f-5812-4e0b-f7c9-ab7205fa34d4">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>XXX1<span class="op">=</span>conv(XXX)[...,<span class="dv">1</span>] <span class="co"># 채널1</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>XXX1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="62">
+<pre><code>&lt;tf.Tensor: shape=(1, 49, 49), dtype=float32, numpy=
+array([[[ 0.8336382 ,  0.48649216, -1.2854509 , ...,  0.35364777,
+          3.8670654 , -2.8705451 ],
+        [ 2.1542006 , -0.8616276 , -0.28092575, ...,  3.2342823 ,
+          1.8324732 , -0.13274503],
+        [ 2.0953035 , -0.14879417,  0.08668804, ...,  5.0843253 ,
+         -0.93870586,  1.4220824 ],
+        ...,
+        [-1.498992  , -1.5097971 ,  2.4028683 , ...,  1.3495452 ,
+         -3.4761312 ,  3.0358381 ],
+        [-0.89510345, -0.12337971,  1.9229631 , ..., -0.17948717,
+         -1.7617078 ,  0.910556  ],
+        [-0.3474636 , -1.5663171 ,  4.1647916 , ..., -3.4317784 ,
+          0.81124616,  0.9514559 ]]], dtype=float32)&gt;</code></pre>
+</div>
+</div>
+<p><code>-</code> 각 채널을 시각화</p>
+<div class="cell" data-outputid="6c109e4b-6313-4c3e-a0be-b335b3aa62af">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>fig, ((ax1,ax2),(ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="680e3b1d-409a-49bc-cbf0-7328050be9f2">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>ax1.imshow(XXX.reshape(<span class="dv">50</span>,<span class="dv">50</span>),cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f67684b5720&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="b79e0ef8-1023-4675-e383-b8da065e35be">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>ax3.imshow(XXX0.reshape(<span class="dv">49</span>,<span class="dv">49</span>),cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f67684b47c0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="e8c9f18a-343e-41cc-83f1-64a2dce1da9f">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>ax4.imshow(XXX1.reshape(<span class="dv">49</span>,<span class="dv">49</span>),cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f67684b72e0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="56a7f6d7-925c-41c6-fed2-97ad925b0efd">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="65">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>2사분면: 원래이미지</li>
+<li>3사분면: 원래이미지 -&gt; 평균을 의미하는 conv적용</li>
+<li>4사분면: 원래이미지 -&gt; 엣지를 검출하는 conv적용</li>
+</ul>
+<p><code>-</code> conv(XXX)의 각 채널에 한번더 conv를 통과시켜보자</p>
+<div class="cell" data-outputid="14dfa06a-f793-42f5-91b7-c4900ed88879">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>conv(XXX0.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">0</span>] <span class="co">### XXX0 -&gt; 평균필터 &lt;=&gt; XXX -&gt; 평균필터 -&gt; 평균필터</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>conv(XXX0.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">1</span>] <span class="co">### XXX0 -&gt; 엣지필터 &lt;=&gt; XXX -&gt; 평균필터 -&gt; 엣지필터</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>conv(XXX1.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">0</span>] <span class="co">### XXX1 -&gt; 평균필터 &lt;=&gt; XXX -&gt; 엣지필터 -&gt; 평균필터</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>conv(XXX1.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">1</span>] <span class="co">### XXX1 -&gt; 엣지필터 &lt;=&gt; XXX -&gt; 엣지필터 -&gt; 엣지필터</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
+<pre><code>&lt;tf.Tensor: shape=(1, 48, 48), dtype=float32, numpy=
+array([[[ 1.01424513e+01,  1.01844015e+01,  9.86733055e+00, ...,
+         -4.99692082e-01,  5.39378747e-02,  8.02920163e-01],
+        [ 1.00365734e+01,  1.01637259e+01,  1.02149420e+01, ...,
+         -7.43912578e-01, -3.86977196e-01,  3.25240284e-01],
+        [ 9.74410343e+00,  1.01362820e+01,  1.04401426e+01, ...,
+         -8.01947534e-01, -6.61381423e-01, -1.04143508e-01],
+        ...,
+        [ 9.49301243e+00,  9.22852516e+00,  9.76124573e+00, ...,
+         -3.70009184e-01, -2.82902658e-01, -3.20988595e-01],
+        [ 9.30175495e+00,  9.21834087e+00,  9.71927547e+00, ...,
+         -1.98229820e-01, -1.02326170e-01, -4.37277794e-01],
+        [ 8.87968922e+00,  8.97130108e+00,  9.59087849e+00, ...,
+         -5.38469851e-03, -4.02716398e-01, -6.30852461e-01]]],
+      dtype=float32)&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="09cfb788-cfe1-4315-e2c9-cae3b1853956">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>fig,ax <span class="op">=</span>plt.subplots(<span class="dv">3</span>,<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="acac1ae2-39fd-47a7-904e-fb6dff0a6dd4">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].imshow(XXX.reshape(<span class="dv">50</span>,<span class="dv">50</span>),cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co"># 원래이미지</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f61a4265540&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="ea9f8761-bffa-4abb-b171-0e7ffd097f21">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].imshow(XXX0.reshape(<span class="dv">49</span>,<span class="dv">49</span>),cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co"># 원래이미지 -&gt; 평균필터</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].imshow(XXX1.reshape(<span class="dv">49</span>,<span class="dv">49</span>),cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co"># 원래이미지 -&gt; 엣지필터</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="89">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f61a429b880&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="986f4fab-fb68-4488-9b04-77a79f039463">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a>ax[<span class="dv">2</span>][<span class="dv">0</span>].imshow(conv(XXX0.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">0</span>].reshape(<span class="dv">48</span>,<span class="dv">48</span>),cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co"># 원래이미지 -&gt; 평균필터</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>ax[<span class="dv">2</span>][<span class="dv">1</span>].imshow(conv(XXX0.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">1</span>].reshape(<span class="dv">48</span>,<span class="dv">48</span>),cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co"># 원래이미지 -&gt; 엣지필터</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a>ax[<span class="dv">2</span>][<span class="dv">2</span>].imshow(conv(XXX1.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">0</span>].reshape(<span class="dv">48</span>,<span class="dv">48</span>),cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co"># 원래이미지 -&gt; 평균필터</span></span>
+<span id="cb51-4"><a href="#cb51-4"></a>ax[<span class="dv">2</span>][<span class="dv">3</span>].imshow(conv(XXX1.reshape(<span class="dv">1</span>,<span class="dv">49</span>,<span class="dv">49</span>,<span class="dv">1</span>))[...,<span class="dv">1</span>].reshape(<span class="dv">48</span>,<span class="dv">48</span>),cmap<span class="op">=</span><span class="st">'gray'</span>) <span class="co"># 원래이미지 -&gt; 엣지필터</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7f61a415e380&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="a2cae988-e769-411e-af86-4fb202b33f88">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>fig.set_figheight(<span class="dv">8</span>)</span>
+<span id="cb53-2"><a href="#cb53-2"></a>fig.set_figwidth(<span class="dv">16</span>)</span>
+<span id="cb53-3"><a href="#cb53-3"></a>fig.tight_layout()</span>
+<span id="cb53-4"><a href="#cb53-4"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="96">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 요약 - conv의 weight에 따라서 엣지를 검출하는 필터가 만들어지기도 하고 스무딩의 역할을 하는 필터가 만들어지기도 한다. 그리고 우리는 의미를 알 수 없지만 어떠한 역할을 하는 필터가 만들어질 것이다. - 이것들을 조합하다보면 우연히 이미지를 분류하기에 유리한 특징을 뽑아내는 weight가 맞춰질 수도 있겠다. - 채널수를 많이 만들고 다양한 웨이트조합을 실험하다보면 보다 복잡한 이미지의 특징을 추출할 수도 있을 것이다? - 컨볼루션 레이어의 역할 = 이미지의 특징을 추출하는 역할</p>
+<p><code>-</code> 참고: 스트라이드, 패딩 - 스트라이드: 윈도우가 1칸씩 이동하는 것이 아니라 2~3칸씩 이동함 - 패딩: 이미지의 가장자리에 정당한 값을 넣어서 (예를들어 0) 컨볼루션을 수행. 따라서 컨볼루션 연산 이후에도 이미지의 크기가 줄어들지 않도록 방지한다.</p>
+</section>
+<section id="maxpool" class="level3">
+<h3 class="anchored" data-anchor-id="maxpool">MAXPOOL</h3>
+<p><code>-</code> 기본적역할: 이미지의 크기를 줄이는 것 - 이미지의의 크기를 줄여야하는 이유? 어차피 최종적으로 10차원으로 줄어야하므로 - 이미지의 크기를 줄이면서도 동시에 아주 크리티컬한 특징은 손실없이 유지하고 싶다~</p>
+<p><code>-</code> 점점 작은 이미지가 되면서 중요한 특징들은 살아남지만 그렇지 않으면 죽는다. (캐리커쳐 느낌)</p>
+<p><code>-</code> 평균이 아니라 max를 쓴 이유는? 그냥 평균보다 나을것이라고 생각했음.. - 그런데 사실은 꼭 그렇지만은 않아서 최근에는 꼭 맥스풀링을 고집하진 않는 추세 (평균풀링도 많이씀)</p>
+</section>
+<section id="cnn-아키텍처의-표현방법" class="level3">
+<h3 class="anchored" data-anchor-id="cnn-아키텍처의-표현방법">CNN 아키텍처의 표현방법</h3>
+<p><code>-</code> 아래와 같이 아키텍처의 다이어그램형태로 표현하고 굳이 노드별로 이미지를 그리진 않음</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Comparison_image_neural_networks.svg/2560px-Comparison_image_neural_networks.svg.png" class="img-fluid"></p>
+<p><code>-</code> 물론 아래와 같이 그리는 경우도 있음</p>
+<p><img src="https://editor.analyticsvidhya.com/uploads/90650dnn2.jpeg" class="img-fluid"></p>
+</section>
+<section id="discusstion-about-cnn" class="level3">
+<h3 class="anchored" data-anchor-id="discusstion-about-cnn">Discusstion about CNN</h3>
+<p><code>-</code> 격자형태로 배열된 자료를 처리하는데 특화된 신경망이다. - 시계열 (1차원격자), 이미지 (2차원격자)</p>
+<p><code>-</code> 실제응용에서 엄청난 성공을 거두었다.</p>
+<p><code>-</code> 이름의 유래는 컨볼루션이라는 수학적 연산을 사용했기 때문 - 컨볼루션은 조금 특별한 선형변환이다.</p>
+<p><code>-</code> 신경과학의 원리가 심층학습에 영향을 미친 사례이다.</p>
+</section>
+<section id="cnn의-모티브" class="level3">
+<h3 class="anchored" data-anchor-id="cnn의-모티브">CNN의 모티브</h3>
+<p><code>-</code> 희소성 + 매개변수의 공유 - 다소 철학적인 모티브임 - 희소성: 이미지를 분석하여 특징을 뽑아낼때 부분부분의 특징만 뽑으면 된다는 의미 - 매개변수의 공유: 한 채널에는 하나의 역할을 하는 커널을 설계하면 된다는 의미 (스무딩이든 엣징이든). 즉 어떤지역은 스무딩, 어떤지역은 엣징을 할 필요가 없이 한채널에서는 엣징만, 다른채널에서는 스무딩만 수행한뒤 여러채널을 조합해서 이해하면 된다.</p>
+<p><code>-</code> 매개변수 공유효과로 인해서 파라메터가 확 줄어든다.</p>
+<p>(예시) (1,6,6,1) -&gt; (1,5,5,2) - MLP방식이면 (36,50) 의 차원을 가진 매트릭스가 필요함 =&gt; 1800개의 매개변수 필요 - CNN은 8개의 매개변수 필요</p>
+</section>
+<section id="cnn-신경망의-기본구조" class="level3">
+<h3 class="anchored" data-anchor-id="cnn-신경망의-기본구조">CNN 신경망의 기본구조</h3>
+<p><code>-</code> 기본유닛 - conv - activation - pooling - conv - conv - activation - pooling</p>
+</section>
+</section>
+<section id="모형의-성능을-올리기-위한-노력들" class="level2">
+<h2 class="anchored" data-anchor-id="모형의-성능을-올리기-위한-노력들">모형의 성능을 올리기 위한 노력들</h2>
+<section id="dropout" class="level3">
+<h3 class="anchored" data-anchor-id="dropout">dropout</h3>
+<p><code>-</code> 아래의 예제를 복습하자.</p>
+<div class="cell" data-outputid="5e32f621-57e0-4b93-90a9-cc8561d280b1">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb54-2"><a href="#cb54-2"></a>x <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>).reshape(<span class="dv">100</span>,<span class="dv">1</span>)</span>
+<span id="cb54-3"><a href="#cb54-3"></a>y <span class="op">=</span> np.random.normal(loc<span class="op">=</span><span class="dv">0</span>,scale<span class="op">=</span><span class="fl">0.01</span>,size<span class="op">=</span>(<span class="dv">100</span>,<span class="dv">1</span>))</span>
+<span id="cb54-4"><a href="#cb54-4"></a>plt.plot(x,y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="e7465996-4c24-4d98-a651-64621a1e1770">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
+<span id="cb55-2"><a href="#cb55-2"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb55-3"><a href="#cb55-3"></a>net.add(tf.keras.layers.Dense(<span class="dv">2048</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
+<span id="cb55-4"><a href="#cb55-4"></a>net.add(tf.keras.layers.Dense(<span class="dv">1</span>))</span>
+<span id="cb55-5"><a href="#cb55-5"></a>net.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">'mse'</span>,optimizer<span class="op">=</span><span class="st">'adam'</span>)</span>
+<span id="cb55-6"><a href="#cb55-6"></a>net.fit(x,y,epochs<span class="op">=</span><span class="dv">5000</span>,verbose<span class="op">=</span><span class="dv">0</span>,batch_size<span class="op">=</span><span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>2022-05-23 19:33:01.211991: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:939] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b9528feb0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="99931252-e4c2-4dc0-e930-4be7d8570142">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>plt.plot(x,y)</span>
+<span id="cb58-2"><a href="#cb58-2"></a>plt.plot(x,net(x),<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> train/test로 나누어서 생각해보자.</p>
+<div class="cell" data-outputid="74481c00-613d-43e6-ba3a-933a9c40497b">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
+<span id="cb59-2"><a href="#cb59-2"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb59-3"><a href="#cb59-3"></a>net.add(tf.keras.layers.Dense(<span class="dv">2048</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
+<span id="cb59-4"><a href="#cb59-4"></a>net.add(tf.keras.layers.Dense(<span class="dv">1</span>))</span>
+<span id="cb59-5"><a href="#cb59-5"></a>net.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">'mse'</span>,optimizer<span class="op">=</span><span class="st">'adam'</span>)</span>
+<span id="cb59-6"><a href="#cb59-6"></a>net.fit(x[:<span class="dv">80</span>],y[:<span class="dv">80</span>],epochs<span class="op">=</span><span class="dv">5000</span>,verbose<span class="op">=</span><span class="dv">0</span>,batch_size<span class="op">=</span><span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b881f9840&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="d3209b5f-305c-44ea-8c7c-0c87b258d225">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>plt.plot(x,y)</span>
+<span id="cb61-2"><a href="#cb61-2"></a>plt.plot(x[:<span class="dv">80</span>],net(x[:<span class="dv">80</span>]),<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-outputid="13c015d3-edac-42fb-999e-e5129a8fc57c">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>plt.plot(x,y)</span>
+<span id="cb62-2"><a href="#cb62-2"></a>plt.plot(x[:<span class="dv">80</span>],net(x[:<span class="dv">80</span>]),<span class="st">'--'</span>)</span>
+<span id="cb62-3"><a href="#cb62-3"></a>plt.plot(x[<span class="dv">80</span>:],net(x[<span class="dv">80</span>:]),<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>train에서 추세를 따라가는게 좋은게 아니다 <span class="math inline">\(\to\)</span> 그냥 직선으로 핏하는거 이외에는 다 오버핏이다.</li>
+</ul>
+<p><code>-</code> 매 에폭마다 적당히 80%의 노드들을 빼고 학습하자 <span class="math inline">\(\to\)</span> 너무 잘 학습되는 문제는 생기지 않을 것이다 (과적합이 방지될것이다?)</p>
+<div class="cell" data-outputid="f6a8df6c-06e4-481f-ff4b-05ed642f736a">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
+<span id="cb63-2"><a href="#cb63-2"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb63-3"><a href="#cb63-3"></a>net.add(tf.keras.layers.Dense(<span class="dv">2048</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
+<span id="cb63-4"><a href="#cb63-4"></a>net.add(tf.keras.layers.Dropout(<span class="fl">0.8</span>))</span>
+<span id="cb63-5"><a href="#cb63-5"></a>net.add(tf.keras.layers.Dense(<span class="dv">1</span>))</span>
+<span id="cb63-6"><a href="#cb63-6"></a>net.<span class="bu">compile</span>(loss<span class="op">=</span><span class="st">'mse'</span>,optimizer<span class="op">=</span><span class="st">'adam'</span>)</span>
+<span id="cb63-7"><a href="#cb63-7"></a>net.fit(x[:<span class="dv">80</span>],y[:<span class="dv">80</span>],epochs<span class="op">=</span><span class="dv">5000</span>,verbose<span class="op">=</span><span class="dv">0</span>,batch_size<span class="op">=</span><span class="dv">80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b80381a50&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="dfb98553-0e15-45b8-8e38-141283ea0cb2">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>plt.plot(x,y)</span>
+<span id="cb65-2"><a href="#cb65-2"></a>plt.plot(x[:<span class="dv">80</span>],net(x[:<span class="dv">80</span>]),<span class="st">'--'</span>)</span>
+<span id="cb65-3"><a href="#cb65-3"></a>plt.plot(x[<span class="dv">80</span>:],net(x[<span class="dv">80</span>:]),<span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2022_05_23_(12주차)_5월23일_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 드랍아웃에 대한 summary - 직관: 특정노드를 랜덤으로 off시키면 학습이 방해되어 오히려 과적합이 방지되는 효과가 있다 (그렇지만 진짜 중요한 특징이라면 랜덤으로 off 되더라도 어느정도는 학습될 듯) - note: 드랍아웃을 쓰면 오버핏이 줄어드는건 맞지만 완전히 없어지는건 아니다. - note: 오버핏을 줄이는 유일한 방법이 드랍아웃만 있는것도 아니며, 드랍아웃이 오버핏을 줄이는 가장 효과적인 방법도 아니다 (최근에는 dropout보다 batch nomalization을 사용하는 추세임)</p>
+</section>
+<section id="train-val-test" class="level3">
+<h3 class="anchored" data-anchor-id="train-val-test">train / val / test</h3>
+<p><code>-</code> data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>(x_train, y_train), (x_test, y_test) <span class="op">=</span> tf.keras.datasets.fashion_mnist.load_data()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>X<span class="op">=</span> x_train.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">28</span>,<span class="dv">28</span>,<span class="dv">1</span>)<span class="op">/</span><span class="dv">255</span> <span class="co">## 입력이 0~255 -&gt; 0~1로 표준화 시키는 효과 + float으로 자료형이 바뀜</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>y <span class="op">=</span> tf.keras.utils.to_categorical(y_train)</span>
+<span id="cb67-3"><a href="#cb67-3"></a>XX <span class="op">=</span> x_test.reshape(<span class="op">-</span><span class="dv">1</span>,<span class="dv">28</span>,<span class="dv">28</span>,<span class="dv">1</span>)<span class="op">/</span><span class="dv">255</span></span>
+<span id="cb67-4"><a href="#cb67-4"></a>yy <span class="op">=</span> tf.keras.utils.to_categorical(y_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb68-2"><a href="#cb68-2"></a>net.add(tf.keras.layers.Flatten())</span>
+<span id="cb68-3"><a href="#cb68-3"></a>net.add(tf.keras.layers.Dense(<span class="dv">50</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
+<span id="cb68-4"><a href="#cb68-4"></a>net.add(tf.keras.layers.Dense(<span class="dv">10</span>,activation<span class="op">=</span><span class="st">'softmax'</span>))</span>
+<span id="cb68-5"><a href="#cb68-5"></a>net.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="st">'adam'</span>,loss<span class="op">=</span>tf.losses.categorical_crossentropy,metrics<span class="op">=</span><span class="st">'accuracy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-scrolled="true" data-tags="[]" data-outputid="41119734-bdd9-4312-e5ed-128f15231636">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a><span class="co">#collapse_output</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>cb1 <span class="op">=</span> tf.keras.callbacks.TensorBoard()</span>
+<span id="cb69-3"><a href="#cb69-3"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>cb1,verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 0s 1ms/step - loss: 0.7013 - accuracy: 0.7666 - val_loss: 0.4976 - val_accuracy: 0.8320
+Epoch 2/200
+240/240 [==============================] - 0s 887us/step - loss: 0.4703 - accuracy: 0.8400 - val_loss: 0.4822 - val_accuracy: 0.8320
+Epoch 3/200
+240/240 [==============================] - 0s 915us/step - loss: 0.4287 - accuracy: 0.8518 - val_loss: 0.4339 - val_accuracy: 0.8535
+Epoch 4/200
+240/240 [==============================] - 0s 949us/step - loss: 0.4061 - accuracy: 0.8592 - val_loss: 0.4077 - val_accuracy: 0.8568
+Epoch 5/200
+240/240 [==============================] - 0s 937us/step - loss: 0.3851 - accuracy: 0.8661 - val_loss: 0.3948 - val_accuracy: 0.8619
+Epoch 6/200
+240/240 [==============================] - 0s 951us/step - loss: 0.3703 - accuracy: 0.8699 - val_loss: 0.3900 - val_accuracy: 0.8617
+Epoch 7/200
+240/240 [==============================] - 0s 879us/step - loss: 0.3587 - accuracy: 0.8746 - val_loss: 0.3846 - val_accuracy: 0.8678
+Epoch 8/200
+240/240 [==============================] - 0s 897us/step - loss: 0.3468 - accuracy: 0.8768 - val_loss: 0.3684 - val_accuracy: 0.8716
+Epoch 9/200
+240/240 [==============================] - 0s 905us/step - loss: 0.3397 - accuracy: 0.8788 - val_loss: 0.3678 - val_accuracy: 0.8708
+Epoch 10/200
+240/240 [==============================] - 0s 918us/step - loss: 0.3307 - accuracy: 0.8806 - val_loss: 0.3619 - val_accuracy: 0.8726
+Epoch 11/200
+240/240 [==============================] - 0s 961us/step - loss: 0.3208 - accuracy: 0.8843 - val_loss: 0.3619 - val_accuracy: 0.8711
+Epoch 12/200
+240/240 [==============================] - 0s 896us/step - loss: 0.3160 - accuracy: 0.8857 - val_loss: 0.3572 - val_accuracy: 0.8734
+Epoch 13/200
+240/240 [==============================] - 0s 879us/step - loss: 0.3098 - accuracy: 0.8889 - val_loss: 0.3567 - val_accuracy: 0.8723
+Epoch 14/200
+240/240 [==============================] - 0s 914us/step - loss: 0.3023 - accuracy: 0.8915 - val_loss: 0.3545 - val_accuracy: 0.8751
+Epoch 15/200
+240/240 [==============================] - 0s 972us/step - loss: 0.2983 - accuracy: 0.8937 - val_loss: 0.3514 - val_accuracy: 0.8763
+Epoch 16/200
+240/240 [==============================] - 0s 963us/step - loss: 0.2945 - accuracy: 0.8939 - val_loss: 0.3745 - val_accuracy: 0.8639
+Epoch 17/200
+240/240 [==============================] - 0s 884us/step - loss: 0.2901 - accuracy: 0.8956 - val_loss: 0.3427 - val_accuracy: 0.8786
+Epoch 18/200
+240/240 [==============================] - 0s 876us/step - loss: 0.2835 - accuracy: 0.8972 - val_loss: 0.3470 - val_accuracy: 0.8770
+Epoch 19/200
+240/240 [==============================] - 0s 916us/step - loss: 0.2787 - accuracy: 0.8997 - val_loss: 0.3457 - val_accuracy: 0.8803
+Epoch 20/200
+240/240 [==============================] - 0s 943us/step - loss: 0.2741 - accuracy: 0.9007 - val_loss: 0.3373 - val_accuracy: 0.8814
+Epoch 21/200
+240/240 [==============================] - 0s 883us/step - loss: 0.2699 - accuracy: 0.9016 - val_loss: 0.3352 - val_accuracy: 0.8832
+Epoch 22/200
+240/240 [==============================] - 0s 880us/step - loss: 0.2644 - accuracy: 0.9036 - val_loss: 0.3320 - val_accuracy: 0.8817
+Epoch 23/200
+240/240 [==============================] - 0s 948us/step - loss: 0.2610 - accuracy: 0.9059 - val_loss: 0.3384 - val_accuracy: 0.8768
+Epoch 24/200
+240/240 [==============================] - 0s 946us/step - loss: 0.2575 - accuracy: 0.9076 - val_loss: 0.3446 - val_accuracy: 0.8785
+Epoch 25/200
+240/240 [==============================] - 0s 939us/step - loss: 0.2532 - accuracy: 0.9084 - val_loss: 0.3312 - val_accuracy: 0.8820
+Epoch 26/200
+240/240 [==============================] - 0s 967us/step - loss: 0.2509 - accuracy: 0.9094 - val_loss: 0.3383 - val_accuracy: 0.8833
+Epoch 27/200
+240/240 [==============================] - 0s 929us/step - loss: 0.2487 - accuracy: 0.9106 - val_loss: 0.3365 - val_accuracy: 0.8827
+Epoch 28/200
+240/240 [==============================] - 0s 943us/step - loss: 0.2450 - accuracy: 0.9123 - val_loss: 0.3376 - val_accuracy: 0.8827
+Epoch 29/200
+240/240 [==============================] - 0s 922us/step - loss: 0.2424 - accuracy: 0.9122 - val_loss: 0.3346 - val_accuracy: 0.8823
+Epoch 30/200
+240/240 [==============================] - 0s 903us/step - loss: 0.2407 - accuracy: 0.9137 - val_loss: 0.3367 - val_accuracy: 0.8813
+Epoch 31/200
+240/240 [==============================] - 0s 906us/step - loss: 0.2380 - accuracy: 0.9147 - val_loss: 0.3376 - val_accuracy: 0.8813
+Epoch 32/200
+240/240 [==============================] - 0s 885us/step - loss: 0.2349 - accuracy: 0.9155 - val_loss: 0.3372 - val_accuracy: 0.8856
+Epoch 33/200
+240/240 [==============================] - 0s 891us/step - loss: 0.2324 - accuracy: 0.9167 - val_loss: 0.3362 - val_accuracy: 0.8833
+Epoch 34/200
+240/240 [==============================] - 0s 900us/step - loss: 0.2285 - accuracy: 0.9177 - val_loss: 0.3486 - val_accuracy: 0.8810
+Epoch 35/200
+240/240 [==============================] - 0s 858us/step - loss: 0.2270 - accuracy: 0.9188 - val_loss: 0.3364 - val_accuracy: 0.8817
+Epoch 36/200
+240/240 [==============================] - 0s 893us/step - loss: 0.2241 - accuracy: 0.9204 - val_loss: 0.3401 - val_accuracy: 0.8852
+Epoch 37/200
+240/240 [==============================] - 0s 907us/step - loss: 0.2258 - accuracy: 0.9178 - val_loss: 0.3451 - val_accuracy: 0.8811
+Epoch 38/200
+240/240 [==============================] - 0s 899us/step - loss: 0.2249 - accuracy: 0.9196 - val_loss: 0.3377 - val_accuracy: 0.8836
+Epoch 39/200
+240/240 [==============================] - 0s 876us/step - loss: 0.2187 - accuracy: 0.9215 - val_loss: 0.3298 - val_accuracy: 0.8867
+Epoch 40/200
+240/240 [==============================] - 0s 905us/step - loss: 0.2148 - accuracy: 0.9229 - val_loss: 0.3342 - val_accuracy: 0.8853
+Epoch 41/200
+240/240 [==============================] - 0s 954us/step - loss: 0.2118 - accuracy: 0.9240 - val_loss: 0.3378 - val_accuracy: 0.8840
+Epoch 42/200
+240/240 [==============================] - 0s 916us/step - loss: 0.2135 - accuracy: 0.9243 - val_loss: 0.3348 - val_accuracy: 0.8857
+Epoch 43/200
+240/240 [==============================] - 0s 943us/step - loss: 0.2101 - accuracy: 0.9247 - val_loss: 0.3369 - val_accuracy: 0.8857
+Epoch 44/200
+240/240 [==============================] - 0s 877us/step - loss: 0.2069 - accuracy: 0.9261 - val_loss: 0.3400 - val_accuracy: 0.8832
+Epoch 45/200
+240/240 [==============================] - 0s 900us/step - loss: 0.2040 - accuracy: 0.9267 - val_loss: 0.3358 - val_accuracy: 0.8854
+Epoch 46/200
+240/240 [==============================] - 0s 926us/step - loss: 0.2029 - accuracy: 0.9271 - val_loss: 0.3562 - val_accuracy: 0.8802
+Epoch 47/200
+240/240 [==============================] - 0s 901us/step - loss: 0.2052 - accuracy: 0.9263 - val_loss: 0.3509 - val_accuracy: 0.8841
+Epoch 48/200
+240/240 [==============================] - 0s 927us/step - loss: 0.1977 - accuracy: 0.9296 - val_loss: 0.3434 - val_accuracy: 0.8852
+Epoch 49/200
+240/240 [==============================] - 0s 870us/step - loss: 0.1980 - accuracy: 0.9281 - val_loss: 0.3587 - val_accuracy: 0.8810
+Epoch 50/200
+240/240 [==============================] - 0s 874us/step - loss: 0.1972 - accuracy: 0.9292 - val_loss: 0.3483 - val_accuracy: 0.8828
+Epoch 51/200
+240/240 [==============================] - 0s 924us/step - loss: 0.1973 - accuracy: 0.9286 - val_loss: 0.3518 - val_accuracy: 0.8834
+Epoch 52/200
+240/240 [==============================] - 0s 886us/step - loss: 0.1920 - accuracy: 0.9309 - val_loss: 0.3647 - val_accuracy: 0.8796
+Epoch 53/200
+240/240 [==============================] - 0s 901us/step - loss: 0.1935 - accuracy: 0.9306 - val_loss: 0.3571 - val_accuracy: 0.8831
+Epoch 54/200
+240/240 [==============================] - 0s 946us/step - loss: 0.1918 - accuracy: 0.9311 - val_loss: 0.3545 - val_accuracy: 0.8834
+Epoch 55/200
+240/240 [==============================] - 0s 950us/step - loss: 0.1921 - accuracy: 0.9306 - val_loss: 0.3643 - val_accuracy: 0.8823
+Epoch 56/200
+240/240 [==============================] - 0s 913us/step - loss: 0.1870 - accuracy: 0.9335 - val_loss: 0.3665 - val_accuracy: 0.8798
+Epoch 57/200
+240/240 [==============================] - 0s 908us/step - loss: 0.1857 - accuracy: 0.9328 - val_loss: 0.3539 - val_accuracy: 0.8833
+Epoch 58/200
+240/240 [==============================] - 0s 919us/step - loss: 0.1815 - accuracy: 0.9353 - val_loss: 0.3569 - val_accuracy: 0.8833
+Epoch 59/200
+240/240 [==============================] - 0s 863us/step - loss: 0.1832 - accuracy: 0.9337 - val_loss: 0.3603 - val_accuracy: 0.8833
+Epoch 60/200
+240/240 [==============================] - 0s 912us/step - loss: 0.1804 - accuracy: 0.9361 - val_loss: 0.3690 - val_accuracy: 0.8812
+Epoch 61/200
+240/240 [==============================] - 0s 858us/step - loss: 0.1769 - accuracy: 0.9368 - val_loss: 0.3624 - val_accuracy: 0.8840
+Epoch 62/200
+240/240 [==============================] - 0s 885us/step - loss: 0.1756 - accuracy: 0.9366 - val_loss: 0.3637 - val_accuracy: 0.8829
+Epoch 63/200
+240/240 [==============================] - 0s 903us/step - loss: 0.1766 - accuracy: 0.9363 - val_loss: 0.3663 - val_accuracy: 0.8824
+Epoch 64/200
+240/240 [==============================] - 0s 878us/step - loss: 0.1767 - accuracy: 0.9363 - val_loss: 0.3694 - val_accuracy: 0.8825
+Epoch 65/200
+240/240 [==============================] - 0s 866us/step - loss: 0.1733 - accuracy: 0.9377 - val_loss: 0.3820 - val_accuracy: 0.8838
+Epoch 66/200
+240/240 [==============================] - 0s 949us/step - loss: 0.1742 - accuracy: 0.9370 - val_loss: 0.3721 - val_accuracy: 0.8825
+Epoch 67/200
+240/240 [==============================] - 0s 887us/step - loss: 0.1698 - accuracy: 0.9386 - val_loss: 0.3717 - val_accuracy: 0.8838
+Epoch 68/200
+240/240 [==============================] - 0s 942us/step - loss: 0.1683 - accuracy: 0.9399 - val_loss: 0.3823 - val_accuracy: 0.8821
+Epoch 69/200
+240/240 [==============================] - 0s 951us/step - loss: 0.1680 - accuracy: 0.9406 - val_loss: 0.3739 - val_accuracy: 0.8865
+Epoch 70/200
+240/240 [==============================] - 0s 900us/step - loss: 0.1673 - accuracy: 0.9395 - val_loss: 0.3789 - val_accuracy: 0.8821
+Epoch 71/200
+240/240 [==============================] - 0s 904us/step - loss: 0.1671 - accuracy: 0.9396 - val_loss: 0.3881 - val_accuracy: 0.8808
+Epoch 72/200
+240/240 [==============================] - 0s 915us/step - loss: 0.1664 - accuracy: 0.9396 - val_loss: 0.3821 - val_accuracy: 0.8824
+Epoch 73/200
+240/240 [==============================] - 0s 899us/step - loss: 0.1603 - accuracy: 0.9433 - val_loss: 0.3864 - val_accuracy: 0.8822
+Epoch 74/200
+240/240 [==============================] - 0s 926us/step - loss: 0.1621 - accuracy: 0.9411 - val_loss: 0.3850 - val_accuracy: 0.8820
+Epoch 75/200
+240/240 [==============================] - 0s 902us/step - loss: 0.1578 - accuracy: 0.9439 - val_loss: 0.3827 - val_accuracy: 0.8838
+Epoch 76/200
+240/240 [==============================] - 0s 899us/step - loss: 0.1589 - accuracy: 0.9431 - val_loss: 0.4160 - val_accuracy: 0.8751
+Epoch 77/200
+240/240 [==============================] - 0s 909us/step - loss: 0.1597 - accuracy: 0.9426 - val_loss: 0.3934 - val_accuracy: 0.8810
+Epoch 78/200
+240/240 [==============================] - 0s 894us/step - loss: 0.1582 - accuracy: 0.9420 - val_loss: 0.4076 - val_accuracy: 0.8777
+Epoch 79/200
+240/240 [==============================] - 0s 897us/step - loss: 0.1573 - accuracy: 0.9439 - val_loss: 0.3890 - val_accuracy: 0.8832
+Epoch 80/200
+240/240 [==============================] - 0s 917us/step - loss: 0.1567 - accuracy: 0.9445 - val_loss: 0.4039 - val_accuracy: 0.8805
+Epoch 81/200
+240/240 [==============================] - 0s 921us/step - loss: 0.1529 - accuracy: 0.9455 - val_loss: 0.3967 - val_accuracy: 0.8818
+Epoch 82/200
+240/240 [==============================] - 0s 919us/step - loss: 0.1522 - accuracy: 0.9456 - val_loss: 0.4028 - val_accuracy: 0.8796
+Epoch 83/200
+240/240 [==============================] - 0s 984us/step - loss: 0.1501 - accuracy: 0.9462 - val_loss: 0.4147 - val_accuracy: 0.8802
+Epoch 84/200
+240/240 [==============================] - 0s 873us/step - loss: 0.1493 - accuracy: 0.9466 - val_loss: 0.3956 - val_accuracy: 0.8818
+Epoch 85/200
+240/240 [==============================] - 0s 882us/step - loss: 0.1484 - accuracy: 0.9470 - val_loss: 0.4121 - val_accuracy: 0.8807
+Epoch 86/200
+240/240 [==============================] - 0s 894us/step - loss: 0.1504 - accuracy: 0.9449 - val_loss: 0.4089 - val_accuracy: 0.8790
+Epoch 87/200
+240/240 [==============================] - 0s 924us/step - loss: 0.1437 - accuracy: 0.9493 - val_loss: 0.4243 - val_accuracy: 0.8776
+Epoch 88/200
+240/240 [==============================] - 0s 905us/step - loss: 0.1462 - accuracy: 0.9478 - val_loss: 0.4123 - val_accuracy: 0.8799
+Epoch 89/200
+240/240 [==============================] - 0s 950us/step - loss: 0.1444 - accuracy: 0.9479 - val_loss: 0.4105 - val_accuracy: 0.8823
+Epoch 90/200
+240/240 [==============================] - 0s 908us/step - loss: 0.1460 - accuracy: 0.9482 - val_loss: 0.4103 - val_accuracy: 0.8827
+Epoch 91/200
+240/240 [==============================] - 0s 889us/step - loss: 0.1425 - accuracy: 0.9489 - val_loss: 0.4112 - val_accuracy: 0.8819
+Epoch 92/200
+240/240 [==============================] - 0s 869us/step - loss: 0.1455 - accuracy: 0.9483 - val_loss: 0.4115 - val_accuracy: 0.8818
+Epoch 93/200
+240/240 [==============================] - 0s 917us/step - loss: 0.1412 - accuracy: 0.9491 - val_loss: 0.4177 - val_accuracy: 0.8805
+Epoch 94/200
+240/240 [==============================] - 0s 865us/step - loss: 0.1398 - accuracy: 0.9500 - val_loss: 0.4177 - val_accuracy: 0.8813
+Epoch 95/200
+240/240 [==============================] - 0s 910us/step - loss: 0.1417 - accuracy: 0.9504 - val_loss: 0.4248 - val_accuracy: 0.8796
+Epoch 96/200
+240/240 [==============================] - 0s 917us/step - loss: 0.1392 - accuracy: 0.9499 - val_loss: 0.4207 - val_accuracy: 0.8840
+Epoch 97/200
+240/240 [==============================] - 0s 872us/step - loss: 0.1366 - accuracy: 0.9514 - val_loss: 0.4218 - val_accuracy: 0.8810
+Epoch 98/200
+240/240 [==============================] - 0s 896us/step - loss: 0.1344 - accuracy: 0.9519 - val_loss: 0.4281 - val_accuracy: 0.8794
+Epoch 99/200
+240/240 [==============================] - 0s 928us/step - loss: 0.1346 - accuracy: 0.9521 - val_loss: 0.4304 - val_accuracy: 0.8803
+Epoch 100/200
+240/240 [==============================] - 0s 849us/step - loss: 0.1368 - accuracy: 0.9511 - val_loss: 0.4335 - val_accuracy: 0.8800
+Epoch 101/200
+240/240 [==============================] - 0s 930us/step - loss: 0.1317 - accuracy: 0.9540 - val_loss: 0.4345 - val_accuracy: 0.8799
+Epoch 102/200
+240/240 [==============================] - 0s 919us/step - loss: 0.1318 - accuracy: 0.9530 - val_loss: 0.4430 - val_accuracy: 0.8774
+Epoch 103/200
+240/240 [==============================] - 0s 905us/step - loss: 0.1306 - accuracy: 0.9538 - val_loss: 0.4427 - val_accuracy: 0.8783
+Epoch 104/200
+240/240 [==============================] - 0s 892us/step - loss: 0.1322 - accuracy: 0.9532 - val_loss: 0.4409 - val_accuracy: 0.8797
+Epoch 105/200
+240/240 [==============================] - 0s 853us/step - loss: 0.1322 - accuracy: 0.9524 - val_loss: 0.4631 - val_accuracy: 0.8759
+Epoch 106/200
+240/240 [==============================] - 0s 901us/step - loss: 0.1295 - accuracy: 0.9540 - val_loss: 0.4451 - val_accuracy: 0.8811
+Epoch 107/200
+240/240 [==============================] - 0s 910us/step - loss: 0.1287 - accuracy: 0.9539 - val_loss: 0.4393 - val_accuracy: 0.8795
+Epoch 108/200
+240/240 [==============================] - 0s 927us/step - loss: 0.1265 - accuracy: 0.9549 - val_loss: 0.4547 - val_accuracy: 0.8783
+Epoch 109/200
+240/240 [==============================] - 0s 899us/step - loss: 0.1257 - accuracy: 0.9553 - val_loss: 0.4467 - val_accuracy: 0.8798
+Epoch 110/200
+240/240 [==============================] - 0s 911us/step - loss: 0.1264 - accuracy: 0.9558 - val_loss: 0.4494 - val_accuracy: 0.8775
+Epoch 111/200
+240/240 [==============================] - 0s 911us/step - loss: 0.1256 - accuracy: 0.9550 - val_loss: 0.4600 - val_accuracy: 0.8777
+Epoch 112/200
+240/240 [==============================] - 0s 897us/step - loss: 0.1241 - accuracy: 0.9561 - val_loss: 0.4468 - val_accuracy: 0.8785
+Epoch 113/200
+240/240 [==============================] - 0s 904us/step - loss: 0.1242 - accuracy: 0.9556 - val_loss: 0.4592 - val_accuracy: 0.8788
+Epoch 114/200
+240/240 [==============================] - 0s 913us/step - loss: 0.1224 - accuracy: 0.9574 - val_loss: 0.4640 - val_accuracy: 0.8778
+Epoch 115/200
+240/240 [==============================] - 0s 912us/step - loss: 0.1235 - accuracy: 0.9563 - val_loss: 0.4590 - val_accuracy: 0.8777
+Epoch 116/200
+240/240 [==============================] - 0s 907us/step - loss: 0.1222 - accuracy: 0.9568 - val_loss: 0.4762 - val_accuracy: 0.8781
+Epoch 117/200
+240/240 [==============================] - 0s 913us/step - loss: 0.1178 - accuracy: 0.9583 - val_loss: 0.4585 - val_accuracy: 0.8818
+Epoch 118/200
+240/240 [==============================] - 0s 901us/step - loss: 0.1207 - accuracy: 0.9571 - val_loss: 0.4796 - val_accuracy: 0.8770
+Epoch 119/200
+240/240 [==============================] - 0s 883us/step - loss: 0.1194 - accuracy: 0.9574 - val_loss: 0.4711 - val_accuracy: 0.8790
+Epoch 120/200
+240/240 [==============================] - 0s 953us/step - loss: 0.1204 - accuracy: 0.9565 - val_loss: 0.4612 - val_accuracy: 0.8796
+Epoch 121/200
+240/240 [==============================] - 0s 887us/step - loss: 0.1138 - accuracy: 0.9596 - val_loss: 0.4792 - val_accuracy: 0.8770
+Epoch 122/200
+240/240 [==============================] - 0s 874us/step - loss: 0.1142 - accuracy: 0.9602 - val_loss: 0.4784 - val_accuracy: 0.8762
+Epoch 123/200
+240/240 [==============================] - 0s 914us/step - loss: 0.1184 - accuracy: 0.9574 - val_loss: 0.4791 - val_accuracy: 0.8787
+Epoch 124/200
+240/240 [==============================] - 0s 922us/step - loss: 0.1161 - accuracy: 0.9593 - val_loss: 0.4876 - val_accuracy: 0.8763
+Epoch 125/200
+240/240 [==============================] - 0s 882us/step - loss: 0.1159 - accuracy: 0.9584 - val_loss: 0.4888 - val_accuracy: 0.8745
+Epoch 126/200
+240/240 [==============================] - 0s 951us/step - loss: 0.1140 - accuracy: 0.9597 - val_loss: 0.5025 - val_accuracy: 0.8754
+Epoch 127/200
+240/240 [==============================] - 0s 900us/step - loss: 0.1151 - accuracy: 0.9593 - val_loss: 0.4892 - val_accuracy: 0.8747
+Epoch 128/200
+240/240 [==============================] - 0s 890us/step - loss: 0.1100 - accuracy: 0.9611 - val_loss: 0.4833 - val_accuracy: 0.8777
+Epoch 129/200
+240/240 [==============================] - 0s 890us/step - loss: 0.1121 - accuracy: 0.9606 - val_loss: 0.4996 - val_accuracy: 0.8720
+Epoch 130/200
+240/240 [==============================] - 0s 892us/step - loss: 0.1097 - accuracy: 0.9614 - val_loss: 0.4904 - val_accuracy: 0.8779
+Epoch 131/200
+240/240 [==============================] - 0s 888us/step - loss: 0.1084 - accuracy: 0.9620 - val_loss: 0.4944 - val_accuracy: 0.8748
+Epoch 132/200
+240/240 [==============================] - 0s 931us/step - loss: 0.1123 - accuracy: 0.9604 - val_loss: 0.4892 - val_accuracy: 0.8778
+Epoch 133/200
+240/240 [==============================] - 0s 896us/step - loss: 0.1097 - accuracy: 0.9621 - val_loss: 0.5165 - val_accuracy: 0.8733
+Epoch 134/200
+240/240 [==============================] - 0s 897us/step - loss: 0.1050 - accuracy: 0.9631 - val_loss: 0.5124 - val_accuracy: 0.8731
+Epoch 135/200
+240/240 [==============================] - 0s 915us/step - loss: 0.1093 - accuracy: 0.9618 - val_loss: 0.5165 - val_accuracy: 0.8733
+Epoch 136/200
+240/240 [==============================] - 0s 909us/step - loss: 0.1045 - accuracy: 0.9640 - val_loss: 0.5045 - val_accuracy: 0.8781
+Epoch 137/200
+240/240 [==============================] - 0s 931us/step - loss: 0.1056 - accuracy: 0.9627 - val_loss: 0.5124 - val_accuracy: 0.8773
+Epoch 138/200
+240/240 [==============================] - 0s 905us/step - loss: 0.1089 - accuracy: 0.9610 - val_loss: 0.5152 - val_accuracy: 0.8751
+Epoch 139/200
+240/240 [==============================] - 0s 922us/step - loss: 0.1059 - accuracy: 0.9628 - val_loss: 0.5150 - val_accuracy: 0.8744
+Epoch 140/200
+240/240 [==============================] - 0s 923us/step - loss: 0.1031 - accuracy: 0.9638 - val_loss: 0.5156 - val_accuracy: 0.8740
+Epoch 141/200
+240/240 [==============================] - 0s 870us/step - loss: 0.1063 - accuracy: 0.9620 - val_loss: 0.5207 - val_accuracy: 0.8719
+Epoch 142/200
+240/240 [==============================] - 0s 904us/step - loss: 0.1054 - accuracy: 0.9621 - val_loss: 0.5220 - val_accuracy: 0.8740
+Epoch 143/200
+240/240 [==============================] - 0s 929us/step - loss: 0.1043 - accuracy: 0.9623 - val_loss: 0.5356 - val_accuracy: 0.8736
+Epoch 144/200
+240/240 [==============================] - 0s 869us/step - loss: 0.1039 - accuracy: 0.9636 - val_loss: 0.5403 - val_accuracy: 0.8737
+Epoch 145/200
+240/240 [==============================] - 0s 872us/step - loss: 0.1014 - accuracy: 0.9649 - val_loss: 0.5294 - val_accuracy: 0.8751
+Epoch 146/200
+240/240 [==============================] - 0s 903us/step - loss: 0.1027 - accuracy: 0.9636 - val_loss: 0.5321 - val_accuracy: 0.8770
+Epoch 147/200
+240/240 [==============================] - 0s 906us/step - loss: 0.1012 - accuracy: 0.9646 - val_loss: 0.5329 - val_accuracy: 0.8748
+Epoch 148/200
+240/240 [==============================] - 0s 909us/step - loss: 0.1006 - accuracy: 0.9645 - val_loss: 0.5368 - val_accuracy: 0.8743
+Epoch 149/200
+240/240 [==============================] - 0s 872us/step - loss: 0.0975 - accuracy: 0.9656 - val_loss: 0.5320 - val_accuracy: 0.8759
+Epoch 150/200
+240/240 [==============================] - 0s 895us/step - loss: 0.0985 - accuracy: 0.9660 - val_loss: 0.5357 - val_accuracy: 0.8745
+Epoch 151/200
+240/240 [==============================] - 0s 896us/step - loss: 0.0962 - accuracy: 0.9668 - val_loss: 0.5353 - val_accuracy: 0.8748
+Epoch 152/200
+240/240 [==============================] - 0s 936us/step - loss: 0.0955 - accuracy: 0.9674 - val_loss: 0.5318 - val_accuracy: 0.8763
+Epoch 153/200
+240/240 [==============================] - 0s 878us/step - loss: 0.0970 - accuracy: 0.9660 - val_loss: 0.5866 - val_accuracy: 0.8702
+Epoch 154/200
+240/240 [==============================] - 0s 940us/step - loss: 0.0992 - accuracy: 0.9646 - val_loss: 0.5421 - val_accuracy: 0.8750
+Epoch 155/200
+240/240 [==============================] - 0s 931us/step - loss: 0.0965 - accuracy: 0.9661 - val_loss: 0.5436 - val_accuracy: 0.8739
+Epoch 156/200
+240/240 [==============================] - 0s 939us/step - loss: 0.0959 - accuracy: 0.9666 - val_loss: 0.5542 - val_accuracy: 0.8745
+Epoch 157/200
+240/240 [==============================] - 0s 898us/step - loss: 0.0980 - accuracy: 0.9647 - val_loss: 0.5441 - val_accuracy: 0.8747
+Epoch 158/200
+240/240 [==============================] - 0s 905us/step - loss: 0.0925 - accuracy: 0.9676 - val_loss: 0.5507 - val_accuracy: 0.8746
+Epoch 159/200
+240/240 [==============================] - 0s 905us/step - loss: 0.0950 - accuracy: 0.9663 - val_loss: 0.5700 - val_accuracy: 0.8712
+Epoch 160/200
+240/240 [==============================] - 0s 927us/step - loss: 0.0908 - accuracy: 0.9679 - val_loss: 0.5641 - val_accuracy: 0.8727
+Epoch 161/200
+240/240 [==============================] - 0s 937us/step - loss: 0.0936 - accuracy: 0.9668 - val_loss: 0.5689 - val_accuracy: 0.8750
+Epoch 162/200
+240/240 [==============================] - 0s 899us/step - loss: 0.0888 - accuracy: 0.9694 - val_loss: 0.5641 - val_accuracy: 0.8772
+Epoch 163/200
+240/240 [==============================] - 0s 907us/step - loss: 0.0903 - accuracy: 0.9685 - val_loss: 0.5628 - val_accuracy: 0.8737
+Epoch 164/200
+240/240 [==============================] - 0s 908us/step - loss: 0.0923 - accuracy: 0.9675 - val_loss: 0.5623 - val_accuracy: 0.8752
+Epoch 165/200
+240/240 [==============================] - 0s 949us/step - loss: 0.0880 - accuracy: 0.9696 - val_loss: 0.5775 - val_accuracy: 0.8713
+Epoch 166/200
+240/240 [==============================] - 0s 930us/step - loss: 0.0919 - accuracy: 0.9672 - val_loss: 0.5924 - val_accuracy: 0.8719
+Epoch 167/200
+240/240 [==============================] - 0s 932us/step - loss: 0.0868 - accuracy: 0.9697 - val_loss: 0.5952 - val_accuracy: 0.8719
+Epoch 168/200
+240/240 [==============================] - 0s 861us/step - loss: 0.0910 - accuracy: 0.9679 - val_loss: 0.5820 - val_accuracy: 0.8733
+Epoch 169/200
+240/240 [==============================] - 0s 938us/step - loss: 0.0871 - accuracy: 0.9700 - val_loss: 0.5781 - val_accuracy: 0.8734
+Epoch 170/200
+240/240 [==============================] - 0s 912us/step - loss: 0.0885 - accuracy: 0.9691 - val_loss: 0.5683 - val_accuracy: 0.8742
+Epoch 171/200
+240/240 [==============================] - 0s 939us/step - loss: 0.0894 - accuracy: 0.9680 - val_loss: 0.5945 - val_accuracy: 0.8721
+Epoch 172/200
+240/240 [==============================] - 0s 888us/step - loss: 0.0878 - accuracy: 0.9684 - val_loss: 0.5798 - val_accuracy: 0.8744
+Epoch 173/200
+240/240 [==============================] - 0s 917us/step - loss: 0.0852 - accuracy: 0.9710 - val_loss: 0.6017 - val_accuracy: 0.8690
+Epoch 174/200
+240/240 [==============================] - 0s 872us/step - loss: 0.0838 - accuracy: 0.9714 - val_loss: 0.5840 - val_accuracy: 0.8753
+Epoch 175/200
+240/240 [==============================] - 0s 937us/step - loss: 0.0863 - accuracy: 0.9697 - val_loss: 0.5770 - val_accuracy: 0.8726
+Epoch 176/200
+240/240 [==============================] - 0s 892us/step - loss: 0.0854 - accuracy: 0.9697 - val_loss: 0.5971 - val_accuracy: 0.8741
+Epoch 177/200
+240/240 [==============================] - 0s 924us/step - loss: 0.0896 - accuracy: 0.9674 - val_loss: 0.5859 - val_accuracy: 0.8743
+Epoch 178/200
+240/240 [==============================] - 0s 904us/step - loss: 0.0845 - accuracy: 0.9699 - val_loss: 0.6103 - val_accuracy: 0.8723
+Epoch 179/200
+240/240 [==============================] - 0s 889us/step - loss: 0.0863 - accuracy: 0.9688 - val_loss: 0.6157 - val_accuracy: 0.8708
+Epoch 180/200
+240/240 [==============================] - 0s 902us/step - loss: 0.0850 - accuracy: 0.9697 - val_loss: 0.5974 - val_accuracy: 0.8752
+Epoch 181/200
+240/240 [==============================] - 0s 899us/step - loss: 0.0825 - accuracy: 0.9710 - val_loss: 0.6102 - val_accuracy: 0.8736
+Epoch 182/200
+240/240 [==============================] - 0s 895us/step - loss: 0.0833 - accuracy: 0.9709 - val_loss: 0.6265 - val_accuracy: 0.8690
+Epoch 183/200
+240/240 [==============================] - 0s 899us/step - loss: 0.0821 - accuracy: 0.9715 - val_loss: 0.6197 - val_accuracy: 0.8718
+Epoch 184/200
+240/240 [==============================] - 0s 940us/step - loss: 0.0791 - accuracy: 0.9727 - val_loss: 0.6139 - val_accuracy: 0.8727
+Epoch 185/200
+240/240 [==============================] - 0s 880us/step - loss: 0.0815 - accuracy: 0.9716 - val_loss: 0.6055 - val_accuracy: 0.8718
+Epoch 186/200
+240/240 [==============================] - 0s 878us/step - loss: 0.0860 - accuracy: 0.9696 - val_loss: 0.6192 - val_accuracy: 0.8713
+Epoch 187/200
+240/240 [==============================] - 0s 925us/step - loss: 0.0905 - accuracy: 0.9680 - val_loss: 0.6147 - val_accuracy: 0.8722
+Epoch 188/200
+240/240 [==============================] - 0s 884us/step - loss: 0.0826 - accuracy: 0.9707 - val_loss: 0.6203 - val_accuracy: 0.8737
+Epoch 189/200
+240/240 [==============================] - 0s 934us/step - loss: 0.0810 - accuracy: 0.9722 - val_loss: 0.6316 - val_accuracy: 0.8701
+Epoch 190/200
+240/240 [==============================] - 0s 899us/step - loss: 0.0763 - accuracy: 0.9735 - val_loss: 0.6246 - val_accuracy: 0.8758
+Epoch 191/200
+240/240 [==============================] - 0s 888us/step - loss: 0.0767 - accuracy: 0.9736 - val_loss: 0.6358 - val_accuracy: 0.8712
+Epoch 192/200
+240/240 [==============================] - 0s 867us/step - loss: 0.0792 - accuracy: 0.9728 - val_loss: 0.6281 - val_accuracy: 0.8749
+Epoch 193/200
+240/240 [==============================] - 0s 932us/step - loss: 0.0764 - accuracy: 0.9741 - val_loss: 0.6248 - val_accuracy: 0.8737
+Epoch 194/200
+240/240 [==============================] - 0s 919us/step - loss: 0.0765 - accuracy: 0.9733 - val_loss: 0.6223 - val_accuracy: 0.8734
+Epoch 195/200
+240/240 [==============================] - 0s 870us/step - loss: 0.0796 - accuracy: 0.9724 - val_loss: 0.6413 - val_accuracy: 0.8707
+Epoch 196/200
+240/240 [==============================] - 0s 903us/step - loss: 0.0750 - accuracy: 0.9742 - val_loss: 0.6315 - val_accuracy: 0.8737
+Epoch 197/200
+240/240 [==============================] - 0s 901us/step - loss: 0.0789 - accuracy: 0.9724 - val_loss: 0.6602 - val_accuracy: 0.8684
+Epoch 198/200
+240/240 [==============================] - 0s 915us/step - loss: 0.0793 - accuracy: 0.9720 - val_loss: 0.6615 - val_accuracy: 0.8698
+Epoch 199/200
+240/240 [==============================] - 0s 892us/step - loss: 0.0727 - accuracy: 0.9753 - val_loss: 0.6486 - val_accuracy: 0.8692
+Epoch 200/200
+240/240 [==============================] - 0s 937us/step - loss: 0.0736 - accuracy: 0.9747 - val_loss: 0.6474 - val_accuracy: 0.8723</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b802e05b0&gt;</code></pre>
+</div>
+</div>
+<p><code>-</code> 텐서보드 여는 방법1</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a><span class="op">%</span>load_ext tensorboard</span>
+<span id="cb72-2"><a href="#cb72-2"></a><span class="co"># 주피터노트북 (혹은 주피터랩)에서 텐서보드를 임베딩하여 넣을 수 있도록 도와주는 매직펑션</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a><span class="co">#</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a><span class="co"># !rm -rf logs</span></span>
+<span id="cb73-3"><a href="#cb73-3"></a><span class="co"># !kill 313799</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a><span class="co">#</span></span>
+<span id="cb74-2"><a href="#cb74-2"></a><span class="co"># %tensorboard --logdir logs --host 0.0.0.0</span></span>
+<span id="cb74-3"><a href="#cb74-3"></a><span class="co"># %tensorboard --logdir logs # &lt;-- 실습에서는 이렇게 하면됩니다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>(참고사항) 파이썬 3.10의 경우 아래의 수정이 필요</p>
+<p><code>?/python3.10/site-packages/tensorboard/_vendor/html5lib/_trie/_base.py</code> 을 열고</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a><span class="im">from</span> collections <span class="im">import</span> Mapping <span class="co">### 수정전</span></span>
+<span id="cb75-2"><a href="#cb75-2"></a><span class="im">from</span> collections.abc <span class="im">import</span> Mapping <span class="co">### 수정후</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>와 같이 수정한다.</p>
+<ul>
+<li>왜냐하면 파이썬 3.10부터 <code>from collections import Mapping</code> 가 동작하지 않고 <code>from collections.abc import Mapping</code> 가 동작하도록 문법이 바뀜</li>
+</ul>
+<p><code>-</code> 텐서보드를 실행하는 방법2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a><span class="co">#</span></span>
+<span id="cb76-2"><a href="#cb76-2"></a><span class="co"># !tensorboard --logdir logs --host 0.0.0.0</span></span>
+<span id="cb76-3"><a href="#cb76-3"></a><span class="co"># !tensorboard --logdir logs # &lt;-- 실습에서는 이렇게 하면됩니다.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="조기종료" class="level3">
+<h3 class="anchored" data-anchor-id="조기종료">조기종료</h3>
+<p><code>-</code> 텐서보드를 살펴보니 특정에폭 이후에는 오히려 과적합이 진행되는 듯 하다 (학습할수록 손해인듯 하다) <span class="math inline">\(\to\)</span> 그 특정에폭까지만 학습해보자</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
+<span id="cb77-2"><a href="#cb77-2"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb77-3"><a href="#cb77-3"></a>net.add(tf.keras.layers.Flatten())</span>
+<span id="cb77-4"><a href="#cb77-4"></a>net.add(tf.keras.layers.Dense(<span class="dv">5000</span>,activation<span class="op">=</span><span class="st">'relu'</span>)) <span class="co">## 과적합좀 시키려고</span></span>
+<span id="cb77-5"><a href="#cb77-5"></a>net.add(tf.keras.layers.Dense(<span class="dv">5000</span>,activation<span class="op">=</span><span class="st">'relu'</span>)) <span class="co">## 레이어를 2장만듬 + 레이어하나당 노드수도 증가</span></span>
+<span id="cb77-6"><a href="#cb77-6"></a>net.add(tf.keras.layers.Dense(<span class="dv">10</span>,activation<span class="op">=</span><span class="st">'softmax'</span>))</span>
+<span id="cb77-7"><a href="#cb77-7"></a>net.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="st">'adam'</span>,loss<span class="op">=</span>tf.losses.categorical_crossentropy,metrics<span class="op">=</span><span class="st">'accuracy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="2e1065a4-342b-4b72-e5b7-6f306a178878">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a><span class="co">#</span></span>
+<span id="cb78-2"><a href="#cb78-2"></a><span class="co">#cb1 = tf.keras.callbacks.TensorBoard()</span></span>
+<span id="cb78-3"><a href="#cb78-3"></a>cb2 <span class="op">=</span> tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">1</span>) <span class="co"># val-loss가 1회증가하면 멈추어라</span></span>
+<span id="cb78-4"><a href="#cb78-4"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>cb2,verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 1s 4ms/step - loss: 0.5483 - accuracy: 0.8134 - val_loss: 0.4027 - val_accuracy: 0.8546
+Epoch 2/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.3568 - accuracy: 0.8671 - val_loss: 0.3531 - val_accuracy: 0.8712
+Epoch 3/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.3210 - accuracy: 0.8799 - val_loss: 0.3477 - val_accuracy: 0.8733
+Epoch 4/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2971 - accuracy: 0.8876 - val_loss: 0.3502 - val_accuracy: 0.8776</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b80086650&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="d12cc789-3fae-4f75-c67f-ac57ebe47d96">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a><span class="co">#</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a><span class="co">#cb1 = tf.keras.callbacks.TensorBoard()</span></span>
+<span id="cb81-3"><a href="#cb81-3"></a>cb2 <span class="op">=</span> tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">1</span>) <span class="co"># val-loss가 1회증가하면 멈추어라</span></span>
+<span id="cb81-4"><a href="#cb81-4"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>cb2,verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2791 - accuracy: 0.8935 - val_loss: 0.3224 - val_accuracy: 0.8820
+Epoch 2/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2619 - accuracy: 0.8999 - val_loss: 0.3498 - val_accuracy: 0.8779</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b24290a90&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="9e9dd8c5-c4d6-44ce-d05c-b110f1126296">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a><span class="co">#</span></span>
+<span id="cb84-2"><a href="#cb84-2"></a><span class="co">#cb1 = tf.keras.callbacks.TensorBoard()</span></span>
+<span id="cb84-3"><a href="#cb84-3"></a>cb2 <span class="op">=</span> tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">1</span>) <span class="co"># val-loss가 1회증가하면 멈추어라</span></span>
+<span id="cb84-4"><a href="#cb84-4"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>cb2,verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2491 - accuracy: 0.9043 - val_loss: 0.3641 - val_accuracy: 0.8711
+Epoch 2/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2328 - accuracy: 0.9110 - val_loss: 0.3282 - val_accuracy: 0.8848
+Epoch 3/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2254 - accuracy: 0.9151 - val_loss: 0.3280 - val_accuracy: 0.8843
+Epoch 4/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2144 - accuracy: 0.9177 - val_loss: 0.3191 - val_accuracy: 0.8925
+Epoch 5/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2074 - accuracy: 0.9223 - val_loss: 0.3152 - val_accuracy: 0.8949
+Epoch 6/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1952 - accuracy: 0.9250 - val_loss: 0.3322 - val_accuracy: 0.8863</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b242c1660&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="5d86ea07-a2df-43f7-8d8d-ffbfd14b3323">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a><span class="co">#</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a><span class="co">#cb1 = tf.keras.callbacks.TensorBoard()</span></span>
+<span id="cb87-3"><a href="#cb87-3"></a>cb2 <span class="op">=</span> tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">1</span>) <span class="co"># val-loss가 1회증가하면 멈추어라</span></span>
+<span id="cb87-4"><a href="#cb87-4"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>cb2,verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1908 - accuracy: 0.9257 - val_loss: 0.3513 - val_accuracy: 0.8836
+Epoch 2/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1799 - accuracy: 0.9304 - val_loss: 0.3376 - val_accuracy: 0.8901
+Epoch 3/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1712 - accuracy: 0.9346 - val_loss: 0.3568 - val_accuracy: 0.8894</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b24302230&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="ba6d3e79-f3ef-4f8d-9cdc-4ffd4c212b14">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1"></a><span class="co">#</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a><span class="co">#cb1 = tf.keras.callbacks.TensorBoard()</span></span>
+<span id="cb90-3"><a href="#cb90-3"></a>cb2 <span class="op">=</span> tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">1</span>) <span class="co"># val-loss가 1회증가하면 멈추어라</span></span>
+<span id="cb90-4"><a href="#cb90-4"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>cb2,verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1591 - accuracy: 0.9367 - val_loss: 0.3995 - val_accuracy: 0.8780
+Epoch 2/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1552 - accuracy: 0.9398 - val_loss: 0.3469 - val_accuracy: 0.8917
+Epoch 3/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1481 - accuracy: 0.9423 - val_loss: 0.3726 - val_accuracy: 0.8853</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b24136e00&gt;</code></pre>
+</div>
+</div>
+<p><code>-</code> 몇 번 좀 참았다가 멈추면 좋겠다.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
+<span id="cb93-2"><a href="#cb93-2"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb93-3"><a href="#cb93-3"></a>net.add(tf.keras.layers.Flatten())</span>
+<span id="cb93-4"><a href="#cb93-4"></a>net.add(tf.keras.layers.Dense(<span class="dv">5000</span>,activation<span class="op">=</span><span class="st">'relu'</span>)) <span class="co">## 과적합좀 시키려고</span></span>
+<span id="cb93-5"><a href="#cb93-5"></a>net.add(tf.keras.layers.Dense(<span class="dv">5000</span>,activation<span class="op">=</span><span class="st">'relu'</span>)) <span class="co">## 레이어를 2장만듬 + 레이어하나당 노드수도 증가</span></span>
+<span id="cb93-6"><a href="#cb93-6"></a>net.add(tf.keras.layers.Dense(<span class="dv">10</span>,activation<span class="op">=</span><span class="st">'softmax'</span>))</span>
+<span id="cb93-7"><a href="#cb93-7"></a>net.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="st">'adam'</span>,loss<span class="op">=</span>tf.losses.categorical_crossentropy,metrics<span class="op">=</span><span class="st">'accuracy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="34d8bea6-e562-4f52-9b1f-4eead09e9a89">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a><span class="co">#</span></span>
+<span id="cb94-2"><a href="#cb94-2"></a><span class="co">#cb1 = tf.keras.callbacks.TensorBoard()</span></span>
+<span id="cb94-3"><a href="#cb94-3"></a>cb2 <span class="op">=</span> tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">5</span>) <span class="co"># 좀더 참다가 멈추어라</span></span>
+<span id="cb94-4"><a href="#cb94-4"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>cb2,verbose<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 1s 4ms/step - loss: 0.5475 - accuracy: 0.8139 - val_loss: 0.4219 - val_accuracy: 0.8453
+Epoch 2/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.3575 - accuracy: 0.8676 - val_loss: 0.3647 - val_accuracy: 0.8712
+Epoch 3/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.3219 - accuracy: 0.8792 - val_loss: 0.3559 - val_accuracy: 0.8710
+Epoch 4/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2990 - accuracy: 0.8883 - val_loss: 0.3448 - val_accuracy: 0.8808
+Epoch 5/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2759 - accuracy: 0.8966 - val_loss: 0.3337 - val_accuracy: 0.8792
+Epoch 6/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2621 - accuracy: 0.9004 - val_loss: 0.3220 - val_accuracy: 0.8841
+Epoch 7/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2478 - accuracy: 0.9074 - val_loss: 0.3302 - val_accuracy: 0.8858
+Epoch 8/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2342 - accuracy: 0.9110 - val_loss: 0.3150 - val_accuracy: 0.8904
+Epoch 9/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2261 - accuracy: 0.9144 - val_loss: 0.3117 - val_accuracy: 0.8932
+Epoch 10/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2116 - accuracy: 0.9200 - val_loss: 0.3345 - val_accuracy: 0.8888
+Epoch 11/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.2081 - accuracy: 0.9207 - val_loss: 0.3344 - val_accuracy: 0.8867
+Epoch 12/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1956 - accuracy: 0.9255 - val_loss: 0.3158 - val_accuracy: 0.8975
+Epoch 13/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1863 - accuracy: 0.9275 - val_loss: 0.3302 - val_accuracy: 0.8934
+Epoch 14/200
+240/240 [==============================] - 1s 3ms/step - loss: 0.1764 - accuracy: 0.9324 - val_loss: 0.3717 - val_accuracy: 0.8859</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b24301960&gt;</code></pre>
+</div>
+</div>
+<p><code>-</code> 텐서보드로 그려보자?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a><span class="co">#</span></span>
+<span id="cb97-2"><a href="#cb97-2"></a><span class="co"># %tensorboard --logdir logs --host 0.0.0.0</span></span>
+<span id="cb97-3"><a href="#cb97-3"></a><span class="co"># 아무것도 안나온다 -&gt; 왜? cb1을 써야 텐서보드가 나옴</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>-</code> 조기종료와 텐서보드를 같이 쓰려면?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
+<span id="cb98-2"><a href="#cb98-2"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb98-3"><a href="#cb98-3"></a>net.add(tf.keras.layers.Flatten())</span>
+<span id="cb98-4"><a href="#cb98-4"></a>net.add(tf.keras.layers.Dense(<span class="dv">50</span>,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
+<span id="cb98-5"><a href="#cb98-5"></a>net.add(tf.keras.layers.Dense(<span class="dv">10</span>,activation<span class="op">=</span><span class="st">'softmax'</span>))</span>
+<span id="cb98-6"><a href="#cb98-6"></a>net.<span class="bu">compile</span>(optimizer<span class="op">=</span><span class="st">'adam'</span>,loss<span class="op">=</span>tf.losses.categorical_crossentropy,metrics<span class="op">=</span><span class="st">'accuracy'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="777dffd9-3ec1-492a-a379-701190300d66">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a>cb1 <span class="op">=</span> tf.keras.callbacks.TensorBoard()</span>
+<span id="cb99-2"><a href="#cb99-2"></a>cb2 <span class="op">=</span> tf.keras.callbacks.EarlyStopping(patience<span class="op">=</span><span class="dv">7</span>) <span class="co"># 좀더 참다가 멈추어라</span></span>
+<span id="cb99-3"><a href="#cb99-3"></a>net.fit(X,y,epochs<span class="op">=</span><span class="dv">200</span>,batch_size<span class="op">=</span><span class="dv">200</span>,validation_split<span class="op">=</span><span class="fl">0.2</span>,callbacks<span class="op">=</span>[cb1,cb2])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/200
+240/240 [==============================] - 0s 1ms/step - loss: 0.7184 - accuracy: 0.7581 - val_loss: 0.5077 - val_accuracy: 0.8276
+Epoch 2/200
+240/240 [==============================] - 0s 890us/step - loss: 0.4752 - accuracy: 0.8386 - val_loss: 0.4793 - val_accuracy: 0.8342
+Epoch 3/200
+240/240 [==============================] - 0s 899us/step - loss: 0.4304 - accuracy: 0.8517 - val_loss: 0.4386 - val_accuracy: 0.8497
+Epoch 4/200
+240/240 [==============================] - 0s 880us/step - loss: 0.4048 - accuracy: 0.8582 - val_loss: 0.4029 - val_accuracy: 0.8603
+Epoch 5/200
+240/240 [==============================] - 0s 923us/step - loss: 0.3832 - accuracy: 0.8669 - val_loss: 0.3932 - val_accuracy: 0.8619
+Epoch 6/200
+240/240 [==============================] - 0s 934us/step - loss: 0.3697 - accuracy: 0.8705 - val_loss: 0.3842 - val_accuracy: 0.8657
+Epoch 7/200
+240/240 [==============================] - 0s 900us/step - loss: 0.3569 - accuracy: 0.8759 - val_loss: 0.3844 - val_accuracy: 0.8668
+Epoch 8/200
+240/240 [==============================] - 0s 889us/step - loss: 0.3482 - accuracy: 0.8774 - val_loss: 0.3679 - val_accuracy: 0.8708
+Epoch 9/200
+240/240 [==============================] - 0s 912us/step - loss: 0.3387 - accuracy: 0.8799 - val_loss: 0.3602 - val_accuracy: 0.8719
+Epoch 10/200
+240/240 [==============================] - 0s 923us/step - loss: 0.3299 - accuracy: 0.8820 - val_loss: 0.3610 - val_accuracy: 0.8748
+Epoch 11/200
+240/240 [==============================] - 0s 853us/step - loss: 0.3229 - accuracy: 0.8858 - val_loss: 0.3574 - val_accuracy: 0.8717
+Epoch 12/200
+240/240 [==============================] - 0s 904us/step - loss: 0.3157 - accuracy: 0.8873 - val_loss: 0.3572 - val_accuracy: 0.8743
+Epoch 13/200
+240/240 [==============================] - 0s 890us/step - loss: 0.3106 - accuracy: 0.8899 - val_loss: 0.3545 - val_accuracy: 0.8761
+Epoch 14/200
+240/240 [==============================] - 0s 911us/step - loss: 0.3046 - accuracy: 0.8914 - val_loss: 0.3493 - val_accuracy: 0.8759
+Epoch 15/200
+240/240 [==============================] - 0s 921us/step - loss: 0.3011 - accuracy: 0.8928 - val_loss: 0.3483 - val_accuracy: 0.8776
+Epoch 16/200
+240/240 [==============================] - 0s 937us/step - loss: 0.2988 - accuracy: 0.8935 - val_loss: 0.3733 - val_accuracy: 0.8716
+Epoch 17/200
+240/240 [==============================] - 0s 892us/step - loss: 0.2925 - accuracy: 0.8947 - val_loss: 0.3481 - val_accuracy: 0.8768
+Epoch 18/200
+240/240 [==============================] - 0s 933us/step - loss: 0.2880 - accuracy: 0.8951 - val_loss: 0.3396 - val_accuracy: 0.8801
+Epoch 19/200
+240/240 [==============================] - 0s 957us/step - loss: 0.2827 - accuracy: 0.8982 - val_loss: 0.3439 - val_accuracy: 0.8798
+Epoch 20/200
+240/240 [==============================] - 0s 881us/step - loss: 0.2791 - accuracy: 0.8986 - val_loss: 0.3489 - val_accuracy: 0.8779
+Epoch 21/200
+240/240 [==============================] - 0s 886us/step - loss: 0.2765 - accuracy: 0.9007 - val_loss: 0.3350 - val_accuracy: 0.8823
+Epoch 22/200
+240/240 [==============================] - 0s 912us/step - loss: 0.2709 - accuracy: 0.9016 - val_loss: 0.3350 - val_accuracy: 0.8812
+Epoch 23/200
+240/240 [==============================] - 0s 908us/step - loss: 0.2688 - accuracy: 0.9029 - val_loss: 0.3374 - val_accuracy: 0.8820
+Epoch 24/200
+240/240 [==============================] - 0s 930us/step - loss: 0.2658 - accuracy: 0.9041 - val_loss: 0.3445 - val_accuracy: 0.8805
+Epoch 25/200
+240/240 [==============================] - 0s 872us/step - loss: 0.2607 - accuracy: 0.9058 - val_loss: 0.3383 - val_accuracy: 0.8822
+Epoch 26/200
+240/240 [==============================] - 0s 928us/step - loss: 0.2607 - accuracy: 0.9056 - val_loss: 0.3415 - val_accuracy: 0.8811
+Epoch 27/200
+240/240 [==============================] - 0s 927us/step - loss: 0.2576 - accuracy: 0.9068 - val_loss: 0.3402 - val_accuracy: 0.8814
+Epoch 28/200
+240/240 [==============================] - 0s 905us/step - loss: 0.2525 - accuracy: 0.9098 - val_loss: 0.3469 - val_accuracy: 0.8802</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>&lt;keras.callbacks.History at 0x7f1b24217a00&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a><span class="co">#</span></span>
+<span id="cb102-2"><a href="#cb102-2"></a><span class="co"># 조기종료가 구현된 그림이 출력</span></span>
+<span id="cb102-3"><a href="#cb102-3"></a><span class="co"># %tensorboard --logdir logs --host 0.0.0.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="하이퍼파라메터-선택" class="level3">
+<h3 class="anchored" data-anchor-id="하이퍼파라메터-선택">하이퍼파라메터 선택</h3>
+<p><code>-</code> 하이퍼파라메터 설정</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a><span class="im">from</span> tensorboard.plugins.hparams <span class="im">import</span> api <span class="im">as</span> hp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-outputid="0f029592-d90f-4290-90aa-01f8fd1f31df">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1"></a>a<span class="op">=</span>net.evaluate(XX,yy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>313/313 [==============================] - 0s 859us/step - loss: 0.3803 - accuracy: 0.8704</code></pre>
+</div>
+</div>
+<div class="cell" data-outputid="b5d88e1e-80eb-4919-bb51-1f0be67d857e">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1"></a><span class="op">!</span>rm <span class="op">-</span>rf logs</span>
+<span id="cb106-2"><a href="#cb106-2"></a><span class="cf">for</span> u <span class="kw">in</span> [<span class="dv">50</span>,<span class="dv">5000</span>]:</span>
+<span id="cb106-3"><a href="#cb106-3"></a>    <span class="cf">for</span> d <span class="kw">in</span> [<span class="fl">0.0</span>,<span class="fl">0.5</span>]:</span>
+<span id="cb106-4"><a href="#cb106-4"></a>        <span class="cf">for</span> o <span class="kw">in</span> [<span class="st">'adam'</span>,<span class="st">'sgd'</span>]:</span>
+<span id="cb106-5"><a href="#cb106-5"></a>            logdir <span class="op">=</span> <span class="st">'logs/hpguebin_</span><span class="sc">{}</span><span class="st">_</span><span class="sc">{}</span><span class="st">_</span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(u,d,o)</span>
+<span id="cb106-6"><a href="#cb106-6"></a>            <span class="cf">with</span> tf.summary.create_file_writer(logdir).as_default():</span>
+<span id="cb106-7"><a href="#cb106-7"></a>                net <span class="op">=</span> tf.keras.Sequential()</span>
+<span id="cb106-8"><a href="#cb106-8"></a>                net.add(tf.keras.layers.Flatten())</span>
+<span id="cb106-9"><a href="#cb106-9"></a>                net.add(tf.keras.layers.Dense(u,activation<span class="op">=</span><span class="st">'relu'</span>))</span>
+<span id="cb106-10"><a href="#cb106-10"></a>                net.add(tf.keras.layers.Dropout(d))</span>
+<span id="cb106-11"><a href="#cb106-11"></a>                net.add(tf.keras.layers.Dense(<span class="dv">10</span>,activation<span class="op">=</span><span class="st">'softmax'</span>))</span>
+<span id="cb106-12"><a href="#cb106-12"></a>                net.<span class="bu">compile</span>(optimizer<span class="op">=</span>o,loss<span class="op">=</span>tf.losses.categorical_crossentropy,metrics<span class="op">=</span>[<span class="st">'accuracy'</span>,<span class="st">'Recall'</span>])</span>
+<span id="cb106-13"><a href="#cb106-13"></a>                cb3 <span class="op">=</span> hp.KerasCallback(logdir, {<span class="st">'유닛수'</span>:u, <span class="st">'드랍아웃비율'</span>:d, <span class="st">'옵티마이저'</span>:o})</span>
+<span id="cb106-14"><a href="#cb106-14"></a>                net.fit(X,y,epochs<span class="op">=</span><span class="dv">3</span>,callbacks<span class="op">=</span>cb3)</span>
+<span id="cb106-15"><a href="#cb106-15"></a>                _rslt<span class="op">=</span>net.evaluate(XX,yy)</span>
+<span id="cb106-16"><a href="#cb106-16"></a>                _mymetric<span class="op">=</span>_rslt[<span class="dv">1</span>]<span class="op">*</span><span class="fl">0.8</span> <span class="op">+</span> _rslt[<span class="dv">2</span>]<span class="op">*</span><span class="fl">0.2</span></span>
+<span id="cb106-17"><a href="#cb106-17"></a>                tf.summary.scalar(<span class="st">'애큐러시와리컬의가중평균(테스트셋)'</span>, _mymetric, step<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.5255 - accuracy: 0.8180 - recall: 0.7546
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.3993 - accuracy: 0.8588 - recall: 0.8294
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.3648 - accuracy: 0.8698 - recall: 0.8443
+313/313 [==============================] - 0s 830us/step - loss: 0.4063 - accuracy: 0.8545 - recall: 0.8286
+Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.7744 - accuracy: 0.7503 - recall: 0.5797
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.5204 - accuracy: 0.8223 - recall: 0.7565
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.4742 - accuracy: 0.8369 - recall: 0.7859
+313/313 [==============================] - 0s 828us/step - loss: 0.4899 - accuracy: 0.8304 - recall: 0.7831
+Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.7502 - accuracy: 0.7356 - recall: 0.6115
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.5738 - accuracy: 0.7923 - recall: 0.7133
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.5473 - accuracy: 0.8037 - recall: 0.7321
+313/313 [==============================] - 0s 865us/step - loss: 0.4319 - accuracy: 0.8448 - recall: 0.7919
+Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 1.0932 - accuracy: 0.6228 - recall: 0.3971
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.7616 - accuracy: 0.7388 - recall: 0.5956
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.6828 - accuracy: 0.7684 - recall: 0.6478
+313/313 [==============================] - 0s 894us/step - loss: 0.5265 - accuracy: 0.8180 - recall: 0.7353
+Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.4777 - accuracy: 0.8292 - recall: 0.7890
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.3603 - accuracy: 0.8682 - recall: 0.8427
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.3197 - accuracy: 0.8817 - recall: 0.8605
+313/313 [==============================] - 0s 846us/step - loss: 0.3803 - accuracy: 0.8628 - recall: 0.8428
+Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.6685 - accuracy: 0.7883 - recall: 0.6444
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.4815 - accuracy: 0.8372 - recall: 0.7781
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.4408 - accuracy: 0.8498 - recall: 0.8021
+313/313 [==============================] - 0s 859us/step - loss: 0.4634 - accuracy: 0.8390 - recall: 0.7962
+Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.5708 - accuracy: 0.7991 - recall: 0.7556
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.4418 - accuracy: 0.8393 - recall: 0.8057
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.4091 - accuracy: 0.8514 - recall: 0.8211
+313/313 [==============================] - 0s 850us/step - loss: 0.3937 - accuracy: 0.8587 - recall: 0.8238
+Epoch 1/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.6930 - accuracy: 0.7752 - recall: 0.6338
+Epoch 2/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.5048 - accuracy: 0.8274 - recall: 0.7651
+Epoch 3/3
+1875/1875 [==============================] - 2s 1ms/step - loss: 0.4608 - accuracy: 0.8417 - recall: 0.7910
+313/313 [==============================] - 0s 854us/step - loss: 0.4625 - accuracy: 0.8396 - recall: 0.7957</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a><span class="co">#</span></span>
+<span id="cb108-2"><a href="#cb108-2"></a><span class="co">#%tensorboard --logdir logs --host 0.0.0.0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="숙제" class="level2">
+<h2 class="anchored" data-anchor-id="숙제">숙제</h2>
+<p><code>-</code> 아래의 네트워크에서 옵티마이저를 adam, sgd를 선택하여 각각 적합시켜보고 testset의 loss를 성능비교를 하라. epoch은 5정도로 설정하라.</p>
+<pre><code>net = tf.keras.Sequential()
+net.add(tf.keras.layers.Flatten())
+net.add(tf.keras.layers.Dense(50,activation='relu'))
+net.add(tf.keras.layers.Dense(50,activation='relu'))
+net.add(tf.keras.layers.Dense(10,activation='softmax'))
+net.compile(optimizer=???,loss=tf.losses.categorical_crossentropy,metrics=['accuracy','Recall'])</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

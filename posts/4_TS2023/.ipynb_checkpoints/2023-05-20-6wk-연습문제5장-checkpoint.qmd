@@ -1,0 +1,216 @@
+---
+title: 6wk. 연습문제5장 실습
+author: JiyunLim
+date: "05/20/2023"
+---
+
+## 연습문제 5.3 
+아래와 같이 자료를 입력한다. 
+```{r}
+zt<-c(144.652,195.596,236.569,269.265,296.791,316.682,332.593,344.834,356.644,
+      363.775,370.994,377.784,382.254,386.211,388.574,391.118,394.627,395.785,
+      395.693,396.811,397.249,397.433,398.767,398.971,399.108,400.958,398.660,
+      399.348,398.293,397.886)
+```
+
+### (a) 
+시계열 그림을 그려라.
+```{r,fig.height=3.5}
+plot(zt)
+```
+
+### (b) 
+(a)의 시계열로부터 $\rho_1$은 양수, $0$, 혹은 음수 중 어느 값이라 기대되는가?
+
+- $\rho_1>0$ 일 것으로 기대함. 
+
+
+### (c)
+$Z_t$에 대하여 $Z_{t-1}$의 산점도를 그려보고, 다시 $\rho_1$은 어느 정도의 값이 되리라 기대되는가?
+```{r, fig.height=3.5}
+yt<-c(zt-mean(zt),0)
+yt_lag1<-c(0,zt-mean(zt))
+plot(yt,yt_lag1)
+lm(yt~yt_lag1)$coefficients[2]
+```
+- acf의 계수값은 regression을 한 coefficient의 계수값이라고 생각해도 된다.
+
+### (d)
+SACF $\hat{\rho}_k,k=0,1,\dots,10$ 를 구하여 표본상관도표를 그려라.
+```{r, fig.height=3.5}
+acf_result<-acf(zt)
+acfvalues<-acf_result$acf
+acfvalues
+plot(acf_result)
+```
+
+### (e)
+$Z_t$에 대하여 $Z_{t-2}$의 산점도를 그려보고, 이 그림이 (d)에서 계산된 $\hat{\rho}_2$에 상응하는지를 논하라.
+```{r, fig.height=3.5}
+yt<-c(zt-mean(zt),0,0)
+yt_lag1<-c(0,zt-mean(zt),0)
+yt_lag2<-c(0,0,zt-mean(zt))
+plot(yt,yt_lag2)
+lm(yt~yt_lag2)$coefficients[2]
+```
+**sacf를 구하는 방법 1**
+```{r}
+gamma_0 <- sum(yt*yt)
+gamma_1 <- sum(yt*yt_lag1)
+rho1 <- gamma_1/gamma_0
+gamma_2 <- sum(yt*yt_lag2)
+rho2 <- gamma_2/gamma_0
+cat(rho1, rho2)
+```
+**sacf를 구하는 방법 2**
+```{r}
+acf(zt)$acf
+```
+**sacf를 구하는 방법 3**
+```{r}
+# (1) rho1을 구하는 법: yt ~ yt_lag1
+lm(yt~yt_lag1)$coef[2]
+
+# (2) rho2을 구하는 법: yt ~ yt_lag2
+lm(yt~yt_lag2)$coef[2]
+```
+
+```{r}
+par(mfrow=c(2,1))
+plot(yt_lag1, yt)
+plot(yt_lag2, yt)
+```
+- 위에 있는 그래프의 기울기가 아래에 있는 그래프의 기울기보다 조금 더 가파르게 나타난다. (아주 미세한 차이지만..)
+- 즉, yt와 lag1의 correlation이 yt와 lag2의 correlation 보다 강하다고 추측을 할 수 있다.
+
+
+### (f)
+SPACF $\hat{\phi}_{kk},k=1,2,\dots,10$을 구하여 표본상관도표를 그려라.
+```{r, fig.height=3.5}
+pacf_result<-pacf(zt)
+pacfvalues<-pacf_result$acf
+pacfvalues
+plot(pacf_result)
+```
+- 파란 점선보다 작으면 $0$으로 봐도 무방하다.
+- PACF는 Lag=1일 때를 제외하고 나머지는 절삭된다. $\to$  Lag1은 의미있다. $\to$ AR(1) 모델로 추정.
+
+```{r}
+acf(zt) # exponential 하게 감소
+```
+```{r}
+plot(zt) # 이것만 보면 non-stationary 같음.
+```
+```{r}
+plot(zt[15:30]) # 무한대로 가면 stationary 하겠다!
+```
+
+### (g)
+$\hat{\phi}_{22}$의 의미: 
+
+1. 교재의 설명: $\hat{\phi}_{22}$는 $Z_t$와 $Z_{t+2}$로부터 $Z_{t+1}$의 효과를 제거한후 2시차만큼 떨어진 $Z_t$와 $Z_{t+2}$의 순수한 상관계수. (p.199)
+
+2. 좀더 엄밀한 정의 
+(1) partial correlation (conditional correlation) 
+(2) coefficients in the multiple regression model 
+(3) (orthogonalization) partial regression coefficients -- back fitting이라고도 함.
+
+#### (방법1) 
+lag=2에선 SPACF, 즉 $\hat{\phi}_{22}$는 아래와 같이 구할수 있다. 
+```{r, fig.height=3.5}
+pacfvalues[2]
+```
+#### (방법2) 
+```{r, fig.height=3.5}
+lm1<-lm(yt~yt_lag1+yt_lag2)
+lm1$coefficients[3]
+```
+#### (방법3) 
+- step1: residual을 구한다.
+- step2: residual끼리 regression
+- step3: 적합한 모델의 coef
+```{r, fig.height=3.5}
+lm01<-lm(yt~yt_lag1)
+lm21<-lm(yt_lag2~yt_lag1)
+res1<-lm01$residuals
+res2<-lm21$residuals
+lm(res1~res2)$coefficients[2] # pacf(zt)$acf[2]
+```
+
+```{r}
+pacf(zt)$acf[2]
+```
+
+:::{.callout-note}
+- `lm1$coefficient[3]` : $\phi_{21}$
+- `lm(yt~yt_lag1)$coef[2]` : $\phi_{11}$
+:::
+
+
+--- 
+
+## 연습문제 5.5
+확률과정 $Z_t=1+0.9Z_{t-1}+\epsilon_t$, $t=1,2,\dots,100$으로부터 시계열 자료를 생성한 후 다음을 수행하라. 단, $Z_0=10$의 값을 주고 $\{\epsilon_t\}$는 $\text{WN}$ $N(0,1)$이다.
+
+
+model: $Z_t=1+0.9Z_{t-1}+\epsilon_t$, $t=1,2,\dots,100$. 
+```{r}
+set.seed(1306) # 평행세계의 인덱스 (1306번째 평행세계)
+zt<-c() # relization된 값.
+zt[1]<-1+0.9*10+rnorm(1)
+# zt[2]<-1+0.9*[1]+rnorm(1)
+# zt[3]<-1+0.9*z[2]+rnorm(1)
+for(i in 2:100) zt[i]<-1+0.9*zt[i-1]+rnorm(1)
+zt
+```
+### (a) 
+```{r, fig.height=3.5}
+plot(zt)
+```
+### (b)
+```{r, fig.height=3.5}
+acf(zt)$acf
+```
+### (c)
+```{r, fig.height=3.5}
+pacf(zt)$acf # 정상인 AR(1)
+```
+### (d)-(e)
+```{r, fig.height=3.5}
+par(mfrow=c(2,1))
+yt<-c(zt,mean(zt),mean(zt)) # yt<-c(zt-mean(zt),0,0)
+yt_lag1<-c(mean(zt),zt,mean(zt))
+yt_lag2<-c(mean(zt),mean(zt),zt)
+plot(yt,yt_lag1)
+plot(yt,yt_lag2)
+```
+
+- 양의 상관관계를 보인다.
+- lag2는 lag1보다는 약한 상관관계를 보인다.
+
+
+```{r}
+lm(yt~yt_lag1)$coefficients # 이론적인 true값은 0.9
+```
+
+```{r}
+lm(yt~yt_lag2)$coefficients # 이론적인 true값은 0.9
+```
+
+- 1307번째 평행세계, 2000번째 평행세계,... 계속 반복을 하다보면 값들의 평균이 결국 $0.9$ 로 수렴한다. 
+- acf값이 큰수의 법칙에 따라 true acf값으로 수렴하게 될 것이다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+---
+title: "IP2022"
+listing:
+  contents: posts/1_IP2022
+  sort: "date desc"
+  type: table
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  page-size: 9999
+page-layout: full
+title-block-banner: false
+---
+
+This page is organized based on the contents of the [Introduction to Python (2022-1)](https://guebin.github.io/IP2022/) and lecture notes of Professor Guebin Choi of Jeonbuk National University.

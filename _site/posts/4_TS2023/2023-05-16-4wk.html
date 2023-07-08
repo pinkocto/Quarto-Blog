@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-05-16">
+
+<title>Quarto-Blog - [TS] 4wk. ACF</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><strong>[TS]</strong> 4wk. ACF</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block"><strong>[TS]</strong> 4wk. ACF</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">STUDY</div>
+                <div class="quarto-category">TS</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 16, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../6_note.html" class="sidebar-item-text sidebar-link">NOTE</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#sacf-widehatacf" id="toc-sacf-widehatacf" class="nav-link" data-scroll-target="#sacf-widehatacf"><code>#</code> <span class="math inline">\(SACF, \widehat{ACF}\)</span></a></li>
+  <li><a href="#연습문제-5.2" id="toc-연습문제-5.2" class="nav-link" data-scroll-target="#연습문제-5.2">연습문제 5.2</a></li>
+  <li><a href="#r-실습" id="toc-r-실습" class="nav-link" data-scroll-target="#r-실습">R 실습</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<section id="summary" class="level1">
+<h1>Summary</h1>
+<ol type="1">
+<li>확률정의 <span class="math inline">\(\to\)</span> 확률변수 정의 <span class="math inline">\(\to\)</span> 확률과정.</li>
+</ol>
+<ul>
+<li><strong>point: 확률과정의 1개의 relization.</strong> <span class="math inline">\(\Rightarrow\)</span> <strong>정상확률과정</strong></li>
+</ul>
+<ol start="2" type="1">
+<li>정상성(Stationary): iid의 약화버전</li>
+</ol>
+<ul>
+<li>평균이 <span class="math inline">\(t\)</span>에 depend하지 X</li>
+<li>분산이 <span class="math inline">\(t\)</span>에 depend하지 X</li>
+<li><span class="math inline">\(lag=1,2,3,\dots\)</span>에 대해서 <span class="math inline">\(\text{Cov}\)</span>가 <span class="math inline">\(t\)</span>에 depend하지 X</li>
+</ul>
+<ol start="3" type="1">
+<li>모델: <span class="math inline">\(AR(1), AR(2), AR(p), ...\)</span></li>
+</ol>
+<ul>
+<li>모델을 세우는 이유? 현상을 설명 + 예측 + anomally detection + <span class="math inline">\(\cdots\)</span></li>
+<li>ex. 모델1: 삼성전자 주가 = 과거값 + 랜덤오차(=white noise) <span class="math inline">\(\to\)</span> 비정상<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>ex. 모델2: 삼성전자 주가 = 0.9*과거값 + white noise <span class="math inline">\(\to\)</span> 정상</li>
+<li>ex. 모델3: 삼성전자 주가 = 0.45*과거값 + white noise + 기세 <span class="math inline">\(\to\)</span> ? AR(p)</li>
+</ul>
+<p>모델을 세운다 <span class="math inline">\(\Rightarrow\)</span> 정상인지 check! (이 과정이 매우 고통스럽다..) <span class="math inline">\(\Rightarrow\)</span> (1) 특성방정식을 풀어서 단위근의 절대값이 ~~ (2) 모델별로 암기<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p><code>-</code> 질문</p>
+<p>모델 1,2,3… <span class="math inline">\(\to\)</span> AR계열의 모델.</p>
+<p>세운 모델에서 정상성을 체크하는 것은 다음과 같다.</p>
+<ul>
+<li><ol type="i">
+<li>AR모델 중 적당한 후보를 고른다.</li>
+</ol></li>
+<li><ol start="2" type="i">
+<li>정상성 check!</li>
+</ol></li>
+<li><ol start="3" type="i">
+<li>통과하면 사용 <span class="math inline">\(\to\)</span> goodness of fit.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
+</ol></li>
+</ul>
+<p>(i),(ii)를 종합하면, 정상성을 만족하는 AR모델 중 적당한 모델을 고르겠다는 것이죠.</p>
+<p><strong>그럼 삼성전자 주가가 정상성을 만족하는 AR모델 중 하나라는 증거가 어딨냐?</strong></p>
+<p>사실 증거가 없었음. 삼성전자 주가는 과거값 플러스 랜덤오차 아닐까? 라고 나이브하게 생각했던 것이였다.</p>
+<p>그렇다면 뭐라고 답변해야 할까?</p>
+<p><code>-</code> 답변 : ACF를 그려보니까 AR모델이라고 판단됩니다.</p>
+<p>논리전개</p>
+<ol type="i">
+<li><p>AR(p) 모델의 이론적인 ACF는 1.exponential decay function<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> 혹은 2.damped sine wave<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></p></li>
+<li><p>그런데 삼성전자 주식의 <span class="math inline">\(\widehat{ACF}\)</span><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>를 그려보니, exponential decay 혹은 damped sine이 나왔어요.</p></li>
+<li><p>따라서 삼성전자 주식은 <span class="math inline">\(AR(p)\)</span> 모델 중 하나를 따른다고 볼 수 있습니다.</p></li>
+</ol>
+<p><code>-</code> 재질문: <span class="math inline">\(AR(p)\)</span> 모델 <span class="math inline">\(\to\)</span> <span class="math inline">\(ACF\)</span>는 exponential-decay or. damped-sine 이건 맞는데, <span class="math inline">\(ACF\)</span>가 exponential-decay or. damped-sine <span class="math inline">\(\to\)</span> <span class="math inline">\(AR(p)\)</span>가 맞다는 보장은 없지 않느냐?</p>
+<p><img src="2023-05-16-4wk_files/figure-html/4327673b-279b-471b-848f-c59c5bfbc04a-1-137f2906-c23d-43ef-8903-8560dd4a3c06.png" class="img-fluid"></p>
+<p>즉, <code>답변</code>의 논리가 성립하려면 “ACF가 모델을 유일하게 결정” 한다는 전제가 필요.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a></p>
+<p>당연히 성립 안합니다.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<p><code>-</code> 반론: “ACF가 모델을 유일하게 결정못함” But. 모델의 범위를 “정상시계열”에 한정하면 “ACF가 모델을 유일하게 결정함.” &lt;- 매우매우 중요합니다.</p>
+<p><code>-</code> 결론: ACF를 파악하는 일이 매우 중요함.</p>
+<p>시계열의 처음과 끝은 ACF..!</p>
+<p>모델을 선택할 수 있어요! 우리가 배운 AR모델에 한하여 생각해보면, AR모델에 대한 이론적인 ACF를 계산을 했잖아요. AR모델은 이런 모양이다~ 그런데 정상시계열에 한정해서 역도 성립한다고 했죠? AR모델이면 ACF가 이런모양이다 이건 당연히 성립하는데, 정상시계열에 한정하여 ACF를 그렸더니 이런 모양이 나왔어 그럼 AR모델이네? 이런 논리가 맞다는 말입니다.</p>
+<p>그래서 시계열 받자마자 ACF를 파악해야 합니다. ACF를 파악하려면 우리가 배운 ACF는 이론적인 ACF이기 때문에 ACF의 Sample 버전을 배웁니다. 이것을 SACF라고 표현해요.</p>
+</section>
+<section id="sacf-widehatacf" class="level1">
+<h1><code>#</code> <span class="math inline">\(SACF, \widehat{ACF}\)</span></h1>
+<blockquote class="blockquote">
+<p>교재 5.3, p193</p>
+</blockquote>
+<p><span class="math inline">\(\widehat{acf} = \hat{\rho}(h)=\frac{\hat{\gamma}(h)}{\hat{\gamma}(0)}, \quad \hat{\gamma}(h) = \frac{\sum_{i=1}^{n-h}(Z_t-\bar{Z})(Z_{t+h}-\bar{Z})}{n}, h=0,1,2,\dots\)</span></p>
+</section>
+<section id="연습문제-5.2" class="level1">
+<h1>연습문제 5.2</h1>
+<p>다음의 시계열이 주어졌다. SACF <span class="math inline">\(\hat{\rho}_k, k=1,2,3\)</span>과 <span class="math inline">\(\hat{\phi}_{kk},k=1,2,3\)</span>을 직접 계산하라.</p>
+<p><span class="math inline">\(Z_t = \{\dots, 7,6,5,8,9,4,5,5,4,6,7,8,5,6,5,\dots\}\)</span></p>
+<p><span class="math inline">\(\bar{Z} = \frac{90}{15}=6\)</span></p>
+<p><code>-</code> <span class="math inline">\(h=0: lag=0\)</span></p>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>t</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+<th>11</th>
+<th>12</th>
+<th>13</th>
+<th>14</th>
+<th>15</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(Z_{t}-\bar{Z}\)</span></td>
+<td>1</td>
+<td>0</td>
+<td>-1</td>
+<td>2</td>
+<td>3</td>
+<td>-2</td>
+<td>-1</td>
+<td>-1</td>
+<td>-2</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>-1</td>
+<td>0</td>
+<td>-1</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(Z_{t+h}-\bar{Z}\)</span></td>
+<td>1</td>
+<td>0</td>
+<td>-1</td>
+<td>2</td>
+<td>3</td>
+<td>-2</td>
+<td>-1</td>
+<td>-1</td>
+<td>-2</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>-1</td>
+<td>0</td>
+<td>-1</td>
+</tr>
+<tr class="odd">
+<td>x</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>9</td>
+<td>4</td>
+<td>1</td>
+<td>1</td>
+<td>4</td>
+<td>0</td>
+<td>1</td>
+<td>4</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><span class="math inline">\(\widehat{cov}(Z_t-\bar{Z}, Z_t-\bar{Z})= \frac{32}{15}\)</span></li>
+</ul>
+<p><code>-</code> <span class="math inline">\(h=1 : lag=1\)</span></p>
+<p><img src="2023-05-16-4wk_files/figure-html/0f2c1102-d908-4113-98e4-f9932f4675c7-1-b2ae37b4-9474-40a3-9263-74742dceff61.png" class="img-fluid"></p>
+<p><code>-</code> <span class="math inline">\(h=2 : lag=2\)</span></p>
+<p><img src="2023-05-16-4wk_files/figure-html/88a1065d-447b-4652-8f17-840c2c262347-1-9fb83f51-958f-48e6-bf2e-7371debe827a.png" class="img-fluid"></p>
+<ul>
+<li>위의 내용을 실습을 통해서 확인해보자.</li>
+</ul>
+</section>
+<section id="r-실습" class="level1">
+<h1>R 실습</h1>
+<p>다음의 시계열이 주어졌다. SACF <span class="math inline">\(\hat{\rho}_k, k=1,2,3\)</span>과 <span class="math inline">\(\hat{\phi}_{kk},k=1,2,3\)</span>을 직접 계산하라.</p>
+<div class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>zt <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="dv">6</span>,<span class="dv">5</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">5</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">print</span>(<span class="fu">mean</span>(zt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p><code>-</code> 방법1: 직접 구현</p>
+<div class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="do">## lag0</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>yt<span class="ot">&lt;-</span> <span class="fu">c</span>(zt<span class="sc">-</span><span class="fu">mean</span>(zt))</span>
+<span id="cb3-3"><a href="#cb3-3"></a>gamma0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(yt<span class="sc">*</span>yt)<span class="sc">/</span><span class="dv">15</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">cat</span>(<span class="st">'gamma0: '</span>, <span class="fu">sum</span>(yt<span class="sc">*</span>yt),<span class="st">'/'</span>,<span class="dv">15</span>,<span class="st">'</span><span class="sc">\n</span><span class="st">'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="fu">cat</span>(<span class="st">'rho0: '</span>, gamma0<span class="sc">/</span>gamma0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>gamma0:  32 / 15 
+rho0:  1</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="do">## lag1</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>yt1<span class="ot">&lt;-</span> <span class="fu">c</span>(yt,<span class="dv">0</span>) <span class="co"># 맨 마지막에 0 추가.</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>yt_lag1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,zt<span class="sc">-</span><span class="fu">mean</span>(zt)) <span class="co"># 한 칸씩 밀린 형태.</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>gamma1<span class="ot">&lt;-</span><span class="fu">sum</span>(yt1<span class="sc">*</span>yt_lag1)<span class="sc">/</span><span class="dv">15</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>rho1 <span class="ot">&lt;-</span> gamma1<span class="sc">/</span>gamma0</span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">cat</span>(<span class="st">'rho1: '</span>, <span class="fu">sum</span>(yt1<span class="sc">*</span>yt_lag1),<span class="st">'/'</span>,<span class="fu">sum</span>(yt<span class="sc">*</span>yt))</span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">cat</span>(<span class="st">' ='</span>, rho1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>rho1:  3 / 32 = 0.09375</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="dv">3</span><span class="sc">/</span><span class="dv">32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+0.09375
+</div>
+</div>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="do">## lag2</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>yt2<span class="ot">&lt;-</span><span class="fu">c</span>(yt,<span class="dv">0</span>,<span class="dv">0</span>) <span class="co"># 맨 마지막에 0 2개 추가.</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>yt_lag2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,zt<span class="sc">-</span><span class="fu">mean</span>(zt))</span>
+<span id="cb8-4"><a href="#cb8-4"></a>gamma2<span class="ot">&lt;-</span><span class="fu">sum</span>(yt2<span class="sc">*</span>yt_lag2)<span class="sc">/</span><span class="dv">15</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>rho2<span class="ot">&lt;-</span>gamma2<span class="sc">/</span>gamma0</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="fu">cat</span>(<span class="st">'rho2: '</span>,<span class="fu">sum</span>(yt2<span class="sc">*</span>yt_lag2),<span class="st">'/'</span>,<span class="fu">sum</span>(yt<span class="sc">*</span>yt))</span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="fu">cat</span>(<span class="st">' ='</span>, rho2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>rho2:  -9 / 32 = -0.28125</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="sc">-</span><span class="dv">9</span><span class="sc">/</span><span class="dv">32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+-0.28125
+</div>
+</div>
+<div class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="do">## lag3</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>yt3<span class="ot">&lt;-</span><span class="fu">c</span>(yt,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb11-3"><a href="#cb11-3"></a>yt_lag3<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,yt)</span>
+<span id="cb11-4"><a href="#cb11-4"></a>gamma3<span class="ot">&lt;-</span><span class="fu">sum</span>(yt3<span class="sc">*</span>yt_lag3)<span class="sc">/</span><span class="dv">15</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="fu">cat</span>(<span class="st">'rho3: '</span>, <span class="fu">sum</span>(yt3<span class="sc">*</span>yt_lag3),<span class="st">'/'</span>,<span class="fu">sum</span>(yt<span class="sc">*</span>yt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>rho3:  -4 / 32</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="sc">-</span><span class="dv">4</span><span class="sc">/</span><span class="dv">32</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+-0.125
+</div>
+</div>
+<p><code>-</code> 방법2: 함수이용 (이렇게 하면 됩니다!)</p>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">acf</span>(zt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-16-4wk_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">names</span>(<span class="fu">acf</span>(zt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>'acf'</li><li>'type'</li><li>'n.used'</li><li>'lag'</li><li>'series'</li><li>'snames'</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-16-4wk_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">acf</span>(zt)<span class="sc">$</span>acf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class="list-inline"><li>1</li><li>0.09375</li><li>-0.28125</li><li>-0.125</li><li>-0.1875</li><li>-0.25</li><li>0.09375</li><li>0.3125</li><li>-0.03125</li><li>-0.0625</li><li>-0.03125</li><li>0</li></ol>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-05-16-4wk_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>rho0, rho1, rho2,…을 의미</li>
+</ul>
+<p>다음시간은 PACF를 공부해볼 것</p>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>랜덤워크과정<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>예를들어, AR(1): <span class="math inline">\(Z_t = \phi Z_{t-1} + \epsilon_t.\)</span> 이면 <span class="math inline">\(|\phi|&lt;1\)</span> 이면 정상인 것처럼..<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>잘 맞으면 쓰고 안맞으면 1로 되돌아가서 반복.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>지수적으로 감소<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>증폭이 점점 감소하는 sine wave<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>ACF추정치를 SACF라고 한다. Sample ACF의 약자.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>모델 하나에 ACF 함수가 딱 매칭이 된다는말 (1:1 corresponding)<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>교재 p.193 각주 참고<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
