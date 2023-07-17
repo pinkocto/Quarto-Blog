@@ -334,7 +334,7 @@ div.csl-indent {
 <p><span class="math display">\[{\bf B}h({\bf B})=h({\bf B}){\bf B}.\]</span></p>
 <p><strong>Example</strong></p>
 <p>Let <span class="math inline">\({\bf B}\)</span> as</p>
-<div class="cell" data-execution_count="50">
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1"></a>B<span class="op">=</span> [<span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> </span>
 <span id="cb2-3"><a href="#cb2-3"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> </span>
@@ -342,7 +342,7 @@ div.csl-indent {
 <span id="cb2-5"><a href="#cb2-5"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> </span>
 <span id="cb2-6"><a href="#cb2-6"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> </span>
 <span id="cb2-7"><a href="#cb2-7"></a>    <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="50">
+<div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>7×7 Matrix{Int64}:
  0  1  0  0  0  0  0
  0  0  1  0  0  0  0
@@ -354,9 +354,9 @@ div.csl-indent {
 </div>
 </div>
 <p>Define <span class="math inline">\({\boldsymbol h}\)</span> as</p>
-<div class="cell" data-execution_count="51">
+<div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a>h <span class="op">=</span> [<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>3-element Vector{Float64}:
  0.3333333333333333
  0.3333333333333333
@@ -364,9 +364,9 @@ div.csl-indent {
 </div>
 </div>
 <p>Furthermore define <span class="math inline">\({\bf H}=h({\bf B})=h_0{\bf B}^0+h_1{\bf B}^1+h_2{\bf B}^2\)</span></p>
-<div class="cell" data-execution_count="54">
+<div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1"></a>H <span class="op">=</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">0</span> <span class="op">+</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">1</span> <span class="op">+</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="54">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>7×7 Matrix{Float64}:
  0.333333  0.333333  0.333333  0.0       0.0       0.0       0.0
  0.0       0.333333  0.333333  0.333333  0.0       0.0       0.0
@@ -378,9 +378,9 @@ div.csl-indent {
 </div>
 </div>
 <p>Observe following:</p>
-<div class="cell" data-execution_count="55">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1"></a>B<span class="op">*</span>H <span class="op">==</span> H<span class="op">*</span>B </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>true</code></pre>
 </div>
 </div>
