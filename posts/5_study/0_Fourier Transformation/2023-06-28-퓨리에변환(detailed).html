@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="신록예찬">
-<meta name="dcterms.date" content="2023-06-23">
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-07-11">
 
-<title>Quarto-Blog - [PINKOCTO] 퓨리에변환(detailed)</title>
+<title>Quarto-Blog - [Fourier] 퓨리에변환(detailed)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -161,7 +161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><strong>[PINKOCTO]</strong> 퓨리에변환(detailed)</h1>
+      <h1 class="quarto-secondary-nav-title"><strong>[Fourier]</strong> 퓨리에변환(detailed)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -172,7 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block"><strong>[PINKOCTO]</strong> 퓨리에변환(detailed)</h1>
+      <h1 class="title d-none d-lg-block"><strong>[Fourier]</strong> 퓨리에변환(detailed)</h1>
                       </div>
   </div>
     
@@ -182,14 +182,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>신록예찬 </p>
+               <p>JiyunLim </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">June 23, 2023</p>
+        <p class="date">July 11, 2023</p>
       </div>
     </div>
     
@@ -259,7 +259,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#허수파트-해석" id="toc-허수파트-해석" class="nav-link" data-scroll-target="#허수파트-해석">허수파트 해석</a></li>
   <li><a href="#실수파트-해석" id="toc-실수파트-해석" class="nav-link" data-scroll-target="#실수파트-해석">실수파트 해석</a></li>
   </ul></li>
-  <li><a href="#여러-주파수를-가진-cos" id="toc-여러-주파수를-가진-cos" class="nav-link" data-scroll-target="#여러-주파수를-가진-cos">여러 주파수를 가진 cos</a></li>
+  <li><a href="#여러-주파수를-가진-cos" id="toc-여러-주파수를-가진-cos" class="nav-link" data-scroll-target="#여러-주파수를-가진-cos">여러 주파수를 가진 cos</a>
+  <ul class="collapse">
+  <li><a href="#책갈피" id="toc-책갈피" class="nav-link" data-scroll-target="#책갈피"><font color="green">책갈피</font></a></li>
+  </ul></li>
   <li><a href="#여러-주파수를-가진-sin" id="toc-여러-주파수를-가진-sin" class="nav-link" data-scroll-target="#여러-주파수를-가진-sin">여러 주파수를 가진 sin</a></li>
   <li><a href="#요약" id="toc-요약" class="nav-link" data-scroll-target="#요약">요약</a></li>
   <li><a href="#스펙트럼의-해석" id="toc-스펙트럼의-해석" class="nav-link" data-scroll-target="#스펙트럼의-해석">스펙트럼의 해석</a></li>
@@ -273,20 +276,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="5">
+<blockquote class="blockquote">
+<p>Ref: <a href="https://miruetoto.github.io/yechan3/posts/3_Researches/PINKOCTO/2023-06-28-%ED%93%A8%EB%A6%AC%EC%97%90%EB%B3%80%ED%99%98(detailed).html" class="uri">https://miruetoto.github.io/yechan3/posts/3_Researches/PINKOCTO/2023-06-28-%ED%93%A8%EB%A6%AC%EC%97%90%EB%B3%80%ED%99%98(detailed).html</a></p>
+</blockquote>
+<div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="예비학습" class="level1">
 <h1>예비학습</h1>
-<p><code>-</code> Notations: 일반적으로 신호처리에서 사용하는 notation은 통계학에서 사용하는 notation과 다른데 대충 정리하면 아래와 같다.</p>
-<ul>
-<li>자료의수: <span class="math inline">\(N\)</span> // 통계에서는 보통 <span class="math inline">\(n\)</span>으로 씀.</li>
-<li>시간을 나타내는 인덱스: <span class="math inline">\(n\)</span>, <span class="math inline">\(n\)</span>은 0부터 시작 // 통계에서는 <span class="math inline">\(t\)</span>라고 쓰며 <span class="math inline">\(t=1\)</span> 부터 시작함.</li>
-<li>주파수영역의의 인덱스: <span class="math inline">\(k\)</span>, <span class="math inline">\(k\)</span>는 0부터 시작</li>
-<li>이산신호: <span class="math inline">\({\bf x}:=[x[0],x[1],\dots,x[n],\dots,x[N-1]]^\top\)</span> // 통계에서는 <span class="math inline">\({\bf x}:=[x_1,x_2,\dots,x_n]\)</span> 으로 사용</li>
-<li>퓨리에변환된 이산신호: <span class="math inline">\({\bf X}:=[X[0],X[1],\dots,X[k],\dots,X[N-1]]^\top\)</span></li>
-</ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body" title="Notations">
+<p>일반적으로 신호처리에서 사용하는 notation은 통계학에서 사용하는 notation과 다른데 대충 정리하면 아래와 같다. - 자료의수: <span class="math inline">\(N\)</span> // 통계에서는 보통 <span class="math inline">\(n\)</span>으로 씀. - 시간을 나타내는 인덱스: <span class="math inline">\(n\)</span>, <span class="math inline">\(n\)</span>은 0부터 시작 // 통계에서는 <span class="math inline">\(t\)</span>라고 쓰며 <span class="math inline">\(t=1\)</span> 부터 시작함. - 주파수영역의의 인덱스: <span class="math inline">\(k\)</span>, <span class="math inline">\(k\)</span>는 0부터 시작 - 이산신호: <span class="math inline">\({\bf x}:=[x[0],x[1],\dots,x[n],\dots,x[N-1]]^\top\)</span> // 통계에서는 <span class="math inline">\({\bf x}:=[x_1,x_2,\dots,x_n]\)</span> 으로 사용 - 퓨리에변환된 이산신호: <span class="math inline">\({\bf X}:=[X[0],X[1],\dots,X[k],\dots,X[N-1]]^\top\)</span></p>
+</div>
+</div>
 <p><code>-</code> 공식: 이 버전만 기억해도 무방함.</p>
 <ul>
 <li>https://en.wikipedia.org/wiki/Discrete_Fourier_transform</li>
@@ -307,56 +318,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p></p><figcaption class="figure-caption">그림1: 위키에서 긁은 수식</figcaption><p></p>
 </figure>
 </div>
+<ul>
+<li><span class="math inline">\(x[n]\)</span>은 이산신호, <span class="math inline">\(X[k]\)</span> 퓨리에 변환된 이산신호임을 기억하고 있자.</li>
+</ul>
 <p><code>-</code> 예제1</p>
-<div class="cell" data-execution_count="150">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
-<span id="cb2-2"><a href="#cb2-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]) <span class="co"># 이산신호</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>X <span class="op">=</span> np.fft.fft(x)  <span class="co"># 퓨리에 변환된 이산신호</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="151">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="151">
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># 좌변</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="bu">sum</span>(<span class="bu">abs</span>(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>55</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="153">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="153">
-<pre><code>55.0</code></pre>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># 우변</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="bu">sum</span>(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>54.999999999999986</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제2</p>
-<div class="cell" data-execution_count="155">
+<div class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>x <span class="op">=</span> np.cos(<span class="dv">2</span><span class="op">*</span>t)</span>
 <span id="cb7-3"><a href="#cb7-3"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="156">
+<div class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="156">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>40.722432328290004</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="157">
+<div class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="157">
+<div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>40.72243232829</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제3</p>
-<div class="cell" data-execution_count="158">
+<div class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="159">
+<div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="159">
-<pre><code>122.4501425713306</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>97.80056643079052</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="160">
+<div class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="160">
-<pre><code>122.45014257133073</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>97.80056643079051</code></pre>
 </div>
 </div>
 <p><code>-</code> 결론: 무슨 신호를 가져와도 파르스발 정리는 성립함.</p>
@@ -367,17 +383,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>이유: <span class="math inline">\(X[k] = \sum_{n=0}^{N-1}x[n]e^{-\frac{j2\pi kn}{N}}\)</span>에서 <span class="math inline">\(k=0\)</span>을 대입하면 바로 나옴</li>
 </ul>
+<div class="callout-note callout callout-style-simple">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><span class="math inline">\(\begin{align*}X[0] &amp;= \sum_{n=0}^{N-1} x[n]\cdot e^0 \\ \frac{1}{N}X[0] &amp;= \frac{1}{N} \sum_{n=0}^{N-1} x[n]\end{align*}\)</span></p>
+</div>
+</div>
+</div>
 <p><code>-</code> 예제1</p>
-<div class="cell" data-execution_count="171">
+<div class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
 <span id="cb17-2"><a href="#cb17-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="172">
+<p><strong><em>(우변)</em></strong> : <span class="math inline">\(\frac{1}{N}\sum_{n=0}^{N-1} x[n]\)</span></p>
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="172">
+<div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>3.0</code></pre>
 </div>
 </div>
+<p><strong><em>(좌변)</em></strong> : <span class="math inline">\(\frac{1}{N}X[0]\)</span></p>
 <div class="cell" data-execution_count="174">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>X[<span class="dv">0</span>]<span class="op">/</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="174">
@@ -403,20 +431,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <p><code>-</code> 예제3</p>
-<div class="cell" data-execution_count="178">
+<div class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
 <span id="cb27-2"><a href="#cb27-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="179">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="179">
-<pre><code>0.01977183159579816</code></pre>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">len</span>(x) <span class="co"># N</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>100</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="180">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>X[<span class="dv">0</span>]<span class="op">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="180">
-<pre><code>(0.01977183159579816+0j)</code></pre>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>0.14552675633312173</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>X[<span class="dv">0</span>]<span class="op">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>(0.1455267563331217+0j)</code></pre>
 </div>
 </div>
 </section>
@@ -426,52 +460,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="이론-및-예시">이론 및 예시</h2>
 <p><code>-</code> 이론: real-valued signal은 무조건 <span class="math inline">\(|X[k]|^2\)</span>의 그래프가 대칭으로 나옴 (단, <span class="math inline">\(X[0]\)</span>은 제외)</p>
 <p><code>-</code> 예시1:</p>
-<div class="cell" data-execution_count="181">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
-<span id="cb32-2"><a href="#cb32-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="182">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<ul>
-<li>첫항을 제외하고 대칭임</li>
-</ul>
-<p><code>-</code> 예시2:</p>
-<div class="cell" data-execution_count="183">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>])</span>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
 <span id="cb34-2"><a href="#cb34-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="184">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="76">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># plt.plot(abs(X)**2,'o')</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span>
+<span id="cb35-3"><a href="#cb35-3"></a>plt.plot((<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)[<span class="dv">0</span>],<span class="st">'x'</span>)</span>
+<span id="cb35-4"><a href="#cb35-4"></a>plt.axvline(x<span class="op">=</span><span class="fl">2.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="76">
+<pre><code>&lt;matplotlib.lines.Line2D at 0x7f5fc7471dc0&gt;</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
 <li>첫항을 제외하고 대칭임</li>
 </ul>
-<p><code>-</code> 예시3: <span class="math inline">\({\bf x}\)</span>가 복소수일 경우는 첫항을 제외하고 대칭이 되지 않음</p>
-<div class="cell" data-execution_count="195">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span><span class="op">+</span><span class="ot">1j</span>,<span class="dv">2</span><span class="op">+</span><span class="ot">2j</span>,<span class="dv">3</span><span class="op">+</span><span class="ot">3j</span>,<span class="op">-</span><span class="dv">3</span><span class="op">-</span><span class="ot">3j</span>,<span class="op">-</span><span class="dv">2</span><span class="op">-</span><span class="ot">2j</span>,<span class="dv">1</span><span class="op">-</span><span class="ot">1j</span>]) </span>
-<span id="cb36-2"><a href="#cb36-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># 확인</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="66">
+<pre><code>array([225.        ,  18.09016994,   6.90983006,   6.90983006,
+        18.09016994])</code></pre>
 </div>
-<div class="cell" data-execution_count="196">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>첫 항인 <span class="math inline">\(X[0]=225.\)</span>을 제외하고 대칭, 그래프 역시 대칭인 그래프가 나옴.</p>
+<p><code>-</code> 예시2:</p>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>]) <span class="co"># 이산신호</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 퓨리에 변환된 이산신호</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span>
+<span id="cb40-2"><a href="#cb40-2"></a>plt.plot((<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)[<span class="dv">0</span>], <span class="st">'x'</span>)</span>
+<span id="cb40-3"><a href="#cb40-3"></a>plt.axvline(x<span class="op">=</span><span class="dv">3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
+<pre><code>&lt;matplotlib.lines.Line2D at 0x7f5fc74a9e20&gt;</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+<ul>
+<li>첫항을 제외하고 대칭임</li>
+</ul>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
+<pre><code>array([ 0., 64., 12., 16., 12., 64.])</code></pre>
+</div>
+</div>
+<p><code>-</code> 예시3: <span class="math inline">\({\bf x}\)</span>가 복소수일 경우는 첫항을 제외하고 대칭이 되지 않음</p>
+<div class="cell" data-execution_count="77">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span><span class="op">+</span><span class="ot">1j</span>,<span class="dv">2</span><span class="op">+</span><span class="ot">2j</span>,<span class="dv">3</span><span class="op">+</span><span class="ot">3j</span>,<span class="op">-</span><span class="dv">3</span><span class="op">-</span><span class="ot">3j</span>,<span class="op">-</span><span class="dv">2</span><span class="op">-</span><span class="ot">2j</span>,<span class="dv">1</span><span class="op">-</span><span class="ot">1j</span>]) </span>
+<span id="cb44-2"><a href="#cb44-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="78">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>직관적으로, 첫항을 제외하고 대칭이 아님을 알 수 있음.</p>
 </section>
 <section id="왜-xn이-실수일-경우만-xk2이-대칭으로-나올까" class="level2">
 <h2 class="anchored" data-anchor-id="왜-xn이-실수일-경우만-xk2이-대칭으로-나올까">왜 <span class="math inline">\(x[n]\)</span>이 실수일 경우만 <span class="math inline">\(|X[k]|^2\)</span>이 대칭으로 나올까?</h2>
 <p><code>-</code> 예비학습1</p>
 <p>임의의 <span class="math inline">\(0 \leq \alpha \leq 1\)</span>에 대하여 <span class="math inline">\(\cos(2\pi \alpha) =\cos(2\pi (1-\alpha))\)</span> 가 성립함</p>
 <div class="cell" data-execution_count="265">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>alpha <span class="op">=</span> <span class="fl">0.2</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha),np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>alpha <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha),np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="265">
 <pre><code>(0.30901699437494745, 0.30901699437494723)</code></pre>
 </div>
@@ -479,11 +540,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>그래프를 잘 그려보세여</li>
 </ul>
+<div class="cell" data-execution_count="168">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>N <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>alpha_ <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,N)</span>
+<span id="cb48-3"><a href="#cb48-3"></a>plt.plot(alpha_, np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha_), <span class="st">'o'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">'cos(2*pi*alpha)'</span>)</span>
+<span id="cb48-4"><a href="#cb48-4"></a>plt.plot(alpha_, np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha_)), <span class="st">'x'</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'cos(2*pi*(1-alpha))'</span>)</span>
+<span id="cb48-5"><a href="#cb48-5"></a>plt.legend(loc<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="168">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f5fc44edee0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-31-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> 예비학습2</p>
 <p>임의의 <span class="math inline">\(0 \leq \alpha \leq 1\)</span>에 대하여 <span class="math inline">\(\sin(2\pi \alpha) = -\sin(2\pi (1-\alpha))\)</span> 가 성립함</p>
 <div class="cell" data-execution_count="266">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>alpha <span class="op">=</span> <span class="fl">0.2</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha),np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>alpha <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha),np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="266">
 <pre><code>(0.9510565162951535, -0.9510565162951536)</code></pre>
 </div>
@@ -491,14 +565,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>그래프를 잘 그려보세여</li>
 </ul>
+<div class="cell" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>N <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>alpha_ <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,N)</span>
+<span id="cb52-3"><a href="#cb52-3"></a>plt.plot(alpha_, np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha_), <span class="st">'o'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">'sin(2*pi*alpha)'</span>)</span>
+<span id="cb52-4"><a href="#cb52-4"></a>plt.plot(alpha_, <span class="op">-</span>np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha_)), <span class="st">'x'</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'-sin(2*pi*(1-alpha))'</span>)</span>
+<span id="cb52-5"><a href="#cb52-5"></a>plt.legend(loc<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="121">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f5fc6533df0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="124">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># 잘못된 그림..</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>N <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb54-3"><a href="#cb54-3"></a>alpha_ <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,N)</span>
+<span id="cb54-4"><a href="#cb54-4"></a>plt.plot(alpha_, np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha_), <span class="st">'o'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">'sin(2*pi*alpha)'</span>)</span>
+<span id="cb54-5"><a href="#cb54-5"></a>plt.plot(alpha_, np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha_)), <span class="st">'x'</span>, color<span class="op">=</span><span class="st">'red'</span>, label<span class="op">=</span><span class="st">'sin(2*pi*(1-alpha))'</span>)</span>
+<span id="cb54-6"><a href="#cb54-6"></a>plt.legend(loc<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="124">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f5fc63676d0&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> 왜 실수일경우만 대칭인지? (어디 정리된걸 아무리 찾아도 못찾겠어서 그냥 직접 수식을 썼는데요, 이걸 기억할 필요는 없어요.. 아마 제가 쓴것보다 쉽게 설명하는 방법이 있을겁니다)</p>
-<p>(해설) <span class="math inline">\(k=0,1,2,\dots,N-1\)</span>에 대하여 <span class="math inline">\(X[k]\)</span>는 아래와 같이 표현가능하다.</p>
+<p><code>(해설)</code> <span class="math inline">\(k=0,1,2,\dots,N-1\)</span>에 대하여 <span class="math inline">\(X[k]\)</span>는 아래와 같이 표현가능하다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]e^{-\frac{j2\pi kn}{N}}\]</span></p>
-<p>오일러공식을 사용하면 아래와 같이 정리할 수 있다.</p>
+<p>오일러공식<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>을 사용하면 아래와 같이 정리할 수 있다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(-\frac{2\pi kn}{N}\right) + i \sum_{n=0}^{N-1}x[n]\sin\left(-\frac{2\pi kn}{N}\right)\]</span></p>
-<p>cos은 짝함수, sin은 홀함수임을 이용하여 다시정리하면</p>
+<p><span class="math inline">\(\cos\)</span>은 짝함수<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, <span class="math inline">\(\sin\)</span>은 홀함수<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>임을 이용하여 다시정리하면</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
-<p><strong>case1</strong> <span class="math inline">\(k=1\)</span> 인 경우와 <span class="math inline">\(k=N-1\)</span>인 경우는 서로 <span class="math inline">\(|X[k]|^2\)</span>이 같음을 보이자.</p>
+<p><strong><font color="blue">case1</font></strong> <span class="math inline">\(k=1\)</span> 인 경우와 <span class="math inline">\(k=N-1\)</span>인 경우는 서로 <span class="math inline">\(|X[k]|^2\)</span>이 같음을 보이자.</p>
 <p><span class="math display">\[X[1] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi n}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi n}{N}\right)\]</span></p>
 <p><span class="math display">\[X[N-1] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi (N-1)n}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi(N-1) n}{N}\right)\]</span></p>
 <p>여기에서 예비학습1,2를 떠올리면 <span class="math inline">\(\cos\left(\frac{2\pi n}{N}\right)=\cos\left(\frac{2\pi (N-1)n}{N}\right)\)</span> 이고 <span class="math inline">\(\sin\left(\frac{2\pi n}{N}\right)=-\sin\left(\frac{2\pi(N-1) n}{N}\right)\)</span> 임을 알 수 있다. 따라서 <span class="math inline">\(X[1]\)</span>와 <span class="math inline">\(X[N-1]\)</span>은 켤레복소수이다. 즉</p>
@@ -509,16 +610,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote class="blockquote">
 <p>만약에 <span class="math inline">\(x[n]\)</span>이 실수가 아닌경우는 <span class="math inline">\(\cos\left(\frac{2\pi n}{N}\right)=\cos\left(\frac{2\pi (N-1)n}{N}\right)\)</span> 이고 <span class="math inline">\(\sin\left(\frac{2\pi n}{N}\right)=-\sin\left(\frac{2\pi(N-1) n}{N}\right)\)</span> 이라고 하여도 <span class="math inline">\(X[1]\)</span>와 <span class="math inline">\(X[N-1]\)</span>은 켤레복소수라고 주장할수 없다.</p>
 </blockquote>
-<p><strong>case2</strong> <span class="math inline">\(k=2\)</span> 인 경우와 <span class="math inline">\(k=N-2\)</span>인 경우는 서로 <span class="math inline">\(|X[k]|^2\)</span>이 같음도 비슷한 논리로 보일 수 있다.</p>
+<p><strong><font color="blue">case2</font></strong> <span class="math inline">\(k=2\)</span> 인 경우와 <span class="math inline">\(k=N-2\)</span>인 경우는 서로 <span class="math inline">\(|X[k]|^2\)</span>이 같음도 비슷한 논리로 보일 수 있다.</p>
 </section>
 </section>
 <section id="하나의-주파수를-가진-cos" class="level1">
 <h1>하나의 주파수를 가진 cos</h1>
 <p>아래와 같이 하나의 주파수만 있는 <span class="math inline">\(\cos\)</span>을 가정하자.</p>
 <p><span class="math display">\[x[n] = \cos\left(\frac{2\pi n}{N} \right)\]</span></p>
-<div class="cell" data-execution_count="396">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>퓨리에변환은 아래와 같다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
@@ -527,69 +628,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>와 같이 된다. 위의 식은 아래와 같은 특징들이 있다.</p>
 <section id="허수파트-해석" class="level2">
 <h2 class="anchored" data-anchor-id="허수파트-해석">허수파트 해석</h2>
-<p>관찰1: 모든 <span class="math inline">\(k\)</span>에 대하여 <span class="math inline">\(X[k]\)</span>의 허수파트는 항상 0이다.</p>
+<p>관찰1: 모든 <span class="math inline">\(k\)</span>에 대하여 <span class="math inline">\(X[k]\)</span>의 허수파트는 항상 <span class="math inline">\(0\)</span>이다.</p>
 <p><strong>k=0</strong></p>
-<div class="cell" data-execution_count="397">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>k<span class="op">=</span><span class="dv">0</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>sin_part_0 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="127">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>k<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>sin_part_0 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="398">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>x<span class="op">*</span>sin_part_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="398">
+<div class="cell" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>x<span class="op">*</span>sin_part_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="128">
 <pre><code>array([ 0.,  0.,  0.,  0., -0., -0., -0., -0., -0., -0., -0., -0.,  0.,
         0.,  0.])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="399">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="399">
+<div class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="129">
 <pre><code>0.0</code></pre>
 </div>
 </div>
+<ul>
+<li><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 <span class="math inline">\(0\)</span></li>
+</ul>
 <p><strong>k=1</strong></p>
-<div class="cell" data-execution_count="400">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>k<span class="op">=</span><span class="dv">1</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a>sin_part_1 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>k<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>sin_part_1 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="401">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>x<span class="op">*</span>sin_part_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="401">
+<div class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>x<span class="op">*</span>sin_part_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="131">
 <pre><code>array([ 0.        ,  0.37157241,  0.49726095,  0.29389263, -0.10395585,
        -0.4330127 , -0.47552826, -0.20336832,  0.20336832,  0.47552826,
         0.4330127 ,  0.10395585, -0.29389263, -0.49726095, -0.37157241])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="402">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="402">
+<div class="cell" data-execution_count="132">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="132">
 <pre><code>1.0547118733938987e-15</code></pre>
 </div>
 </div>
+<ul>
+<li>거의 <span class="math inline">\(0\)</span></li>
+</ul>
 <p>약간을 직관을 위해서 그림을 그려보자.</p>
 <div class="cell" data-execution_count="403">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
-<span id="cb53-2"><a href="#cb53-2"></a>plt.plot(sin_part_1,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
+<span id="cb67-2"><a href="#cb67-2"></a>plt.plot(sin_part_1,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-42-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><span class="math inline">\(x\)</span>가 <span class="math inline">\(\mathbb{R}\)</span>에서 정의된 연속함수라고 상상하면 <span class="math inline">\(\sum_{n=0}^{N-1}\cos\left(\frac{2\pi n}{N} \right)\sin\left(\frac{2\pi kn}{N}\right)\)</span>에 대응하는 식은 <span class="math inline">\(\int_0^{2\pi}\cos(t)\sin(t)dt\)</span>라고 볼 수 있어서 <code>sum(x*sin_part_1)=0</code>임을 더 쉽게 이해할 수 있다.</p>
 <p><strong>k=2</strong></p>
-<div class="cell" data-execution_count="404">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>k<span class="op">=</span><span class="dv">2</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>sin_part_2 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>k<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a>sin_part_2 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="405">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
-<span id="cb55-2"><a href="#cb55-2"></a>plt.plot(sin_part_2,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="137">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>plt.plot(x,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'cos(t)'</span>)</span>
+<span id="cb69-2"><a href="#cb69-2"></a>plt.plot(sin_part_2,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'sin(2t)'</span>)</span>
+<span id="cb69-3"><a href="#cb69-3"></a>plt.legend(loc<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="137">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f5fc6129190&gt;</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-44-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><span class="math inline">\(x\)</span>가 <span class="math inline">\(\mathbb{R}\)</span>에서 정의된 연속함수라고 상상하면 파란선에 대응하는것은 <span class="math inline">\(\cos(t)\)</span> 주황선에 대응하는 것은 <span class="math inline">\(\sin(2t)\)</span>로 볼 수 있는데 둘은 직교하므로 둘을 곱한뒤 적분하면 (더하면) 0이 된다.</p>
-<div class="cell" data-execution_count="406">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="406">
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="138">
 <pre><code>-1.2212453270876722e-15</code></pre>
 </div>
 </div>
@@ -603,30 +714,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[\sum_{n=0}^{N-1}\cos\left(\frac{2\pi n}{N} \right)^2\]</span></p>
 <p>그외의 경우에는 아래와 같이 된다.</p>
 <p><strong>k=0</strong></p>
-<div class="cell" data-execution_count="407">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>k<span class="op">=</span><span class="dv">0</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a>cos_part_0 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>k<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a>cos_part_0 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>cos_part_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="140">
+<pre><code>array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])</code></pre>
+</div>
 </div>
 <div class="cell" data-execution_count="408">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
-<span id="cb59-2"><a href="#cb59-2"></a>plt.plot(cos_part_0,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
+<span id="cb76-2"><a href="#cb76-2"></a>plt.plot(cos_part_0,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
 <li>파란선에 대응하는것은 <span class="math inline">\(\cos(t)\)</span> 주황선에 대응하는 것은 <span class="math inline">\(1\)</span>로 볼 수 있는데 둘은 직교하므로 둘을 곱한뒤 적분하면 (더하면) 0이 된다.</li>
 </ul>
 <p><strong>k=2</strong></p>
-<div class="cell" data-execution_count="409">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>k<span class="op">=</span><span class="dv">2</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a>cos_part_2 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>k<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a>cos_part_2 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="410">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
-<span id="cb61-2"><a href="#cb61-2"></a>plt.plot(cos_part_2,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>plt.plot(x,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'cos(t)'</span>)</span>
+<span id="cb78-2"><a href="#cb78-2"></a>plt.plot(cos_part_2,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'cos(2t)'</span>)</span>
+<span id="cb78-3"><a href="#cb78-3"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="143">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f5fc5fc2fd0&gt;</code></pre>
+</div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-43-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-50-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -638,15 +759,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>이때 퓨리에변환 <span class="math inline">\(X[k]\)</span>는 아래와 같이 정리된다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 0이 되고, 실수 파트는 <span class="math inline">\(k=1,N-1\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>X <span class="op">=</span> np.fft.fft(x)</span>
-<span id="cb62-2"><a href="#cb62-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
-<span id="cb62-3"><a href="#cb62-3"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
-<span id="cb62-4"><a href="#cb62-4"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>)</span>
-<span id="cb62-5"><a href="#cb62-5"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>)</span>
-<span id="cb62-6"><a href="#cb62-6"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="149">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 퓨리에 변환된 이산신호</span></span>
+<span id="cb80-2"><a href="#cb80-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb80-3"><a href="#cb80-3"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>) </span>
+<span id="cb80-4"><a href="#cb80-4"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>) <span class="co"># 실수파트</span></span>
+<span id="cb80-5"><a href="#cb80-5"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>) <span class="co"># 허수파트</span></span>
+<span id="cb80-6"><a href="#cb80-6"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-44-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-51-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 응용: <span class="math inline">\(x[n]\)</span>이 아래와 같은 꼴이라고 하자.</p>
@@ -654,19 +775,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>퓨리에변환 <span class="math inline">\(X[k]\)</span>는 아래와 같이 정리된다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 0이 되고, 실수 파트는 <span class="math inline">\(k=3,N-3\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
-<div class="cell" data-execution_count="414">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb63-2"><a href="#cb63-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
-<span id="cb63-3"><a href="#cb63-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
-<span id="cb63-4"><a href="#cb63-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
-<span id="cb63-5"><a href="#cb63-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
-<span id="cb63-6"><a href="#cb63-6"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>)</span>
-<span id="cb63-7"><a href="#cb63-7"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>)</span>
-<span id="cb63-8"><a href="#cb63-8"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb81-2"><a href="#cb81-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># 이산신호</span></span>
+<span id="cb81-3"><a href="#cb81-3"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 퓨리에 변환된 이산신호</span></span>
+<span id="cb81-4"><a href="#cb81-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb81-5"><a href="#cb81-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
+<span id="cb81-6"><a href="#cb81-6"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>) <span class="co"># 실수파트</span></span>
+<span id="cb81-7"><a href="#cb81-7"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>) <span class="co"># 허수파트</span></span>
+<span id="cb81-8"><a href="#cb81-8"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-45-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-52-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<ul>
+<li><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 <span class="math inline">\(0\)</span></li>
+<li><span class="math inline">\(X[k]\)</span>의 실수파트는 <span class="math inline">\(X[3], X[12]\)</span>일 경우에만 값을 가지고 나머지는 <span class="math inline">\(0\)</span></li>
+</ul>
 </section>
 </section>
 <section id="여러-주파수를-가진-cos" class="level1">
@@ -676,44 +801,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>퓨리에변환 <span class="math inline">\(X[k]\)</span>는 아래와 같이 정리된다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 0이 되고, 실수 파트는 <span class="math inline">\(k=1,3,N-3,N-1\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
-<div class="cell" data-execution_count="466">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb64-2"><a href="#cb64-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
-<span id="cb64-3"><a href="#cb64-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
-<span id="cb64-4"><a href="#cb64-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
-<span id="cb64-5"><a href="#cb64-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
-<span id="cb64-6"><a href="#cb64-6"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>)</span>
-<span id="cb64-7"><a href="#cb64-7"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>)</span>
-<span id="cb64-8"><a href="#cb64-8"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb82-2"><a href="#cb82-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])  <span class="co"># 이산신호</span></span>
+<span id="cb82-3"><a href="#cb82-3"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 푸리에 변환된 이산신호</span></span>
+<span id="cb82-4"><a href="#cb82-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb82-5"><a href="#cb82-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
+<span id="cb82-6"><a href="#cb82-6"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>) <span class="co"># 실수파트</span></span>
+<span id="cb82-7"><a href="#cb82-7"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>) <span class="co"># 허수파트</span></span>
+<span id="cb82-8"><a href="#cb82-8"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-46-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-53-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<section id="책갈피" class="level2">
+<h2 class="anchored" data-anchor-id="책갈피"><font color="green">책갈피</font></h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>이것은 <span class="math inline">\(x[n]\)</span>을 아래와 같이 나눈뒤</p>
 <ul>
 <li><span class="math inline">\(x_1[n] = \cos\left(\frac{2\pi n}{N} \right)\)</span></li>
 <li><span class="math inline">\(x_2[n] = 2\times\cos\left(\frac{6\pi n}{N} \right)\)</span></li>
 </ul>
 <p>각각 퓨리에변환한 결과를 합친것과 같다.</p>
-<div class="cell" data-execution_count="473">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb65-2"><a href="#cb65-2"></a>x1 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
-<span id="cb65-3"><a href="#cb65-3"></a>x2 <span class="op">=</span> np.array([<span class="dv">2</span><span class="op">*</span>np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
-<span id="cb65-4"><a href="#cb65-4"></a>X1 <span class="op">=</span> np.fft.fft(x1)</span>
-<span id="cb65-5"><a href="#cb65-5"></a>X2 <span class="op">=</span> np.fft.fft(x2)</span>
-<span id="cb65-6"><a href="#cb65-6"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb65-7"><a href="#cb65-7"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].plot(x1,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'x1[n]'</span>)</span>
-<span id="cb65-8"><a href="#cb65-8"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].plot(np.real(X1),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'real(X1[k])'</span>)</span>
-<span id="cb65-9"><a href="#cb65-9"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].plot(np.imag(X1),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'imag(X1[k])'</span>)</span>
-<span id="cb65-10"><a href="#cb65-10"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].plot(x2,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'x2[n]'</span>)</span>
-<span id="cb65-11"><a href="#cb65-11"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].plot(np.real(X2),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'real(X2[k])'</span>)</span>
-<span id="cb65-12"><a href="#cb65-12"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].plot(np.imag(X2),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'imag(X2[k])'</span>)</span>
-<span id="cb65-13"><a href="#cb65-13"></a>fig.set_figwidth(<span class="dv">15</span>)</span>
-<span id="cb65-14"><a href="#cb65-14"></a>fig.set_figheight(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb83-2"><a href="#cb83-2"></a>x1 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal1</span></span>
+<span id="cb83-3"><a href="#cb83-3"></a>x2 <span class="op">=</span> np.array([<span class="dv">2</span><span class="op">*</span>np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal2</span></span>
+<span id="cb83-4"><a href="#cb83-4"></a>X1 <span class="op">=</span> np.fft.fft(x1) <span class="co"># fft(signal1)</span></span>
+<span id="cb83-5"><a href="#cb83-5"></a>X2 <span class="op">=</span> np.fft.fft(x2) <span class="co"># fft(signal2)</span></span>
+<span id="cb83-6"><a href="#cb83-6"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb83-7"><a href="#cb83-7"></a>ax[<span class="dv">0</span>][<span class="dv">0</span>].plot(x1,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">0</span>].set_title(<span class="st">'x1[n]'</span>)</span>
+<span id="cb83-8"><a href="#cb83-8"></a>ax[<span class="dv">0</span>][<span class="dv">1</span>].plot(np.real(X1),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">1</span>].set_title(<span class="st">'real(X1[k])'</span>)</span>
+<span id="cb83-9"><a href="#cb83-9"></a>ax[<span class="dv">0</span>][<span class="dv">2</span>].plot(np.imag(X1),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">0</span>][<span class="dv">2</span>].set_title(<span class="st">'imag(X1[k])'</span>)</span>
+<span id="cb83-10"><a href="#cb83-10"></a>ax[<span class="dv">1</span>][<span class="dv">0</span>].plot(x2,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">0</span>].set_title(<span class="st">'x2[n]'</span>)</span>
+<span id="cb83-11"><a href="#cb83-11"></a>ax[<span class="dv">1</span>][<span class="dv">1</span>].plot(np.real(X2),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">1</span>].set_title(<span class="st">'real(X2[k])'</span>)</span>
+<span id="cb83-12"><a href="#cb83-12"></a>ax[<span class="dv">1</span>][<span class="dv">2</span>].plot(np.imag(X2),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>][<span class="dv">2</span>].set_title(<span class="st">'imag(X2[k])'</span>)</span>
+<span id="cb83-13"><a href="#cb83-13"></a>fig.set_figwidth(<span class="dv">15</span>)</span>
+<span id="cb83-14"><a href="#cb83-14"></a>fig.set_figheight(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-47-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-54-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+</section>
 </section>
 <section id="여러-주파수를-가진-sin" class="level1">
 <h1>여러 주파수를 가진 sin</h1>
@@ -723,30 +863,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p>앞의 논의와 유사하게 전개하면 <span class="math inline">\(X[k]\)</span>의 실수파트는 항상 0이 되고, 허수파트는 <span class="math inline">\(k=1,3,N-3,N-1\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
 <div class="cell" data-execution_count="474">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb66-2"><a href="#cb66-2"></a>x <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>np.sin(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
-<span id="cb66-3"><a href="#cb66-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
-<span id="cb66-4"><a href="#cb66-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
-<span id="cb66-5"><a href="#cb66-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
-<span id="cb66-6"><a href="#cb66-6"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>)</span>
-<span id="cb66-7"><a href="#cb66-7"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>)</span>
-<span id="cb66-8"><a href="#cb66-8"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb84-2"><a href="#cb84-2"></a>x <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>np.sin(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
+<span id="cb84-3"><a href="#cb84-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
+<span id="cb84-4"><a href="#cb84-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb84-5"><a href="#cb84-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
+<span id="cb84-6"><a href="#cb84-6"></a>ax[<span class="dv">1</span>].plot(np.real(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>)</span>
+<span id="cb84-7"><a href="#cb84-7"></a>ax[<span class="dv">2</span>].plot(np.imag(X),<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>)</span>
+<span id="cb84-8"><a href="#cb84-8"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-55-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<ul>
+<li><span class="math inline">\(X[k]\)</span>의 실수파트는 항상 <span class="math inline">\(0\)</span>.</li>
+<li><span class="math inline">\(X[k]\)</span>의 허수파트는 <span class="math inline">\(X[1], X[3], X[12], X[14]\)</span>일 경우에만 값을 가지고 나머지는 <span class="math inline">\(0\)</span>.</li>
+</ul>
 </section>
 <section id="요약" class="level1">
 <h1>요약</h1>
-<p><code>-</code> <span class="math inline">\(x[n]\)</span>이 여러주파수를 가진 cos이라면 <span class="math inline">\(X[k]\)</span>는 아래와 같은 성질을 가지고</p>
+<p><code>-</code> <span class="math inline">\(x[n]\)</span>이 여러주파수를 가진 <span class="math inline">\(\cos\)</span>이라면 <span class="math inline">\(X[k]\)</span>는 아래와 같은 성질을 가지고</p>
 <ul>
-<li>허수파트: 항상 0</li>
+<li>허수파트: 항상 <span class="math inline">\(0\)</span></li>
 <li>실수파트: 해당 주파수에서만 값을 가짐</li>
 </ul>
 <p><span class="math inline">\(|X[k]|\)</span>는 <span class="math inline">\(k=0\)</span>을 제외하고 항상 대칭임</p>
-<p><code>-</code> <span class="math inline">\(x[n]\)</span>이 여러주파수를 가진 sin이라면 <span class="math inline">\(X[k]\)</span>는 아래와 같은 성질을 가지고</p>
+<p><code>-</code> <span class="math inline">\(x[n]\)</span>이 여러주파수를 가진 <span class="math inline">\(\sin\)</span>이라면 <span class="math inline">\(X[k]\)</span>는 아래와 같은 성질을 가지고</p>
 <ul>
-<li>실수파트: 항상 0</li>
+<li>실수파트: 항상 <span class="math inline">\(0\)</span></li>
 <li>허수파트: 해당 주파수에서만 값을 가짐</li>
 </ul>
 <p><span class="math inline">\(|X[k]|\)</span>는 <span class="math inline">\(k=0\)</span>을 제외하고 항상 대칭임</p>
@@ -764,21 +908,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><span class="math inline">\(x[n] = \frac{1}{2}\left(e^{i \frac{2\pi n}{N}}+e^{-i \frac{2\pi n}{N}}\right)\)</span></li>
 <li><span class="math inline">\(x^2[n] = \frac{1}{4}\left(e^{i \frac{4\pi n}{N}}+e^{-i \frac{4\pi n}{N}}+2\right)=\frac{1}{2} + \frac{1}{2}\cos\left(\frac{4\pi n}{N}\right)\)</span></li>
 </ul>
-<p>이중에서 <span class="math inline">\(\sum_{n=0}^{N-1}\cos\left(\frac{4\pi n}{N} \right)\)</span> 은 0이되므로 <span class="math inline">\(\sum_{n=0}^{N-1}x^2[n]=\frac{N}{2}\)</span>이다.</p>
+<p>이중에서 <span class="math inline">\(\sum_{n=0}^{N-1}\cos\left(\frac{4\pi n}{N} \right)\)</span> 은 <span class="math inline">\(0\)</span>이되므로 <span class="math inline">\(\sum_{n=0}^{N-1}x^2[n]=\frac{N}{2}\)</span>이다.</p>
 <div class="cell" data-execution_count="562">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span>
-<span id="cb67-3"><a href="#cb67-3"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
-<span id="cb67-4"><a href="#cb67-4"></a><span class="bu">print</span>((x<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>(), N<span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal</span></span>
+<span id="cb85-3"><a href="#cb85-3"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
+<span id="cb85-4"><a href="#cb85-4"></a><span class="bu">print</span>((x<span class="op">**</span><span class="dv">2</span>).<span class="bu">sum</span>(), N<span class="op">/</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>7.500000000000002 7.5</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-49-output-2.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-56-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+<ul>
+<li><span class="math inline">\(\sum_{n=0}^{N-1}x^2[n]=\frac{N}{2}=7.5\)</span></li>
+</ul>
 <div class="cell" data-execution_count="545">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="545">
 <pre><code>(array([ 1.0000000e+00,  6.1232340e-17, -1.0000000e+00, -1.8369702e-16]),
  array([ 0.0000000e+00,  1.0000000e+00,  1.2246468e-16, -1.0000000e+00]))</code></pre>
@@ -798,48 +945,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>이 성립한다. 따라서</p>
 <ul>
 <li><span class="math inline">\(\beta_1^2 = \frac{4}{N^2}|X[1]|^2\)</span></li>
-<li><span class="math inline">\(\beta_1 = \frac{2}{N}|X[1]|^2\)</span></li>
+<li><span class="math inline">\(\beta_1 = \frac{2}{N}|X[1]|\)</span></li>
 </ul>
 <p>이 성립한다.</p>
-<div class="cell" data-execution_count="590">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb71-2"><a href="#cb71-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span>
-<span id="cb71-3"><a href="#cb71-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
-<span id="cb71-4"><a href="#cb71-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb71-5"><a href="#cb71-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
-<span id="cb71-6"><a href="#cb71-6"></a>ax[<span class="dv">1</span>].plot(<span class="bu">abs</span>(X)<span class="op">*</span><span class="dv">2</span><span class="op">/</span>N,<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="vs">r'$\frac</span><span class="sc">{2}{N}</span><span class="vs">|X[k]|$'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="590">
+<div class="cell" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb89-2"><a href="#cb89-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span>
+<span id="cb89-3"><a href="#cb89-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
+<span id="cb89-4"><a href="#cb89-4"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb89-5"><a href="#cb89-5"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
+<span id="cb89-6"><a href="#cb89-6"></a>ax[<span class="dv">1</span>].plot(<span class="bu">abs</span>(X)<span class="op">*</span><span class="dv">2</span><span class="op">/</span>N,<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="vs">r'$\frac</span><span class="sc">{2}{N}</span><span class="vs">|X[k]|$'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="158">
 <pre><code>Text(0.5, 1.0, '$\\frac{2}{N}|X[k]|$')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-51-output-2.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-58-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+<div class="cell" data-execution_count="164">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>(np.real(X)[<span class="dv">1</span>])<span class="op">*</span><span class="dv">2</span><span class="op">/</span>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="164">
+<pre><code>1.0</code></pre>
+</div>
+</div>
+<p>따라서 <span class="math inline">\(\beta_1=1\)</span>이며, <span class="math inline">\(x[n] = \cos\left(\frac{2\pi n}{N}\right)\)</span></p>
 <p><code>-</code> 예제2: 만약에 <span class="math inline">\(x[n]\)</span>이 아래와 같은 꼴이라고 하자.</p>
 <p><span class="math display">\[x[n] = \beta_1 \cos\left(1\times \frac{2\pi n}{N} \right) + \beta_2\cos\left(2\times \frac{2\pi n}{N} \right) +\beta_7 \cos\left(7\times \frac{2\pi n}{N} \right)\]</span></p>
-<div class="cell" data-execution_count="581">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>beta1 <span class="op">=</span> <span class="dv">3</span> </span>
-<span id="cb73-2"><a href="#cb73-2"></a>beta2 <span class="op">=</span> <span class="fl">0.5</span></span>
-<span id="cb73-3"><a href="#cb73-3"></a>beta7 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>beta1 <span class="op">=</span> <span class="dv">3</span> </span>
+<span id="cb93-2"><a href="#cb93-2"></a>beta2 <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb93-3"><a href="#cb93-3"></a>beta7 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="592">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb74-2"><a href="#cb74-2"></a>n <span class="op">=</span> np.arange(<span class="dv">15</span>) </span>
-<span id="cb74-3"><a href="#cb74-3"></a>x <span class="op">=</span> beta1 <span class="op">*</span> np.cos(<span class="dv">1</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="op">+\</span></span>
-<span id="cb74-4"><a href="#cb74-4"></a>beta2 <span class="op">*</span> np.cos(<span class="dv">2</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="op">+\</span></span>
-<span id="cb74-5"><a href="#cb74-5"></a>beta7 <span class="op">*</span> np.cos(<span class="dv">7</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)</span>
-<span id="cb74-6"><a href="#cb74-6"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb94-2"><a href="#cb94-2"></a>n <span class="op">=</span> np.arange(<span class="dv">15</span>) </span>
+<span id="cb94-3"><a href="#cb94-3"></a>x <span class="op">=</span> beta1 <span class="op">*</span> np.cos(<span class="dv">1</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="op">+\</span></span>
+<span id="cb94-4"><a href="#cb94-4"></a>beta2 <span class="op">*</span> np.cos(<span class="dv">2</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="op">+\</span></span>
+<span id="cb94-5"><a href="#cb94-5"></a>beta7 <span class="op">*</span> np.cos(<span class="dv">7</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)</span>
+<span id="cb94-6"><a href="#cb94-6"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="593">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
-<span id="cb75-2"><a href="#cb75-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
-<span id="cb75-3"><a href="#cb75-3"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
-<span id="cb75-4"><a href="#cb75-4"></a>ax[<span class="dv">1</span>].plot(<span class="bu">abs</span>(X)<span class="op">*</span><span class="dv">2</span><span class="op">/</span>N,<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="vs">r'$\frac</span><span class="sc">{2}{N}</span><span class="vs">|X[k]|$'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="593">
+<div class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb95-2"><a href="#cb95-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb95-3"><a href="#cb95-3"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
+<span id="cb95-4"><a href="#cb95-4"></a>ax[<span class="dv">1</span>].plot(<span class="bu">abs</span>(X)<span class="op">*</span><span class="dv">2</span><span class="op">/</span>N,<span class="st">'x'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="vs">r'$\frac</span><span class="sc">{2}{N}</span><span class="vs">|X[k]|$'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="167">
 <pre><code>Text(0.5, 1.0, '$\\frac{2}{N}|X[k]|$')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-54-output-2.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-62-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>위와 같은 방식으로 <span class="math inline">\(\beta_1, \beta_2, \beta_7\)</span>을 각각 구해보자.</p>
+<p><span class="math inline">\(X[n]\)</span>은 <span class="math inline">\(x[n]\)</span>을 아래와 같이 나눈 후</p>
+<ul>
+<li><span class="math inline">\(x_1[n] = \cos\left(\frac{2\pi n}{N} \right)\)</span></li>
+<li><span class="math inline">\(x_2[n] = \cos\left(\frac{4\pi n}{N} \right)\)</span></li>
+<li><span class="math inline">\(x_7[n] = \cos\left(\frac{14\pi n}{N} \right)\)</span></li>
+</ul>
+<p>각각의 퓨리에변환한 결과를 합친것과 같다.</p>
+<div class="cell" data-execution_count="187">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb97-2"><a href="#cb97-2"></a>x1_ <span class="op">=</span> np.array([beta1<span class="op">*</span>np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal1</span></span>
+<span id="cb97-3"><a href="#cb97-3"></a>x2_ <span class="op">=</span> np.array([beta2<span class="op">*</span>np.cos(<span class="dv">4</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal2</span></span>
+<span id="cb97-4"><a href="#cb97-4"></a>x7_ <span class="op">=</span> np.array([beta7<span class="op">*</span>np.cos(<span class="dv">14</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal3</span></span>
+<span id="cb97-5"><a href="#cb97-5"></a>X1_ <span class="op">=</span> np.fft.fft(x1_) <span class="co"># fft(signal1)</span></span>
+<span id="cb97-6"><a href="#cb97-6"></a>X2_ <span class="op">=</span> np.fft.fft(x2_) <span class="co"># fft(signal2)</span></span>
+<span id="cb97-7"><a href="#cb97-7"></a>X7_ <span class="op">=</span> np.fft.fft(x7_) <span class="co"># fft(signal3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="198">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb98-2"><a href="#cb98-2"></a>ax[<span class="dv">0</span>].plot(x, <span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
+<span id="cb98-3"><a href="#cb98-3"></a>ax[<span class="dv">1</span>].plot(X, <span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'X[k]'</span>)</span>
+<span id="cb98-4"><a href="#cb98-4"></a>ax[<span class="dv">2</span>].plot(X1_ <span class="op">+</span> X2_ <span class="op">+</span> X7_, <span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">2</span>].set_title(<span class="st">'X1[k] + X2[k] + X7[k]'</span>)</span>
+<span id="cb98-5"><a href="#cb98-5"></a>fig.set_figwidth(<span class="dv">10</span>)</span>
+<span id="cb98-6"><a href="#cb98-6"></a>fig.set_figheight(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-64-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="188">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="dv">2</span><span class="op">/</span>N <span class="op">*</span> np.real(X1_)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="188">
+<pre><code>3.0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="189">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="dv">2</span><span class="op">/</span>N <span class="op">*</span> np.real(X2_)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="189">
+<pre><code>0.5</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="190">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a><span class="dv">2</span><span class="op">/</span>N <span class="op">*</span> np.real(X7_)[<span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="190">
+<pre><code>-2.000000000000001</code></pre>
 </div>
 </div>
 </section>
@@ -861,30 +1061,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>와 같은 논의가 성립하지는 않는다. 하지만 <strong>대충</strong> 성립한다. 그림으로 비교해보면 아래와 같다.</p>
 <div class="cell" data-execution_count="608">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
-<span id="cb77-2"><a href="#cb77-2"></a>x1 <span class="op">=</span> np.array([np.cos(<span class="fl">2.0</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
-<span id="cb77-3"><a href="#cb77-3"></a>x2 <span class="op">=</span> np.array([np.cos(<span class="fl">2.1</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
-<span id="cb77-4"><a href="#cb77-4"></a>X1 <span class="op">=</span> np.fft.fft(x1)</span>
-<span id="cb77-5"><a href="#cb77-5"></a>X2 <span class="op">=</span> np.fft.fft(x2)</span>
-<span id="cb77-6"><a href="#cb77-6"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
-<span id="cb77-7"><a href="#cb77-7"></a><span class="co">###</span></span>
-<span id="cb77-8"><a href="#cb77-8"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
-<span id="cb77-9"><a href="#cb77-9"></a>ax[<span class="dv">0</span>].plot(x1,<span class="st">'o--'</span>,label<span class="op">=</span><span class="vs">r'$x_1[n]=\cos(2\times\frac{\pi n}</span><span class="sc">{N}</span><span class="vs">)$'</span>)</span>
-<span id="cb77-10"><a href="#cb77-10"></a>ax[<span class="dv">0</span>].plot(x2,<span class="st">'o--'</span>,label<span class="op">=</span><span class="vs">r'$x_2[n]=\cos(2.1\times\frac{\pi n}</span><span class="sc">{N}</span><span class="vs">)$'</span>)</span>
-<span id="cb77-11"><a href="#cb77-11"></a>ax[<span class="dv">0</span>].legend()</span>
-<span id="cb77-12"><a href="#cb77-12"></a><span class="co">###</span></span>
-<span id="cb77-13"><a href="#cb77-13"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>)</span>
-<span id="cb77-14"><a href="#cb77-14"></a>ax[<span class="dv">1</span>].plot(np.real(X1),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'real(X1[k])'</span>)<span class="op">;</span> </span>
-<span id="cb77-15"><a href="#cb77-15"></a>ax[<span class="dv">1</span>].plot(np.real(X2),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'real(X2[k])'</span>)<span class="op">;</span> </span>
-<span id="cb77-16"><a href="#cb77-16"></a>ax[<span class="dv">1</span>].legend()</span>
-<span id="cb77-17"><a href="#cb77-17"></a><span class="co">###</span></span>
-<span id="cb77-18"><a href="#cb77-18"></a>ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>)</span>
-<span id="cb77-19"><a href="#cb77-19"></a>ax[<span class="dv">2</span>].plot(np.imag(X1),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'imag(X1[k])'</span>)</span>
-<span id="cb77-20"><a href="#cb77-20"></a>ax[<span class="dv">2</span>].plot(np.imag(X2),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'imag(X2[k])'</span>)</span>
-<span id="cb77-21"><a href="#cb77-21"></a>ax[<span class="dv">2</span>].legend()</span>
-<span id="cb77-22"><a href="#cb77-22"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
+<span id="cb105-2"><a href="#cb105-2"></a>x1 <span class="op">=</span> np.array([np.cos(<span class="fl">2.0</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
+<span id="cb105-3"><a href="#cb105-3"></a>x2 <span class="op">=</span> np.array([np.cos(<span class="fl">2.1</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
+<span id="cb105-4"><a href="#cb105-4"></a>X1 <span class="op">=</span> np.fft.fft(x1)</span>
+<span id="cb105-5"><a href="#cb105-5"></a>X2 <span class="op">=</span> np.fft.fft(x2)</span>
+<span id="cb105-6"><a href="#cb105-6"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
+<span id="cb105-7"><a href="#cb105-7"></a><span class="co">###</span></span>
+<span id="cb105-8"><a href="#cb105-8"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
+<span id="cb105-9"><a href="#cb105-9"></a>ax[<span class="dv">0</span>].plot(x1,<span class="st">'o--'</span>,label<span class="op">=</span><span class="vs">r'$x_1[n]=\cos(2\times\frac{\pi n}</span><span class="sc">{N}</span><span class="vs">)$'</span>)</span>
+<span id="cb105-10"><a href="#cb105-10"></a>ax[<span class="dv">0</span>].plot(x2,<span class="st">'o--'</span>,label<span class="op">=</span><span class="vs">r'$x_2[n]=\cos(2.1\times\frac{\pi n}</span><span class="sc">{N}</span><span class="vs">)$'</span>)</span>
+<span id="cb105-11"><a href="#cb105-11"></a>ax[<span class="dv">0</span>].legend()</span>
+<span id="cb105-12"><a href="#cb105-12"></a><span class="co">###</span></span>
+<span id="cb105-13"><a href="#cb105-13"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'real(X[k])'</span>)</span>
+<span id="cb105-14"><a href="#cb105-14"></a>ax[<span class="dv">1</span>].plot(np.real(X1),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'real(X1[k])'</span>)<span class="op">;</span> </span>
+<span id="cb105-15"><a href="#cb105-15"></a>ax[<span class="dv">1</span>].plot(np.real(X2),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'real(X2[k])'</span>)<span class="op">;</span> </span>
+<span id="cb105-16"><a href="#cb105-16"></a>ax[<span class="dv">1</span>].legend()</span>
+<span id="cb105-17"><a href="#cb105-17"></a><span class="co">###</span></span>
+<span id="cb105-18"><a href="#cb105-18"></a>ax[<span class="dv">2</span>].set_title(<span class="st">'imag(X[k])'</span>)</span>
+<span id="cb105-19"><a href="#cb105-19"></a>ax[<span class="dv">2</span>].plot(np.imag(X1),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'imag(X1[k])'</span>)</span>
+<span id="cb105-20"><a href="#cb105-20"></a>ax[<span class="dv">2</span>].plot(np.imag(X2),<span class="st">'x'</span>,label<span class="op">=</span><span class="st">'imag(X2[k])'</span>)</span>
+<span id="cb105-21"><a href="#cb105-21"></a>ax[<span class="dv">2</span>].legend()</span>
+<span id="cb105-22"><a href="#cb105-22"></a>fig.set_figwidth(<span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-55-output-1.png" class="img-fluid"></p>
+<p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-68-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><span class="math inline">\(x[n] = \cos\left(\frac{2.1\pi n}{N} \right)\)</span>의 경우의 <span class="math inline">\(X[k]\)</span>의 값은 <span class="math inline">\(x[n] = \cos\left(\frac{2.0\pi n}{N} \right)\)</span>일 때와는 다르게</p>
@@ -900,7 +1100,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><span class="math inline">\(e^{ix}=\cos x + i\sin x\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="math inline">\(f(-x)=f(x)\)</span> // <span class="math inline">\(y\)</span>축 대칭<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><span class="math inline">\(f(-x) = -f(x)\)</span> // 원점대칭<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
