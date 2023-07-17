@@ -788,7 +788,7 @@
     "href": "posts/5_study/4_Python/2023-07-10-syllabus.html",
     "title": "[Python] Syllabus",
     "section": "",
-    "text": "link: https://stat.jbnu.ac.kr/stat/6442/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGc3RhdCUyRjgzNCUyRjMwNjQxNiUyRmFydGNsVmlldy5kbyUzRnBhZ2UlM0QxMyUyNnNyY2hDb2x1bW4lM0QlMjZzcmNoV3JkJTNEJTI2YmJzQ2xTZXElM0QlMjZiYnNPcGVuV3JkU2VxJTNEJTI2cmdzQmduZGVTdHIlM0QlMjZyZ3NFbmRkZVN0ciUzRCUyNmlzVmlld01pbmUlM0RmYWxzZSUyNnBhc3N3b3JkJTNEJTI2\n\n\nref: https://guebin.github.io/IP2023WIN/"
+    "text": "파이썬 특강 일자별 강의내용\n\nlink: https://stat.jbnu.ac.kr/stat/6442/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGc3RhdCUyRjgzNCUyRjMwNjQxNiUyRmFydGNsVmlldy5kbyUzRnBhZ2UlM0QxMyUyNnNyY2hDb2x1bW4lM0QlMjZzcmNoV3JkJTNEJTI2YmJzQ2xTZXElM0QlMjZiYnNPcGVuV3JkU2VxJTNEJTI2cmdzQmduZGVTdHIlM0QlMjZyZ3NFbmRkZVN0ciUzRCUyNmlzVmlld01pbmUlM0RmYWxzZSUyNnBhc3N3b3JkJTNEJTI2\n\n\nref: https://guebin.github.io/IP2023WIN/"
   },
   {
     "objectID": "posts/5_study/2023-05-27-class활용.html",
@@ -935,7 +935,7 @@
     "href": "posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html",
     "title": "[Fourier] 퓨리에변환(detailed)",
     "section": "",
-    "text": "Ref: https://miruetoto.github.io/yechan3/posts/3_Researches/PINKOCTO/2023-06-28-%ED%93%A8%EB%A6%AC%EC%97%90%EB%B3%80%ED%99%98(detailed).html"
+    "text": "import numpy as np\nimport matplotlib.pyplot as plt"
   },
   {
     "objectID": "posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html#이론-및-예시",

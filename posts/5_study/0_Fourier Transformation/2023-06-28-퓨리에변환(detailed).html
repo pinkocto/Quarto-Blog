@@ -276,13 +276,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<blockquote class="blockquote">
-<p>Ref: <a href="https://miruetoto.github.io/yechan3/posts/3_Researches/PINKOCTO/2023-06-28-%ED%93%A8%EB%A6%AC%EC%97%90%EB%B3%80%ED%99%98(detailed).html" class="uri">https://miruetoto.github.io/yechan3/posts/3_Researches/PINKOCTO/2023-06-28-%ED%93%A8%EB%A6%AC%EC%97%90%EB%B3%80%ED%99%98(detailed).html</a></p>
-</blockquote>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<blockquote class="blockquote">
+<p>Ref: <a href="https://miruetoto.github.io/yechan3/posts/3_Researches/PINKOCTO/2023-06-28-%ED%93%A8%EB%A6%AC%EC%97%90%EB%B3%80%ED%99%98(detailed).html" class="uri">https://miruetoto.github.io/yechan3/posts/3_Researches/PINKOCTO/2023-06-28-%ED%93%A8%EB%A6%AC%EC%97%90%EB%B3%80%ED%99%98(detailed).html</a></p>
+</blockquote>
 <section id="예비학습" class="level1">
 <h1>예비학습</h1>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -1059,7 +1059,7 @@ Important
 <li>허수파트가 0이라든가,</li>
 <li>실수파트는 <span class="math inline">\(k=1, N-1\)</span>에서만 값을 가진다든가</li>
 </ul>
-<p>와 같은 논의가 성립하지는 않는다. 하지만 <strong>대충</strong> 성립한다. 그림으로 비교해보면 아래와 같다.</p>
+<p>와 같은 논의가 성립하지는 않는다. 하지만 <strong><font color="red">대충</font></strong> 성립한다. 그림으로 비교해보면 아래와 같다.</p>
 <div class="cell" data-execution_count="608">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb105-2"><a href="#cb105-2"></a>x1 <span class="op">=</span> np.array([np.cos(<span class="fl">2.0</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
@@ -1093,6 +1093,7 @@ Important
 <li>위상이 뒤틀림에 따라서 허수파트에 대한 값이 생김</li>
 </ul>
 <p>그렇지만 거의비슷함.</p>
+<p><font color="blue">위상이 뒤틀린다?</font></p>
 <p><code>-</code> 요약: 아래의 상황이 발생해도</p>
 <p><span class="math display">\[\not \exists k\in \mathbb{N}_0~ {\sf s.t.}\quad x[n]= \cos\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p>대충 주파수가 나뉘어져 합리적으로 해석됨</p>
