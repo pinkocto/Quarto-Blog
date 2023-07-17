@@ -265,6 +265,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
+<blockquote class="blockquote">
+<p>회귀분석 느낌으로</p>
+</blockquote>
 <div class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -411,6 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="2023-06-23-퓨리에변환4jy_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<p><code>-</code> 비교</p>
 <div class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">1</span>)</span>
 <span id="cb20-2"><a href="#cb20-2"></a>axes[<span class="dv">0</span>].plot(<span class="bu">abs</span>(np.fft.fft(y))[<span class="dv">1</span>:<span class="dv">50</span>], <span class="st">'o'</span>)</span>
