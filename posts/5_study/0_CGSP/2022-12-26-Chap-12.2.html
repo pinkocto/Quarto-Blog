@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="신록예찬">
-<meta name="dcterms.date" content="2022-12-26">
+<meta name="dcterms.date" content="2022-07-18">
 
 <title>Quarto-Blog - [CGSP] Chap 12.2: Weakly Stationary Graph Processes</title>
 <style>
@@ -208,7 +208,7 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 26, 2022</p>
+        <p class="date">July 18, 2022</p>
       </div>
     </div>
     
@@ -356,7 +356,7 @@ div.csl-indent {
 </div>
 <p>Define <span class="math inline">\({\boldsymbol h}\)</span> as</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a>h <span class="op">=</span> [<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a>h <span class="op">=</span> [<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>] <span class="co"># shift invariant filter</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>3-element Vector{Float64}:
  0.3333333333333333
@@ -366,7 +366,7 @@ div.csl-indent {
 </div>
 <p>Furthermore define <span class="math inline">\({\bf H}=h({\bf B})=h_0{\bf B}^0+h_1{\bf B}^1+h_2{\bf B}^2\)</span></p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1"></a>H <span class="op">=</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">0</span> <span class="op">+</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">1</span> <span class="op">+</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1"></a>H <span class="op">=</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">0</span> <span class="op">+</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">1</span> <span class="op">+</span> (<span class="fl">1</span><span class="op">/</span><span class="fl">3</span>)<span class="op">*</span>B<span class="op">^</span><span class="fl">2</span> <span class="co"># shift invariant operator</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>7×7 Matrix{Float64}:
  0.333333  0.333333  0.333333  0.0       0.0       0.0       0.0
@@ -389,10 +389,10 @@ div.csl-indent {
 <p><em>note:</em> <span class="math inline">\({\boldsymbol h}\)</span> is moving average filter.</p>
 <p><em>note:</em> for any <span class="math inline">\({\bf x}\)</span>, <span class="math inline">\({\bf H}{\bf x}\)</span> is definded by</p>
 <p><span class="math display">\[\left[\frac{x_{n-1}+x_n+x_1}{3},\frac{x_n+x_1+x_2}{3},\dots,\frac{x_{n-3}+x_{n-2}+x_n}{3}\right].\]</span></p>
-<div class="cell" data-execution_count="48">
+<div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1"></a>x <span class="op">=</span> [<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">2</span>]</span>
 <span id="cb10-2"><a href="#cb10-2"></a>H<span class="op">*</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="48">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>7-element Vector{Float64}:
  1.0
  1.0
@@ -404,20 +404,8 @@ div.csl-indent {
 </div>
 </div>
 <p><em>note:</em> In some sense, the matrix <span class="math inline">\({\bf H}{\bf x}\)</span> can be thought as generalized version of <span class="math inline">\({\boldsymbol h}\star {\bf x}\)</span> where <span class="math inline">\(\star\)</span> is convolution up to shift</p>
-<div class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">conv</span>(h,x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="57">
-<pre><code>9-element Vector{Float64}:
- 0.3333333333333334
- 0.6666666666666667
- 1.0
- 1.0
- 1.3333333333333333
- 1.6666666666666667
- 2.0
- 1.3333333333333333
- 0.6666666666666667</code></pre>
-</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># conv(h,x)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, we observe that, from the Cayley-Hamilton Theorem, <span class="math inline">\({\bf B}\)</span> satisfies its characteristic polynomial <span class="math inline">\(\Delta({\bf B})\)</span>, where <span class="math inline">\(\Delta(\lambda)\)</span> is the determinant of <span class="math inline">\(\lambda{\bf I}-{\bf B}\)</span>. The characteristic polynomial <span class="math inline">\(\Delta({\bf B})\)</span> has degree <span class="math inline">\(N\)</span>, so, in DSP, as described so far, linear filters are (matrix) polynomial with degree at most <span class="math inline">\(N-1\)</span>.</p>
 <blockquote class="blockquote">

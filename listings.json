@@ -63,6 +63,7 @@
   {
     "listing": "/5_study.html",
     "items": [
+      "/posts/5_study/2023-07-18-beat-signal.html",
       "/posts/5_study/0_CGSP/2023-07-15-Chap12.1.html",
       "/posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html",
       "/posts/5_study/4_Python/2023-07-10-syllabus.html",
@@ -79,6 +80,7 @@
       "/posts/5_study/2023-02-25-jt-test.html",
       "/posts/5_study/2023-02-20-simul_eq.html",
       "/posts/5_study/0_CGSP/2023-01-15-Chap-12.4.html",
+      "/posts/5_study/2023-07-18-introduction_to_gnn.html",
       "/posts/5_study/0_CGSP/2022-12-27-Chap-12.2.1~12.3.1.html",
       "/posts/5_study/0_CGSP/2022-12-26-Chap-12.2.html",
       "/posts/5_study/0_CGSP/2022-12-24-Chap 8.3.html"
@@ -111,6 +113,8 @@
     "items": [
       "/posts/2_DV2022/dv1.html",
       "/posts/2_DV2022/9999.html",
+      "/posts/2023-07-17-면담.html",
+      "/posts/5_study/2023-07-18-beat-signal.html",
       "/posts/5_study/0_CGSP/2023-07-15-Chap12.1.html",
       "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
       "/posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html",
@@ -179,11 +183,12 @@
       "/posts/1_IP2022/03_Class/2023-02-15-class4.html",
       "/posts/5_study/0_CGSP/2023-01-15-Chap-12.4.html",
       "/posts/3_STBDA2022/2023-01-01.html",
+      "/posts/5_study/2023-07-18-introduction_to_gnn.html",
       "/posts/5_study/0_CGSP/2022-12-27-Chap-12.2.1~12.3.1.html",
-      "/posts/5_study/0_CGSP/2022-12-26-Chap-12.2.html",
-      "/posts/5_study/0_CGSP/2022-12-24-Chap 8.3.html",
       "/posts/2_DV2022/2022-10-06-5wk-2.html",
       "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/5_study/0_CGSP/2022-12-26-Chap-12.2.html",
+      "/posts/5_study/0_CGSP/2022-12-24-Chap 8.3.html",
       "/posts/1_IP2022/04_시험/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html",
       "/posts/2_DV2022/2022-10-17-7wk-1.html"
     ]
