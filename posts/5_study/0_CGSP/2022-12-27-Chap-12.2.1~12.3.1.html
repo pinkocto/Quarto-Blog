@@ -6,8 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="신록예찬">
-<meta name="dcterms.date" content="2022-12-27">
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-07-24">
 
 <title>Quarto-Blog - [CGSP] Chap 12.2 ~ 3: Power Spectral Density and its Estimators</title>
 <style>
@@ -201,14 +201,14 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>신록예찬 </p>
+               <p>JiyunLim </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">December 27, 2022</p>
+        <p class="date">July 24, 2023</p>
       </div>
     </div>
     
@@ -305,9 +305,15 @@ div.csl-indent {
 
 
 
-<div class="cell" data-execution_count="4">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span>, <span class="bu">Plots</span>, <span class="bu">FFTW</span>, <span class="bu">Statistics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">using</span> <span class="bu">Plots</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>ref: <a href="https://miruetoto.github.io/yechan3/posts/2_Studies/CGSP/2022-12-27-Chap-12.2.1~12.3.1.html" class="uri">https://miruetoto.github.io/yechan3/posts/2_Studies/CGSP/2022-12-27-Chap-12.2.1~12.3.1.html</a></li>
+</ul>
 <section id="preliminary-study" class="level1">
 <h1>Preliminary Study</h1>
 </section>
@@ -321,8 +327,8 @@ div.csl-indent {
 </div>
 <p>(예제)</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1"></a>A<span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span> </span>
-<span id="cb2-2"><a href="#cb2-2"></a>    <span class="fl">3</span> <span class="fl">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1"></a>A<span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>    <span class="fl">3</span> <span class="fl">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="1">
 <pre><code>2×2 Matrix{Int64}:
  1  2
@@ -330,7 +336,7 @@ div.csl-indent {
 </div>
 </div>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">vec</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">vec</span>(A)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>4-element Vector{Int64}:
  1
@@ -359,11 +365,11 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p>크로네커곱에 대한 성질들이 위키에 많이 있으니 참고하면 좋다.</p>
 <p>(예제1)</p>
 <div class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1"></a>A<span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>    <span class="fl">3</span> <span class="fl">4</span>]</span>
-<span id="cb6-3"><a href="#cb6-3"></a>B<span class="op">=</span> [<span class="fl">0</span> <span class="fl">5</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>    <span class="fl">6</span> <span class="fl">7</span>]</span>
-<span id="cb6-5"><a href="#cb6-5"></a>C <span class="op">=</span> <span class="fu">kron</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1"></a>A<span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>    <span class="fl">3</span> <span class="fl">4</span>]</span>
+<span id="cb7-3"><a href="#cb7-3"></a>B<span class="op">=</span> [<span class="fl">0</span> <span class="fl">5</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="fl">6</span> <span class="fl">7</span>]</span>
+<span id="cb7-5"><a href="#cb7-5"></a>C <span class="op">=</span> <span class="fu">kron</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="82">
 <pre><code>4×4 Matrix{Int64}:
   0   5   0  10
@@ -374,9 +380,9 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 <p>(예제2)</p>
 <div class="cell" data-execution_count="83">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1"></a>A<span class="op">=</span> [<span class="fl">1</span> <span class="op">-</span><span class="fl">4</span> <span class="fl">7</span>; <span class="op">-</span><span class="fl">2</span> <span class="fl">3</span> <span class="fl">3</span>]</span>
-<span id="cb8-2"><a href="#cb8-2"></a>B<span class="op">=</span> [<span class="fl">8</span> <span class="op">-</span><span class="fl">9</span> <span class="op">-</span><span class="fl">6</span> <span class="op">-</span><span class="fl">5</span>; <span class="fl">1</span> <span class="op">-</span><span class="fl">3</span> <span class="op">-</span><span class="fl">4</span> <span class="fl">7</span>; <span class="fl">2</span> <span class="fl">8</span> <span class="op">-</span><span class="fl">8</span> <span class="op">-</span><span class="fl">3</span>; <span class="fl">1</span> <span class="fl">2</span> <span class="op">-</span><span class="fl">5</span> <span class="op">-</span><span class="fl">1</span>]</span>
-<span id="cb8-3"><a href="#cb8-3"></a>C <span class="op">=</span> <span class="fu">kron</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1"></a>A<span class="op">=</span> [<span class="fl">1</span> <span class="op">-</span><span class="fl">4</span> <span class="fl">7</span>; <span class="op">-</span><span class="fl">2</span> <span class="fl">3</span> <span class="fl">3</span>]</span>
+<span id="cb9-2"><a href="#cb9-2"></a>B<span class="op">=</span> [<span class="fl">8</span> <span class="op">-</span><span class="fl">9</span> <span class="op">-</span><span class="fl">6</span> <span class="op">-</span><span class="fl">5</span>; <span class="fl">1</span> <span class="op">-</span><span class="fl">3</span> <span class="op">-</span><span class="fl">4</span> <span class="fl">7</span>; <span class="fl">2</span> <span class="fl">8</span> <span class="op">-</span><span class="fl">8</span> <span class="op">-</span><span class="fl">3</span>; <span class="fl">1</span> <span class="fl">2</span> <span class="op">-</span><span class="fl">5</span> <span class="op">-</span><span class="fl">1</span>]</span>
+<span id="cb9-3"><a href="#cb9-3"></a>C <span class="op">=</span> <span class="fu">kron</span>(A, B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="83">
 <pre><code>8×12 Matrix{Int64}:
    8   -9  -6   -5  -32   36   24   20  56  -63  -42  -35
@@ -408,12 +414,12 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 <p>(예제1)</p>
 <div class="cell" data-execution_count="302">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1"></a>C<span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>    <span class="fl">4</span> <span class="fl">5</span> <span class="fl">6</span> </span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="fl">7</span> <span class="fl">8</span> <span class="fl">9</span>] </span>
-<span id="cb10-4"><a href="#cb10-4"></a>D<span class="op">=</span> [<span class="fl">1</span> <span class="fl">4</span> <span class="fl">7</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>    <span class="fl">2</span> <span class="fl">5</span> <span class="fl">8</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="fl">3</span> <span class="fl">6</span> <span class="fl">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1"></a>C<span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>    <span class="fl">4</span> <span class="fl">5</span> <span class="fl">6</span> </span>
+<span id="cb11-3"><a href="#cb11-3"></a>    <span class="fl">7</span> <span class="fl">8</span> <span class="fl">9</span>] </span>
+<span id="cb11-4"><a href="#cb11-4"></a>D<span class="op">=</span> [<span class="fl">1</span> <span class="fl">4</span> <span class="fl">7</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>    <span class="fl">2</span> <span class="fl">5</span> <span class="fl">8</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>    <span class="fl">3</span> <span class="fl">6</span> <span class="fl">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="302">
 <pre><code>3×3 Matrix{Int64}:
  1  4  7
@@ -422,7 +428,7 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 </div>
 <div class="cell" data-execution_count="303">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">hcat</span>([<span class="fu">kron</span>(C[<span class="op">:</span>,i],D[<span class="op">:</span>,i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>]<span class="op">...</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">hcat</span>([<span class="fu">kron</span>(C[<span class="op">:</span>,i],D[<span class="op">:</span>,i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>]<span class="op">...</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="303">
 <pre><code>9×3 Matrix{Int64}:
   1   8  21
@@ -438,14 +444,14 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 <p>이건 자주 쓸일이 있을것 같으니까 함수로 저장하자.</p>
 <div class="cell" data-execution_count="304">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1"></a>columnwise_kron <span class="op">=</span> </span>
-<span id="cb14-2"><a href="#cb14-2"></a>(C,D) <span class="op">-&gt;</span> <span class="fu">hcat</span>([<span class="fu">kron</span>(C[<span class="op">:</span>,i],D[<span class="op">:</span>,i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(C)[<span class="fl">2</span>]]<span class="op">...</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1"></a>columnwise_kron <span class="op">=</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>(C,D) <span class="op">-&gt;</span> <span class="fu">hcat</span>([<span class="fu">kron</span>(C[<span class="op">:</span>,i],D[<span class="op">:</span>,i]) for i <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu">size</span>(C)[<span class="fl">2</span>]]<span class="op">...</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="304">
 <pre><code>#181 (generic function with 1 method)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="305">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">columnwise_kron</span>(C,D)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">columnwise_kron</span>(C,D)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="305">
 <pre><code>9×3 Matrix{Int64}:
   1   8  21
@@ -586,23 +592,23 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p>왜 ACF의 모든정보를 <span class="math inline">\({\bf C}_{\bf x}\)</span>로 부터 알수 있는지 코드를 통하여 실습하여 보자. (바로 이해된다면 사실 이 예제는 스킵해도 무방함) 아래와 같은 모형을 가정하자.</p>
 <p><span class="math display">\[x_{t} = 0.5 x_{t-1} +\epsilon_t\]</span></p>
 <p>여기에서 <span class="math inline">\(\epsilon_t\)</span>는 서로 독립인 표준정규분포를 따른다. 이 모형에서 길이가 100인 시계열을 임의로 발생시키자.</p>
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="op">=</span> <span class="fu">zeros</span>(<span class="fl">100</span><span class="op">*</span><span class="fl">1000</span>)</span>
-<span id="cb18-2"><a href="#cb18-2"></a>x[<span class="fl">1</span>] <span class="op">=</span> <span class="fu">randn</span>()</span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fl">100</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>    x[t] <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>x[t<span class="op">-</span><span class="fl">1</span>] <span class="op">+</span> <span class="fu">randn</span>()</span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1"></a>x <span class="op">=</span> <span class="fu">zeros</span>(<span class="fl">100</span><span class="op">*</span><span class="fl">1000</span>)</span>
+<span id="cb19-2"><a href="#cb19-2"></a>x[<span class="fl">1</span>] <span class="op">=</span> <span class="fu">randn</span>()</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="cf">for</span> t <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fl">100</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>    x[t] <span class="op">=</span> <span class="fl">0.5</span><span class="op">*</span>x[t<span class="op">-</span><span class="fl">1</span>] <span class="op">+</span> <span class="fu">randn</span>()</span>
+<span id="cb19-5"><a href="#cb19-5"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>모형에서 생성된 하나의 시계열을 시각화 하면 아래와 같다.</p>
-<div class="cell" data-execution_count="463">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">plot</span>(x) <span class="co"># 그냥 그려본것임. 별 의미는 없음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="463">
-<p><img src="2022-12-27-Chap-12.2.1~12.3.1_files/figure-html/cell-12-output-1.svg" class="img-fluid"></p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">plot</span>(x) <span class="co"># 그냥 그려본것임. 별 의미는 없음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<p><img src="2022-12-27-Chap-12.2.1~12.3.1_files/figure-html/cell-13-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
 <p><strong>lag=1일 경우 이 시계열의 SACF를 계산하면 아래와 같다.</strong></p>
 <div class="cell" data-execution_count="464">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1"></a>x[<span class="fl">1</span><span class="op">:</span><span class="fl">99</span>] <span class="op">.*</span> x[<span class="fl">2</span><span class="op">:</span><span class="fl">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1"></a>x[<span class="fl">1</span><span class="op">:</span><span class="fl">99</span>] <span class="op">.*</span> x[<span class="fl">2</span><span class="op">:</span><span class="fl">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="464">
 <pre><code>99-element Vector{Float64}:
   1.587897526021493
@@ -637,10 +643,10 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <li>이 계산결과는 각 <span class="math inline">\(t\)</span>에 대하여 <span class="math inline">\(x_{t-1}x_t\)</span> 를 계산한 것과 같다.</li>
 </ul>
 <p>이 수열들의 평균은 아래와 같다.</p>
-<div class="cell" data-execution_count="465">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1"></a>x[<span class="fl">1</span><span class="op">:</span><span class="fl">99</span>] <span class="op">.*</span> x[<span class="fl">2</span><span class="op">:</span><span class="fl">100</span>] <span class="op">|&gt;</span> mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="465">
-<pre><code>0.5835563885014224</code></pre>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1"></a>x[<span class="fl">1</span><span class="op">:</span><span class="fl">99</span>] <span class="op">.*</span> x[<span class="fl">2</span><span class="op">:</span><span class="fl">100</span>] <span class="op">|&gt;</span> mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>0.4402890494302247</code></pre>
 </div>
 </div>
 <ul>
@@ -648,43 +654,43 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </ul>
 <p>이론적인 값인 0.5 근처의 값이 잘 나옴을 알 수 있다.</p>
 <p><strong>lag=2일 경우도 마찬가지로 구할 수 있다.</strong></p>
-<div class="cell" data-execution_count="466">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1"></a>x[<span class="fl">1</span><span class="op">:</span><span class="fl">98</span>] <span class="op">.*</span> x[<span class="fl">3</span><span class="op">:</span><span class="fl">100</span>] <span class="op">|&gt;</span> mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="466">
-<pre><code>0.38420263596668275</code></pre>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1"></a>x[<span class="fl">1</span><span class="op">:</span><span class="fl">98</span>] <span class="op">.*</span> x[<span class="fl">3</span><span class="op">:</span><span class="fl">100</span>] <span class="op">|&gt;</span> mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>0.1126297028840062</code></pre>
 </div>
 </div>
 <p>이러한 숫자들은 그런데 <span class="math inline">\({\bf x}{\bf x}^T\)</span>를 이용하여서도 구할 수 있다.<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a></p>
-<div class="cell" data-execution_count="467">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1"></a>x<span class="op">*</span>x<span class="op">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="467">
-<pre><code>100×100 Matrix{Float64}:
-  0.760108    1.5879      0.541064   …  -1.57394    -0.472676    0.939172
-  1.5879      3.31719     1.13031       -3.28802    -0.987441    1.96197
-  0.541064    1.13031     0.385143      -1.12037    -0.336463    0.668527
-  0.800507    1.67229     0.569821      -1.65759    -0.497799    0.989089
-  0.441361    0.922022    0.314172      -0.913915   -0.274462    0.545336
-  0.533784    1.1151      0.379961   …  -1.10529    -0.331936    0.659531
-  0.517803    1.08171     0.368586      -1.0722     -0.321998    0.639786
-  1.20252     2.51212     0.855987      -2.49003    -0.747794    1.48581
- -0.108745   -0.227173   -0.0774074      0.225175    0.0676234  -0.134363
-  0.440444    0.920106    0.313519      -0.912016   -0.273892    0.544203
-  0.0455859   0.0952309   0.0324492  …  -0.0943935  -0.0283478   0.0563249
- -0.133198   -0.278257   -0.0948139      0.27581     0.0828298  -0.164577
-  0.238468    0.498169    0.169748      -0.493789   -0.148292    0.294646
-  ⋮                                  ⋱                          
-  2.04697     4.2762      1.45708       -4.2386     -1.27291     2.52919
-  0.488514    1.02053     0.347736      -1.01155    -0.303784    0.603596
-  1.41531     2.95665     1.00746    …  -2.93065    -0.880119    1.74873
-  0.290602    0.60708     0.206858      -0.601742   -0.180712    0.359062
-  0.774954    1.61891     0.551632      -1.60468    -0.481908    0.957516
-  1.04688     2.18698     0.745197      -2.16775    -0.651007    1.2935
- -0.754723   -1.57665    -0.537231       1.56279     0.469328   -0.932519
- -2.82194    -5.89516    -2.00873    …   5.84333     1.75484    -3.48673
- -1.11863    -2.33686    -0.796269       2.31632     0.695624   -1.38215
- -1.57394    -3.28802    -1.12037        3.25911     0.978758   -1.94472
- -0.472676   -0.987441   -0.336463       0.978758    0.293936   -0.584028
-  0.939172    1.96197     0.668527      -1.94472    -0.584028    1.16042</code></pre>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1"></a>x<span class="op">*</span>x<span class="op">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>100000×100000 Matrix{Float64}:
+  2.58333    3.37221    3.70056   …   0.0   0.0   0.0   0.0   0.0   0.0
+  3.37221    4.40201    4.83063       0.0   0.0   0.0   0.0   0.0   0.0
+  3.70056    4.83063    5.30099       0.0   0.0   0.0   0.0   0.0   0.0
+  1.83768    2.39887    2.63244       0.0   0.0   0.0   0.0   0.0   0.0
+ -0.932606  -1.2174    -1.33594      -0.0  -0.0  -0.0  -0.0  -0.0  -0.0
+ -1.7192    -2.2442    -2.46272   …  -0.0  -0.0  -0.0  -0.0  -0.0  -0.0
+ -0.10547   -0.137678  -0.151084     -0.0  -0.0  -0.0  -0.0  -0.0  -0.0
+  0.546615   0.713539   0.783016      0.0   0.0   0.0   0.0   0.0   0.0
+ -0.221701  -0.289403  -0.317582     -0.0  -0.0  -0.0  -0.0  -0.0  -0.0
+ -1.34142   -1.75106   -1.92155      -0.0  -0.0  -0.0  -0.0  -0.0  -0.0
+  0.254256   0.3319     0.364217  …   0.0   0.0   0.0   0.0   0.0   0.0
+ -0.223407  -0.29163   -0.320026     -0.0  -0.0  -0.0  -0.0  -0.0  -0.0
+  2.47501    3.23082    3.5454        0.0   0.0   0.0   0.0   0.0   0.0
+  ⋮                               ⋱         ⋮                      
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0       …   0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0       …   0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0
+  0.0        0.0        0.0           0.0   0.0   0.0   0.0   0.0   0.0</code></pre>
 </div>
 </div>
 <p>여기에서 각 원소들이 의미하는 바는 아래와 같다.</p>
@@ -702,7 +708,7 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p>확인해보자.</p>
 <p><strong>lag=1, 스크린샷의 노란색</strong></p>
 <div class="cell" data-execution_count="456">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1"></a>(x[<span class="fl">1</span><span class="op">:</span><span class="fl">99</span>] <span class="op">.*</span> x[<span class="fl">2</span><span class="op">:</span><span class="fl">100</span>])[<span class="fl">1</span><span class="op">:</span><span class="fl">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1"></a>(x[<span class="fl">1</span><span class="op">:</span><span class="fl">99</span>] <span class="op">.*</span> x[<span class="fl">2</span><span class="op">:</span><span class="fl">100</span>])[<span class="fl">1</span><span class="op">:</span><span class="fl">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="456">
 <pre><code>5-element Vector{Float64}:
  1.587897526021493
@@ -717,7 +723,7 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </ul>
 <p><strong>lag=2, 스크린샷의 빨간색</strong></p>
 <div class="cell" data-execution_count="468">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1"></a>(x[<span class="fl">1</span><span class="op">:</span><span class="fl">98</span>] <span class="op">.*</span> x[<span class="fl">3</span><span class="op">:</span><span class="fl">100</span>])[<span class="fl">1</span><span class="op">:</span><span class="fl">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb31-1"><a href="#cb31-1"></a>(x[<span class="fl">1</span><span class="op">:</span><span class="fl">98</span>] <span class="op">.*</span> x[<span class="fl">3</span><span class="op">:</span><span class="fl">100</span>])[<span class="fl">1</span><span class="op">:</span><span class="fl">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="468">
 <pre><code>5-element Vector{Float64}:
  0.5410642277088621
@@ -766,15 +772,15 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p>(예제1에 이어서) 아래의 모형에서 생성된 <span class="math inline">\({\bf x}\)</span>를 다시 고려하자.</p>
 <p><span class="math display">\[x_{t} = 0.5 x_{t-1} +\epsilon_t\]</span></p>
 <div class="cell" data-execution_count="476">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">plot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">plot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="476">
-<p><img src="2022-12-27-Chap-12.2.1~12.3.1_files/figure-html/cell-19-output-1.svg" class="img-fluid"></p>
+<p><img src="2022-12-27-Chap-12.2.1~12.3.1_files/figure-html/cell-20-output-1.svg" class="img-fluid"></p>
 </div>
 </div>
 <p>이 자료의 PSD <span class="math inline">\({\bf p}\)</span>는 아래와 같이 구할 수 있다.</p>
 <p><strong>단계1</strong>: <span class="math inline">\({\bf x}\)</span>의 DFT를 계산</p>
 <div class="cell" data-execution_count="494">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb33-1"><a href="#cb33-1"></a>x̃ <span class="op">=</span> <span class="fu">fft</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1"></a>x̃ <span class="op">=</span> <span class="fu">fft</span>(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="494">
 <pre><code>100-element Vector{ComplexF64}:
   -5.756917285643583 + 0.0im
@@ -810,7 +816,7 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </ul>
 <p><strong>단계2</strong>: <span class="math inline">\(\hat{\bf p}\)</span>를 계산</p>
 <div class="cell" data-execution_count="498">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb35-1"><a href="#cb35-1"></a>p̂ <span class="op">=</span> <span class="fu">abs</span>.(x̃)<span class="op">.^</span><span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1"></a>p̂ <span class="op">=</span> <span class="fu">abs</span>.(x̃)<span class="op">.^</span><span class="fl">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="498">
 <pre><code>100-element Vector{Float64}:
    33.14209663374188
@@ -844,11 +850,11 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p><strong><em>참고</em></strong></p>
 <p><code>fft(x)</code> 대신에 아래의 코드를 이용해도 된다.</p>
 <div class="cell" data-execution_count="554">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb37-1"><a href="#cb37-1"></a>N <span class="op">=</span> <span class="fl">100</span> </span>
-<span id="cb37-2"><a href="#cb37-2"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)] <span class="op">|&gt;</span> </span>
-<span id="cb37-3"><a href="#cb37-3"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(N,N)) <span class="op">.|&gt;</span> </span>
-<span id="cb37-4"><a href="#cb37-4"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span> x)</span>
-<span id="cb37-5"><a href="#cb37-5"></a>V<span class="op">'</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1"></a>N <span class="op">=</span> <span class="fl">100</span> </span>
+<span id="cb38-2"><a href="#cb38-2"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)] <span class="op">|&gt;</span> </span>
+<span id="cb38-3"><a href="#cb38-3"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(N,N)) <span class="op">.|&gt;</span> </span>
+<span id="cb38-4"><a href="#cb38-4"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span> x)</span>
+<span id="cb38-5"><a href="#cb38-5"></a>V<span class="op">'</span>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="554">
 <pre><code>100-element Vector{ComplexF64}:
   -5.756917285643587 + 0.0im
@@ -881,7 +887,7 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 <p>진짜 똑같은지 확인</p>
 <div class="cell" data-execution_count="555">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">fft</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">fft</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="555">
 <pre><code>100-element Vector{ComplexF64}:
   -5.756917285643583 + 0.0im
@@ -981,10 +987,10 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p>위의 표현중 3.에서 <span class="math inline">\({\bf c}_{\bf x}\)</span>은 <span class="math inline">\({\bf C}_x\)</span>를 벡터화한 것이며 <span class="math inline">\({\bf G}_{np}\)</span>는 <span class="math inline">\({\bf V}^\ast\)</span> 와 <span class="math inline">\({\bf V}\)</span>를 열별-크로네커곱 (column-wise Kronecker product) 이다. 이때 <span class="math inline">\({\bf G}_{np}\)</span>의 정의가 조금 생소하니 한번 계산하여 보자.</p>
 <p>(예제) 아래와 같은 GSO <span class="math inline">\({\bf B}\)</span>를 고려하자.</p>
 <div class="cell" data-execution_count="280">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb41-1"><a href="#cb41-1"></a>B<span class="op">=</span> [<span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> </span>
-<span id="cb41-3"><a href="#cb41-3"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> </span>
-<span id="cb41-4"><a href="#cb41-4"></a>    <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1"></a>B<span class="op">=</span> [<span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> </span>
+<span id="cb42-2"><a href="#cb42-2"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> </span>
+<span id="cb42-3"><a href="#cb42-3"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> </span>
+<span id="cb42-4"><a href="#cb42-4"></a>    <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="280">
 <pre><code>4×4 Matrix{Int64}:
  0  1  0  0
@@ -996,9 +1002,9 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p>이러한 GSO에 대하여 <span class="math inline">\({\bf G}_{np}\)</span>는 아래와 같이 구할 수 있다.</p>
 <p><code>(1)</code> <span class="math inline">\({\bf V}\)</span>를 정의</p>
 <div class="cell" data-execution_count="534">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb43-1"><a href="#cb43-1"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span> for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>] <span class="op">|&gt;</span> </span>
-<span id="cb43-2"><a href="#cb43-2"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(<span class="fl">4</span>,<span class="fl">4</span>)) <span class="op">.|&gt;</span> </span>
-<span id="cb43-3"><a href="#cb43-3"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span><span class="fl">4</span>) <span class="op">*</span> x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span> for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>] <span class="op">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(<span class="fl">4</span>,<span class="fl">4</span>)) <span class="op">.|&gt;</span> </span>
+<span id="cb44-3"><a href="#cb44-3"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span><span class="fl">4</span>) <span class="op">*</span> x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="534">
 <pre><code>4×4 Matrix{ComplexF64}:
  1.0+0.0im           1.0+0.0im          …           1.0+0.0im
@@ -1009,8 +1015,8 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 <p><code>(2)</code> <span class="math inline">\({\bf G}_{np}={\bf V}^{\ast} \odot {\bf V}\)</span>, 여기에서 <span class="math inline">\(\odot\)</span>은 열별-크로네커곱을 의미한다.</p>
 <div class="cell" data-execution_count="535">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># columnwise_kron은 위에서 정의한적 있음~</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>Gₙₚ <span class="op">=</span> <span class="fu">columnwise_kron</span>(<span class="fu">conj</span>(V),V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># columnwise_kron은 위에서 정의한적 있음~</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>Gₙₚ <span class="op">=</span> <span class="fu">columnwise_kron</span>(<span class="fu">conj</span>(V),V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="535">
 <pre><code>16×4 Matrix{ComplexF64}:
  1.0+0.0im           1.0+0.0im          …           1.0+0.0im
@@ -1050,10 +1056,10 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </blockquote>
 <p>(예제)</p>
 <div class="cell" data-execution_count="549">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb47-1"><a href="#cb47-1"></a>N <span class="op">=</span> <span class="fl">100</span> </span>
-<span id="cb47-2"><a href="#cb47-2"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)] <span class="op">|&gt;</span> </span>
-<span id="cb47-3"><a href="#cb47-3"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(N,N)) <span class="op">.|&gt;</span> </span>
-<span id="cb47-4"><a href="#cb47-4"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1"></a>N <span class="op">=</span> <span class="fl">100</span> </span>
+<span id="cb48-2"><a href="#cb48-2"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)] <span class="op">|&gt;</span> </span>
+<span id="cb48-3"><a href="#cb48-3"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(N,N)) <span class="op">.|&gt;</span> </span>
+<span id="cb48-4"><a href="#cb48-4"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="549">
 <pre><code>100×100 Matrix{ComplexF64}:
  1.0+0.0im       1.0+0.0im        …       1.0+0.0im
@@ -1085,7 +1091,7 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 </div>
 <div class="cell" data-execution_count="556">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb49-1"><a href="#cb49-1"></a>p̂ <span class="op">=</span> <span class="fu">diag</span>(V<span class="op">'</span> <span class="op">*</span> (x<span class="op">*</span>x<span class="op">'</span>) <span class="op">*</span> V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1"></a>p̂ <span class="op">=</span> <span class="fu">diag</span>(V<span class="op">'</span> <span class="op">*</span> (x<span class="op">*</span>x<span class="op">'</span>) <span class="op">*</span> V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="556">
 <pre><code>100-element Vector{ComplexF64}:
  33.142096633741986 + 0.0im
@@ -1129,8 +1135,8 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p>(예제)</p>
 <p>스펙트럼방법챕터 예제2에서 이미 보여준 적 있다. 주어진 시계열 <span class="math inline">\({\bf x}\)</span>에 대하여 <span class="math inline">\(\hat{\bf p}_{pg}\)</span>를 구하는 방법을 요약하면 아래와 같다.</p>
 <div class="cell" data-execution_count="504">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb51-1"><a href="#cb51-1"></a>x̃ <span class="op">=</span> <span class="fu">fft</span>(x) <span class="co"># 단계1: GFT, 이 신호는 시계열이라서 GFT대신에 DFT를 써도 된다.</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>p̂ <span class="op">=</span> <span class="fu">abs</span>.(x̃)<span class="op">.^</span><span class="fl">2</span> <span class="co"># 단계2: hat p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1"></a>x̃ <span class="op">=</span> <span class="fu">fft</span>(x) <span class="co"># 단계1: GFT, 이 신호는 시계열이라서 GFT대신에 DFT를 써도 된다.</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>p̂ <span class="op">=</span> <span class="fu">abs</span>.(x̃)<span class="op">.^</span><span class="fl">2</span> <span class="co"># 단계2: hat p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="504">
 <pre><code>100-element Vector{Float64}:
    33.14209663374188
@@ -1223,10 +1229,10 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <p><strong>(예제)</strong></p>
 <p><code>(1)</code> <span class="math inline">\({\bf V}\)</span>를 정의</p>
 <div class="cell" data-execution_count="566">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb53-1"><a href="#cb53-1"></a>N <span class="op">=</span> <span class="fl">100</span> </span>
-<span id="cb53-2"><a href="#cb53-2"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)] <span class="op">|&gt;</span> </span>
-<span id="cb53-3"><a href="#cb53-3"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(N,N)) <span class="op">.|&gt;</span> </span>
-<span id="cb53-4"><a href="#cb53-4"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1"></a>N <span class="op">=</span> <span class="fl">100</span> </span>
+<span id="cb54-2"><a href="#cb54-2"></a>V <span class="op">=</span> [i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)] <span class="op">|&gt;</span> </span>
+<span id="cb54-3"><a href="#cb54-3"></a>    x <span class="op">-&gt;</span> <span class="fu">reshape</span>(x,(N,N)) <span class="op">.|&gt;</span> </span>
+<span id="cb54-4"><a href="#cb54-4"></a>    x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="566">
 <pre><code>100×100 Matrix{ComplexF64}:
  1.0+0.0im       1.0+0.0im        …       1.0+0.0im
@@ -1259,8 +1265,8 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 <p><code>(2)</code> <span class="math inline">\({\bf G}_{np}={\bf V}^{\ast} \odot {\bf V}\)</span>, 여기에서 <span class="math inline">\(\odot\)</span>은 열별-크로네커곱을 의미한다.</p>
 <div class="cell" data-execution_count="567">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># columnwise_kron은 위에서 정의한적 있음~</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>Gₙₚ <span class="op">=</span> <span class="fu">columnwise_kron</span>(<span class="fu">conj</span>(V),V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># columnwise_kron은 위에서 정의한적 있음~</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>Gₙₚ <span class="op">=</span> <span class="fu">columnwise_kron</span>(<span class="fu">conj</span>(V),V)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="567">
 <pre><code>10000×100 Matrix{ComplexF64}:
  1.0+0.0im       1.0+0.0im        …       1.0+0.0im
@@ -1293,8 +1299,8 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 </div>
 <p><code>(3)</code> <span class="math inline">\(\hat{\bf p}_{ls}=({\bf G}_{np}^H{\bf G}_{np})^{-1}{\bf G}_{np}^H\hat{\bf c}_{\bf x}\)</span></p>
 <div class="cell" data-execution_count="572">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb57-1"><a href="#cb57-1"></a>ĉₓ <span class="op">=</span> <span class="fu">vec</span>(x<span class="op">*</span>x<span class="op">'</span>)</span>
-<span id="cb57-2"><a href="#cb57-2"></a>p̂ <span class="op">=</span> <span class="fu">inv</span>(Gₙₚ<span class="op">'</span> <span class="op">*</span> Gₙₚ) <span class="op">*</span> Gₙₚ<span class="op">'</span> <span class="op">*</span> ĉₓ </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb58-1"><a href="#cb58-1"></a>ĉₓ <span class="op">=</span> <span class="fu">vec</span>(x<span class="op">*</span>x<span class="op">'</span>)</span>
+<span id="cb58-2"><a href="#cb58-2"></a>p̂ <span class="op">=</span> <span class="fu">inv</span>(Gₙₚ<span class="op">'</span> <span class="op">*</span> Gₙₚ) <span class="op">*</span> Gₙₚ<span class="op">'</span> <span class="op">*</span> ĉₓ </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="572">
 <pre><code>100-element Vector{ComplexF64}:
   0.003314209663374193 - 2.7356277964988863e-19im
@@ -1329,7 +1335,7 @@ a_{n1}{\bf B} &amp; a_{n2}{\bf B} &amp; \dots &amp; a_{nm}{\bf B} \\
 <li>?? 뭔가 스케일이 안맞음</li>
 </ul>
 <div class="cell" data-execution_count="574">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb59-1"><a href="#cb59-1"></a>N<span class="op">^</span><span class="fl">2</span> <span class="op">*</span> p̂</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb60-1"><a href="#cb60-1"></a>N<span class="op">^</span><span class="fl">2</span> <span class="op">*</span> p̂</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="574">
 <pre><code>100-element Vector{ComplexF64}:
   33.14209663374193 - 2.7356277964988864e-15im

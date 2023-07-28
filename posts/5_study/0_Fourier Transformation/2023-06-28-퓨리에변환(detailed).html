@@ -465,17 +465,17 @@ Note
 <h2 class="anchored" data-anchor-id="이론-및-예시">이론 및 예시</h2>
 <p><code>-</code> 이론: real-valued signal은 무조건 <span class="math inline">\(|X[k]|^2\)</span>의 그래프가 대칭으로 나옴 (단, <span class="math inline">\(X[0]\)</span>은 제외)</p>
 <p><code>-</code> 예시1:</p>
-<div class="cell" data-execution_count="30">
+<div class="cell" data-execution_count="205">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
 <span id="cb34-2"><a href="#cb34-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="76">
+<div class="cell" data-execution_count="207">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># plt.plot(abs(X)**2,'o')</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a>plt.plot((<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)[<span class="dv">0</span>],<span class="st">'x'</span>)</span>
 <span id="cb35-4"><a href="#cb35-4"></a>plt.axvline(x<span class="op">=</span><span class="fl">2.5</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="76">
-<pre><code>&lt;matplotlib.lines.Line2D at 0x7f5fc7471dc0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="207">
+<pre><code>&lt;matplotlib.lines.Line2D at 0x7f5fc5098040&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
@@ -494,16 +494,16 @@ Note
 </div>
 <p>첫 항인 <span class="math inline">\(X[0]=225.\)</span>을 제외하고 대칭, 그래프 역시 대칭인 그래프가 나옴.</p>
 <p><code>-</code> 예시2:</p>
-<div class="cell" data-execution_count="69">
+<div class="cell" data-execution_count="202">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>]) <span class="co"># 이산신호</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 퓨리에 변환된 이산신호</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="75">
+<div class="cell" data-execution_count="203">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span>
 <span id="cb40-2"><a href="#cb40-2"></a>plt.plot((<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)[<span class="dv">0</span>], <span class="st">'x'</span>)</span>
 <span id="cb40-3"><a href="#cb40-3"></a>plt.axvline(x<span class="op">=</span><span class="dv">3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="75">
-<pre><code>&lt;matplotlib.lines.Line2D at 0x7f5fc74a9e20&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="203">
+<pre><code>&lt;matplotlib.lines.Line2D at 0x7f5fc4861dc0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
