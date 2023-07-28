@@ -9,7 +9,7 @@
 <meta name="author" content="JiyunLim">
 <meta name="dcterms.date" content="2023-06-24">
 
-<title>Quarto-Blog - semi/non/parametric models</title>
+<title>Quarto-Blog - [ML] semi/non/parametric models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -60,6 +123,9 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
@@ -98,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">semi/non/parametric models</h1>
+      <h1 class="quarto-secondary-nav-title"><strong>[ML]</strong> semi/non/parametric models</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -109,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">semi/non/parametric models</h1>
+      <h1 class="title d-none d-lg-block"><strong>[ML]</strong> semi/non/parametric models</h1>
                       </div>
   </div>
     
@@ -183,20 +249,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#선형모델" id="toc-선형모델" class="nav-link active" data-scroll-target="#선형모델">2.1 선형모델</a>
+  <li><a href="#기저함수" id="toc-기저함수" class="nav-link active" data-scroll-target="#기저함수">기저함수</a>
+  <ul class="collapse">
+  <li><a href="#선형모델" id="toc-선형모델" class="nav-link" data-scroll-target="#선형모델">2.1 선형모델</a>
   <ul class="collapse">
   <li><a href="#승법모델-multiplicative-models" id="toc-승법모델-multiplicative-models" class="nav-link" data-scroll-target="#승법모델-multiplicative-models">승법모델 (multiplicative models)</a></li>
   <li><a href="#가법모델additive-models" id="toc-가법모델additive-models" class="nav-link" data-scroll-target="#가법모델additive-models">가법모델(additive models)</a></li>
   </ul></li>
   <li><a href="#커널모델" id="toc-커널모델" class="nav-link" data-scroll-target="#커널모델">2.2 커널모델</a></li>
-  <li><a href="#parametric" id="toc-parametric" class="nav-link" data-scroll-target="#parametric">parametric</a></li>
-  <li><a href="#nonparametric" id="toc-nonparametric" class="nav-link" data-scroll-target="#nonparametric">nonparametric</a></li>
-  <li><a href="#semi-parametric" id="toc-semi-parametric" class="nav-link" data-scroll-target="#semi-parametric">semi-parametric</a>
+  </ul></li>
+  <li><a href="#위키버전" id="toc-위키버전" class="nav-link" data-scroll-target="#위키버전">위키버전</a>
+  <ul class="collapse">
+  <li><a href="#parametric" id="toc-parametric" class="nav-link" data-scroll-target="#parametric">1. parametric</a></li>
+  <li><a href="#nonparametric" id="toc-nonparametric" class="nav-link" data-scroll-target="#nonparametric">2. nonparametric</a></li>
+  <li><a href="#semi-parametric" id="toc-semi-parametric" class="nav-link" data-scroll-target="#semi-parametric">3. semi-parametric</a>
   <ul class="collapse">
   <li><a href="#semiparametric-regression" id="toc-semiparametric-regression" class="nav-link" data-scroll-target="#semiparametric-regression">semiparametric regression</a></li>
   <li><a href="#difference-between-a-parametric-and-non-parametric-model" id="toc-difference-between-a-parametric-and-non-parametric-model" class="nav-link" data-scroll-target="#difference-between-a-parametric-and-non-parametric-model">difference between a parametric and non-parametric model?</a></li>
   </ul></li>
   <li><a href="#to-read" id="toc-to-read" class="nav-link" data-scroll-target="#to-read">To read</a></li>
+  </ul></li>
+  <li><a href="#update" id="toc-update" class="nav-link" data-scroll-target="#update">0710 update</a>
+  <ul class="collapse">
+  <li><a href="#생각해볼-것" id="toc-생각해볼-것" class="nav-link" data-scroll-target="#생각해볼-것">생각해볼 것</a></li>
+  </ul></li>
+  <li><a href="#update-1" id="toc-update-1" class="nav-link" data-scroll-target="#update-1">0717 update</a></li>
   </ul>
 </nav>
     </div>
@@ -206,6 +283,20 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<section id="기저함수" class="level1">
+<h1>기저함수</h1>
+<ul>
+<li><a href="https://ko.wikipedia.org/wiki/%EA%B8%B0%EC%A0%80_%ED%95%A8%EC%88%98">위키버전</a></li>
+</ul>
+<p>기저 함수(basis function) 또는 바탕 함수란 함수 공간의 기저인 함수를 말한다. 모든 벡터 공간의 함수들을 기저 벡터의 선형결합으로 표시할 수 있듯이 모든 연속함수들은 기저 함수들의 선형결합으로 표시할 수 있다.</p>
+<p><code>-</code> 다항식 기저</p>
+<p>실계수 2차 다항식에서 <span class="math inline">\(\{1, t, t2\}\)</span> 은 기저 함수이다. 모든 실계수 2차 다항식은 <span class="math inline">\(a1+bt+ct2\)</span>의 꼴로 표현되므로, 기저함수 <span class="math inline">\(1, t, \text{ and } t2\)</span>의 선형결합으로 표시된다. <span class="math inline">\(\{(t−1)(t−2)/2, −t(t−2), t(t−1)/2\}\)</span>의 세 함수들은 이차 다항식 다른 기저함수가 되며 라그랑주 기저라고 불린다. 체비쇼프 다항식의 처음 세 항도 2차 다항식의 다른 기저함수가 된다.</p>
+<p><code>-</code> 푸리에 기저</p>
+<p>사인과 코사인은 제곱해서 적분가능한 함수들의 (정규직교) 샤우데르 기저가 된다.</p>
+<p>예를 들어 다음 함수들의 모음은 <span class="math inline">\(\{\sqrt{2} \sin(2\pi nx) | n\in \mathbb{N}\} \cup \{\sqrt{2} \cos(2\pi nx) | n\in \mathbb{N}\} \cup \{1\}\)</span> 은 <span class="math inline">\(L^2(0,1)\)</span>의 기저를 이룬다.</p>
+<ul>
+<li><a href="https://datascienceschool.net/03%20machine%20learning/06.02%20%EA%B8%B0%EC%A0%80%ED%95%A8%EC%88%98%20%EB%AA%A8%ED%98%95%EA%B3%BC%20%EA%B3%BC%EC%B5%9C%EC%A0%81%ED%99%94.html#id3">기저함수 쉽게설명된 블로그</a></li>
+</ul>
 <section id="선형모델" class="level2">
 <h2 class="anchored" data-anchor-id="선형모델">2.1 선형모델</h2>
 <p>비선형 입출력 함수도 표현할 수 있도록 확장한 것이 파라미터에 대한 선형 모델이다.</p>
@@ -219,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
 <p>다차원 입력 벡터 <span class="math inline">\(\bf x\)</span>에 대하여 어떤 기저 함수를 택해야 할까?</p>
 <section id="승법모델-multiplicative-models" class="level3">
 <h3 class="anchored" data-anchor-id="승법모델-multiplicative-models">승법모델 (multiplicative models)</h3>
-<p>1차원 기저 함수의 곱으로 다차원 기저 함수를 구성한다.</p>
+<p><strong><font color="green">1차원 기저 함수의 곱</font></strong> 으로 다차원 기저 함수를 구성한다.</p>
 <p><span class="math display">\[f_{\theta}(x)=\sum_{j_1=1}^{b'}\cdots \sum_{j_d=1}^{b'} \theta_{j1,\dots, jd}\phi_{j1}(x^{(1)})\cdots \phi_{jd}(x^{d})\]</span></p>
 <ul>
 <li><span class="math inline">\(b'\)</span> : 각 차원의 파라미터 수</li>
@@ -230,14 +321,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="가법모델additive-models" class="level3">
 <h3 class="anchored" data-anchor-id="가법모델additive-models">가법모델(additive models)</h3>
-<p>1차원 기저 함수의 합으로 다차원 기저 함수를 구성한다.</p>
+<p><strong><font color="hotpink">1차원 기저 함수의 합</font></strong> 으로 다차원 기저 함수를 구성한다.</p>
 <p><span class="math display">\[f_{\theta}(x) = \sum_{k=1}^d\sum_{j=1}^{b'} \theta_{k,j} \phi_j (x^{(k)}) \tag{2.1}\]</span></p>
 <p>가법모델에서는 전체 파라미터 수가 <span class="math inline">\(b'd\)</span>개가 되므로 입력 차원 <span class="math inline">\(d\)</span>에 대하여 선형으로만 증가한다. 예를들면, <span class="math inline">\(b'=10\)</span>이고, 입력차원 <span class="math inline">\(d=100\)</span>일 때 전체 하라미터 수는 <span class="math inline">\(10\times 100 = 1000\)</span>이 되어 컴퓨터로 쉽게 다룰 수 있는 범위를 유지한다.그러나 가법 모델에서는 1차원 기저 함수의 합밖에 표현할 수 밖에 없기 때문에 승법모델만큼의 표현력은 가지지 못한다.</p>
 </section>
 </section>
 <section id="커널모델" class="level2">
 <h2 class="anchored" data-anchor-id="커널모델">2.2 커널모델</h2>
-<p>선형모델에서는 다항식이나 삼각다항식 등 기저 함수를 훈련 표본 <span class="math inline">\(\{(x_i, y_i)\}_{i=1}^n\)</span>과 관계없이 결정해 왔다.</p>
+<p>선형모델에서는 다항식이나 삼각다항식 등 <strong>기저 함수를 훈련 표본 <span class="math inline">\(\{(x_i, y_i)\}_{i=1}^n\)</span>과 관계없이 결정</strong> 해 왔다.<span class="math inline">\(\Rightarrow\)</span> <strong><font color="blue">“parametric model” 이라는 말이다.</font></strong></p>
 <p>기저함수의 설계에 입력 표본 <span class="math inline">\(\{x_i\}_{i=1}^n\)</span>을 이용하는 <strong>커널 모델(kernel models)</strong> 을 소개한다.</p>
 <p>커널모델은 이항 함수 <span class="math inline">\(K( , )\)</span>로 나타낼 수 있는 커널함수를 써서 <span class="math inline">\(\{K(x,x_j)\}_{j=1}^n\)</span>의 선형결합으로 정의된다.</p>
 <p><span class="math display">\[f_{\theta}(x) = \sum_{j=1}^n \theta_j K(x,x_j) \tag{2.2}\]</span></p>
@@ -255,13 +346,33 @@ ul.task-list li input[type="checkbox"] {
 <p>매우 많은 훈련 표본을 다루는 경우에도 입력 표본 <span class="math inline">\(\{x_i\}_{i=1}^n\)</span>의 (이를테면 무작위로 선택한) 부분집합 <span class="math inline">\(\{c_j\}_{j=1}^b\)</span>만을 커널 중심으로 사용하여 계산 부하를 줄일 수 있다.</p>
 <p><span class="math display">\[f_{\theta}(x) = \sum_{j=1}^b \theta_j K(x,c_j)\]</span></p>
 <p>커널 모델은 파라미터 벡터 <span class="math inline">\({\bf\theta}=(\theta_1, \dots, \theta_n)^\top\)</span> 에 대해 선형인 성질 때문에 식 <code>(2.1)</code>의 파라미터에 대한 선형모델의 한 종류로 볼 수 있다.</p>
-<p>그러나 기저 함수가 입력 표본에 의존적이기 때문에 커널 모델의 거동은 파라미터에 대한 선형모델과는 크게 달라진다. 이 때문에 통계학에서는 파라미터에 대한 선형 모델을 <strong>파라메트릭 모델(parametric models)</strong>, 커널 모델을 <strong>넌파라메트릭 모델(non-parametric models)</strong> 로 구분하고 있다.</p>
+<p>그러나 기저 함수가 입력 표본에 의존적이기 때문에 커널 모델의 거동은 파라미터에 대한 선형모델과는 크게 달라진다. 이 때문에 통계학에서는 파라미터에 대한 선형 모델을 <strong><font color="blue">파라메트릭 모델(parametric models)</font></strong>, 커널 모델을 <strong><font color="red">넌파라메트릭 모델(non-parametric models)</font></strong> 로 구분하고 있다.</p>
 <p>커널 모델의 또 다른 특징은 입력 <span class="math inline">\(\bf x\)</span>가 벡터가 아닌 경우에도 비교적 쉽게 확장이 가능하다는 점이다.</p>
 <p>커널모델 식 (2.2)의 경우, 입력 <span class="math inline">\(x\)</span>는 커널 함수 <span class="math inline">\(K(x,x')\)</span>에서 <span class="math inline">\(x\)</span>와 <span class="math inline">\(x'\)</span> 사이에만 존재하므로 두 개의 입력 <span class="math inline">\(x\)</span>와 <span class="math inline">\(x'\)</span>에 대한 커널 함수만 정의되어 있다면, 입력 <span class="math inline">\(\bf x\)</span>는 어떤 값을 취해도 상관없다. 예를 들면, 입력 <span class="math inline">\(\bf x\)</span>가 문자열, 트리, 그래프 등인 경우에대한 커널 함수가 제안된 바가 있다.</p>
 <p>이렇듯 커널함수를 사용한 머신러닝 알고리즘은 <strong>커널법</strong> 이라 불리며 활발히 연구되고 있다.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>책의 정리에 따르면 파라메트릭 모델과 넌파라메트릭 모델의 구분은 다음과 같다.</p>
+<ul>
+<li><p>기저함수를 훈련 표본 <span class="math inline">\(\{(x_i, y_i)\}_{i=1}^n\)</span>과 관계없이 결정할 수 있으면 파라메트릭 모델</p></li>
+<li><p>기저함수가 커널모델과 같이 입력표본에 의존적이라면 넌파라메트릭 모델</p></li>
+</ul>
+</div>
+</div>
 </section>
+</section>
+<section id="위키버전" class="level1">
+<h1>위키버전</h1>
 <section id="parametric" class="level2">
-<h2 class="anchored" data-anchor-id="parametric">parametric</h2>
+<h2 class="anchored" data-anchor-id="parametric">1. parametric</h2>
 <ul>
 <li>ref: <a href="https://en.wikipedia.org/wiki/Parametric_statistics" class="uri">https://en.wikipedia.org/wiki/Parametric_statistics</a></li>
 </ul>
@@ -273,7 +384,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </section>
 <section id="nonparametric" class="level2">
-<h2 class="anchored" data-anchor-id="nonparametric">nonparametric</h2>
+<h2 class="anchored" data-anchor-id="nonparametric">2. nonparametric</h2>
 <ul>
 <li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_statistics" class="uri">https://en.wikipedia.org/wiki/Nonparametric_statistics</a></li>
 <li>ref: <a href="https://en.wikipedia.org/wiki/Nonparametric_regression" class="uri">https://en.wikipedia.org/wiki/Nonparametric_regression</a></li>
@@ -281,7 +392,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="2023-06-24-parametric_vs_nonparametric_files/figure-html/37391e2e-e8ea-4432-b1d7-5134d51bbb3d-1-cfe67443-03fc-4d8f-93ec-20ebaabe87df.png" class="img-fluid"></p>
 </section>
 <section id="semi-parametric" class="level2">
-<h2 class="anchored" data-anchor-id="semi-parametric">semi-parametric</h2>
+<h2 class="anchored" data-anchor-id="semi-parametric">3. semi-parametric</h2>
 <ul>
 <li>ref: <a href="https://en.wikipedia.org/wiki/Semiparametric_regression" class="uri">https://en.wikipedia.org/wiki/Semiparametric_regression</a></li>
 </ul>
@@ -304,8 +415,9 @@ ul.task-list li input[type="checkbox"] {
 <p>A neural net with fixed architecture and no weight decay would be a parametric model.</p>
 <p>But if you have weight decay, then the value of the decay parameter selected by cross-validation will generally get smaller with more data. This can be interpreted as an increase in the effective number of parameters with increasing sample size.</p>
 <ul>
-<li><p>Parametric model: 데이터가 특정 모델을 따른다고 가정하고, 샘플사이즈에 대해 파라메터가 고정되어 있음</p></li>
-<li><p>nonparametric model: 파라메터의 수가 학습데이터의 크기에 따라 달라진다. (특정 분포를 따른다는 가정이 없기때문에 튜닝해야할 파라미터가 명확히 정해져 있지 않다.)</p></li>
+<li><p>Parametric model: 데이터가 특정 모델을 따른다고 가정하고, 샘플사이즈에 대해 파라메터가 고정되어 있음 (ex. OLS regression의 경우 파라메터 개수가 항상 <span class="math inline">\(\beta\)</span>의 길이 더하기 <span class="math inline">\(1\)</span>)</p></li>
+<li><p>nonparametric model: 파라메터의 수가 학습데이터의 크기에 따라 증가할 수 있다. (특정 분포를 따른다는 가정이 없기때문에 튜닝해야할 파라미터가 명확히 정해져 있지 않다.)</p></li>
+<li><p>그러나 가중치 감쇠가 있는 경우 교차 검증을 통해 선택된 decay parameter의 값은 일반적으로 데이터가 많을수록 작아진다. 이는 표본 크기가 증가함에 따라 유효 모수 수가 증가한 것으로 해석할 수 있습니다.</p></li>
 </ul>
 </section>
 </section>
@@ -317,6 +429,82 @@ ul.task-list li input[type="checkbox"] {
 <li><p>ref: <a href="https://vtechworks.lib.vt.edu/bitstream/handle/10919/107291/pvsregression.pdf?sequence=2" class="uri">https://vtechworks.lib.vt.edu/bitstream/handle/10919/107291/pvsregression.pdf?sequence=2</a></p></li>
 <li><p>무한차원의 벡터공간의 기저: <a href="https://jjycjnmath.tistory.com/537" class="uri">https://jjycjnmath.tistory.com/537</a></p></li>
 </ul>
+<hr>
+</section>
+</section>
+<section id="update" class="level1">
+<h1>0710 update</h1>
+<p><code>-</code> <strong>파라메트릭</strong></p>
+<p>파라메트릭은 베이시스 숫자가 고정되어 있다.</p>
+<p>베이시스를 데이터 숫자만큼 쓰면 일단 세미 아니면 넌파라메트릭</p>
+<p>즉, 데이터의 숫자에 따라 베이시스가 변한다. (데이터=베이시스// 근데 우연히 데이터개수와 베이시스 개수가 같은 파라메트릭 모형도 있을 수 있겠지)</p>
+<p>그럼 세미와 넌은 어떻게 구분하는데?</p>
+<p><code>-</code> <strong>세미파라메트릭 / 넌 파라메트릭</strong></p>
+<p>베이시스를 뭘로 잡을지는 알고있음. (푸리에 변환할때 베이시스가 <span class="math inline">\(\sin, \cos\)</span>인 것은 알고있는 것처럼)</p>
+<p>베이시스를 무한개로 사용한다는 점에서 넌 파라메트릭과 유사</p>
+<p>데이터 값에 디펜드하지 않는다는 점에서는 파라메트릭과 유사</p>
+<p>세미는 베이시스를 선택할 때 데이터에 상관없이 곡선들의 포멧이 어느정도 정해져 있지만, 넌파라메트릭은 데이터를 무조건 따라간다.</p>
+<ul>
+<li>선형함수의 모임 <span class="math inline">\(\to\)</span> linear space –&gt; 파라메트릭</li>
+<li>다항함수의 모임 <span class="math inline">\(\to\)</span> polinomial space –&gt; 파라메트릭</li>
+<li>Hilbert space (<span class="math inline">\(\sin, \cos\)</span>) –&gt; 웬만하면 힐버트 스페이스</li>
+<li>무슨 스페이스에 있는지 모르겠다 –&gt; 넌파라메트릭</li>
+</ul>
+<p>ex) Cox proportional hazards model</p>
+<p><span class="math inline">\(F(t) = 1-\exp\left(-\int_{0}^{t}\lambda_0(u) e^{\beta x}du\right)\)</span></p>
+<ul>
+<li>survival model이 non-parametric인 이유: <a href="https://bookdown.org/sestelo/sa_financial/the-semiparametric-model.html" class="uri">https://bookdown.org/sestelo/sa_financial/the-semiparametric-model.html</a></li>
+</ul>
+<p><code>-</code> 힐베르트 공간 (정리중)</p>
+<p>위키에 따르면 함수해석학에서 힐베르트 공간(Hilber space)은 완비 내적 공간이다. 유클리드 공간을 일반화한 개념이다.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> IFrame</span>
+<span id="cb1-2"><a href="#cb1-2"></a>IFrame(<span class="st">"https://upload.wikimedia.org/wikipedia/commons/5/5c/Standing_waves_on_a_string.gif"</span> , title<span class="op">=</span><span class="st">"Hilbert space"</span>, width<span class="op">=</span><span class="st">"400"</span> ,height <span class="op">=</span> <span class="st">"400"</span>,frameborder<span class="op">=</span><span class="st">"0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+
+        <iframe width="400" height="400" src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Standing_waves_on_a_string.gif?title=Hilbert+space&amp;frameborder=0" frameborder="0" allowfullscreen=""></iframe>
+        
+</div>
+</div>
+<ul>
+<li>지렁지렁 지렁이는 힐베르트 공간 (<span class="math inline">\(\sin, \cos\)</span>은 원 위의 <span class="math inline">\(L^2\)</span>함수의 힐베르트 공간)</li>
+</ul>
+<section id="생각해볼-것" class="level2">
+<h2 class="anchored" data-anchor-id="생각해볼-것">생각해볼 것</h2>
+<ul>
+<li>시계열모델은 파라메트릭? 넌파라메트릭? 세미파라메트릭?</li>
+</ul>
+<p><code>-</code> AR(1)</p>
+<p>AR(1) 모형은 자기회귀 모형 중 하나로, 현재의 관측값이 이전의 관측값에 의존하는 모형입니다. 이 모형은 파라메트릭 모형으로 분류됩니다. 파라메트릭 모형은 모수(parameter)에 기반하여 정의되는 확률 모형입니다. AR(1) 모형은 현재의 관측값이 이전의 관측값에 어떤 가중치를 곱한 후에 오차항을 더한 값으로 생성됩니다. 이 가중치 파라미터와 오차항의 분포를 모수로 갖습니다. - <span class="math inline">\(AR(1): Z_t = \phi Z_{t-1} +\epsilon_t\)</span></p>
+<p><code>-</code> AR(2)</p>
+<ul>
+<li><span class="math inline">\(Z_t = \phi Z_{t-1} + \phi_2 Z_{t-2} + \epsilon_t\)</span></li>
+</ul>
+<p><span class="math inline">\(AR(p)\)</span> 모델이 파라메트릭 모델이지만 베이시스와 데이터 수가 같은 경우로 봐도 될까?</p>
+<p><code>-</code> AR(?)</p>
+<p>차수가 무한한 AR 모형은 일반적으로 세미파라메트릭 모형으로 분류됩니다. 세미파라메트릭 모형은 일부 파라미터에 대해서는 모수적 가정을 하지만, 일부 파라미터에 대해서는 비모수적으로 다루는 모형입니다.</p>
+<p>차수가 무한한 AR 모형은 ARMA(infinity) 모형 또는 ARIMA(infinity) 모형으로도 알려져 있습니다. 이 모형은 모든 이전 관측값을 포함한 무한한 과거 관측값에 의존하는 형태로 정의됩니다. 하지만, 실제로 무한한 개수의 과거 관측값을 사용하는 것은 계산상의 한계로 불가능합니다. 따라서, 실제로는 유한한 개수의 과거 관측값을 사용하여 AR(p) 모형으로 근사화하는 방식으로 모델링됩니다.</p>
+<p>따라서, 차수가 무한한 AR 모형은 일부 파라미터에 대해서는 모수적 가정을 하지만, 사용되는 실제 과거 관측값의 개수에 따라서는 비모수적으로 다루는 세미파라메트릭 모형으로 볼 수 있습니다.</p>
+<p><code>-</code> ChatGPT</p>
+<ol type="1">
+<li>non-parametric이다?</li>
+</ol>
+<p>반면에, 제가 존재하는 ChatGPT는 넌파라메트릭 모형에 해당합니다. 넌파라메트릭 모형은 모수적 제약이 없는 모형이며, 데이터에 대한 분포 가정을 하지 않습니다. 대신, 데이터의 패턴과 관계를 학습하고 이를 기반으로 예측이나 생성을 수행합니다. GPT는 사전 학습된 신경망 모델로, 데이터의 통계적 구조나 확률 모형에 대한 가정을 하지 않고 문장 생성 및 자연어 이해 작업을 수행합니다.</p>
+<ol start="2" type="1">
+<li>parametric이다?</li>
+</ol>
+<p>ChatGPT는 파라메트릭 모형입니다.</p>
+<p>ChatGPT는 OpenAI에서 개발한 대규모 언어 모델인 GPT-3.5 모델을 기반으로 합니다. GPT-3.5 모델은 파라메트릭 모형으로, 확률분포의 형태와 관련된 모수를 가정하고 있습니다. 이 모델은 많은 양의 텍스트 데이터로 사전 훈련되었으며, 주어진 입력에 대해 조건부 확률분포를 모델링하고 응답을 생성합니다. ChatGPT는 이러한 모델을 기반으로 대화를 수행하는 데 사용됩니다.</p>
+<p>반면에 세미파라메트릭 모형은 일부 모수를 가정하고, 다른 부분은 비모수적 방법으로 모델링하는 모형입니다. 예를 들어, 로그-선형 모형은 세미파라메트릭 모형의 한 예입니다. 하지만 ChatGPT는 그 자체로는 세미파라메트릭 모형이 아닌 파라메트릭 모형입니다.</p>
+<ul>
+<li>답변이 계속 달라지는데?? <span class="math inline">\(\to\)</span> ChatGPT는 넌파라메트릭이다.</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="update-1" class="level1">
+<h1>0717 update</h1>
+<p>일단 세미파라메트</p>
 
 
 </section>

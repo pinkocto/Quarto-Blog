@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-07-17">
+
+<title>Quarto-Blog - [CGSP] Chap 8.3: Discrete Fourier Transform</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Quarto-Blog</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><strong>[CGSP]</strong> Chap 8.3: Discrete Fourier Transform</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block"><strong>[CGSP]</strong> Chap 8.3: Discrete Fourier Transform</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 17, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../4_ts2023.html" class="sidebar-item-text sidebar-link">TS2023</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../6_note.html" class="sidebar-item-text sidebar-link">NOTE</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#discrete-fourier-transform" id="toc-discrete-fourier-transform" class="nav-link active" data-scroll-target="#discrete-fourier-transform">Discrete Fourier Transform</a>
+  <ul class="collapse">
+  <li><a href="#cyclic-shfit-operator-bf-b" id="toc-cyclic-shfit-operator-bf-b" class="nav-link" data-scroll-target="#cyclic-shfit-operator-bf-b">Cyclic shfit operator <span class="math inline">\({\bf B}\)</span></a></li>
+  <li><a href="#what-is-cyclic-shift" id="toc-what-is-cyclic-shift" class="nav-link" data-scroll-target="#what-is-cyclic-shift">What is Cyclic shift?</a></li>
+  <li><a href="#예제" id="toc-예제" class="nav-link" data-scroll-target="#예제">예제</a></li>
+  <li><a href="#dft" id="toc-dft" class="nav-link" data-scroll-target="#dft">DFT</a></li>
+  <li><a href="#spectral-components-and-frequencies" id="toc-spectral-components-and-frequencies" class="nav-link" data-scroll-target="#spectral-components-and-frequencies">Spectral components and Frequencies</a></li>
+  </ul></li>
+  <li><a href="#내-마음대로-summary" id="toc-내-마음대로-summary" class="nav-link" data-scroll-target="#내-마음대로-summary">내 마음대로 Summary</a>
+  <ul class="collapse">
+  <li><a href="#dft-1" id="toc-dft-1" class="nav-link" data-scroll-target="#dft-1">DFT</a></li>
+  <li><a href="#inverse-dft" id="toc-inverse-dft" class="nav-link" data-scroll-target="#inverse-dft">Inverse DFT</a></li>
+  <li><a href="#dft의-또-다른-정의" id="toc-dft의-또-다른-정의" class="nav-link" data-scroll-target="#dft의-또-다른-정의">DFT의 또 다른 정의</a></li>
+  <li><a href="#spectral-component-and-frequencies" id="toc-spectral-component-and-frequencies" class="nav-link" data-scroll-target="#spectral-component-and-frequencies">Spectral component and Frequencies</a></li>
+  </ul></li>
+  <li><a href="#ref" id="toc-ref" class="nav-link" data-scroll-target="#ref">Ref</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">using</span> <span class="bu">LinearAlgebra</span>, <span class="bu">FFTW</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="discrete-fourier-transform" class="level1">
+<h1>Discrete Fourier Transform</h1>
+<blockquote class="blockquote">
+<p><span class="citation" data-cites="djuric2018cooperative">Djuric and Richard (<a href="#ref-djuric2018cooperative" role="doc-biblioref">2018</a>)</span> 의 Chap. 8.3 의 내용중 일부를 요약함.</p>
+</blockquote>
+<section id="cyclic-shfit-operator-bf-b" class="level2">
+<h2 class="anchored" data-anchor-id="cyclic-shfit-operator-bf-b">Cyclic shfit operator <span class="math inline">\({\bf B}\)</span></h2>
+<p>The matrix <span class="math inline">\({\bf B}\)</span> representing the periodic shift is</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1"></a>B<span class="op">=</span> [<span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>    <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> </span>
+<span id="cb2-3"><a href="#cb2-3"></a>    <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>5×5 Matrix{Int64}:
+ 0  0  0  0  1
+ 1  0  0  0  0
+ 0  1  0  0  0
+ 0  0  1  0  0
+ 0  0  0  1  0</code></pre>
+</div>
+</div>
+<p>This matrix is the cyclic shift.</p>
+<p><em>note</em>: <span class="math inline">\({\bf B}\)</span> is orthogonal matrix. (직교행렬: 전치행렬이 역행렬인 행렬 <span class="math inline">\(\bf{A}\bf{A}'=\bf{A}'\bf{A}=\bf{I}\)</span>)</p>
+</section>
+<section id="what-is-cyclic-shift" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-cyclic-shift">What is Cyclic shift?</h2>
+<p>ref: <a href="https://en.wikipedia.org/wiki/Circular_shift">Cyclic shift의 개념</a></p>
+<p>a circular shift is the operation of rearranging the entries in a tuple, either by moving the final entry to the first position, while shifting all other entries to the next position, or by performing the inverse operation. A circular shift is a special kind of cyclic permutation, which in turn is a special kind of permutation.</p>
+<p>위를 요약하자면 조합론에서 순환이동이란 튜플의 항목을 재정렬하는 작업이다. 마지막 element를 첫번째 위치로 이동하고 다른 모든 element들은 다음 위치로 이동하는 것.</p>
+<p>예를들어 (a, b, c, d)에 ciclic shift를 반복적으로 적용하면 다음과 같다.</p>
+<ul>
+<li><code>0</code> <span class="math inline">\((a, b, c, d)\)</span> # before cyclic shift (origin)</li>
+<li><code>1</code> <span class="math inline">\((d, a, b, c)\)</span> # 1step</li>
+<li><code>2</code> <span class="math inline">\((c, d, a, b)\)</span> # 2step</li>
+<li><code>3</code> <span class="math inline">\((b, c, d, a)\)</span> # 3step</li>
+<li><code>4</code> <span class="math inline">\((a, b, c, d)\)</span> # 4step –&gt; origin</li>
+</ul>
+<p><em>cyclic shift를 4번 반복하니까 원래 변환 전 원래 튜플로 돌아왔다.</em></p>
+</section>
+<section id="예제" class="level2">
+<h2 class="anchored" data-anchor-id="예제">예제</h2>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1"></a>B <span class="co"># 1 cyclic shift</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>5×5 Matrix{Int64}:
+ 0  0  0  0  1
+ 1  0  0  0  0
+ 0  1  0  0  0
+ 0  0  1  0  0
+ 0  0  0  1  0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1"></a>B<span class="op">'</span>B <span class="co"># B는 orthogonal matrix니까 B'B = I일 것.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>5×5 Matrix{Int64}:
+ 1  0  0  0  0
+ 0  1  0  0  0
+ 0  0  1  0  0
+ 0  0  0  1  0
+ 0  0  0  0  1</code></pre>
+</div>
+</div>
+<p>(ex1) Define <span class="math inline">\({\bf s}\)</span> as</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1"></a>s <span class="op">=</span> [<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>] <span class="co">## origin</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>5-element Vector{Int64}:
+ 1
+ 2
+ 3
+ 4
+ 5</code></pre>
+</div>
+</div>
+<p>Observe that</p>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1"></a>B<span class="op">*</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>5-element Vector{Int64}:
+ 5
+ 1
+ 2
+ 3
+ 4</code></pre>
+</div>
+</div>
+<p>결과: <span class="math inline">\([1,2,3,4,5] \to [5,1,2,3,4]\)</span></p>
+<ul>
+<li>맨 뒤에 5가 앞으로 나오고 나머지 값들은 한칸씩 뒤로 밀렸다.</li>
+<li>위에서 배운대로라면 5번 쉬프트되면 자기자신으로 돌아오지 않을까?</li>
+</ul>
+<p><code>-</code> <span class="math inline">\(\bf{B}^2\)</span> 에 <span class="math inline">\(s\)</span>를 곱하면?</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1"></a>B<span class="op">^</span><span class="fl">2</span><span class="op">*</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<pre><code>5-element Vector{Int64}:
+ 4
+ 5
+ 1
+ 2
+ 3</code></pre>
+</div>
+</div>
+<p>결과: <span class="math inline">\([1,2,3,4,5] \to [5,1,2,3,4] \to [4,5,1,2,3]\)</span></p>
+<p><code>-</code> <span class="math inline">\(\bf{B}^3\)</span> 에 <span class="math inline">\(s\)</span>를 곱하면?</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1"></a>B<span class="op">^</span><span class="fl">3</span><span class="op">*</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>5-element Vector{Int64}:
+ 3
+ 4
+ 5
+ 1
+ 2</code></pre>
+</div>
+</div>
+<p><code>-</code> <span class="math inline">\(\bf{B}^5\)</span>에 <span class="math inline">\(s\)</span>를 곱하면?</p>
+<p>예상대로라면 원래 <span class="math inline">\(s\)</span>인 <span class="math inline">\([1,2,3,4,5]\)</span>로 돌아올 것 같다.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1"></a>B<span class="op">^</span><span class="fl">5</span><span class="op">*</span>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>5-element Vector{Int64}:
+ 1
+ 2
+ 3
+ 4
+ 5</code></pre>
+</div>
+</div>
+<p>Thus we can interprete the matrix <span class="math inline">\({\bf B}\)</span> as cyclic shift operator such that</p>
+<p><span class="math display">\[
+{\bf B}s_n =s_{n-1}
+\]</span></p>
+<p>for <span class="math inline">\(n=1,\dots, N-1\)</span> and <span class="math inline">\({\bf B}s_0 =s_N\)</span>.</p>
+<p><em>note:</em> <span class="math inline">\({\bf B}\)</span>는 시계열에서 다루는 backshift operator 와 비슷함.</p>
+<p>(참고) backshift operator(후방이동) 연산자 <span class="math inline">\(\bf{B}\)</span>는 시계열 시차를 다룰 때 유용한 표기법 장치이다. (<span class="math inline">\(B_{y_t} = y_{t-1})\)</span></p>
+</section>
+<section id="dft" class="level2">
+<h2 class="anchored" data-anchor-id="dft">DFT</h2>
+<p>The matrix <span class="math inline">\({\bf B}\)</span> can be expressed as</p>
+<p><span class="math inline">\({\bf B}={\bf DFT}^\ast \cdot {\bf \Lambda} \cdot {\bf DFT}\)</span></p>
+<p>where <span class="math inline">\({\bf DFT}\)</span> is unitary and symmetric matrix and <span class="math inline">\(\bf \Lambda\)</span> is diagonal matrix.</p>
+<p><code>-</code> <span class="math inline">\({\bf B}\)</span>의 고윳값과 고유벡터</p>
+<p><span class="math inline">\(N=5\)</span> 일 때, 방정식 <span class="math inline">\({\bf B}{\bf x} = \lambda {\bf x}\)</span>는 아래와 같은 5개의 고윳값과 고유벡터를 가진다.</p>
+<p><span class="math inline">\({\bf B}{\bf x} = \begin{bmatrix} 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0\end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5\end{bmatrix}=\begin{bmatrix} x_2 \\ x_3 \\ x_4 \\ x_5 \\ x_1\end{bmatrix}=\lambda \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \\ x_5\end{bmatrix}\)</span></p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1"></a>λ, Ψ <span class="op">=</span> <span class="fu">eigen</span>(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>Eigen{ComplexF64, ComplexF64, Matrix{ComplexF64}, Vector{ComplexF64}}
+values:
+5-element Vector{ComplexF64}:
+ -0.8090169943749472 - 0.5877852522924725im
+ -0.8090169943749472 + 0.5877852522924725im
+ 0.30901699437494734 - 0.9510565162951536im
+ 0.30901699437494734 + 0.9510565162951536im
+  0.9999999999999998 + 0.0im
+vectors:
+5×5 Matrix{ComplexF64}:
+  0.138197+0.425325im   0.138197-0.425325im  …  0.447214+0.0im
+ -0.361803-0.262866im  -0.361803+0.262866im     0.447214+0.0im
+  0.447214-0.0im        0.447214+0.0im          0.447214+0.0im
+ -0.361803+0.262866im  -0.361803-0.262866im     0.447214+0.0im
+  0.138197-0.425325im   0.138197+0.425325im     0.447214+0.0im</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="486">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1"></a>B <span class="op">≈</span> Ψ <span class="op">*</span> <span class="fu">Diagonal</span>(λ) <span class="op">*</span> Ψ<span class="ch">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="486">
+<pre><code>true</code></pre>
+</div>
+</div>
+<p>Define <span class="math inline">\({\boldsymbol \Psi}^\ast={\bf DFT}\)</span>.</p>
+<div class="cell" data-execution_count="487">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb22-1"><a href="#cb22-1"></a>DFT <span class="op">=</span> Ψ<span class="ch">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="487">
+<pre><code>5×5 adjoint(::Matrix{ComplexF64}) with eltype ComplexF64:
+  0.138197-0.425325im  -0.361803+0.262866im  …  0.138197+0.425325im
+  0.138197+0.425325im  -0.361803-0.262866im     0.138197-0.425325im
+ -0.361803-0.262866im  -0.361803+0.262866im     0.138197-0.425325im
+ -0.361803+0.262866im  -0.361803-0.262866im     0.138197+0.425325im
+  0.447214-0.0im        0.447214-0.0im          0.447214-0.0im</code></pre>
+</div>
+</div>
+<p>Note that the eigenvalues are not ordered in julia.</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb24-1"><a href="#cb24-1"></a>λ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>5-element Vector{ComplexF64}:
+ -0.8090169943749472 - 0.5877852522924725im
+ -0.8090169943749472 + 0.5877852522924725im
+ 0.30901699437494734 - 0.9510565162951536im
+ 0.30901699437494734 + 0.9510565162951536im
+  0.9999999999999998 + 0.0im</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">sort</span>([λ], rev<span class="op">=</span><span class="cn">false</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>1-element Vector{Vector{ComplexF64}}:
+ [-0.8090169943749472 - 0.5877852522924725im, -0.8090169943749472 + 0.5877852522924725im, 0.30901699437494734 - 0.9510565162951536im, 0.30901699437494734 + 0.9510565162951536im, 0.9999999999999998 + 0.0im]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="488">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb28-1"><a href="#cb28-1"></a>λ[<span class="fl">5</span>], <span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span><span class="op">*</span> <span class="fl">2</span>π<span class="op">/</span><span class="fl">5</span> <span class="op">*</span> <span class="fl">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="488">
+<pre><code>(0.9999999999999998 + 0.0im, 1.0 - 0.0im)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="489">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1"></a>λ[<span class="fl">3</span>], <span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span><span class="op">*</span> <span class="fl">2</span>π<span class="op">/</span><span class="fl">5</span> <span class="op">*</span> <span class="fl">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="489">
+<pre><code>(0.30901699437494734 - 0.9510565162951536im, 0.30901699437494745 - 0.9510565162951535im)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="490">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1"></a>λ[<span class="fl">1</span>], <span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span><span class="op">*</span> <span class="fl">2</span>π<span class="op">/</span><span class="fl">5</span> <span class="op">*</span> <span class="fl">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="490">
+<pre><code>(-0.8090169943749472 - 0.5877852522924725im, -0.8090169943749473 - 0.5877852522924732im)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="491">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1"></a>λ[<span class="fl">2</span>], <span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span><span class="op">*</span> <span class="fl">2</span>π<span class="op">/</span><span class="fl">5</span> <span class="op">*</span> <span class="fl">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="491">
+<pre><code>(-0.8090169943749472 + 0.5877852522924725im, -0.8090169943749475 + 0.587785252292473im)</code></pre>
+</div>
+</div>
+</section>
+<section id="spectral-components-and-frequencies" class="level2">
+<h2 class="anchored" data-anchor-id="spectral-components-and-frequencies">Spectral components and Frequencies</h2>
+<p>We remark:</p>
+<p><strong>(1) Spectral components</strong>: For <span class="math inline">\(k = 0,1,2,\dots, N-1\)</span>, the <span class="math inline">\(k\)</span>-th column of <span class="math inline">\({\bf DFT}^\ast\)</span> is defined by</p>
+<p><span class="math display">\[\Psi_k:=\frac{1}{\sqrt{N}}\begin{bmatrix} 1 \\ e^{j\frac{2\pi}{N}k} \\ e^{j\frac{2\pi}{N}2k} \\ e^{j\frac{2\pi}{N}3k} \\  \dots \\ e^{j\frac{2\pi}{N}(N-1)k} \end{bmatrix}.\]</span></p>
+<p>Note that <span class="math inline">\(\Psi_k\)</span> can be also interpreted as <span class="math inline">\(\ell\)</span>-th eigenvector of <span class="math inline">\({\bf A}\)</span> correspoding <span class="math inline">\(\lambda_\ell = e^{-j\frac{2\pi}{N}k}\)</span>. Those eigenvectors</p>
+<p><span class="math display">\[\big\{{\bf 1},\Psi_1,\Psi_2, \dots, \Psi_{N-1}\big\}\]</span></p>
+<p>form a complete orthonomal basis of <span class="math inline">\(\mathbb{C}^N\)</span>. These vectors are called spectral components.</p>
+<p><strong>(2) Frequencies:</strong> The diagonal entries of <span class="math inline">\({\bf \Lambda}\)</span> are the eigenvalues of the time shift <span class="math inline">\({\bf B}\)</span>. In Physics and in operator theory, these eigenvalues are the frequencies of the signal. In DSP it is more common to call frequencies</p>
+<p><span class="math display">\[\Omega_k=\frac{-1}{2\pi j}\ln\lambda_k=\frac{-1}{2\pi j}\ln e^{-j \frac{2\pi}{N}k}=\frac{k}{N}, \quad k=0,1,2,\dots,N-1.\]</span></p>
+<hr>
+<p>The <span class="math inline">\(N\)</span> (time) frequencies <span class="math inline">\(\Omega_k\)</span> are all distinct, positive, equally spaced, and increasing from <span class="math inline">\(0\)</span> to <span class="math inline">\(\frac{N-1}{N}\)</span>. The spectral components are the complex exponential sinusiodal functions. For example, corresponding to the zero frequency is the DC spectral component (a vector whose entries are constant and all equal to <span class="math inline">\(\frac{1}{\sqrt{N}}\)</span>).</p>
+</section>
+</section>
+<section id="내-마음대로-summary" class="level1">
+<h1>내 마음대로 Summary</h1>
+<section id="dft-1" class="level2">
+<h2 class="anchored" data-anchor-id="dft-1">DFT</h2>
+<p>일반적으로 우리가 알고있는 DFT<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>는 아래와 같다. (이 그림은 <a href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform">위키피디아</a>에서 캡쳐한 것이다)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2022-12-24-Chap 8.3_files/figure-html/d3025f89-333d-4e4d-8710-662dccf51cf5-1-c02def0a-947e-4239-b928-bf699d496cbb.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">그림1: 위키에서 긁어온 DFT의 정의</figcaption><p></p>
+</figure>
+</div>
+<p>즉 DFT는 임의의 신호 <span class="math inline">\(\{{\bf x}_n\}:=x_0,x_1,\dots,x_{N-1}\)</span>를 적당한 규칙<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>에 따라서 <span class="math inline">\(\{{\bf X}_k\}:=X_0,X_1,\dots,X_{N-1}\)</span>로 바꾸는 변환을 이라고 이해할 수 있다. 이때 사용되는 적당한 규칙은 구체적으로 아래의 수식을 의미한다.</p>
+<p><span class="math display">\[X_k = \sum_{n=0}^{N-1}x_n\cdot e^{-i\frac{2\pi}{N}kn}\]</span></p>
+<p>그런데 매트릭스를 활용하면 위의 수식을 아래와 같이 표현할 수 있다.</p>
+<p><span class="math display">\[\begin{bmatrix} X_1 \\ X_2 \\ X_3 \\ \dots \\ X_{N-1} \end{bmatrix}
+=\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 1} &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)}\\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; e^{-i \frac{2\pi}{N}\cdot 4} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)}\\
+\dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)} &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)^2}
+\end{bmatrix}
+\begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ \dots \\ x_{N-1} \end{bmatrix}\]</span></p>
+<p>편의상 <span class="math inline">\({\bf X}\)</span>와 <span class="math inline">\({\bf x}\)</span>를 <span class="math inline">\(N \times 1\)</span> col-vec이라고 생각하고 DFT를 아래와 같은 matrix로 정의하자.</p>
+<p><span class="math display">\[{\bf DFT} = \begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 1} &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)}\\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; e^{-i \frac{2\pi}{N}\cdot 4} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)}\\
+\dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)} &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)^2}
+    \end{bmatrix}\]</span></p>
+<p>그러면</p>
+<p><span class="math display">\[{\bf X} = {\bf DFT} \cdot {\bf x}\]</span></p>
+<p>와 같이 표현할 수 있고 <span class="math inline">\({\bf x}\)</span>에서 <span class="math inline">\({\bf X}\)</span>로 바꾸는 과정을 단순히 <span class="math inline">\({\bf DFT}\)</span>행렬을 <span class="math inline">\({\bf x}\)</span>의 왼쪽에 곱하는 과정으로 이해할 수 있다.</p>
+<p>(참고) 사실 아래와 같이 <span class="math inline">\({\bf DFT}\)</span>를 정의하는 버전도 있다. (둘이 혼용해서 쓰인다)</p>
+<p><span class="math display">\[{\bf DFT} = \frac{1}{\sqrt{N}}\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 1} &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)}\\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; e^{-i \frac{2\pi}{N}\cdot 4} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)}\\
+\dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)} &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)^2}
+    \end{bmatrix}\]</span></p>
+<hr>
+<p><strong>예제1</strong> 아래는 위키에서 긁어온 예제이다. 이 예제를 따라가보자.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2022-12-24-Chap 8.3_files/figure-html/dbcb0d0c-518c-4f75-8392-bf0b263deb68-1-f5239d47-a397-4efe-aa7f-31a026383ac2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">그림2: 위키에서 긁어온 예제이미지</figcaption><p></p>
+</figure>
+</div>
+<p>예제를 풀기위해서 우선 아래와 같은 벡터를 선언하다.</p>
+<div class="cell" data-execution_count="514">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1"></a>x <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span><span class="op">-</span><span class="cn">im</span>, <span class="op">-</span><span class="cn">im</span>, <span class="op">-</span><span class="fl">1</span><span class="op">+</span><span class="fl">2im</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="514">
+<pre><code>4-element Vector{Complex{Int64}}:
+  1 + 0im
+  2 - 1im
+  0 - 1im
+ -1 + 2im</code></pre>
+</div>
+</div>
+<p>(풀이1)</p>
+<p><span class="math inline">\(4\times 4\)</span>의 크기를 가지는 DFT행렬을 선언한다.</p>
+<p>(step1) 아래의 매트릭스 생성</p>
+<div class="cell" data-execution_count="515">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1"></a>_DFT <span class="op">=</span> <span class="fu">reshape</span>([i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span> for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>], (<span class="fl">4</span>,<span class="fl">4</span>))</span>
+<span id="cb38-2"><a href="#cb38-2"></a>_DFT</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="515">
+<pre><code>4×4 Matrix{Int64}:
+ 0  0  0  0
+ 0  1  2  3
+ 0  2  4  6
+ 0  3  6  9</code></pre>
+</div>
+</div>
+<p>(step2) <code>_DFT</code>의 각 원소에 함수 <span class="math inline">\(f: x \to \exp(-i\frac{2\pi}{4}x)\)</span>를 취함</p>
+<div class="cell" data-execution_count="516">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1"></a>f <span class="op">=</span> x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span><span class="fl">4</span>) <span class="op">*</span> x)</span>
+<span id="cb40-2"><a href="#cb40-2"></a>DFT <span class="op">=</span> _DFT <span class="op">.|&gt;</span> f</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="516">
+<pre><code>4×4 Matrix{ComplexF64}:
+ 1.0-0.0im           1.0-0.0im          …           1.0-0.0im
+ 1.0-0.0im   6.12323e-17-1.0im             -1.83697e-16+1.0im
+ 1.0-0.0im          -1.0-1.22465e-16im             -1.0-3.67394e-16im
+ 1.0-0.0im  -1.83697e-16+1.0im              5.51091e-16-1.0im</code></pre>
+</div>
+</div>
+<p>이제 <span class="math inline">\({\bf X}\)</span>를 구하면 아래와 같다.</p>
+<div class="cell" data-execution_count="517">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1"></a>DFT <span class="op">*</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="517">
+<pre><code>4-element Vector{ComplexF64}:
+                   2.0 + 0.0im
+   -1.9999999999999998 - 2.0000000000000004im
+ 8.881784197001252e-16 - 1.9999999999999998im
+    3.9999999999999987 + 4.000000000000001im</code></pre>
+</div>
+</div>
+<p>위키의 답이 잘 나옴</p>
+<p>(풀이2)</p>
+<p>참고로 아래와 같이 패키지를 이용하여 구할 수도 있다.</p>
+<div class="cell" data-execution_count="518">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">fft</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="518">
+<pre><code>4-element Vector{ComplexF64}:
+  2.0 + 0.0im
+ -2.0 - 2.0im
+  0.0 - 2.0im
+  4.0 + 4.0im</code></pre>
+</div>
+</div>
+</section>
+<section id="inverse-dft" class="level2">
+<h2 class="anchored" data-anchor-id="inverse-dft">Inverse DFT</h2>
+<p>앞으로는 <span class="math inline">\({\bf DFT}\)</span>를 아래와 같이 정의하자.</p>
+<p><span class="math display">\[{\bf DFT} = \frac{1}{\sqrt{N}}\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 1} &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)}\\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot 2} &amp; e^{-i \frac{2\pi}{N}\cdot 4} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)}\\
+\dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots \\
+1 &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)} &amp; e^{-i \frac{2\pi}{N}\cdot 2(N-1)} &amp; \dots &amp; e^{-i \frac{2\pi}{N}\cdot (N-1)^2}
+    \end{bmatrix}\]</span></p>
+<p><span class="math inline">\({\bf DFT}\)</span>행렬에는 몇 가지 특징이 있다.</p>
+<p><strong>특징1:</strong> 유니터리행렬이다<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>. 즉 <span class="math inline">\({\bf DFT}^\ast \cdot {\bf DFT} = {\bf DFT}^\ast \cdot{\bf DFT} = {\bf I}\)</span> 이다.</p>
+<div class="cell" data-execution_count="469">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1"></a>_DFT <span class="op">=</span> <span class="fu">reshape</span>([i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span> for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>], (<span class="fl">4</span>,<span class="fl">4</span>))</span>
+<span id="cb46-2"><a href="#cb46-2"></a>f <span class="op">=</span> x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span><span class="fl">4</span>) <span class="op">*</span> x)</span>
+<span id="cb46-3"><a href="#cb46-3"></a>DFT <span class="op">=</span> _DFT <span class="op">.|&gt;</span> f</span>
+<span id="cb46-4"><a href="#cb46-4"></a>DFT <span class="co"># 아까의 예제의 DFT!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="469">
+<pre><code>4×4 Matrix{ComplexF64}:
+ 1.0-0.0im           1.0-0.0im          …           1.0-0.0im
+ 1.0-0.0im   6.12323e-17-1.0im             -1.83697e-16+1.0im
+ 1.0-0.0im          -1.0-1.22465e-16im             -1.0-3.67394e-16im
+ 1.0-0.0im  -1.83697e-16+1.0im              5.51091e-16-1.0im</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="470">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1"></a>DFT <span class="op">=</span> (<span class="fl">1</span><span class="op">/</span>√<span class="fl">4</span>)<span class="op">*</span>DFT <span class="co"># 새로운 DFT의 정의 </span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>DFT<span class="op">'</span>DFT <span class="op">.|&gt;</span> round <span class="co"># 유니터리행렬임을 확인!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="470">
+<pre><code>4×4 Matrix{ComplexF64}:
+  1.0+0.0im  -0.0-0.0im   0.0-0.0im   0.0-0.0im
+ -0.0+0.0im   1.0+0.0im  -0.0-0.0im   0.0-0.0im
+  0.0+0.0im  -0.0+0.0im   1.0+0.0im  -0.0-0.0im
+  0.0+0.0im   0.0+0.0im  -0.0+0.0im   1.0+0.0im</code></pre>
+</div>
+</div>
+<p><strong>특징2:</strong> <span class="math inline">\({\bf DFT}\)</span>는 대칭행렬이다. 따라서 이 행렬의 켤레전치는 DFT의 각 원소에서 단순히 <span class="math inline">\(i=\sqrt{-1}\)</span> 대신에 <span class="math inline">\(-i\)</span> 를 넣은 것과 같다.</p>
+<p>특징1-2를 조합하면 아래와 같이 <span class="math inline">\({\bf DFT}\)</span>에서 <span class="math inline">\(i\)</span> 대신에 <span class="math inline">\(-i\)</span>를 넣은 행렬이 변환 DFT를 취소시킬 수 있음을 이해할 수 있다. <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
+<p><span class="math display">\[\frac{1}{\sqrt{N}}\begin{bmatrix}
+1 &amp; 1 &amp; 1 &amp; \dots &amp; 1 \\
+1 &amp; e^{i \frac{2\pi}{N}\cdot 1} &amp; e^{i \frac{2\pi}{N}\cdot 2} &amp; \dots &amp; e^{i \frac{2\pi}{N}\cdot (N-1)}\\
+1 &amp; e^{i \frac{2\pi}{N}\cdot 2} &amp; e^{i \frac{2\pi}{N}\cdot 4} &amp; \dots &amp; e^{i \frac{2\pi}{N}\cdot 2(N-1)}\\
+\dots &amp; \dots &amp; \dots &amp; \dots &amp; \dots \\
+1 &amp; e^{i \frac{2\pi}{N}\cdot (N-1)} &amp; e^{i \frac{2\pi}{N}\cdot 2(N-1)} &amp; \dots &amp; e^{i \frac{2\pi}{N}\cdot (N-1)^2}
+    \end{bmatrix}\]</span></p>
+<p>행렬 <span class="math inline">\({\bf DFT}\)</span>를 discrete Fourier transform으로 생각했듯이 위의 행렬을 inverse discrete Fourier transform으로 해석할 수 있다.</p>
+</section>
+<section id="dft의-또-다른-정의" class="level2">
+<h2 class="anchored" data-anchor-id="dft의-또-다른-정의">DFT의 또 다른 정의</h2>
+<p>이번에는 <span class="math inline">\({\bf DFT}\)</span>에 대한 다른 정의를 생각해보자. 우선 아래와 같은 행렬 <span class="math inline">\({\bf B}\)</span>를 고려하자.</p>
+<div class="cell" data-execution_count="512">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1"></a>B<span class="op">=</span> [<span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> </span>
+<span id="cb50-2"><a href="#cb50-2"></a>    <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span> </span>
+<span id="cb50-3"><a href="#cb50-3"></a>    <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span></span>
+<span id="cb50-4"><a href="#cb50-4"></a>    <span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="512">
+<pre><code>4×4 Matrix{Int64}:
+ 0  0  0  1
+ 1  0  0  0
+ 0  1  0  0
+ 0  0  1  0</code></pre>
+</div>
+</div>
+<p>이것은 길이가 4인 임의의 column vector를 아래로 한칸씩 이동시키는 매트릭스이다.</p>
+<div class="cell" data-execution_count="499">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1"></a>x <span class="op">=</span> [<span class="fl">1</span>, <span class="fl">2</span><span class="op">-</span><span class="cn">im</span>, <span class="op">-</span><span class="cn">im</span>, <span class="op">-</span><span class="fl">1</span><span class="op">+</span><span class="fl">2im</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="499">
+<pre><code>4-element Vector{Complex{Int64}}:
+  1 + 0im
+  2 - 1im
+  0 - 1im
+ -1 + 2im</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="500">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1"></a>B<span class="op">*</span>x <span class="co"># 아래로 한칸이동 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="500">
+<pre><code>4-element Vector{Complex{Int64}}:
+ -1 + 2im
+  1 + 0im
+  2 - 1im
+  0 - 1im</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="501">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1"></a>B<span class="op">^</span><span class="fl">2</span><span class="op">*</span>x <span class="co"># 아래로 두칸이동, B^2*x = B*(Bx) 이므로 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="501">
+<pre><code>4-element Vector{Complex{Int64}}:
+  0 - 1im
+ -1 + 2im
+  1 + 0im
+  2 - 1im</code></pre>
+</div>
+</div>
+<p>한편 이 매트릭스 <span class="math inline">\({\bf B}\)</span>는 아래와 같이 고유분해가 가능하다.</p>
+<p><span class="math display">\[ {\bf B} = {\bf \Psi} {\bf \Lambda} {\bf \Psi}^\ast\]</span></p>
+<ul>
+<li><span class="math inline">\({\bf \Psi}\)</span>: make <span class="math inline">\(\frac{1}{\sqrt{N}}[e^{\sqrt{-1} \frac{2\pi}{N} ij}~\text{ for }~ i=0,1,2,\dots,N-1~\text{ for }~j=0,1,2,\dots,N-1]\)</span> and apply <code>reshape</code> function with <span class="math inline">\((N,N)\)</span>.</li>
+<li><span class="math inline">\({\bf \Lambda}\)</span>: make <span class="math inline">\([e^{-\sqrt{-1}\frac{2\pi}{N}i}~\text{ for }~ i=0,1,2\dots,N-1]\)</span> and apply <code>Diagonal</code> function.</li>
+</ul>
+<div class="cell" data-execution_count="510">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb58-1"><a href="#cb58-1"></a>N <span class="op">=</span> <span class="fl">4</span> </span>
+<span id="cb58-2"><a href="#cb58-2"></a>λ <span class="op">=</span> [<span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span>i) for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)]</span>
+<span id="cb58-3"><a href="#cb58-3"></a>Λ <span class="op">=</span> <span class="fu">Diagonal</span>(λ)</span>
+<span id="cb58-4"><a href="#cb58-4"></a>_Ψ <span class="op">=</span> <span class="fl">1</span><span class="op">/</span>√N <span class="op">*</span>[<span class="fu">exp</span>(<span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span>N) <span class="op">*</span> i<span class="op">*</span>j) for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>) for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)]</span>
+<span id="cb58-5"><a href="#cb58-5"></a>Ψ <span class="op">=</span> <span class="fu">reshape</span>(_Ψ, (N,N))</span>
+<span id="cb58-6"><a href="#cb58-6"></a>B <span class="op">≈</span> Ψ <span class="op">*</span> Λ <span class="op">*</span> Ψ<span class="ch">'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="510">
+<pre><code>true</code></pre>
+</div>
+</div>
+<p>그런데 위에서 정의된 <span class="math inline">\({\bf \Psi}^\ast\)</span>는 우리가 그전에 정의하였던 <span class="math inline">\({\bf DFT}\)</span>의 행렬과 같다.</p>
+<div class="cell" data-execution_count="505">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb60-1"><a href="#cb60-1"></a>_DFT <span class="op">=</span> <span class="fu">reshape</span>([i<span class="op">*</span>j for i <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span> for j <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span><span class="fl">3</span>], (<span class="fl">4</span>,<span class="fl">4</span>))</span>
+<span id="cb60-2"><a href="#cb60-2"></a>DFT <span class="op">=</span> _DFT <span class="op">.|&gt;</span> (x <span class="op">-&gt;</span> <span class="fu">exp</span>(<span class="op">-</span><span class="cn">im</span> <span class="op">*</span> (<span class="fl">2</span>π<span class="op">/</span><span class="fl">4</span>) <span class="op">*</span> x)) </span>
+<span id="cb60-3"><a href="#cb60-3"></a>DFT <span class="op">=</span> DFT <span class="op">*</span> <span class="fl">1</span><span class="op">/</span>√N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="505">
+<pre><code>4×4 Matrix{ComplexF64}:
+ 0.5-0.0im           0.5-0.0im          …           0.5-0.0im
+ 0.5-0.0im   3.06162e-17-0.5im             -9.18485e-17+0.5im
+ 0.5-0.0im          -0.5-6.12323e-17im             -0.5-1.83697e-16im
+ 0.5-0.0im  -9.18485e-17+0.5im              2.75546e-16-0.5im</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="506">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb62-1"><a href="#cb62-1"></a>Ψ<span class="ch">' == DFT </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="506">
+<pre><code>true</code></pre>
+</div>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>결국 요약하면 길이가 <span class="math inline">\(N\)</span>인 신호의 <span class="math inline">\({\bf DFT}\)</span>행렬은 아래의 과정으로 구할 수 있음을 알 수 있다.</p>
+<ol type="1">
+<li>Forward operator <span class="math inline">\({\bf A}\)</span>를 정의한다.</li>
+<li><span class="math inline">\({\bf A}\)</span>의 고유벡터행렬 <span class="math inline">\({\bf \Psi}\)</span>을 구한다. <a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
+<li><span class="math inline">\({\bf \Psi}\)</span>의 conjugate transpose matrix <span class="math inline">\({\bf \Psi}^\ast\)</span> 를 구한다. 이것이 <span class="math inline">\({\bf DFT}\)</span> matrix 이다. <a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
+</ol>
+</div>
+</div>
+</section>
+<section id="spectral-component-and-frequencies" class="level2">
+<h2 class="anchored" data-anchor-id="spectral-component-and-frequencies">Spectral component and Frequencies</h2>
+<p><span class="math inline">\({\bf A}\)</span>의 고유벡터 <span class="math inline">\({\bf \Psi}\)</span>의 각 column을 spectral component라고 부른다.</p>
+<div class="cell" data-execution_count="507">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb64-1"><a href="#cb64-1"></a>ψ₁ <span class="op">=</span> Ψ[<span class="op">:</span>,<span class="fl">1</span>] <span class="co"># ψ₁ is first spectral component </span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>ψ₂ <span class="op">=</span> Ψ[<span class="op">:</span>,<span class="fl">2</span>] <span class="co"># ψ₂ is seconde spectral component </span></span>
+<span id="cb64-3"><a href="#cb64-3"></a>ψ₃ <span class="op">=</span> Ψ[<span class="op">:</span>,<span class="fl">3</span>] <span class="co"># ψ₃ is third spectral component </span></span>
+<span id="cb64-4"><a href="#cb64-4"></a>ψ₄ <span class="op">=</span> Ψ[<span class="op">:</span>,<span class="fl">4</span>] <span class="co"># ψ₄ is last spectral component</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>그리고 아래와 같은 수열을 <span class="math inline">\(\Omega_{k}=\frac{k}{N}\)</span>을 frequency 라고 부른다.</p>
+<div class="cell" data-execution_count="508">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb65-1"><a href="#cb65-1"></a>N<span class="op">=</span><span class="fl">4</span> </span>
+<span id="cb65-2"><a href="#cb65-2"></a>Ω <span class="op">=</span> [k<span class="op">/</span>N for k <span class="kw">in</span> <span class="fl">0</span><span class="op">:</span>(N<span class="op">-</span><span class="fl">1</span>)]</span>
+<span id="cb65-3"><a href="#cb65-3"></a>Ω</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="508">
+<pre><code>4-element Vector{Float64}:
+ 0.0
+ 0.25
+ 0.5
+ 0.75</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="ref" class="level1">
+<h1>Ref</h1>
+<ul>
+<li><a href="https://miruetoto.github.io/yechan3/posts/2_Studies/CGSP/2022-12-24-Chap-8.3.html" class="uri">https://miruetoto.github.io/yechan3/posts/2_Studies/CGSP/2022-12-24-Chap-8.3.html</a></li>
+</ul>
+
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-djuric2018cooperative" class="csl-entry" role="doc-biblioentry">
+Djuric, Petar, and Cédric Richard. 2018. <em>Cooperative and Graph Signal Processing: Principles and Applications</em>. Academic Press.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>discrete Fourier transform<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="math inline">\(X_k = \sum_{n=0}^{N-1}x_n\cdot e^{-i\frac{2\pi}{N}kn}\)</span><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>켤레 전치가 역행렬과 같은 복소수 정사각 행렬.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>아래의 행렬은 <span class="math inline">\({\bf DFT}^\ast\)</span> 혹은 <span class="math inline">\({\bf DFT}\)</span>의 conjugate matrix 혹은 <span class="math inline">\({\bf DFT}^{-1}\)</span>로 생각할 수 있음<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>고유벡터행렬은 고유값 <span class="math inline">\(e^{-\sqrt{-1}\frac{2\pi}{N}i}\)</span>에 의하여 정렬되어 있어야 함.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>사실 이미 대칭행렬이므로 conjugate matrix만 구하면 된다.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
