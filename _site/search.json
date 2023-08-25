@@ -574,83 +574,6 @@
     "text": "Toy exam\n- 교재의 예제상황은 예를들면 아래와 같다.\n(숨은진짜상황1)\n\\[\\text{아이스크림 판매량} = 20 + 2 \\times \\text{온도} + \\epsilon\\]\n\nnp.random.seed(1) \ntemp= np.array([-10.2, -5.2, 0.1, 10.1, 12.2, 14.7, \n                25.4, 26.8, 28.9, 35.1, 32.2, 34.6])\neps= np.random.normal(size=12,scale=5)\nicecream= 20 + temp * 2 + eps\n\n\nplt.plot(temp,icecream,'.')\n\n\n\n\n\n온도와 아이스크림 판매량의 산점도\n\n(숨은진짜상황2)\n\\[\\text{소아마비 반응수치} = 30 + 0.5 \\times \\text{온도} + \\epsilon\\] - 좌변은 소아마비임을 나타내는 어떠한 반응수치라고 생각하자.\n\nnp.random.seed(2) \neps = np.random.normal(size=12,scale=5) \ndisease = 30+ temp* 0.5 + eps\n\n\nplt.plot(temp,disease,'.')\n\n\n\n\n\n온도와 소아마비의 산점도\n\n(우리가 데이터로부터 관측한 상황)\n- 아이스크림과 질병의 산점도를 그려보자.\n\nplt.plot(icecream,disease,'.')\n\n\n\n\n\n양의 상관관계에 있다.\n\n- 아이스크림 중 어떠한 물질이 소아마비를 일으키는것이 분명하므로 (인과성이 분명해보이니까) 아래와 같은 모형을 세우자. &lt;– 여기서부터 틀렸음\n\\[{\\tt disease}_i =\\beta_0 +\\beta_1 {\\tt icecream}_i +\\epsilon_i,\\quad \\textbf{for} ~~ i=1,2,\\dots, 12\\]\n- 적절한 \\(\\beta_0\\)와 \\(\\beta_1\\)을 추정하면 우리는 아이스크림과 소아마비의 관계를 알 수 있다. &lt;– 틀린주장\n\n틀린 모형\n도데체 우리가 뭘 잘못했는가?\n\n- 두 변수 사이에 상관관계가 있어도 실제 원인은 다른 변수에 숨겨져 있는 경우가 많다.\n(ex1)\n\n온도 \\(\\to\\) 익사\n온도 \\(\\to\\) 아이스크림\n아이스크림과 익사자도 양의 상관관계에 있을것이다.\n아이스크림을 먹이면 물에 빠져 죽는다 \\(\\to\\) 틀린주장\n사실 기온이 숨겨진 원인이다. 기온이 증가하면 아이스크림 판매량도 증가하고 폭염때문에 익사사고율도 높아지는 구조이다.\n\n(ex2)\n\n인구수 \\(\\to\\) 교회\n인구수 \\(\\to\\) 범죄건수\n지역별 교회와 범죄건수를 살펴보면 상관관계가 높게 나올것임\n교회를 지으면 범죄건수도 증가한다? \\(\\to\\) 틀린주장\n사실 인구가 숨겨진 요인임\n\n- ex2, ex1에 대하여 바른 분석을 하려면?\n\nex2: 인구가 비슷한 도시끼리 묶어서 비교해보면 교회와 범죄의 건수는 양의 상관관계에 있지 않을것임\nex1: 온도가 비슷한 그룹끼리 묶어보자.\n\n- 올바른 분석: 온도가 비슷한 그룹끼리 묶어서 그려보자. \\(\\to\\) 상관계수가 줄어들 것이다.\n\nplt.plot(icecream[:6],disease[:6],'.')\n\n\n\n\n\nplt.plot(icecream[6:],disease[6:],'.')\n\n\n\n\n\n진짜로 선형관계가 약해졌다.."
   },
   {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html",
-    "title": "05wk-1",
-    "section": "",
-    "text": "seaborn(2)–scatterplot, mpl미세먼지팁(2)"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#plt-복습",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#plt-복습",
-    "title": "05wk-1",
-    "section": "plt 복습",
-    "text": "plt 복습\n\nplt.plot(x1,y1,'o')\nplt.plot(x2,y2,'o')"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-array",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-array",
-    "title": "05wk-1",
-    "section": "sns: array",
-    "text": "sns: array\n\nsns.scatterplot(data=None,x=x1,y=y1)\nsns.scatterplot(data=None,x=x2,y=y2)\n\n&lt;AxesSubplot:&gt;"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-wide-df",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-wide-df",
-    "title": "05wk-1",
-    "section": "sns: wide df",
-    "text": "sns: wide df\n\nsns.scatterplot(data=pd.DataFrame({'x':x1,'y':y1}),x='x',y='y')\nsns.scatterplot(data=pd.DataFrame({'x':x2,'y':y2}),x='x',y='y')\n#sns.scatterplot(data=None,x=x2,y=y2)\n\n&lt;AxesSubplot:xlabel='x', ylabel='y'&gt;\n\n\n\n\n\n\n억지로 그리긴 했는데 이 경우는 wide하게 만든 df는 별로 경쟁력이 없음"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-long-df",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-long-df",
-    "title": "05wk-1",
-    "section": "sns: long df",
-    "text": "sns: long df\n\nx= np.concatenate([x1,x2])\ny= np.concatenate([y1,y2])\ncat = ['x1']*len(x1) + ['x2']*len(x2)\ndf2 = pd.DataFrame({'x':x,'y':y,'cat':cat})\ndf2\n\n\n\n\n\n\n\n\nx\ny\ncat\n\n\n\n\n0\n2.023919\n-0.400176\nx1\n\n\n1\n1.229622\n-1.763752\nx1\n\n\n2\n-0.413211\n2.293004\nx1\n\n\n3\n-1.343073\n0.404232\nx1\n\n\n4\n1.062845\n0.030775\nx1\n\n\n...\n...\n...\n...\n\n\n1995\n2.226805\n3.683857\nx2\n\n\n1996\n2.768263\n2.678292\nx2\n\n\n1997\n2.525295\n2.815478\nx2\n\n\n1998\n1.750193\n2.289812\nx2\n\n\n1999\n1.153290\n2.095922\nx2\n\n\n\n\n2000 rows × 3 columns\n\n\n\n\nsns.scatterplot(data=df2,x='x',y='y',hue='cat') \n\n&lt;AxesSubplot:xlabel='x', ylabel='y'&gt;"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#예제1",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#예제1",
-    "title": "05wk-1",
-    "section": "예제1",
-    "text": "예제1\n\nfig,ax = plt.subplots(1,3,figsize=(12,4))\nax[0].plot([1,2,4,3],'--o')\nsns.scatterplot(x=x1,y=y1,ax=ax[1])\nsns.scatterplot(x=x1,y=y1,ax=ax[2])\nsns.scatterplot(x=x2,y=y2,ax=ax[2])\nax[2].plot([1,2,4,3],'-r',lw=5)"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#예제2",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#예제2",
-    "title": "05wk-1",
-    "section": "예제2",
-    "text": "예제2\n\nimport cv2\n\n\n!wget https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg \nimg = cv2.imread('Unequalized_Hawkes_Bay_NZ.jpg',0)\n!rm Unequalized_Hawkes_Bay_NZ.jpg \n\n--2022-10-05 16:33:56--  https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg\nResolving upload.wikimedia.org (upload.wikimedia.org)... 103.102.166.240, 2001:df2:e500:ed1a::2:b\nConnecting to upload.wikimedia.org (upload.wikimedia.org)|103.102.166.240|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 110895 (108K) [image/jpeg]\nSaving to: ‘Unequalized_Hawkes_Bay_NZ.jpg’\n\nUnequalized_Hawkes_ 100%[===================&gt;] 108.30K   548KB/s    in 0.2s    \n\n2022-10-05 16:33:57 (548 KB/s) - ‘Unequalized_Hawkes_Bay_NZ.jpg’ saved [110895/110895]\n\n\n\n\nimg2 = cv2.equalizeHist(img)\n\n\nimg.reshape(-1)\n\narray([127, 145, 149, ..., 146, 145, 144], dtype=uint8)\n\n\n\nfig,ax = plt.subplots(2,2,figsize=(10,5))\nax[0,0].imshow(img,vmin=0,vmax=255,cmap='gray')\nsns.histplot(img.reshape(-1),ax=ax[0,1],bins=15,lw=0,kde=True,color='C1')\nax[0,1].set_xlim(0,255)\nax[1,0].imshow(img2,vmin=0,vmax=255,cmap='gray')\nsns.histplot(img2.reshape(-1),ax=ax[1,1],bins=15,lw=0,kde=True,color='C1')\n\n&lt;AxesSubplot:ylabel='Count'&gt;\n\n\n\n\n\n- seaborn: figure-level vs axes-level 의 개념\nref: https://seaborn.pydata.org/tutorial/function_overview.html#figure-level-vs-axes-level-functions"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-간격조정",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-간격조정",
-    "title": "05wk-1",
-    "section": "축 간격조정",
-    "text": "축 간격조정\n\nimport matplotlib as mpl\n\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(3)) # 큰 눈금간격을 3으로\nax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(1)) # 작은 눈금간격을 1로"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-삭제",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-삭제",
-    "title": "05wk-1",
-    "section": "축 삭제",
-    "text": "축 삭제\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.xaxis.set_major_locator(mpl.ticker.NullLocator()) # x축 눈금삭제\nax.yaxis.set_major_locator(mpl.ticker.NullLocator()) # y축 눈금삭제"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-범위조정",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-범위조정",
-    "title": "05wk-1",
-    "section": "축 범위조정",
-    "text": "축 범위조정\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.set_ylim(-1,2) \nax.set_xlim(-5,35)\n#plt.ylim(-1,2)\n#plt.xlim(-5,35)\n\n(-5.0, 35.0)"
-  },
-  {
-    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#gcf-gca",
-    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#gcf-gca",
-    "title": "05wk-1",
-    "section": "gcf, gca",
-    "text": "gcf, gca\n- gcf\n\nplt.plot([1,2,3,2])\nfig = plt.gcf()\n\n\n\n\n\nfig.suptitle('suptitle')\n\nText(0.5, 0.98, 'suptitle')\n\n\n\nfig\n\n\n\n\n- gca\n\nfig\n\n\n\n\n\nax = fig.gca()\n\n\nax.set_title('title') \nfig"
-  },
-  {
     "objectID": "posts/2_DV2022/2022-11-09-10wk-2.html",
     "href": "posts/2_DV2022/2022-11-09-10wk-2.html",
     "title": "10wk-2 심슨의 역설",
@@ -742,18 +665,81 @@
     "text": "그냥 궁금해서: 진짜 만약에 아이스크림과 소아마비가 관련있는 경우라면?\n- 온도는 아이스크림 판매에 여전히 영향을 주지만\n\\[\\text{아이스크림 판매량} = 20 + 2 \\times \\text{온도} + \\epsilon\\]\n\nnp.random.seed(1)\neps=np.random.normal(size=len(temp), scale=10) \nicecream = 20 + 2 * temp + eps \n\n- 수영장이 원인이 아니라 진짜 아이스크림을 먹고 소아마비에 걸린상황이라면?\n\\[\\text{소아마비 반응수치} = 30 + 0 \\times \\text{온도} + 0.15 \\times \\text{아이스크림 판매량} + \\epsilon\\]\n\nnp.random.seed(2) \neps = np.random.normal(size=len(temp),scale=2)\ndisease= 30+ 0*temp + 0.15*icecream + eps\n\n\ndf2=pd.DataFrame({'temp':temp,'icecream':icecream,'disease':disease})\ndf2.assign(temp2=list(map(cut,df2.temp)))\n\n\n\n\n\n\n\n\ntemp\nicecream\ndisease\ntemp2\n\n\n\n\n0\n-0.5\n35.243454\n34.453002\nTemp: &lt;0\n\n\n1\n1.4\n16.682436\n32.389832\nTemp: 0~5\n\n\n2\n2.6\n19.918282\n28.715350\nTemp: 0~5\n\n\n3\n2.0\n13.270314\n35.271089\nTemp: 0~5\n\n\n4\n2.5\n33.654076\n31.461240\nTemp: 0~5\n\n\n...\n...\n...\n...\n...\n\n\n651\n19.9\n68.839992\n39.693811\nTemp: 15~20\n\n\n652\n20.4\n76.554679\n38.924088\nTemp: 20~25\n\n\n653\n18.3\n68.666079\n41.765212\nTemp: 15~20\n\n\n654\n12.8\n42.771364\n36.842022\nTemp: 10~15\n\n\n655\n6.7\n30.736731\n37.715537\nTemp: 5~10\n\n\n\n\n656 rows × 4 columns\n\n\n\n\nggplot(data=df2.assign(temp2=list(map(cut,df2.temp))))+\\\ngeom_point(aes(x='icecream',y='disease',colour='temp2'),alpha=0.2)+\\\ngeom_smooth(aes(x='icecream',y='disease',colour='temp2'))\n\n/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.\n\n\n\n\n\n\n이번엔 partial corr도 유의미하게 나옴\n\n- 단순 corr을 봐서는 “온도-&gt;아이스크림,소아마비” 인지, “온도-&gt;아이스크림-&gt;소아마비” 인지 알기 어렵다.\n\ndf.corr()\n\n\n\n\n\n\n\n\ntemp\nicecream\ndisease\n\n\n\n\ntemp\n1.000000\n0.884366\n0.975609\n\n\nicecream\n0.884366\n1.000000\n0.862990\n\n\ndisease\n0.975609\n0.862990\n1.000000\n\n\n\n\n\n\n\n\ndf2.corr()\n\n\n\n\n\n\n\n\ntemp\nicecream\ndisease\n\n\n\n\ntemp\n1.000000\n0.884366\n0.725505\n\n\nicecream\n0.884366\n1.000000\n0.830539\n\n\ndisease\n0.725505\n0.830539\n1.000000"
   },
   {
-    "objectID": "posts/2_DV2022/dv1.html",
-    "href": "posts/2_DV2022/dv1.html",
-    "title": "Quarto-Blog",
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html",
+    "title": "05wk-1",
     "section": "",
-    "text": "# for test\nimport matplotlib.pyplot as plt\nplt.plot([1,2,3,4], [1,4,9,16],'ro')"
+    "text": "seaborn(2)–scatterplot, mpl미세먼지팁(2)"
   },
   {
-    "objectID": "posts/2_DV2022/9999.html",
-    "href": "posts/2_DV2022/9999.html",
-    "title": "Quarto-Blog",
-    "section": "",
-    "text": "!wget https://raw.githubusercontent.com/guebin/DV2022/main/posts/2022-10-03-5wk-1.ipynb\n\n--2023-05-21 02:24:58--  https://raw.githubusercontent.com/guebin/DV2022/main/posts/2022-10-03-5wk-1.ipynb\nResolving raw.githubusercontent.com (raw.githubusercontent.com)... 185.199.111.133, 185.199.110.133, 185.199.109.133, ...\nConnecting to raw.githubusercontent.com (raw.githubusercontent.com)|185.199.111.133|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 488865 (477K) [text/plain]\nSaving to: ‘2022-10-03-5wk-1.ipynb’\n\n2022-10-03-5wk-1.ip 100%[===================&gt;] 477.41K  --.-KB/s    in 0.02s   \n\n2023-05-21 02:24:58 (25.0 MB/s) - ‘2022-10-03-5wk-1.ipynb’ saved [488865/488865]"
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#plt-복습",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#plt-복습",
+    "title": "05wk-1",
+    "section": "plt 복습",
+    "text": "plt 복습\n\nplt.plot(x1,y1,'o')\nplt.plot(x2,y2,'o')"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-array",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-array",
+    "title": "05wk-1",
+    "section": "sns: array",
+    "text": "sns: array\n\nsns.scatterplot(data=None,x=x1,y=y1)\nsns.scatterplot(data=None,x=x2,y=y2)\n\n&lt;AxesSubplot:&gt;"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-wide-df",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-wide-df",
+    "title": "05wk-1",
+    "section": "sns: wide df",
+    "text": "sns: wide df\n\nsns.scatterplot(data=pd.DataFrame({'x':x1,'y':y1}),x='x',y='y')\nsns.scatterplot(data=pd.DataFrame({'x':x2,'y':y2}),x='x',y='y')\n#sns.scatterplot(data=None,x=x2,y=y2)\n\n&lt;AxesSubplot:xlabel='x', ylabel='y'&gt;\n\n\n\n\n\n\n억지로 그리긴 했는데 이 경우는 wide하게 만든 df는 별로 경쟁력이 없음"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-long-df",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#sns-long-df",
+    "title": "05wk-1",
+    "section": "sns: long df",
+    "text": "sns: long df\n\nx= np.concatenate([x1,x2])\ny= np.concatenate([y1,y2])\ncat = ['x1']*len(x1) + ['x2']*len(x2)\ndf2 = pd.DataFrame({'x':x,'y':y,'cat':cat})\ndf2\n\n\n\n\n\n\n\n\nx\ny\ncat\n\n\n\n\n0\n2.023919\n-0.400176\nx1\n\n\n1\n1.229622\n-1.763752\nx1\n\n\n2\n-0.413211\n2.293004\nx1\n\n\n3\n-1.343073\n0.404232\nx1\n\n\n4\n1.062845\n0.030775\nx1\n\n\n...\n...\n...\n...\n\n\n1995\n2.226805\n3.683857\nx2\n\n\n1996\n2.768263\n2.678292\nx2\n\n\n1997\n2.525295\n2.815478\nx2\n\n\n1998\n1.750193\n2.289812\nx2\n\n\n1999\n1.153290\n2.095922\nx2\n\n\n\n\n2000 rows × 3 columns\n\n\n\n\nsns.scatterplot(data=df2,x='x',y='y',hue='cat') \n\n&lt;AxesSubplot:xlabel='x', ylabel='y'&gt;"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#예제1",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#예제1",
+    "title": "05wk-1",
+    "section": "예제1",
+    "text": "예제1\n\nfig,ax = plt.subplots(1,3,figsize=(12,4))\nax[0].plot([1,2,4,3],'--o')\nsns.scatterplot(x=x1,y=y1,ax=ax[1])\nsns.scatterplot(x=x1,y=y1,ax=ax[2])\nsns.scatterplot(x=x2,y=y2,ax=ax[2])\nax[2].plot([1,2,4,3],'-r',lw=5)"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#예제2",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#예제2",
+    "title": "05wk-1",
+    "section": "예제2",
+    "text": "예제2\n\nimport cv2\n\n\n!wget https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg \nimg = cv2.imread('Unequalized_Hawkes_Bay_NZ.jpg',0)\n!rm Unequalized_Hawkes_Bay_NZ.jpg \n\n--2022-10-05 16:33:56--  https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg\nResolving upload.wikimedia.org (upload.wikimedia.org)... 103.102.166.240, 2001:df2:e500:ed1a::2:b\nConnecting to upload.wikimedia.org (upload.wikimedia.org)|103.102.166.240|:443... connected.\nHTTP request sent, awaiting response... 200 OK\nLength: 110895 (108K) [image/jpeg]\nSaving to: ‘Unequalized_Hawkes_Bay_NZ.jpg’\n\nUnequalized_Hawkes_ 100%[===================&gt;] 108.30K   548KB/s    in 0.2s    \n\n2022-10-05 16:33:57 (548 KB/s) - ‘Unequalized_Hawkes_Bay_NZ.jpg’ saved [110895/110895]\n\n\n\n\nimg2 = cv2.equalizeHist(img)\n\n\nimg.reshape(-1)\n\narray([127, 145, 149, ..., 146, 145, 144], dtype=uint8)\n\n\n\nfig,ax = plt.subplots(2,2,figsize=(10,5))\nax[0,0].imshow(img,vmin=0,vmax=255,cmap='gray')\nsns.histplot(img.reshape(-1),ax=ax[0,1],bins=15,lw=0,kde=True,color='C1')\nax[0,1].set_xlim(0,255)\nax[1,0].imshow(img2,vmin=0,vmax=255,cmap='gray')\nsns.histplot(img2.reshape(-1),ax=ax[1,1],bins=15,lw=0,kde=True,color='C1')\n\n&lt;AxesSubplot:ylabel='Count'&gt;\n\n\n\n\n\n- seaborn: figure-level vs axes-level 의 개념\nref: https://seaborn.pydata.org/tutorial/function_overview.html#figure-level-vs-axes-level-functions"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-간격조정",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-간격조정",
+    "title": "05wk-1",
+    "section": "축 간격조정",
+    "text": "축 간격조정\n\nimport matplotlib as mpl\n\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.xaxis.set_major_locator(mpl.ticker.MultipleLocator(3)) # 큰 눈금간격을 3으로\nax.xaxis.set_minor_locator(mpl.ticker.MultipleLocator(1)) # 작은 눈금간격을 1로"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-삭제",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-삭제",
+    "title": "05wk-1",
+    "section": "축 삭제",
+    "text": "축 삭제\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.xaxis.set_major_locator(mpl.ticker.NullLocator()) # x축 눈금삭제\nax.yaxis.set_major_locator(mpl.ticker.NullLocator()) # y축 눈금삭제"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#축-범위조정",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#축-범위조정",
+    "title": "05wk-1",
+    "section": "축 범위조정",
+    "text": "축 범위조정\n\nfig, ax = plt.subplots()\nax.plot([(xi/30)**2 for xi in range(30)],'--o')\nax.set_ylim(-1,2) \nax.set_xlim(-5,35)\n#plt.ylim(-1,2)\n#plt.xlim(-5,35)\n\n(-5.0, 35.0)"
+  },
+  {
+    "objectID": "posts/2_DV2022/2022-10-03-5wk-1.html#gcf-gca",
+    "href": "posts/2_DV2022/2022-10-03-5wk-1.html#gcf-gca",
+    "title": "05wk-1",
+    "section": "gcf, gca",
+    "text": "gcf, gca\n- gcf\n\nplt.plot([1,2,3,2])\nfig = plt.gcf()\n\n\n\n\n\nfig.suptitle('suptitle')\n\nText(0.5, 0.98, 'suptitle')\n\n\n\nfig\n\n\n\n\n- gca\n\nfig\n\n\n\n\n\nax = fig.gca()\n\n\nax.set_title('title') \nfig"
   },
   {
     "objectID": "posts/2_DV2022/2022-10-06-5wk-2.html",
