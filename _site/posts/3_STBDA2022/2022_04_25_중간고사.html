@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.315">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,10 +96,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
@@ -135,35 +113,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/pinkocto"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><strong>[STBDA]</strong> 중간고사</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[STBDA]</strong> 중간고사</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -172,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block"><strong>[STBDA]</strong> 중간고사</h1>
+      <h1 class="title"><strong>[STBDA]</strong> 중간고사</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">빅데이터분석특강</div>
               </div>
@@ -202,37 +187,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STUDY</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -258,21 +248,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <section id="빅데이터분석-특강-중간고사" class="level1">
 <h1>빅데이터분석 특강 중간고사</h1>
-<div class="cell">
+<div id="a05d1125-708a-4485-92a7-75d22b4a90fc" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> tensorflow.experimental.numpy <span class="im">as</span> tnp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="d18e1f6b-45d7-427c-8c84-9274f2ea341d" class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>tnp.experimental_enable_numpy_behavior()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div id="87906483-47e5-408e-bcb7-ce0bcb1fad5b" class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="경사하강법과-tf.gradienttape의-사용방법-30점" class="level2">
 <h2 class="anchored" data-anchor-id="경사하강법과-tf.gradienttape의-사용방법-30점"><code>1</code>. 경사하강법과 tf.GradientTape()의 사용방법 (30점)</h2>
 <p><code>(1)</code> 아래는 <span class="math inline">\(X_i \overset{iid}{\sim} N(3,2^2)\)</span> 를 생성하는 코드이다.</p>
-<div class="cell" data-outputid="9435e9f1-cabd-43dd-e8e1-02b76e53142c">
+<div id="62c4c5bb-1c84-4d08-9a8c-0f56ac31fc7a" class="cell" data-outputid="9435e9f1-cabd-43dd-e8e1-02b76e53142c">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
 <span id="cb4-2"><a href="#cb4-2"></a>x<span class="op">=</span> tnp.random.randn(<span class="dv">10000</span>)<span class="op">*</span><span class="dv">2</span><span class="op">+</span><span class="dv">3</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -285,7 +275,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p>함수 <span class="math inline">\(L(\mu,\sigma)\)</span>을 최대화하는 <span class="math inline">\((\mu,\sigma)\)</span>를 <code>tf.GradeintTape()</code>를 활용하여 추정하라. (경사하강법 혹은 경사상승법을 사용하고 <span class="math inline">\(\mu\)</span>의 초기값은 2로 <span class="math inline">\(\sigma\)</span>의 초기값은 3으로 설정할 것)</p>
 <p><span class="math display">\[L(\mu,\sigma)=\prod_{i=1}^{n}f(x_i), \quad f(x_i)=\frac{1}{\sqrt{2\pi}\sigma}e^{-\frac{1}{2}(\frac{x_i-\mu}{\sigma})^2}\]</span></p>
 <p><code>(2)</code> 아래는 <span class="math inline">\(X_i \overset{iid}{\sim} Ber(0.8)\)</span>을 생성하는 코드이다.</p>
-<div class="cell" data-outputid="a01999a7-9993-4e94-8362-52383e026641">
+<div id="78dc1408-f4f7-4124-a073-c71296fcc249" class="cell" data-outputid="a01999a7-9993-4e94-8362-52383e026641">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a>x<span class="op">=</span> tf.constant(np.random.binomial(<span class="dv">1</span>,<span class="fl">0.8</span>,(<span class="dv">10000</span>,)))</span>
 <span id="cb6-3"><a href="#cb6-3"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -305,7 +295,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p><span class="math display">\[y_i = \beta_0 + \beta_1 x_i +\epsilon_i.\]</span></p>
 <p>이때 오차항은 정규분포로 가정한다. 즉 <span class="math inline">\(\epsilon_i \overset{iid}{\sim} N(0,\sigma^2)\)</span>라고 가정한다.</p>
 <p>관측데이터가 아래와 같을때 아래의 물음에 답하라.</p>
-<div class="cell" data-tags="[]">
+<div id="eabac705-2792-40cd-9aef-c395ad3c0bb8" class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>x<span class="op">=</span> tnp.array([<span class="fl">20.1</span>, <span class="fl">22.2</span>, <span class="fl">22.7</span>, <span class="fl">23.3</span>, <span class="fl">24.4</span>, <span class="fl">25.1</span>, <span class="fl">26.2</span>, <span class="fl">27.3</span>, <span class="fl">28.4</span>, <span class="fl">30.4</span>])</span>
 <span id="cb8-2"><a href="#cb8-2"></a>y<span class="op">=</span> tnp.array([<span class="fl">55.4183651</span> , <span class="fl">58.19427589</span>, <span class="fl">61.23082496</span>, <span class="fl">62.31255873</span>, <span class="fl">63.1070028</span> ,</span>
 <span id="cb8-3"><a href="#cb8-3"></a>              <span class="fl">63.69569103</span>, <span class="fl">67.24704918</span>, <span class="fl">71.43650092</span>, <span class="fl">73.10130336</span>, <span class="fl">77.84988286</span>])</span>
@@ -323,7 +313,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p><code>(1)</code> 아래와 같은 모형을 고려하자.</p>
 <p><span class="math display">\[y_i= \beta_0 + \sum_{k=1}^{5} \beta_k \cos(k t_i)+\epsilon_i, \quad i=0,1,\dots, 999\]</span></p>
 <p>여기에서 <span class="math inline">\(t_i=\frac{2\pi i}{1000}\)</span> 이다. 그리고 <span class="math inline">\(\epsilon_i \sim i.i.d~ N(0,\sigma^2)\)</span>, 즉 서로 독립인 표준정규분포에서 추출된 샘플이다. 위의 모형에서 아래와 같은 데이터를 관측했다고 가정하자.</p>
-<div class="cell" data-outputid="98e7b6ae-60c8-4a96-fcd4-2863bc417212">
+<div id="d136550f-c5de-49c2-9592-d5727132eeae" class="cell" data-outputid="98e7b6ae-60c8-4a96-fcd4-2863bc417212">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a>t<span class="op">=</span> np.array(<span class="bu">range</span>(<span class="dv">1000</span>))<span class="op">*</span> np.pi<span class="op">/</span><span class="dv">1000</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a>y <span class="op">=</span> <span class="op">-</span><span class="dv">2</span><span class="op">+</span> <span class="dv">3</span><span class="op">*</span>np.cos(t) <span class="op">+</span> <span class="dv">1</span><span class="op">*</span>np.cos(<span class="dv">2</span><span class="op">*</span>t) <span class="op">+</span> <span class="fl">0.5</span><span class="op">*</span>np.cos(<span class="dv">5</span><span class="op">*</span>t) <span class="op">+</span> np.random.randn(<span class="dv">1000</span>)<span class="op">*</span><span class="fl">0.2</span></span>
@@ -336,7 +326,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p><code>(2)</code> 아래와 같은 모형을 고려하자.</p>
 <p><span class="math display">\[y_i \sim Ber(\pi_i), ~ \text{where} ~ \pi_i=\frac{\exp(w_0+w_1x_i)}{1+\exp(w_0+w_1x_i)}\]</span></p>
 <p>위의 모형에서 관측한 데이터는 아래와 같다.</p>
-<div class="cell" data-outputid="f056e0c9-b874-4224-d656-82fe8452eaf6" data-tags="[]">
+<div id="f4761787-1e6b-49f0-b8bf-a11e8332bab6" class="cell" data-outputid="f056e0c9-b874-4224-d656-82fe8452eaf6" data-tags="[]">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>tf.random.set_seed(<span class="dv">43052</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a>x <span class="op">=</span> tnp.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2000</span>)</span>
 <span id="cb10-3"><a href="#cb10-3"></a>y <span class="op">=</span> tf.constant(np.random.binomial(<span class="dv">1</span>, tf.nn.sigmoid(<span class="op">-</span><span class="dv">1</span><span class="op">+</span><span class="dv">5</span><span class="op">*</span>x)),dtype<span class="op">=</span>tf.float64)</span>
@@ -352,7 +342,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p>아래의 모형을 고려하자.</p>
 <p>model: <span class="math inline">\(y_i=\begin{cases} x_i +0.3\epsilon_i &amp; x\leq 0 \\ 3.5x_i +0.3\epsilon_i &amp; x&gt;0 \end{cases}\)</span></p>
 <p>아래는 위의 모형에서 생성한 샘플이다.</p>
-<div class="cell">
+<div id="908224ae-65a2-414a-95c2-2f3f62e18da0" class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">## data</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>np.random.seed(<span class="dv">43052</span>)</span>
 <span id="cb11-3"><a href="#cb11-3"></a>N<span class="op">=</span><span class="dv">100</span></span>
@@ -363,7 +353,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <ul>
 <li>$ = _0+_1x $</li>
 </ul>
-<div class="cell" data-outputid="e7c7f0be-0093-47e3-fff4-b8ebb052062a">
+<div id="8ed0488d-ad21-4f0b-81ec-6317ce3257ee" class="cell" data-outputid="e7c7f0be-0093-47e3-fff4-b8ebb052062a">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>tf.random.set_seed(<span class="dv">43054</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
 <span id="cb12-3"><a href="#cb12-3"></a>net.add(tf.keras.layers.Dense(<span class="dv">1</span>))</span>
@@ -380,7 +370,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <li><span class="math inline">\(\boldsymbol{v}= \text{relu}(u)\)</span></li>
 <li><span class="math inline">\(y= \boldsymbol{v}\boldsymbol{W}^{(2)}+b^{(2)}\)</span></li>
 </ul>
-<div class="cell" data-outputid="99e3c618-4529-46d8-c4ff-90caf3c37b0c">
+<div id="7763ed76-b80a-4e87-b03b-054e49cfed69" class="cell" data-outputid="99e3c618-4529-46d8-c4ff-90caf3c37b0c">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>tf.random.set_seed(<span class="dv">43056</span>)</span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="co">## 1단계</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>net <span class="op">=</span> tf.keras.Sequential()</span>
@@ -440,9 +430,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -478,10 +482,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -491,8 +494,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -507,6 +519,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -547,6 +748,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

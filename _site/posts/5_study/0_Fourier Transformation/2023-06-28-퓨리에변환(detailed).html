@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.315">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,10 +96,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../../styles.css">
@@ -135,35 +113,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/pinkocto"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><strong>[Fourier]</strong> 퓨리에변환(detailed)</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[Fourier]</strong> 퓨리에변환(detailed)</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -172,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block"><strong>[Fourier]</strong> 퓨리에변환(detailed)</h1>
+      <h1 class="title"><strong>[Fourier]</strong> 퓨리에변환(detailed)</h1>
                       </div>
   </div>
     
@@ -199,37 +184,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  <a href="../../../1_ip2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  <a href="../../../2_dv2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  <a href="../../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  <a href="../../../5_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STUDY</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -267,22 +257,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="cell" data-execution_count="1">
+<div id="306bcda4-eaa9-4032-81cc-4c68cdb5a6d7" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="예비학습" class="level1">
 <h1>예비학습</h1>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled" title="Notations">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
-Note
+<div class="callout-title-container flex-fill">
+Notations
 </div>
 </div>
-<div class="callout-body-container callout-body" title="Notations">
+<div class="callout-body-container callout-body">
 <p>일반적으로 신호처리에서 사용하는 notation은 통계학에서 사용하는 notation과 다른데 대충 정리하면 아래와 같다.</p>
 <ul>
 <li>자료의수: <span class="math inline">\(N\)</span> // 통계에서는 보통 <span class="math inline">\(n\)</span>으로 씀.</li>
@@ -310,25 +300,25 @@ Note
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/13f48c54-a49a-4775-8923-feeecde79602-1-7ebe5889-44d5-4a67-b81d-54a7ba35ff7e.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">그림1: 위키에서 긁은 수식</figcaption><p></p>
+<figcaption class="figure-caption">그림1: 위키에서 긁은 수식</figcaption>
 </figure>
 </div>
 <ul>
 <li><span class="math inline">\(x[n]\)</span>은 이산신호, <span class="math inline">\(X[k]\)</span> 퓨리에 변환된 이산신호임을 기억하고 있자.</li>
 </ul>
 <p><code>-</code> 예제1</p>
-<div class="cell" data-execution_count="6">
+<div id="f25dab52-5fb7-4924-9678-94fd4dca08aa" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>]) <span class="co"># 이산신호</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>X <span class="op">=</span> np.fft.fft(x)  <span class="co"># 퓨리에 변환된 이산신호</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="7">
+<div id="b764995c-53c1-4713-9a27-119578ae613b" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># 좌변</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="bu">sum</span>(<span class="bu">abs</span>(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>55</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="8">
+<div id="4e502b10-9b3b-48ec-b110-df82a0cd9e05" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># 우변</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="bu">sum</span>(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -336,35 +326,35 @@ Note
 </div>
 </div>
 <p><code>-</code> 예제2</p>
-<div class="cell" data-execution_count="11">
+<div id="6e7e5280-cfa4-42a1-8ac9-d562bb95408d" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>x <span class="op">=</span> np.cos(<span class="dv">2</span><span class="op">*</span>t)</span>
 <span id="cb7-3"><a href="#cb7-3"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="15">
+<div id="c44a8716-241e-41a3-86b0-5822bc7622c3" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>40.722432328290004</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="16">
+<div id="01e78a11-e367-4b07-9cd9-002094ffed06" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>40.72243232829</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제3</p>
-<div class="cell" data-execution_count="17">
+<div id="e4cbbbe7-e3ae-4dc5-b45c-a3a08fb721b2" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
 <span id="cb12-2"><a href="#cb12-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="18">
+<div id="85fc6dca-a55f-4b58-9670-311400c7e0e5" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(x)<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>97.80056643079052</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="19">
+<div id="fd005ed5-bdf8-48fd-81fe-4493122b6bf2" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="bu">sum</span>(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)<span class="op">/</span><span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="19">
 <pre><code>97.80056643079051</code></pre>
@@ -378,7 +368,7 @@ Note
 <ul>
 <li>이유: <span class="math inline">\(X[k] = \sum_{n=0}^{N-1}x[n]e^{-\frac{j2\pi kn}{N}}\)</span>에서 <span class="math inline">\(k=0\)</span>을 대입하면 바로 나옴</li>
 </ul>
-<div class="callout-note callout callout-style-simple">
+<div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -389,60 +379,60 @@ Note
 </div>
 </div>
 <p><code>-</code> 예제1</p>
-<div class="cell" data-execution_count="20">
+<div id="75ba9f3a-5443-463f-9ed7-5904025b2ee9" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
 <span id="cb17-2"><a href="#cb17-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong><em>(우변)</em></strong> : <span class="math inline">\(\frac{1}{N}\sum_{n=0}^{N-1} x[n]\)</span></p>
-<div class="cell" data-execution_count="21">
+<div id="855d1ff5-7f6e-4510-8803-85dbef62442f" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>3.0</code></pre>
 </div>
 </div>
 <p><strong><em>(좌변)</em></strong> : <span class="math inline">\(\frac{1}{N}X[0]\)</span></p>
-<div class="cell" data-execution_count="174">
+<div id="17c7a2fd-8f75-4344-82f1-4d0344c3aadc" class="cell" data-execution_count="174">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>X[<span class="dv">0</span>]<span class="op">/</span><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="174">
 <pre><code>(3+0j)</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제2</p>
-<div class="cell" data-execution_count="175">
+<div id="be6eb6b1-2dd6-4a81-ba58-eadf0d7e4b0b" class="cell" data-execution_count="175">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>t <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">100</span>)</span>
 <span id="cb22-2"><a href="#cb22-2"></a>x <span class="op">=</span> np.cos(<span class="dv">2</span><span class="op">*</span>t)</span>
 <span id="cb22-3"><a href="#cb22-3"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="176">
+<div id="0eb20c2e-5032-4aa6-af9e-ee3a2cc13328" class="cell" data-execution_count="176">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="176">
 <pre><code>0.45300618395436126</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="177">
+<div id="b3bf4024-a350-4698-abd3-8bba673c819e" class="cell" data-execution_count="177">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>X[<span class="dv">0</span>]<span class="op">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="177">
 <pre><code>(0.4530061839543613+0j)</code></pre>
 </div>
 </div>
 <p><code>-</code> 예제3</p>
-<div class="cell" data-execution_count="22">
+<div id="227b1410-5b45-4243-8cca-0f95178832aa" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>x <span class="op">=</span> np.random.randn(<span class="dv">100</span>)</span>
 <span id="cb27-2"><a href="#cb27-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="23">
+<div id="c824d624-a6cb-48a3-a5a0-e390124fff57" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a><span class="bu">len</span>(x) <span class="co"># N</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>100</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="24">
+<div id="c4e06739-0c08-4359-9679-08786f709254" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>np.mean(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>0.14552675633312173</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="25">
+<div id="9546a9b0-6ab0-4fdd-95db-b4c7414deb88" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>X[<span class="dv">0</span>]<span class="op">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>(0.1455267563331217+0j)</code></pre>
@@ -455,11 +445,11 @@ Note
 <h2 class="anchored" data-anchor-id="이론-및-예시">이론 및 예시</h2>
 <p><code>-</code> 이론: real-valued signal은 무조건 <span class="math inline">\(|X[k]|^2\)</span>의 그래프가 대칭으로 나옴 (단, <span class="math inline">\(X[0]\)</span>은 제외)</p>
 <p><code>-</code> 예시1:</p>
-<div class="cell" data-execution_count="205">
+<div id="ea1807d1-454d-44f6-b6d8-0c1999790cbb" class="cell" data-execution_count="205">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>])</span>
 <span id="cb34-2"><a href="#cb34-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="207">
+<div id="ba400063-a598-495b-b698-a676389a35a3" class="cell" data-execution_count="207">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># plt.plot(abs(X)**2,'o')</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a>plt.plot((<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)[<span class="dv">0</span>],<span class="st">'x'</span>)</span>
@@ -474,7 +464,7 @@ Note
 <ul>
 <li>첫항을 제외하고 대칭임</li>
 </ul>
-<div class="cell" data-execution_count="66">
+<div id="59186224-8d40-4f0e-a8f0-f962d3be429e" class="cell" data-execution_count="66">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># 확인</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="66">
@@ -484,11 +474,11 @@ Note
 </div>
 <p>첫 항인 <span class="math inline">\(X[0]=225.\)</span>을 제외하고 대칭, 그래프 역시 대칭인 그래프가 나옴.</p>
 <p><code>-</code> 예시2:</p>
-<div class="cell" data-execution_count="202">
+<div id="5c9eda28-685b-420d-824a-daee36c542db" class="cell" data-execution_count="202">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="op">-</span><span class="dv">3</span>,<span class="op">-</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span>]) <span class="co"># 이산신호</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 퓨리에 변환된 이산신호</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="203">
+<div id="ee9d436f-060a-44d1-b524-56ac2553b435" class="cell" data-execution_count="203">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span>
 <span id="cb40-2"><a href="#cb40-2"></a>plt.plot((<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>)[<span class="dv">0</span>], <span class="st">'x'</span>)</span>
 <span id="cb40-3"><a href="#cb40-3"></a>plt.axvline(x<span class="op">=</span><span class="dv">3</span>, linestyle<span class="op">=</span><span class="st">'--'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -502,18 +492,18 @@ Note
 <ul>
 <li>첫항을 제외하고 대칭임</li>
 </ul>
-<div class="cell" data-execution_count="72">
+<div id="33f8492c-b388-4fa3-a44b-ff222dc5d5e5" class="cell" data-execution_count="72">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a><span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>array([ 0., 64., 12., 16., 12., 64.])</code></pre>
 </div>
 </div>
 <p><code>-</code> 예시3: <span class="math inline">\({\bf x}\)</span>가 복소수일 경우는 첫항을 제외하고 대칭이 되지 않음</p>
-<div class="cell" data-execution_count="77">
+<div id="b8fef97a-0e15-4fed-a7dc-dc47b96d75e3" class="cell" data-execution_count="77">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span><span class="op">+</span><span class="ot">1j</span>,<span class="dv">2</span><span class="op">+</span><span class="ot">2j</span>,<span class="dv">3</span><span class="op">+</span><span class="ot">3j</span>,<span class="op">-</span><span class="dv">3</span><span class="op">-</span><span class="ot">3j</span>,<span class="op">-</span><span class="dv">2</span><span class="op">-</span><span class="ot">2j</span>,<span class="dv">1</span><span class="op">-</span><span class="ot">1j</span>]) </span>
 <span id="cb44-2"><a href="#cb44-2"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="78">
+<div id="58c36b88-e6fd-4a77-90a4-df9295ae25d7" class="cell" data-execution_count="78">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1"></a>plt.plot(<span class="bu">abs</span>(X)<span class="op">**</span><span class="dv">2</span>,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
@@ -525,7 +515,7 @@ Note
 <h2 class="anchored" data-anchor-id="왜-xn이-실수일-경우만-xk2이-대칭으로-나올까">왜 <span class="math inline">\(x[n]\)</span>이 실수일 경우만 <span class="math inline">\(|X[k]|^2\)</span>이 대칭으로 나올까?</h2>
 <p><code>-</code> 예비학습1</p>
 <p>임의의 <span class="math inline">\(0 \leq \alpha \leq 1\)</span>에 대하여 <span class="math inline">\(\cos(2\pi \alpha) =\cos(2\pi (1-\alpha))\)</span> 가 성립함</p>
-<div class="cell" data-execution_count="265">
+<div id="b5a1d861-9872-4a1d-8652-370330faac5b" class="cell" data-execution_count="265">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>alpha <span class="op">=</span> <span class="fl">0.2</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha),np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="265">
@@ -535,7 +525,7 @@ Note
 <ul>
 <li>그래프를 잘 그려보세여</li>
 </ul>
-<div class="cell" data-execution_count="168">
+<div id="0e91ebfd-eb11-4b87-8b5c-3e5b8559c2a9" class="cell" data-execution_count="168">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>N <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a>alpha_ <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,N)</span>
 <span id="cb48-3"><a href="#cb48-3"></a>plt.plot(alpha_, np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha_), <span class="st">'o'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">'cos(2*pi*alpha)'</span>)</span>
@@ -550,7 +540,7 @@ Note
 </div>
 <p><code>-</code> 예비학습2</p>
 <p>임의의 <span class="math inline">\(0 \leq \alpha \leq 1\)</span>에 대하여 <span class="math inline">\(\sin(2\pi \alpha) = -\sin(2\pi (1-\alpha))\)</span> 가 성립함</p>
-<div class="cell" data-execution_count="266">
+<div id="cd06ffc8-7fa8-4027-88fe-5b99bd12c1dd" class="cell" data-execution_count="266">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>alpha <span class="op">=</span> <span class="fl">0.2</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha),np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>alpha))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="266">
@@ -560,7 +550,7 @@ Note
 <ul>
 <li>그래프를 잘 그려보세여</li>
 </ul>
-<div class="cell" data-execution_count="121">
+<div id="c7401971-3a3e-445c-b5d7-ac88175ae01e" class="cell" data-execution_count="121">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>N <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>alpha_ <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,N)</span>
 <span id="cb52-3"><a href="#cb52-3"></a>plt.plot(alpha_, np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>alpha_), <span class="st">'o'</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">'sin(2*pi*alpha)'</span>)</span>
@@ -573,7 +563,7 @@ Note
 <p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="124">
+<div id="43d3b8df-1ee2-4ffc-9a6f-63a8a1d0c3a0" class="cell" data-execution_count="124">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># 잘못된 그림..</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>N <span class="op">=</span> <span class="dv">30</span></span>
 <span id="cb54-3"><a href="#cb54-3"></a>alpha_ <span class="op">=</span> np.linspace(<span class="dv">0</span>,<span class="dv">1</span>,N)</span>
@@ -612,7 +602,7 @@ Note
 <h1>하나의 주파수를 가진 cos</h1>
 <p>아래와 같이 하나의 주파수만 있는 <span class="math inline">\(\cos\)</span>을 가정하자.</p>
 <p><span class="math display">\[x[n] = \cos\left(\frac{2\pi n}{N} \right)\]</span></p>
-<div class="cell" data-execution_count="125">
+<div id="c99867d6-7cb1-492c-a4f0-f58399ea7030" class="cell" data-execution_count="125">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -625,18 +615,18 @@ Note
 <h2 class="anchored" data-anchor-id="허수파트-해석">허수파트 해석</h2>
 <p>관찰1: 모든 <span class="math inline">\(k\)</span>에 대하여 <span class="math inline">\(X[k]\)</span>의 허수파트는 항상 <span class="math inline">\(0\)</span>이다.</p>
 <p><strong>k=0</strong></p>
-<div class="cell" data-execution_count="127">
+<div id="d0fb203f-4050-434c-92c0-a87fea1bff01" class="cell" data-execution_count="127">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>k<span class="op">=</span><span class="dv">0</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>sin_part_0 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="128">
+<div id="56bc8f5c-06d0-4053-8535-e0495812628a" class="cell" data-execution_count="128">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>x<span class="op">*</span>sin_part_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="128">
 <pre><code>array([ 0.,  0.,  0.,  0., -0., -0., -0., -0., -0., -0., -0., -0.,  0.,
         0.,  0.])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="129">
+<div id="e6be5c9c-77e2-4807-9cf8-25aab4be9ee9" class="cell" data-execution_count="129">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="129">
 <pre><code>0.0</code></pre>
@@ -646,11 +636,11 @@ Note
 <li><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 <span class="math inline">\(0\)</span></li>
 </ul>
 <p><strong>k=1</strong></p>
-<div class="cell" data-execution_count="130">
+<div id="bd2ff5c1-53d5-462d-a15f-bbcab4c86a8f" class="cell" data-execution_count="130">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>k<span class="op">=</span><span class="dv">1</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a>sin_part_1 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="131">
+<div id="3c23315f-c86e-4786-b3f1-b05634839755" class="cell" data-execution_count="131">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>x<span class="op">*</span>sin_part_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="131">
 <pre><code>array([ 0.        ,  0.37157241,  0.49726095,  0.29389263, -0.10395585,
@@ -658,7 +648,7 @@ Note
         0.4330127 ,  0.10395585, -0.29389263, -0.49726095, -0.37157241])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="132">
+<div id="effea5cb-db46-4c4a-a69e-302a3ca8793c" class="cell" data-execution_count="132">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="132">
 <pre><code>1.0547118733938987e-15</code></pre>
@@ -668,7 +658,7 @@ Note
 <li>거의 <span class="math inline">\(0\)</span></li>
 </ul>
 <p>약간을 직관을 위해서 그림을 그려보자.</p>
-<div class="cell" data-execution_count="403">
+<div id="154ff6ad-1118-4277-bebb-0bef164cf547" class="cell" data-execution_count="403">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
 <span id="cb67-2"><a href="#cb67-2"></a>plt.plot(sin_part_1,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -677,11 +667,11 @@ Note
 </div>
 <p><span class="math inline">\(x\)</span>가 <span class="math inline">\(\mathbb{R}\)</span>에서 정의된 연속함수라고 상상하면 <span class="math inline">\(\sum_{n=0}^{N-1}\cos\left(\frac{2\pi n}{N} \right)\sin\left(\frac{2\pi kn}{N}\right)\)</span>에 대응하는 식은 <span class="math inline">\(\int_0^{2\pi}\cos(t)\sin(t)dt\)</span>라고 볼 수 있어서 <code>sum(x*sin_part_1)=0</code>임을 더 쉽게 이해할 수 있다.</p>
 <p><strong>k=2</strong></p>
-<div class="cell" data-execution_count="134">
+<div id="97fadc78-8805-4084-b27e-71238f07291b" class="cell" data-execution_count="134">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>k<span class="op">=</span><span class="dv">2</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a>sin_part_2 <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="137">
+<div id="0af0500b-39a8-4add-821a-947a8282b074" class="cell" data-execution_count="137">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>plt.plot(x,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'cos(t)'</span>)</span>
 <span id="cb69-2"><a href="#cb69-2"></a>plt.plot(sin_part_2,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'sin(2t)'</span>)</span>
 <span id="cb69-3"><a href="#cb69-3"></a>plt.legend(loc<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -693,7 +683,7 @@ Note
 </div>
 </div>
 <p><span class="math inline">\(x\)</span>가 <span class="math inline">\(\mathbb{R}\)</span>에서 정의된 연속함수라고 상상하면 파란선에 대응하는것은 <span class="math inline">\(\cos(t)\)</span> 주황선에 대응하는 것은 <span class="math inline">\(\sin(2t)\)</span>로 볼 수 있는데 둘은 직교하므로 둘을 곱한뒤 적분하면 (더하면) 0이 된다.</p>
-<div class="cell" data-execution_count="138">
+<div id="fe51cddb-7989-4f3e-8fd6-b37abebf2555" class="cell" data-execution_count="138">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1"></a><span class="bu">sum</span>(x<span class="op">*</span>sin_part_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="138">
 <pre><code>-1.2212453270876722e-15</code></pre>
@@ -709,17 +699,17 @@ Note
 <p><span class="math display">\[\sum_{n=0}^{N-1}\cos\left(\frac{2\pi n}{N} \right)^2\]</span></p>
 <p>그외의 경우에는 아래와 같이 된다.</p>
 <p><strong>k=0</strong></p>
-<div class="cell" data-execution_count="139">
+<div id="a78356bb-59a3-4026-806b-2baea4e79c41" class="cell" data-execution_count="139">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>k<span class="op">=</span><span class="dv">0</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a>cos_part_0 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="140">
+<div id="34feebba-652a-4ddb-8fc8-919f1156fbb6" class="cell" data-execution_count="140">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>cos_part_0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="140">
 <pre><code>array([1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="408">
+<div id="82a78543-5759-4660-bb38-24efb5ca119c" class="cell" data-execution_count="408">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
 <span id="cb76-2"><a href="#cb76-2"></a>plt.plot(cos_part_0,<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -730,11 +720,11 @@ Note
 <li>파란선에 대응하는것은 <span class="math inline">\(\cos(t)\)</span> 주황선에 대응하는 것은 <span class="math inline">\(1\)</span>로 볼 수 있는데 둘은 직교하므로 둘을 곱한뒤 적분하면 (더하면) 0이 된다.</li>
 </ul>
 <p><strong>k=2</strong></p>
-<div class="cell" data-execution_count="141">
+<div id="3854da3a-a074-4a1b-80b6-679542ddb82b" class="cell" data-execution_count="141">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>k<span class="op">=</span><span class="dv">2</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>cos_part_2 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>k<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="143">
+<div id="cd9004cb-4d37-4282-8fee-e1eab64f4301" class="cell" data-execution_count="143">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>plt.plot(x,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'cos(t)'</span>)</span>
 <span id="cb78-2"><a href="#cb78-2"></a>plt.plot(cos_part_2,<span class="st">'--o'</span>, label<span class="op">=</span><span class="st">'cos(2t)'</span>)</span>
 <span id="cb78-3"><a href="#cb78-3"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -754,7 +744,7 @@ Note
 <p>이때 퓨리에변환 <span class="math inline">\(X[k]\)</span>는 아래와 같이 정리된다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 0이 되고, 실수 파트는 <span class="math inline">\(k=1,N-1\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
-<div class="cell" data-execution_count="149">
+<div id="9d675809-099c-4aa3-9520-6dcce4230455" class="cell" data-execution_count="149">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 퓨리에 변환된 이산신호</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
 <span id="cb80-3"><a href="#cb80-3"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>) </span>
@@ -770,7 +760,7 @@ Note
 <p>퓨리에변환 <span class="math inline">\(X[k]\)</span>는 아래와 같이 정리된다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 0이 되고, 실수 파트는 <span class="math inline">\(k=3,N-3\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
-<div class="cell" data-execution_count="150">
+<div id="bc59b306-7562-4796-8f3d-c47240f86839" class="cell" data-execution_count="150">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb81-2"><a href="#cb81-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># 이산신호</span></span>
 <span id="cb81-3"><a href="#cb81-3"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 퓨리에 변환된 이산신호</span></span>
@@ -796,7 +786,7 @@ Note
 <p>퓨리에변환 <span class="math inline">\(X[k]\)</span>는 아래와 같이 정리된다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p><span class="math inline">\(X[k]\)</span>의 허수파트는 항상 0이 되고, 실수 파트는 <span class="math inline">\(k=1,3,N-3,N-1\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
-<div class="cell" data-execution_count="152">
+<div id="85b9b369-d63a-4e7c-a982-7ace69568dd8" class="cell" data-execution_count="152">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb82-2"><a href="#cb82-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])  <span class="co"># 이산신호</span></span>
 <span id="cb82-3"><a href="#cb82-3"></a>X <span class="op">=</span> np.fft.fft(x) <span class="co"># 푸리에 변환된 이산신호</span></span>
@@ -811,12 +801,12 @@ Note
 </div>
 <section id="책갈피" class="level2">
 <h2 class="anchored" data-anchor-id="책갈피"><font color="green">책갈피</font></h2>
-<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Important
 </div>
 </div>
@@ -829,7 +819,7 @@ Important
 <p>각각 퓨리에변환한 결과를 합친것과 같다.</p>
 </div>
 </div>
-<div class="cell" data-execution_count="153">
+<div id="d79f94ff-c57d-4cd4-9a52-48a1ac2e5fb1" class="cell" data-execution_count="153">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb83-2"><a href="#cb83-2"></a>x1 <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal1</span></span>
 <span id="cb83-3"><a href="#cb83-3"></a>x2 <span class="op">=</span> np.array([<span class="dv">2</span><span class="op">*</span>np.cos(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal2</span></span>
@@ -857,7 +847,7 @@ Important
 <p>퓨리에변환 <span class="math inline">\(X[k]\)</span>는 아래와 같이 정리된다.</p>
 <p><span class="math display">\[X[k] = \sum_{n=0}^{N-1}x[n]\cos\left(\frac{2\pi kn}{N}\right) - i \sum_{n=0}^{N-1}x[n]\sin\left(\frac{2\pi kn}{N}\right)\]</span></p>
 <p>앞의 논의와 유사하게 전개하면 <span class="math inline">\(X[k]\)</span>의 실수파트는 항상 0이 되고, 허수파트는 <span class="math inline">\(k=1,3,N-3,N-1\)</span>일 경우에만 값을 가지고 나머지는 0의 값을 가진다.</p>
-<div class="cell" data-execution_count="474">
+<div id="b3607161-bd99-4786-8ecc-7bde2c9d22d4" class="cell" data-execution_count="474">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb84-2"><a href="#cb84-2"></a>x <span class="op">=</span> np.array([np.sin(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)<span class="op">+</span><span class="dv">2</span><span class="op">*</span>np.sin(<span class="dv">6</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
 <span id="cb84-3"><a href="#cb84-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
@@ -904,7 +894,7 @@ Important
 <li><span class="math inline">\(x^2[n] = \frac{1}{4}\left(e^{i \frac{4\pi n}{N}}+e^{-i \frac{4\pi n}{N}}+2\right)=\frac{1}{2} + \frac{1}{2}\cos\left(\frac{4\pi n}{N}\right)\)</span></li>
 </ul>
 <p>이중에서 <span class="math inline">\(\sum_{n=0}^{N-1}\cos\left(\frac{4\pi n}{N} \right)\)</span> 은 <span class="math inline">\(0\)</span>이되므로 <span class="math inline">\(\sum_{n=0}^{N-1}x^2[n]=\frac{N}{2}\)</span>이다.</p>
-<div class="cell" data-execution_count="562">
+<div id="eea6c0e9-7bea-490e-9aa5-3108b530010e" class="cell" data-execution_count="562">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb85-2"><a href="#cb85-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal</span></span>
 <span id="cb85-3"><a href="#cb85-3"></a>plt.plot(x,<span class="st">'--o'</span>)</span>
@@ -919,7 +909,7 @@ Important
 <ul>
 <li><span class="math inline">\(\sum_{n=0}^{N-1}x^2[n]=\frac{N}{2}=7.5\)</span></li>
 </ul>
-<div class="cell" data-execution_count="545">
+<div id="d7f9579b-6d48-467c-bb00-3a7d9cf70f02" class="cell" data-execution_count="545">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1"></a>x,y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="545">
 <pre><code>(array([ 1.0000000e+00,  6.1232340e-17, -1.0000000e+00, -1.8369702e-16]),
@@ -943,7 +933,7 @@ Important
 <li><span class="math inline">\(\beta_1 = \frac{2}{N}|X[1]|\)</span></li>
 </ul>
 <p>이 성립한다.</p>
-<div class="cell" data-execution_count="158">
+<div id="6d70b097-33f3-4c21-98be-f75f0d42c893" class="cell" data-execution_count="158">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb89-2"><a href="#cb89-2"></a>x <span class="op">=</span> np.array([np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)])</span>
 <span id="cb89-3"><a href="#cb89-3"></a>X <span class="op">=</span> np.fft.fft(x)</span>
@@ -957,7 +947,7 @@ Important
 <p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-58-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="164">
+<div id="92485775-a573-4561-a1cb-546a49f2a692" class="cell" data-execution_count="164">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>(np.real(X)[<span class="dv">1</span>])<span class="op">*</span><span class="dv">2</span><span class="op">/</span>N</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="164">
 <pre><code>1.0</code></pre>
@@ -966,12 +956,12 @@ Important
 <p>따라서 <span class="math inline">\(\beta_1=1\)</span>이며, <span class="math inline">\(x[n] = \cos\left(\frac{2\pi n}{N}\right)\)</span></p>
 <p><code>-</code> 예제2: 만약에 <span class="math inline">\(x[n]\)</span>이 아래와 같은 꼴이라고 하자.</p>
 <p><span class="math display">\[x[n] = \beta_1 \cos\left(1\times \frac{2\pi n}{N} \right) + \beta_2\cos\left(2\times \frac{2\pi n}{N} \right) +\beta_7 \cos\left(7\times \frac{2\pi n}{N} \right)\]</span></p>
-<div class="cell" data-execution_count="165">
+<div id="f65c9f38-86a0-451d-9628-da91c909d719" class="cell" data-execution_count="165">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>beta1 <span class="op">=</span> <span class="dv">3</span> </span>
 <span id="cb93-2"><a href="#cb93-2"></a>beta2 <span class="op">=</span> <span class="fl">0.5</span></span>
 <span id="cb93-3"><a href="#cb93-3"></a>beta7 <span class="op">=</span> <span class="op">-</span><span class="dv">2</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="166">
+<div id="ff947e5e-6ded-45dc-a8f6-8b73c8ce59d3" class="cell" data-execution_count="166">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb94-2"><a href="#cb94-2"></a>n <span class="op">=</span> np.arange(<span class="dv">15</span>) </span>
 <span id="cb94-3"><a href="#cb94-3"></a>x <span class="op">=</span> beta1 <span class="op">*</span> np.cos(<span class="dv">1</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="op">+\</span></span>
@@ -979,7 +969,7 @@ Important
 <span id="cb94-5"><a href="#cb94-5"></a>beta7 <span class="op">*</span> np.cos(<span class="dv">7</span> <span class="op">*</span> <span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N)</span>
 <span id="cb94-6"><a href="#cb94-6"></a>X <span class="op">=</span> np.fft.fft(x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="167">
+<div id="5013198f-9ee3-44a7-bef2-5920b02ed248" class="cell" data-execution_count="167">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1"></a>N <span class="op">=</span> <span class="dv">15</span></span>
 <span id="cb95-2"><a href="#cb95-2"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>)</span>
 <span id="cb95-3"><a href="#cb95-3"></a>ax[<span class="dv">0</span>].plot(x,<span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
@@ -999,7 +989,7 @@ Important
 <li><span class="math inline">\(x_7[n] = \cos\left(\frac{14\pi n}{N} \right)\)</span></li>
 </ul>
 <p>각각의 퓨리에변환한 결과를 합친것과 같다.</p>
-<div class="cell" data-execution_count="187">
+<div id="3558cacd-cba8-46e0-bc53-faa002f8efb8" class="cell" data-execution_count="187">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb97-2"><a href="#cb97-2"></a>x1_ <span class="op">=</span> np.array([beta1<span class="op">*</span>np.cos(<span class="dv">2</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal1</span></span>
 <span id="cb97-3"><a href="#cb97-3"></a>x2_ <span class="op">=</span> np.array([beta2<span class="op">*</span>np.cos(<span class="dv">4</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) <span class="co"># signal2</span></span>
@@ -1008,7 +998,7 @@ Important
 <span id="cb97-6"><a href="#cb97-6"></a>X2_ <span class="op">=</span> np.fft.fft(x2_) <span class="co"># fft(signal2)</span></span>
 <span id="cb97-7"><a href="#cb97-7"></a>X7_ <span class="op">=</span> np.fft.fft(x7_) <span class="co"># fft(signal3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="198">
+<div id="6acec227-ba75-48b8-8fa7-2af06a6ad1b3" class="cell" data-execution_count="198">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">3</span>)</span>
 <span id="cb98-2"><a href="#cb98-2"></a>ax[<span class="dv">0</span>].plot(x, <span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">0</span>].set_title(<span class="st">'x[n]'</span>)</span>
 <span id="cb98-3"><a href="#cb98-3"></a>ax[<span class="dv">1</span>].plot(X, <span class="st">'o--'</span>)<span class="op">;</span> ax[<span class="dv">1</span>].set_title(<span class="st">'X[k]'</span>)</span>
@@ -1019,19 +1009,19 @@ Important
 <p><img src="2023-06-28-퓨리에변환(detailed)_files/figure-html/cell-64-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="188">
+<div id="54e1ce5e-adce-4395-802f-fc8f51bdd48d" class="cell" data-execution_count="188">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a><span class="dv">2</span><span class="op">/</span>N <span class="op">*</span> np.real(X1_)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="188">
 <pre><code>3.0</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="189">
+<div id="64739312-c3eb-47ef-a55f-828de4e3d3a9" class="cell" data-execution_count="189">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a><span class="dv">2</span><span class="op">/</span>N <span class="op">*</span> np.real(X2_)[<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="189">
 <pre><code>0.5</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="190">
+<div id="a7c1bfac-f5bd-4f9e-ab18-d7eafb8e3aca" class="cell" data-execution_count="190">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1"></a><span class="dv">2</span><span class="op">/</span>N <span class="op">*</span> np.real(X7_)[<span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="190">
 <pre><code>-2.000000000000001</code></pre>
@@ -1056,7 +1046,7 @@ Important
 <li>실수파트는 <span class="math inline">\(k=1, N-1\)</span>에서만 값을 가진다든가</li>
 </ul>
 <p>와 같은 논의가 성립하지는 않는다. 하지만 <strong><font color="red">대충</font></strong> 성립한다. 그림으로 비교해보면 아래와 같다.</p>
-<div class="cell" data-execution_count="608">
+<div id="da384970-5174-4c66-bbe5-3db742889bca" class="cell" data-execution_count="608">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>N <span class="op">=</span> <span class="dv">15</span> </span>
 <span id="cb105-2"><a href="#cb105-2"></a>x1 <span class="op">=</span> np.array([np.cos(<span class="fl">2.0</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
 <span id="cb105-3"><a href="#cb105-3"></a>x2 <span class="op">=</span> np.array([np.cos(<span class="fl">2.1</span><span class="op">*</span>np.pi<span class="op">*</span>n<span class="op">/</span>N) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(N)]) </span>
@@ -1104,14 +1094,14 @@ Important
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><aside id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p><span class="math inline">\(e^{ix}=\cos x + i\sin x\)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><span class="math inline">\(f(-x)=f(x)\)</span> // <span class="math inline">\(y\)</span>축 대칭<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn3"><p><span class="math inline">\(f(-x) = -f(x)\)</span> // 원점대칭<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
-</section></div></main> <!-- /main -->
+</aside></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1139,9 +1129,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1177,10 +1181,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1190,8 +1193,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1206,6 +1218,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1246,6 +1447,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 

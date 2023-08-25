@@ -1,81 +1,12 @@
 [
   {
-    "listing": "/3_stbda2022.html",
-    "items": [
-      "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
-      "/posts/3_STBDA2022/2022_05_16_(11주차)_5월16일.html",
-      "/posts/3_STBDA2022/2022_05_09_(10주차)_5월9일.html",
-      "/posts/3_STBDA2022/2022_05_02_(9주차)_5월2일(2).html",
-      "/posts/3_STBDA2022/2022_05_01_(9주차)_5월2일(1).html",
-      "/posts/3_STBDA2022/2022_04_25_중간고사.html",
-      "/posts/3_STBDA2022/2022_04_18_(7주차)_4월18일.html",
-      "/posts/3_STBDA2022/2022_04_11_(6주차)_4월11일.html",
-      "/posts/3_STBDA2022/2022_04_04_(5주차)_4월4일.html",
-      "/posts/3_STBDA2022/2022_03_28_(4주차)_3월28일.html",
-      "/posts/3_STBDA2022/2022_03_21_(3주차)_3월21일.html",
-      "/posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html",
-      "/posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html",
-      "/posts/3_STBDA2022/2023-01-01.html"
-    ]
-  },
-  {
-    "listing": "/2_dv2022.html",
-    "items": [
-      "/posts/2_DV2022/dv1.html",
-      "/posts/2_DV2022/9999.html",
-      "/posts/2_DV2022/2022-10-19-7wk-2.html",
-      "/posts/2_DV2022/2022-11-09-10wk-2.html",
-      "/posts/2_DV2022/2022-10-06-5wk-2.html",
-      "/posts/2_DV2022/2022-10-03-5wk-1.html",
-      "/posts/2_DV2022/2022-10-17-7wk-1.html"
-    ]
-  },
-  {
-    "listing": "/6_note.html",
-    "items": []
-  },
-  {
-    "listing": "/4_ts2023.html",
-    "items": []
-  },
-  {
-    "listing": "/5_study.html",
-    "items": [
-      "/posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html",
-      "/posts/5_study/4_Python/2023-07-10-syllabus.html",
-      "/posts/5_study/0_Fourier Transformation/2023-06-25-fft-python.html",
-      "/posts/5_study/0_Fourier Transformation/2023-06-23-퓨리에변환4jy.html",
-      "/posts/5_study/3_Stat/2023-05-13-추정 for JY.html",
-      "/posts/5_study/5_etc/2023-02-20-simul_eq.html"
-    ]
-  },
-  {
-    "listing": "/1_ip2022.html",
-    "items": [
-      "/posts/1_IP2022/2023-06-21-13wk-1.html",
-      "/posts/1_IP2022/02_DataScience/2023-03-14-pandas2.html",
-      "/posts/1_IP2022/02_DataScience/2023-03-13-pandas1.html",
-      "/posts/1_IP2022/02_DataScience/2023-03-12-pandas0.html",
-      "/posts/1_IP2022/04_시험/2022-06-13-final.html",
-      "/posts/1_IP2022/03_Class/2023-02-23-class6.html",
-      "/posts/1_IP2022/03_Class/2023-02-23-class9.html",
-      "/posts/1_IP2022/03_Class/2023-02-23-class8.html",
-      "/posts/1_IP2022/03_Class/2023-02-23-class10.html",
-      "/posts/1_IP2022/03_Class/2023-02-23-class7.html",
-      "/posts/1_IP2022/03_Class/2023-02-23-class5.html",
-      "/posts/1_IP2022/02_DataScience/2023-02-23-numpy4.html",
-      "/posts/1_IP2022/03_Class/2023-02-15-class3.html",
-      "/posts/1_IP2022/03_Class/2023-02-15-class1.html",
-      "/posts/1_IP2022/03_Class/2023-02-15-class2.html",
-      "/posts/1_IP2022/03_Class/2023-02-15-class4.html",
-      "/posts/1_IP2022/04_시험/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html"
-    ]
-  },
-  {
     "listing": "/index.html",
     "items": [
       "/posts/2_DV2022/dv1.html",
       "/posts/2_DV2022/9999.html",
+      "/posts/5_study/5_etc/Copy_of_Transformers_for_timeseries.html",
+      "/posts/5_study/5_etc/2023-08-10-transformer-ts.html",
+      "/posts/5_study/5_etc/2023-08-09-transformer.html",
       "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
       "/posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html",
       "/posts/5_study/4_Python/2023-07-10-syllabus.html",
@@ -118,6 +49,81 @@
       "/posts/2_DV2022/2022-10-03-5wk-1.html",
       "/posts/1_IP2022/04_시험/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html",
       "/posts/2_DV2022/2022-10-17-7wk-1.html"
+    ]
+  },
+  {
+    "listing": "/5_study.html",
+    "items": [
+      "/posts/5_study/5_etc/Copy_of_Transformers_for_timeseries.html",
+      "/posts/5_study/5_etc/2023-08-10-transformer-ts.html",
+      "/posts/5_study/5_etc/2023-08-09-transformer.html",
+      "/posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html",
+      "/posts/5_study/4_Python/2023-07-10-syllabus.html",
+      "/posts/5_study/0_Fourier Transformation/2023-06-25-fft-python.html",
+      "/posts/5_study/0_Fourier Transformation/2023-06-23-퓨리에변환4jy.html",
+      "/posts/5_study/3_Stat/2023-05-13-추정 for JY.html",
+      "/posts/5_study/5_etc/2023-02-20-simul_eq.html"
+    ]
+  },
+  {
+    "listing": "/6_note.html",
+    "items": []
+  },
+  {
+    "listing": "/3_stbda2022.html",
+    "items": [
+      "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
+      "/posts/3_STBDA2022/2022_05_16_(11주차)_5월16일.html",
+      "/posts/3_STBDA2022/2022_05_09_(10주차)_5월9일.html",
+      "/posts/3_STBDA2022/2022_05_02_(9주차)_5월2일(2).html",
+      "/posts/3_STBDA2022/2022_05_01_(9주차)_5월2일(1).html",
+      "/posts/3_STBDA2022/2022_04_25_중간고사.html",
+      "/posts/3_STBDA2022/2022_04_18_(7주차)_4월18일.html",
+      "/posts/3_STBDA2022/2022_04_11_(6주차)_4월11일.html",
+      "/posts/3_STBDA2022/2022_04_04_(5주차)_4월4일.html",
+      "/posts/3_STBDA2022/2022_03_28_(4주차)_3월28일.html",
+      "/posts/3_STBDA2022/2022_03_21_(3주차)_3월21일.html",
+      "/posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html",
+      "/posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html",
+      "/posts/3_STBDA2022/2023-01-01.html"
+    ]
+  },
+  {
+    "listing": "/2_dv2022.html",
+    "items": [
+      "/posts/2_DV2022/dv1.html",
+      "/posts/2_DV2022/9999.html",
+      "/posts/2_DV2022/2022-10-19-7wk-2.html",
+      "/posts/2_DV2022/2022-11-09-10wk-2.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/2_DV2022/2022-10-17-7wk-1.html"
+    ]
+  },
+  {
+    "listing": "/4_ts2023.html",
+    "items": []
+  },
+  {
+    "listing": "/1_ip2022.html",
+    "items": [
+      "/posts/1_IP2022/2023-06-21-13wk-1.html",
+      "/posts/1_IP2022/02_DataScience/2023-03-14-pandas2.html",
+      "/posts/1_IP2022/02_DataScience/2023-03-13-pandas1.html",
+      "/posts/1_IP2022/02_DataScience/2023-03-12-pandas0.html",
+      "/posts/1_IP2022/04_시험/2022-06-13-final.html",
+      "/posts/1_IP2022/03_Class/2023-02-23-class6.html",
+      "/posts/1_IP2022/03_Class/2023-02-23-class9.html",
+      "/posts/1_IP2022/03_Class/2023-02-23-class8.html",
+      "/posts/1_IP2022/03_Class/2023-02-23-class10.html",
+      "/posts/1_IP2022/03_Class/2023-02-23-class7.html",
+      "/posts/1_IP2022/03_Class/2023-02-23-class5.html",
+      "/posts/1_IP2022/02_DataScience/2023-02-23-numpy4.html",
+      "/posts/1_IP2022/03_Class/2023-02-15-class3.html",
+      "/posts/1_IP2022/03_Class/2023-02-15-class1.html",
+      "/posts/1_IP2022/03_Class/2023-02-15-class2.html",
+      "/posts/1_IP2022/03_Class/2023-02-15-class4.html",
+      "/posts/1_IP2022/04_시험/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html"
     ]
   }
 ]

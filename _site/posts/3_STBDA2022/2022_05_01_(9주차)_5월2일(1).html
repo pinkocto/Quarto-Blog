@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.315">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,10 +96,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
@@ -135,35 +113,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/pinkocto"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><strong>[STBDA]</strong> 9wk. Likelihood function</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[STBDA]</strong> 9wk. Likelihood function</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -172,7 +157,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block"><strong>[STBDA]</strong> 9wk. Likelihood function</h1>
+      <h1 class="title"><strong>[STBDA]</strong> 9wk. Likelihood function</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">빅데이터분석특강</div>
               </div>
@@ -202,37 +187,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STUDY</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -261,15 +251,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="imports" class="level3">
 <h3 class="anchored" data-anchor-id="imports">imports</h3>
-<div class="cell" data-execution_count="1">
+<div id="8cd92908-c533-4165-a011-38e19f322fdb" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> tensorflow <span class="im">as</span> tf </span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> tensorflow.experimental.numpy <span class="im">as</span> tnp </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="2">
+<div id="9c514944-aad3-4cae-ba6a-940a4f11ad7d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>tnp.experimental_enable_numpy_behavior()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="3">
+<div id="11d75372-5307-40b2-938a-ae678c7b9d95" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -277,7 +267,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="우도함수와-최대우도추정량">우도함수와 최대우도추정량</h3>
 <p><strong>(예제)</strong></p>
 <p><span class="math inline">\(X_i \overset{iid}{\sim} Ber(p)\)</span>에서 얻은 샘플이 아래와 같다고 하자.</p>
-<div class="cell" data-outputid="1fce0dbe-a019-4747-9f95-5ec4ec72cf05" data-execution_count="4">
+<div id="3e9d34c3-5a87-4bf2-9a9a-a568cd8f521e" class="cell" data-outputid="1fce0dbe-a019-4747-9f95-5ec4ec72cf05" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>x<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>] </span>
 <span id="cb4-2"><a href="#cb4-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -288,7 +278,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>왜?? <span class="math inline">\(p\)</span>가 0.5라고 주장할 수 있는 이론적 근거, 혹은 논리체계가 무엇인가?</p>
 <p><code>-</code> suppose: <span class="math inline">\(p=0.1\)</span> 이라고 하자.</p>
 <p>그렇다면 <span class="math inline">\((x_1,x_2,x_3,x_4)=(0,1,0,1)\)</span>와 같은 샘플이 얻어질 확률이 아래와 같다.</p>
-<div class="cell" data-outputid="3867167e-be2a-409e-aa55-6641fa972f88" data-execution_count="5">
+<div id="4f060178-af78-4c2a-9e04-ddfadddf422f" class="cell" data-outputid="3867167e-be2a-409e-aa55-6641fa972f88" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="fl">0.9</span> <span class="op">*</span> <span class="fl">0.1</span> <span class="op">*</span> <span class="fl">0.9</span> <span class="op">*</span> <span class="fl">0.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>0.008100000000000001</code></pre>
@@ -296,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p><code>-</code> suppose: <span class="math inline">\(p=0.2\)</span> 이라고 하자.</p>
 <p>그렇다면 <span class="math inline">\((x_1,x_2,x_3,x_4)=(0,1,0,1)\)</span>와 같은 샘플이 얻어질 확률이 아래와 같다.</p>
-<div class="cell" data-outputid="83cc9ea5-345e-4397-cdee-a902d1e14046" data-execution_count="6">
+<div id="ad2e2813-6e7f-4963-a31c-b21f7f6c7248" class="cell" data-outputid="83cc9ea5-345e-4397-cdee-a902d1e14046" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="fl">0.8</span> <span class="op">*</span> <span class="fl">0.2</span> <span class="op">*</span> <span class="fl">0.8</span> <span class="op">*</span> <span class="fl">0.2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>0.025600000000000008</code></pre>
@@ -310,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong><em>(여기서 잠깐 중요한것) 확률이라는 말을 함부로 쓸 수 없다.</em></strong></p>
 <p><code>-</code> 0.0256은 “<span class="math inline">\(p=0.2\)</span>일 경우 샘플 (0,1,0,1)이 얻어질 확률”이지 “<span class="math inline">\(p=0.2\)</span>일 확률”은 아니다.</p>
 <p>“<span class="math inline">\(p=0.2\)</span>인 확률” 이라는 개념이 성립하려면 아래코드에서 <code>sum([(1-p)*p*(1-p)*p for p in _plist])</code>이 1보다는 작아야 한다. (그런데 1보다 크다)</p>
-<div class="cell" data-outputid="8b8364bf-7fc9-46fb-e716-6419a51c5c0d">
+<div id="17785d4c-29f1-4d95-bd12-a48c990b5af2" class="cell" data-outputid="8b8364bf-7fc9-46fb-e716-6419a51c5c0d">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>_plist <span class="op">=</span> np.linspace(<span class="fl">0.499</span>,<span class="fl">0.501</span>,<span class="dv">1000</span>) </span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="bu">sum</span>([(<span class="dv">1</span><span class="op">-</span>p)<span class="op">*</span>p<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span>p)<span class="op">*</span>p <span class="cf">for</span> p <span class="kw">in</span> _plist])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="111">
@@ -373,7 +363,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p>위의 식은 SSE와 같다. 결국 오차항이 정규분포를 따르는 회귀모형의 MLE는 MSE를 최소화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>을 구하면 된다.</p>
 <p><strong>중간고사 1-(3)의 다른 풀이</strong></p>
 <p>step1: 생성</p>
-<div class="cell" data-execution_count="7">
+<div id="33a8d9c2-929e-4142-97ad-0c4c06c6da5a" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>x<span class="op">=</span> tf.constant(np.arange(<span class="dv">1</span>,<span class="dv">10001</span>)<span class="op">/</span><span class="dv">10000</span>)</span>
 <span id="cb14-2"><a href="#cb14-2"></a>y<span class="op">=</span> tnp.random.randn(<span class="dv">10000</span>) <span class="op">+</span> (<span class="fl">0.5</span> <span class="op">+</span> <span class="dv">2</span><span class="op">*</span>x) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -381,7 +371,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <ul>
 <li>maximize likelihood였던 문제를 minimize MSEloss로 바꾸어도 되는근거? 주어진 함수(=가능도함수)를 최대화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>은 MSE를 최소화하는 <span class="math inline">\(\beta_0,\beta_1\)</span>과 동일하므로</li>
 </ul>
-<div class="cell" data-execution_count="8">
+<div id="ed6a6863-b639-4f68-bf5a-39b0a8c519da" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>beta0<span class="op">=</span> tf.Variable(<span class="fl">1.0</span>)</span>
 <span id="cb15-2"><a href="#cb15-2"></a>beta1<span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span>
 <span id="cb15-3"><a href="#cb15-3"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2000</span>):</span>
@@ -392,7 +382,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <span id="cb15-8"><a href="#cb15-8"></a>    beta0.assign_sub(slope1<span class="op">*</span> <span class="fl">0.1</span><span class="op">/</span><span class="dv">10000</span>) <span class="co"># N=10000 </span></span>
 <span id="cb15-9"><a href="#cb15-9"></a>    beta1.assign_sub(slope2<span class="op">*</span> <span class="fl">0.1</span><span class="op">/</span><span class="dv">10000</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-outputid="3fc207f6-3a5e-4dee-89e6-3de6231d7880" data-execution_count="9">
+<div id="d93d6b4e-9560-435b-b421-d2ccf96d3bc5" class="cell" data-outputid="3fc207f6-3a5e-4dee-89e6-3de6231d7880" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>beta0,beta1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
 <pre><code>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=0.52694947&gt;,
@@ -409,7 +399,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p><code>(4)</code> 출제하지 못한 중간고사 문제</p>
 <p>아래의 모형을 생각하자. - <span class="math inline">\(Y_i \overset{iid}{\sim} Ber(\pi_i)\)</span> - <span class="math inline">\(\pi_i = \frac{\exp(w_0+w_1x_i)}{1+\exp(w_0+w_1x_i)}=\frac{\exp(-1+5x_i)}{1+\exp(-1+5x_i)}\)</span></p>
 <p>아래는 위의 모형에서 얻은 샘플이다.</p>
-<div class="cell" data-execution_count="13">
+<div id="ddb4d45d-0f7c-427a-ab7f-fcfe83de4987" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="op">=</span> tnp.linspace(<span class="op">-</span><span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2000</span>) <span class="co"># sample</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>pi <span class="op">=</span> tnp.exp(<span class="op">-</span><span class="dv">1</span><span class="op">+</span><span class="dv">5</span><span class="op">*</span>x) <span class="op">/</span> (<span class="dv">1</span><span class="op">+</span>tnp.exp(<span class="op">-</span><span class="dv">1</span><span class="op">+</span><span class="dv">5</span><span class="op">*</span>x)) <span class="co"># sample이 나올 확률</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a>y <span class="op">=</span> np.random.binomial(<span class="dv">1</span>,pi)</span>
@@ -418,11 +408,11 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p>함수 <span class="math inline">\(L(w_0,w_1)\)</span>을 최대화하는 <span class="math inline">\((w_0,w_1)\)</span>를 <code>tf.GradeintTape()</code>를 활용하여 추정하라. (경사하강법 혹은 경사상승법을 사용하고 <span class="math inline">\((w_0,w_1)\)</span>의 초기값은 모두 0.1로 설정할 것)</p>
 <p><span class="math display">\[L(w_0,w_1)=\prod_{i=1}^{n}f(y_i), \quad f(x_i)={\pi_i}^{y_i}(1-\pi_i)^{1-y_i},\quad \pi_i=\text{sigmoid}(w_0+w_1x_i)\]</span></p>
 <p>(풀이1)</p>
-<div class="cell" data-execution_count="14">
+<div id="51de5a9f-6510-4eb5-a4e6-11fe542a96d2" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>w0hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span>
 <span id="cb19-2"><a href="#cb19-2"></a>w1hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="17">
+<div id="6633ddeb-98a8-498c-8824-b1dc0fea17d4" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>): </span>
 <span id="cb20-2"><a href="#cb20-2"></a>    <span class="cf">with</span> tf.GradientTape() <span class="im">as</span> tape: </span>
 <span id="cb20-3"><a href="#cb20-3"></a>        pihat <span class="op">=</span> tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x) <span class="op">/</span> (<span class="dv">1</span><span class="op">+</span>tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x))</span>
@@ -432,7 +422,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <span id="cb20-7"><a href="#cb20-7"></a>    w0hat.assign_add(slope1<span class="op">*</span><span class="fl">0.1</span>) </span>
 <span id="cb20-8"><a href="#cb20-8"></a>    w1hat.assign_add(slope2<span class="op">*</span><span class="fl">0.1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-outputid="aa74f5bb-7808-4a88-d4fc-7450315202d2" data-execution_count="18">
+<div id="e380ba14-c49b-4550-9c6c-ea5b6e247ccd" class="cell" data-outputid="aa74f5bb-7808-4a88-d4fc-7450315202d2" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>w0hat,w1hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=-0.88308984&gt;,
@@ -450,11 +440,11 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <p><font color="red">결국 BCE Loss는 -로그가능도함수를 <span class="math inline">\(n\)</span>으로 나눈 것과 같다.</font></p>
 <p><font color="red">likelihood라는 개념이없다면 회귀모형일 경우에는 MSELoss를 쓰고, 로지스틱일 경우에는 BCELoss를 쓴다고 외워야하는 문제였지만, Likelihood라는 개념이 있다면 로지스틱이든 회귀모형이든 손실함수는 -loglikelihood로 잡는군! 이렇게 넘어갈 수 있다.</font></p>
 <p>(풀이2)</p>
-<div class="cell" data-execution_count="22">
+<div id="51535cae-6a3a-420b-a5e1-9d6cb523bb0c" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>w0hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span>
 <span id="cb23-2"><a href="#cb23-2"></a>w1hat <span class="op">=</span> tf.Variable(<span class="fl">1.0</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="20">
+<div id="d9a429aa-f09a-46ee-a228-51035c83f030" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1000</span>): </span>
 <span id="cb24-2"><a href="#cb24-2"></a>    <span class="cf">with</span> tf.GradientTape() <span class="im">as</span> tape: </span>
 <span id="cb24-3"><a href="#cb24-3"></a>        yhat <span class="op">=</span> tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x) <span class="op">/</span> (<span class="dv">1</span><span class="op">+</span>tnp.exp(w0hat<span class="op">+</span>w1hat <span class="op">*</span>x))</span>
@@ -463,7 +453,7 @@ array([ 4.12539849,  5.46696729,  5.27243374, ...,  2.89712332,
 <span id="cb24-6"><a href="#cb24-6"></a>    w0hat.assign_sub(slope1<span class="op">*</span><span class="fl">0.1</span>) </span>
 <span id="cb24-7"><a href="#cb24-7"></a>    w1hat.assign_sub(slope2<span class="op">*</span><span class="fl">0.1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-outputid="163d1abb-256f-43c9-978a-628c292a8fb8" data-execution_count="21">
+<div id="5e61c7f8-1de2-45d2-b984-aa1a5c515b48" class="cell" data-outputid="163d1abb-256f-43c9-978a-628c292a8fb8" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>w0hat,w1hat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>(&lt;tf.Variable 'Variable:0' shape=() dtype=float32, numpy=-0.8830899&gt;,
@@ -507,9 +497,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -545,10 +549,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -558,8 +561,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -574,6 +586,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -614,6 +815,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
