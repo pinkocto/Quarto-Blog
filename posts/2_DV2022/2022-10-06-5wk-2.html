@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.4.315">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -19,9 +19,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -48,43 +49,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -111,6 +82,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "panel-placement": "end",
   "type": "overlay",
   "limit": 20,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -120,13 +96,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../../styles.css">
@@ -138,35 +116,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container">
+      <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/pinkocto"><i class="bi bi-github" role="img">
+    <a class="nav-link" href="https://github.com/pinkocto"> <i class="bi bi-github" role="img">
 </i> 
- <span class="menu-text"></span></a>
+<span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">05wk-2</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">05wk-2</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -175,7 +160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title d-none d-lg-block">05wk-2</h1>
+      <h1 class="title">05wk-2</h1>
                                 <div class="quarto-categories">
                 <div class="quarto-category">훌륭한 시각화</div>
                 <div class="quarto-category">plotnine</div>
@@ -206,37 +191,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">IP2022</a>
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">DV2022</a>
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">STBDA2022</a>
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">STUDY</a>
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STUDY</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -300,7 +290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="imports" class="level1">
 <h1>imports</h1>
-<div class="cell" data-execution_count="2">
+<div id="c70fcf6c-7742-4977-93ab-1e5af85c07df" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -358,116 +348,117 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="미나드처럼-그리는게-왜-어려운가" class="level2">
 <h2 class="anchored" data-anchor-id="미나드처럼-그리는게-왜-어려운가">미나드처럼 그리는게 왜 어려운가?</h2>
 <p><code>-</code> 몸무게, 키, 성별, 국적</p>
-<div class="cell" data-execution_count="4">
+<div id="7bcad704-f318-4119-87da-1c1f6e8e65e5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>df1<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv'</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>df2<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv'</span>)  </span>
 <span id="cb2-3"><a href="#cb2-3"></a>df3<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv'</span>) </span>
 <span id="cb2-4"><a href="#cb2-4"></a>df4<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/foreign.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 미나드의 접근방법</p>
-<div class="cell" data-execution_count="61">
+<div id="ed01e5bb-e659-4442-9bda-e14f1404e633" class="cell" data-execution_count="61">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>_df <span class="op">=</span> pd.concat([pd.concat([df1,df2],axis<span class="op">=</span><span class="dv">1</span>).assign(g<span class="op">=</span><span class="st">'m'</span>),df3.assign(g<span class="op">=</span><span class="st">'f'</span>)])</span>
 <span id="cb3-2"><a href="#cb3-2"></a>df <span class="op">=</span> pd.concat([_df.assign(g2<span class="op">=</span><span class="st">'korea'</span>),df4.assign(g2<span class="op">=</span><span class="st">'foreign'</span>)]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="61">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>w</th>
-      <th>h</th>
-      <th>g</th>
-      <th>g2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>72.788217</td>
-      <td>183.486773</td>
-      <td>m</td>
-      <td>korea</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>66.606430</td>
-      <td>173.599877</td>
-      <td>m</td>
-      <td>korea</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>69.806324</td>
-      <td>173.237903</td>
-      <td>m</td>
-      <td>korea</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>67.449439</td>
-      <td>173.223805</td>
-      <td>m</td>
-      <td>korea</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>70.463183</td>
-      <td>174.931946</td>
-      <td>m</td>
-      <td>korea</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>1525</th>
-      <td>78.154632</td>
-      <td>188.324350</td>
-      <td>m</td>
-      <td>foreign</td>
-    </tr>
-    <tr>
-      <th>1526</th>
-      <td>74.754308</td>
-      <td>183.017979</td>
-      <td>f</td>
-      <td>foreign</td>
-    </tr>
-    <tr>
-      <th>1527</th>
-      <td>91.196208</td>
-      <td>190.100456</td>
-      <td>m</td>
-      <td>foreign</td>
-    </tr>
-    <tr>
-      <th>1528</th>
-      <td>87.770394</td>
-      <td>187.987255</td>
-      <td>m</td>
-      <td>foreign</td>
-    </tr>
-    <tr>
-      <th>1529</th>
-      <td>88.021995</td>
-      <td>193.456798</td>
-      <td>m</td>
-      <td>foreign</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">w</th>
+<th data-quarto-table-cell-role="th">h</th>
+<th data-quarto-table-cell-role="th">g</th>
+<th data-quarto-table-cell-role="th">g2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>72.788217</td>
+<td>183.486773</td>
+<td>m</td>
+<td>korea</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>66.606430</td>
+<td>173.599877</td>
+<td>m</td>
+<td>korea</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>69.806324</td>
+<td>173.237903</td>
+<td>m</td>
+<td>korea</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>67.449439</td>
+<td>173.223805</td>
+<td>m</td>
+<td>korea</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>70.463183</td>
+<td>174.931946</td>
+<td>m</td>
+<td>korea</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1525</td>
+<td>78.154632</td>
+<td>188.324350</td>
+<td>m</td>
+<td>foreign</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1526</td>
+<td>74.754308</td>
+<td>183.017979</td>
+<td>f</td>
+<td>foreign</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1527</td>
+<td>91.196208</td>
+<td>190.100456</td>
+<td>m</td>
+<td>foreign</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1528</td>
+<td>87.770394</td>
+<td>187.987255</td>
+<td>m</td>
+<td>foreign</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1529</td>
+<td>88.021995</td>
+<td>193.456798</td>
+<td>m</td>
+<td>foreign</td>
+</tr>
+</tbody>
 </table>
+
 <p>1530 rows × 4 columns</p>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="64">
+<div id="a0ee707e-1f0c-498a-a492-055e941f1c7d" class="cell" data-execution_count="64">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>sns.scatterplot(data<span class="op">=</span>df,x<span class="op">=</span><span class="st">'w'</span>,y<span class="op">=</span><span class="st">'h'</span>,hue<span class="op">=</span><span class="st">'g'</span>,style<span class="op">=</span><span class="st">'g2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="64">
 <pre><code>&lt;AxesSubplot:xlabel='w', ylabel='h'&gt;</code></pre>
@@ -495,11 +486,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><code>-</code> ref: https://r4ds.had.co.nz/index.html</p>
 <section id="방법1-rpy2-코랩-아닌경우-실습금지" class="level2">
 <h2 class="anchored" data-anchor-id="방법1-rpy2-코랩-아닌경우-실습금지">방법1: rpy2 (코랩 아닌경우 실습금지)</h2>
-<div class="cell" data-execution_count="69">
+<div id="c44601e4-780a-4f38-8507-d37329cbb5c4" class="cell" data-execution_count="69">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="im">import</span> rpy2</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="op">%</span>load_ext rpy2.ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="74">
+<div id="f6710b0f-b3c3-43cd-b2a7-d03f2100e39c" class="cell" data-execution_count="74">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">%%</span>R </span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="co">### 여기는 R처럼 쓸 수 있다. </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>a <span class="op">&lt;-</span> c(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>) </span>
@@ -508,13 +499,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>[1] 2 3 4</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="75">
+<div id="e05e2252-4e5b-4f34-ba01-4744cca79036" class="cell" data-execution_count="75">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'a' is not defined</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="79">
+<div id="28237794-1ec0-45a4-ba59-6593377a02f2" class="cell" data-execution_count="79">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a><span class="op">%%</span>R </span>
 <span id="cb11-2"><a href="#cb11-2"></a>library(tidyverse)</span>
 <span id="cb11-3"><a href="#cb11-3"></a>mpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -536,195 +527,196 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="80">
+<div id="a388a273-9448-4d31-8b82-0b2fe451ba34" class="cell" data-execution_count="80">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>mpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'mpg' is not defined</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="81">
+<div id="27637275-9d21-443f-b040-7122ddf64344" class="cell" data-execution_count="81">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a><span class="op">%</span>R <span class="op">-</span>o mpg <span class="co"># R에 있는 자료가 파이썬으로 넘어옴</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="82">
+<div id="a9149e23-ae14-4b5e-ad7d-c832bb5dec19" class="cell" data-execution_count="82">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>mpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="82">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>manufacturer</th>
-      <th>model</th>
-      <th>displ</th>
-      <th>year</th>
-      <th>cyl</th>
-      <th>trans</th>
-      <th>drv</th>
-      <th>cty</th>
-      <th>hwy</th>
-      <th>fl</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>20</td>
-      <td>31</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(av)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>30</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>230</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(s6)</td>
-      <td>f</td>
-      <td>19</td>
-      <td>28</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>231</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>232</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>233</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>234</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>3.6</td>
-      <td>2008</td>
-      <td>6</td>
-      <td>auto(s6)</td>
-      <td>f</td>
-      <td>17</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>18</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>20</td>
+<td>31</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(av)</td>
+<td>f</td>
+<td>21</td>
+<td>30</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">230</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>19</td>
+<td>28</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">231</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">232</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">233</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">234</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>3.6</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>17</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+</tbody>
 </table>
+
 <p>234 rows × 11 columns</p>
 </div>
 </div>
@@ -732,189 +724,190 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="방법2-저장된-csv파일을-통하여-데이터를-확보" class="level2">
 <h2 class="anchored" data-anchor-id="방법2-저장된-csv파일을-통하여-데이터를-확보">방법2: 저장된 csv파일을 통하여 데이터를 확보</h2>
-<div class="cell" data-execution_count="87">
+<div id="c36ded29-cd4c-4d7b-af60-4af497d76a7c" class="cell" data-execution_count="87">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>mpg.to_csv(<span class="st">"mpg.csv"</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="89">
+<div id="5f127215-4113-4674-86dc-0e50447e1fc6" class="cell" data-execution_count="89">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a>pd.read_csv(<span class="st">"mpg.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="89">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>manufacturer</th>
-      <th>model</th>
-      <th>displ</th>
-      <th>year</th>
-      <th>cyl</th>
-      <th>trans</th>
-      <th>drv</th>
-      <th>cty</th>
-      <th>hwy</th>
-      <th>fl</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>20</td>
-      <td>31</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(av)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>30</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>229</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(s6)</td>
-      <td>f</td>
-      <td>19</td>
-      <td>28</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>230</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>231</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>232</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>233</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>3.6</td>
-      <td>2008</td>
-      <td>6</td>
-      <td>auto(s6)</td>
-      <td>f</td>
-      <td>17</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>18</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>20</td>
+<td>31</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(av)</td>
+<td>f</td>
+<td>21</td>
+<td>30</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">229</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>19</td>
+<td>28</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">230</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">231</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">232</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">233</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>3.6</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>17</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+</tbody>
 </table>
+
 <p>234 rows × 11 columns</p>
 </div>
 </div>
@@ -922,186 +915,187 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="방법3-github등에-공개된-csv를-읽어오기" class="level2">
 <h2 class="anchored" data-anchor-id="방법3-github등에-공개된-csv를-읽어오기">방법3: github등에 공개된 csv를 읽어오기</h2>
-<div class="cell" data-execution_count="3">
+<div id="7a3b4352-80cb-4379-9b6f-31f205c6e0a1" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/mpg.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>manufacturer</th>
-      <th>model</th>
-      <th>displ</th>
-      <th>year</th>
-      <th>cyl</th>
-      <th>trans</th>
-      <th>drv</th>
-      <th>cty</th>
-      <th>hwy</th>
-      <th>fl</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>20</td>
-      <td>31</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(av)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>30</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>229</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(s6)</td>
-      <td>f</td>
-      <td>19</td>
-      <td>28</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>230</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>231</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>232</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-    <tr>
-      <th>233</th>
-      <td>volkswagen</td>
-      <td>passat</td>
-      <td>3.6</td>
-      <td>2008</td>
-      <td>6</td>
-      <td>auto(s6)</td>
-      <td>f</td>
-      <td>17</td>
-      <td>26</td>
-      <td>p</td>
-      <td>midsize</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>18</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>20</td>
+<td>31</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(av)</td>
+<td>f</td>
+<td>21</td>
+<td>30</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">229</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>19</td>
+<td>28</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">230</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">231</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">232</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>18</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">233</td>
+<td>volkswagen</td>
+<td>passat</td>
+<td>3.6</td>
+<td>2008</td>
+<td>6</td>
+<td>auto(s6)</td>
+<td>f</td>
+<td>17</td>
+<td>26</td>
+<td>p</td>
+<td>midsize</td>
+</tr>
+</tbody>
 </table>
+
 <p>234 rows × 11 columns</p>
 </div>
 </div>
@@ -1119,35 +1113,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1>p9를 이용한 산점도 (2차원)</h1>
 <section id="python에서-plotnine을-이용한-산점도" class="level2">
 <h2 class="anchored" data-anchor-id="python에서-plotnine을-이용한-산점도">python에서: plotnine을 이용한 산점도</h2>
-<div class="cell" data-execution_count="92">
+<div id="b4e333a7-306e-49f6-bd1d-3eac520f4fe8" class="cell" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="co">## plotnine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="92">
-<pre><code>&lt;ggplot: (8726736046009)&gt;</code></pre>
 </div>
 </div>
 <ul>
 <li>산점도 해석: 엔진크기가 클수록 효율이 낮음.</li>
 </ul>
 <p><code>-</code> 빠르게 그리기: <code>data=</code>와 <code>mapping=</code>은 생략가능함</p>
-<div class="cell" data-execution_count="93">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a>ggplot(mpg) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="co">## plotnine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ef572a7f-b627-403e-91f3-c86fddd771b8" class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a>ggplot(mpg) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="co">## plotnine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="93">
-<pre><code>&lt;ggplot: (8726735544581)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="r에서-ggplot2를-이용한-산점도" class="level2">
 <h2 class="anchored" data-anchor-id="r에서-ggplot2를-이용한-산점도">R에서: ggplot2를 이용한 산점도</h2>
 <p><code>-</code> R에서도 거의 똑같은 문법으로 그릴 수 있음 (데이터프레임 혹은 티블에 저장된 column 이름을 사용할때 따옴표만 제거하면 된다!)</p>
-<div class="cell" data-execution_count="96">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a><span class="op">%%</span>R <span class="op">-</span>w <span class="dv">800</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>ggplot(mpg) <span class="op">+</span> geom_point(aes(x<span class="op">=</span>displ,y<span class="op">=</span>hwy)) <span class="co">## plotnine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b0ab74a3-201e-448b-aadc-fa47a4149bf0" class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1"></a><span class="op">%%</span>R <span class="op">-</span>w <span class="dv">800</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>ggplot(mpg) <span class="op">+</span> geom_point(aes(x<span class="op">=</span>displ,y<span class="op">=</span>hwy)) <span class="co">## plotnine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
 </div>
@@ -1156,40 +1144,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="python에서-객체지향적인-느낌으로-산점도-그리기" class="level2">
 <h2 class="anchored" data-anchor-id="python에서-객체지향적인-느낌으로-산점도-그리기">python에서: 객체지향적인 느낌으로 산점도 그리기</h2>
 <p><strong><em>step1: 도화지를 준비한다.</em></strong></p>
-<div class="cell" data-execution_count="98">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1"></a>fig <span class="op">=</span> ggplot(data<span class="op">=</span>mpg)</span>
-<span id="cb25-2"><a href="#cb25-2"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="bf27ae1b-5ac0-42e8-85b2-5f87319cbf0b" class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1"></a>fig <span class="op">=</span> ggplot(data<span class="op">=</span>mpg)</span>
+<span id="cb23-2"><a href="#cb23-2"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="98">
-<pre><code>&lt;ggplot: (8726735085529)&gt;</code></pre>
-</div>
 </div>
 <p><strong><em>step2</em></strong> 변수와 에스테틱사이의 맵핑을 설정한다.</p>
-<div class="cell" data-execution_count="103">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>a1<span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)</span>
-<span id="cb27-2"><a href="#cb27-2"></a>a1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="21498f40-5097-42d5-bba1-de02521da40e" class="cell" data-execution_count="103">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1"></a>a1<span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a>a1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="103">
 <pre><code>{'x': 'displ', 'y': 'hwy'}</code></pre>
 </div>
 </div>
 <p><strong><em>step3</em></strong> 점들의 집합을 만든다. 즉 포인트 지옴을 만든다.</p>
-<div class="cell" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>point1<span class="op">=</span>geom_point(mapping<span class="op">=</span>a1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c6a151b6-b294-4a99-9812-350644b9ee3c" class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1"></a>point1<span class="op">=</span>geom_point(mapping<span class="op">=</span>a1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>geom_point(): 점들을 그려! 어떻게?</li>
 <li><code>a1</code>에서 설정된 표를 보고</li>
 </ul>
 <p><strong><em>step4</em></strong> 도화지와 지옴을 합친다.</p>
-<div class="cell" data-execution_count="109">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1"></a>fig<span class="op">+</span>point1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="510061b9-8951-4b8a-a794-cb501c12f2e3" class="cell" data-execution_count="109">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1"></a>fig<span class="op">+</span>point1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="109">
-<pre><code>&lt;ggplot: (8726775447877)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -1197,140 +1179,135 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="p9를-이용한-산점도-3차원" class="level1">
 <h1>p9를 이용한 산점도 (3차원)</h1>
 <p><code>-</code> 데이터를 다시 관찰</p>
-<div class="cell" data-execution_count="110">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1"></a>mpg.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="614ee1d3-70bb-4678-9d99-1375e5f1b33b" class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1"></a>mpg.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="110">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>manufacturer</th>
-      <th>model</th>
-      <th>displ</th>
-      <th>year</th>
-      <th>cyl</th>
-      <th>trans</th>
-      <th>drv</th>
-      <th>cty</th>
-      <th>hwy</th>
-      <th>fl</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>20</td>
-      <td>31</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(av)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>30</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>18</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>20</td>
+<td>31</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(av)</td>
+<td>f</td>
+<td>21</td>
+<td>30</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 <p><code>-</code> class도 함께 plot에 표시하면 데이터를 탐색할때 좀 더 좋을 것 같다.</p>
 <section id="산점도-점크기변경" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경">산점도 + 점크기변경</h2>
-<div class="cell" data-execution_count="111">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,size<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a6ffdedd-21e6-4711-8e20-22aa6394f4bd" class="cell" data-execution_count="111">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,size<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="111">
-<pre><code>&lt;ggplot: (8726734563561)&gt;</code></pre>
-</div>
 </div>
 </section>
 <section id="산점도-투명도변경" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-투명도변경">산점도 + 투명도변경</h2>
-<div class="cell" data-execution_count="112">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,alpha<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9d184b6a-17cd-4caf-a1be-ce6239b02af7" class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,alpha<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_alpha.py:70: PlotnineWarning: Using alpha for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="112">
-<pre><code>&lt;ggplot: (8726734989121)&gt;</code></pre>
-</div>
 </div>
 </section>
 <section id="산점도-투명도점크기를-동시에-적용" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-투명도점크기를-동시에-적용">산점도 + 투명도/점크기를 동시에 적용</h2>
-<div class="cell" data-execution_count="113">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,alpha<span class="op">=</span><span class="st">'class'</span>,size<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="b25e9488-1d46-4628-bf07-17f96cd2db26" class="cell" data-execution_count="113">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,alpha<span class="op">=</span><span class="st">'class'</span>,size<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_alpha.py:70: PlotnineWarning: Using alpha for a discrete variable is not advised.
 /home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
@@ -1338,133 +1315,106 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="113">
-<pre><code>&lt;ggplot: (8726734522405)&gt;</code></pre>
-</div>
 </div>
 </section>
 <section id="산점도-형태" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-형태">산점도 + 형태</h2>
-<div class="cell" data-execution_count="114">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,shape<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="268eef03-c4ee-4b2c-a046-70154c91c5c8" class="cell" data-execution_count="114">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,shape<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="114">
-<pre><code>&lt;ggplot: (8726734265229)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="산점도-색깔" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-색깔">산점도 + 색깔</h2>
-<div class="cell" data-execution_count="115">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="751a91c1-361a-4e11-b018-3e5aab7a45e1" class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> geom_point(mapping <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="115">
-<pre><code>&lt;ggplot: (8726734017473)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="객체지향적-느낌으로" class="level2">
 <h2 class="anchored" data-anchor-id="객체지향적-느낌으로">객체지향적 느낌으로?</h2>
-<div class="cell" data-execution_count="116">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>a2 <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>, y<span class="op">=</span><span class="st">'hwy'</span>, color<span class="op">=</span><span class="st">'class'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ca9174f6-10cc-4662-855b-5d62acd92859" class="cell" data-execution_count="116">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1"></a>a2 <span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>, y<span class="op">=</span><span class="st">'hwy'</span>, color<span class="op">=</span><span class="st">'class'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="120">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1"></a>a1,a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d9a14dea-35b7-451c-a05c-889f21cc31f6" class="cell" data-execution_count="120">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1"></a>a1,a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="120">
 <pre><code>({'x': 'displ', 'y': 'hwy'}, {'x': 'displ', 'y': 'hwy', 'color': 'class'})</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="121">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1"></a>point2<span class="op">=</span>geom_point(a2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2a66db54-7737-4d46-8e74-436479d72d65" class="cell" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1"></a>point2<span class="op">=</span>geom_point(a2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="125">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>fig<span class="op">+</span>point2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="687239a5-6248-4acd-80d7-929d76843d5d" class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1"></a>fig<span class="op">+</span>point2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="125">
-<pre><code>&lt;ggplot: (8726733712885)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="산점도-색깔-적합선" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-색깔-적합선">산점도 + 색깔 + 적합선</h2>
 <p><code>-</code> 일단 색깔이 없는 포인트 지옴부터 연습</p>
-<div class="cell" data-execution_count="126">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a>fig<span class="op">+</span>point1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="82a70642-092f-40f3-9257-c34ea95d47d1" class="cell" data-execution_count="126">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1"></a>fig<span class="op">+</span>point1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="126">
-<pre><code>&lt;ggplot: (8726733452617)&gt;</code></pre>
 </div>
+<div id="0660590a-a55f-4c62-928c-59052000f4a0" class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1"></a>line1 <span class="op">=</span> geom_smooth(a1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="129">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>line1 <span class="op">=</span> geom_smooth(a1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="133">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>fig<span class="op">+</span>point1<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="30ae955d-c1a8-4222-b7d1-0272afa7e02b" class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1"></a>fig<span class="op">+</span>point1<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="133">
-<pre><code>&lt;ggplot: (8726732994973)&gt;</code></pre>
-</div>
 </div>
 <p><code>-</code> point1(색깔없는 포인트 지옴)을 point2(색깔있는 포인트 지옴)으로 언제든지 바꿔치기 가능!</p>
-<div class="cell" data-execution_count="136">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1"></a>fig<span class="op">+</span>point2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fd87ea85-4d9d-49c4-a95d-e00c741c27b3" class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1"></a>fig<span class="op">+</span>point2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-36-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="136">
-<pre><code>&lt;ggplot: (8726732661565)&gt;</code></pre>
-</div>
 </div>
 <p><code>-</code> 명령어로 한번에 그리기</p>
-<div class="cell" data-execution_count="142">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb61-2"><a href="#cb61-2"></a>geom_point(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>)) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb61-3"><a href="#cb61-3"></a>geom_smooth(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5fc88d8c-0a10-4084-a1e8-8e1b738ed32b" class="cell" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1"></a>ggplot(data<span class="op">=</span>mpg) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>geom_point(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>)) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a>geom_smooth(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-37-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="142">
-<pre><code>&lt;ggplot: (8726732727485)&gt;</code></pre>
-</div>
 </div>
 <p><code>-</code> 공통적인 맵핑규칙은 ggplot()쪽으로 빼기도 한다. (figure를 선언하는 곳에서 공통으로 선언함)</p>
-<div class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>ggplot(data<span class="op">=</span>mpg,mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a>geom_point(mapping<span class="op">=</span>aes(color<span class="op">=</span><span class="st">'class'</span>)) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb64-3"><a href="#cb64-3"></a>geom_smooth()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="086af52a-ec38-4cb5-a638-15370b1aa8f6" class="cell" data-execution_count="143">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1"></a>ggplot(data<span class="op">=</span>mpg,mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>geom_point(mapping<span class="op">=</span>aes(color<span class="op">=</span><span class="st">'class'</span>)) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb50-3"><a href="#cb50-3"></a>geom_smooth()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-38-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="143">
-<pre><code>&lt;ggplot: (8726733489953)&gt;</code></pre>
-</div>
 </div>
 <p><code>-</code> R에서는 confidence interval도 geom_smooth()를 이용하여 확인할 수 있다.</p>
-<div class="cell" data-execution_count="144">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1"></a><span class="op">%%</span>R <span class="op">-</span>w <span class="dv">800</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a>ggplot(data<span class="op">=</span>mpg,mapping<span class="op">=</span>aes(x<span class="op">=</span>displ,y<span class="op">=</span>hwy)) <span class="op">+</span> geom_point(mapping<span class="op">=</span>aes(color<span class="op">=</span><span class="kw">class</span>)) <span class="op">+</span> geom_smooth()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d3848626-cc58-4a43-bfda-32e05a9ed768" class="cell" data-execution_count="144">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1"></a><span class="op">%%</span>R <span class="op">-</span>w <span class="dv">800</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>ggplot(data<span class="op">=</span>mpg,mapping<span class="op">=</span>aes(x<span class="op">=</span>displ,y<span class="op">=</span>hwy)) <span class="op">+</span> geom_point(mapping<span class="op">=</span>aes(color<span class="op">=</span><span class="kw">class</span>)) <span class="op">+</span> geom_smooth()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>R[write to console]: `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 </code></pre>
@@ -1478,118 +1428,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="p9를-이용한-산점도-4차원" class="level1">
 <h1>p9를 이용한 산점도 (4차원)</h1>
 <p><code>-</code> 데이터를 살펴보자.</p>
-<div class="cell" data-execution_count="145">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1"></a>mpg.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cb063b78-3b19-4c5e-b4d3-de427773bb15" class="cell" data-execution_count="145">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1"></a>mpg.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="145">
-
 <div>
 
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>manufacturer</th>
-      <th>model</th>
-      <th>displ</th>
-      <th>year</th>
-      <th>cyl</th>
-      <th>trans</th>
-      <th>drv</th>
-      <th>cty</th>
-      <th>hwy</th>
-      <th>fl</th>
-      <th>class</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>18</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>1.8</td>
-      <td>1999</td>
-      <td>4</td>
-      <td>manual(m5)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>29</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>manual(m6)</td>
-      <td>f</td>
-      <td>20</td>
-      <td>31</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.0</td>
-      <td>2008</td>
-      <td>4</td>
-      <td>auto(av)</td>
-      <td>f</td>
-      <td>21</td>
-      <td>30</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>audi</td>
-      <td>a4</td>
-      <td>2.8</td>
-      <td>1999</td>
-      <td>6</td>
-      <td>auto(l5)</td>
-      <td>f</td>
-      <td>16</td>
-      <td>26</td>
-      <td>p</td>
-      <td>compact</td>
-    </tr>
-  </tbody>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">manufacturer</th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">displ</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">cyl</th>
+<th data-quarto-table-cell-role="th">trans</th>
+<th data-quarto-table-cell-role="th">drv</th>
+<th data-quarto-table-cell-role="th">cty</th>
+<th data-quarto-table-cell-role="th">hwy</th>
+<th data-quarto-table-cell-role="th">fl</th>
+<th data-quarto-table-cell-role="th">class</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>18</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2</td>
+<td>audi</td>
+<td>a4</td>
+<td>1.8</td>
+<td>1999</td>
+<td>4</td>
+<td>manual(m5)</td>
+<td>f</td>
+<td>21</td>
+<td>29</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>manual(m6)</td>
+<td>f</td>
+<td>20</td>
+<td>31</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.0</td>
+<td>2008</td>
+<td>4</td>
+<td>auto(av)</td>
+<td>f</td>
+<td>21</td>
+<td>30</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5</td>
+<td>audi</td>
+<td>a4</td>
+<td>2.8</td>
+<td>1999</td>
+<td>6</td>
+<td>auto(l5)</td>
+<td>f</td>
+<td>16</td>
+<td>26</td>
+<td>p</td>
+<td>compact</td>
+</tr>
+</tbody>
 </table>
+
 </div>
 </div>
 </div>
 <section id="산점도-점크기변경-색깔" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔">산점도 + 점크기변경 + 색깔</h2>
 <p><code>-</code> drv (전륜, 후륜, 4륜 구동)에 따라서 데이터를 시각화 하고 싶다.</p>
-<div class="cell" data-execution_count="151">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>ggplot(data<span class="op">=</span>mpg, mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="op">+</span> geom_point(mapping<span class="op">=</span>aes(size<span class="op">=</span><span class="st">'class'</span>,color<span class="op">=</span><span class="st">'drv'</span>),alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="6575249a-851a-424b-916c-03789554e427" class="cell" data-execution_count="151">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1"></a>ggplot(data<span class="op">=</span>mpg, mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>)) <span class="op">+</span> geom_point(mapping<span class="op">=</span>aes(size<span class="op">=</span><span class="st">'class'</span>,color<span class="op">=</span><span class="st">'drv'</span>),alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-41-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="151">
-<pre><code>&lt;ggplot: (8726731152845)&gt;</code></pre>
 </div>
 </div>
 <ul>
@@ -1599,19 +1547,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="산점도-점크기변경-색깔-객체지향버전" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔-객체지향버전">산점도 + 점크기변경 + 색깔 (객체지향버전)</h2>
 <p><code>-</code> 맵핑규칙</p>
-<div class="cell" data-execution_count="164">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1"></a>a1,a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a022b0fe-71cd-4664-8584-3b1b5cbb2a78" class="cell" data-execution_count="164">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1"></a>a1,a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="164">
 <pre><code>({'x': 'displ', 'y': 'hwy'}, {'x': 'displ', 'y': 'hwy', 'color': 'class'})</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="165">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>a3 <span class="op">=</span> a2.copy() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="438e2be5-04a8-470a-8084-133444475ffb" class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1"></a>a3 <span class="op">=</span> a2.copy() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="166">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1"></a>a3[<span class="st">'color'</span>] <span class="op">=</span> <span class="st">'drv'</span></span>
-<span id="cb76-2"><a href="#cb76-2"></a>a3[<span class="st">'size'</span>] <span class="op">=</span> <span class="st">'class'</span></span>
-<span id="cb76-3"><a href="#cb76-3"></a>a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ab01a216-e14b-4f14-bab9-12c325cfbedf" class="cell" data-execution_count="166">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1"></a>a3[<span class="st">'color'</span>] <span class="op">=</span> <span class="st">'drv'</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a>a3[<span class="st">'size'</span>] <span class="op">=</span> <span class="st">'class'</span></span>
+<span id="cb60-3"><a href="#cb60-3"></a>a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="166">
 <pre><code>{'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'}</code></pre>
 </div>
@@ -1619,43 +1567,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>아래와 같이 선언해도 괜찮음</li>
 </ul>
-<div class="sourceCode" id="cb78"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1"></a>a3<span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>,size<span class="op">=</span><span class="st">'class'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell" data-execution_count="167">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>point3<span class="op">=</span>geom_point(a3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1"></a>a3<span class="op">=</span> aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>,size<span class="op">=</span><span class="st">'class'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="aeb95952-0097-44e2-a966-55d0707ef06f" class="cell" data-execution_count="167">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1"></a>point3<span class="op">=</span>geom_point(a3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="168">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cb3555d9-8899-4419-a2d7-7cefa26116d0" class="cell" data-execution_count="168">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-46-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="168">
-<pre><code>&lt;ggplot: (8726731065581)&gt;</code></pre>
-</div>
 </div>
 <ul>
 <li>그림의 전체적인 투명도를 조절하면 좋겠음</li>
 </ul>
-<div class="cell" data-execution_count="169">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb83-1"><a href="#cb83-1"></a>point3<span class="op">=</span>geom_point(a3,alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb83-2"><a href="#cb83-2"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a825477a-cb4c-40f2-90b2-caa001a7bd23" class="cell" data-execution_count="169">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1"></a>point3<span class="op">=</span>geom_point(a3,alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb66-2"><a href="#cb66-2"></a>fig<span class="op">+</span>point3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-47-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="169">
-<pre><code>&lt;ggplot: (8726730819657)&gt;</code></pre>
-</div>
 </div>
 </section>
 <section id="산점도-점크기변경-색깔-선추가" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔-선추가">산점도 + 점크기변경 + 색깔 + 선추가</h2>
-<div class="cell" data-execution_count="172">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c8c94de4-a334-48c2-996c-b5cfba187c18" class="cell" data-execution_count="172">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
@@ -1663,35 +1605,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-48-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="172">
-<pre><code>&lt;ggplot: (8726730575253)&gt;</code></pre>
-</div>
 </div>
 </section>
 <section id="산점도-점크기변경-색깔-drv별로-선추가" class="level2">
 <h2 class="anchored" data-anchor-id="산점도-점크기변경-색깔-drv별로-선추가">산점도 + 점크기변경 + 색깔 + drv별로 선추가</h2>
 <p><code>-</code> 맵핑규칙</p>
-<div class="cell" data-execution_count="173">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1"></a>a1,a2,a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="caa72dc2-9be7-42f1-96c6-568e935225f9" class="cell" data-execution_count="173">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1"></a>a1,a2,a3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="173">
 <pre><code>({'x': 'displ', 'y': 'hwy'},
  {'x': 'displ', 'y': 'hwy', 'color': 'class'},
  {'x': 'displ', 'y': 'hwy', 'color': 'drv', 'size': 'class'})</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="174">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1"></a>a4 <span class="op">=</span> a2.copy() </span>
-<span id="cb91-2"><a href="#cb91-2"></a>a4[<span class="st">'color'</span>]<span class="op">=</span><span class="st">'drv'</span></span>
-<span id="cb91-3"><a href="#cb91-3"></a>a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2f350c99-5b34-4c4e-887a-982557b5aa9c" class="cell" data-execution_count="174">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1"></a>a4 <span class="op">=</span> a2.copy() </span>
+<span id="cb72-2"><a href="#cb72-2"></a>a4[<span class="st">'color'</span>]<span class="op">=</span><span class="st">'drv'</span></span>
+<span id="cb72-3"><a href="#cb72-3"></a>a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="174">
 <pre><code>{'x': 'displ', 'y': 'hwy', 'color': 'drv'}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="175">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1"></a>line2 <span class="op">=</span> geom_smooth(a4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="65fc5aac-e3e6-4b36-9a47-627b44a3b04b" class="cell" data-execution_count="175">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1"></a>line2 <span class="op">=</span> geom_smooth(a4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="178">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1"></a>fig <span class="op">+</span> point3 <span class="op">+</span>line2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2a319669-baea-456d-a7d6-6632a6ef6408" class="cell" data-execution_count="178">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1"></a>fig <span class="op">+</span> point3 <span class="op">+</span>line2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
@@ -1699,13 +1638,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-52-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="178">
-<pre><code>&lt;ggplot: (8726729919385)&gt;</code></pre>
-</div>
 </div>
 <p><code>-</code> 선의 색깔을 동일하게 하고 선의 타입을 변경하여 drv를 표시하고 싶다면?</p>
-<div class="cell" data-execution_count="179">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1"></a>a1,a2,a3,a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ed1a6f35-9104-405c-82df-d21a70840e2e" class="cell" data-execution_count="179">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1"></a>a1,a2,a3,a4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="179">
 <pre><code>({'x': 'displ', 'y': 'hwy'},
  {'x': 'displ', 'y': 'hwy', 'color': 'class'},
@@ -1713,19 +1649,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  {'x': 'displ', 'y': 'hwy', 'color': 'drv'})</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="180">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1"></a>a5<span class="op">=</span>a1.copy()</span>
-<span id="cb99-2"><a href="#cb99-2"></a>a5[<span class="st">'linetype'</span>]<span class="op">=</span><span class="st">'drv'</span> </span>
-<span id="cb99-3"><a href="#cb99-3"></a>a5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e42ccfea-2556-4b10-bb5e-ba9e256484a8" class="cell" data-execution_count="180">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1"></a>a5<span class="op">=</span>a1.copy()</span>
+<span id="cb79-2"><a href="#cb79-2"></a>a5[<span class="st">'linetype'</span>]<span class="op">=</span><span class="st">'drv'</span> </span>
+<span id="cb79-3"><a href="#cb79-3"></a>a5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="180">
 <pre><code>{'x': 'displ', 'y': 'hwy', 'linetype': 'drv'}</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="189">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb101-1"><a href="#cb101-1"></a>line3 <span class="op">=</span> geom_smooth(a5,size<span class="op">=</span><span class="fl">0.5</span>,color<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ca7f32cd-0e8d-409e-b79c-9bb4007f141f" class="cell" data-execution_count="189">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1"></a>line3 <span class="op">=</span> geom_smooth(a5,size<span class="op">=</span><span class="fl">0.5</span>,color<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="193">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="519cd224-9798-4736-b327-329290741150" class="cell" data-execution_count="193">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
@@ -1733,13 +1669,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-56-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="193">
-<pre><code>&lt;ggplot: (8726732637457)&gt;</code></pre>
-</div>
 </div>
 <p><code>-</code> 전체적인 추세선도 추가하고 싶다면?</p>
-<div class="cell" data-execution_count="194">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line3<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f98a4a4b-19c5-4354-9c10-1bc26f85e74c" class="cell" data-execution_count="194">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1"></a>fig<span class="op">+</span>point3<span class="op">+</span>line3<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
@@ -1747,23 +1680,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-57-output-2.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="194">
-<pre><code>&lt;ggplot: (8726732939513)&gt;</code></pre>
-</div>
 </div>
 <p><code>-</code> 그려보니까 역시 drv별로 그려지는 추세선은 색깔별로 구분하는게 좋겠음.</p>
-<div class="cell" data-execution_count="197">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1"></a>line2 <span class="op">=</span> geom_smooth(a4,size<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb108-2"><a href="#cb108-2"></a>fig<span class="op">+</span>point3<span class="op">+</span>line2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c9c71d7b-fec1-4fa8-b16c-9b36228f26b2" class="cell" data-execution_count="197">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1"></a>line2 <span class="op">=</span> geom_smooth(a4,size<span class="op">=</span><span class="fl">0.5</span>,linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
+<span id="cb86-2"><a href="#cb86-2"></a>fig<span class="op">+</span>point3<span class="op">+</span>line2<span class="op">+</span>line1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/scales/scale_size.py:50: PlotnineWarning: Using size for a discrete variable is not advised.
 /home/cgb4/anaconda3/envs/py37/lib/python3.7/site-packages/plotnine/stats/smoothers.py:311: PlotnineWarning: Confidence intervals are not yet implementedfor lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="2022-10-06-5wk-2_files/figure-html/cell-58-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="197">
-<pre><code>&lt;ggplot: (8726733678229)&gt;</code></pre>
 </div>
 </div>
 <p><code>-</code> 고차원을 변수를 표현할 수 있는 무기는 다양하다.</p>
@@ -1813,9 +1740,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1851,10 +1792,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1864,8 +1804,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1880,6 +1829,195 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        for (let i = 0; i < 2; i++) {
+          container.appendChild(note.children[i].cloneNode(true));
+        }
+        return container.innerHTML
+      } else {
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      return note.innerHTML;
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        console.log("RESIZE");
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1920,6 +2058,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+
 
 
 
