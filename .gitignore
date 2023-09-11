@@ -1,1 +1,5 @@
 /.quarto/
+*.npy
+*.csv
+*.pickle
+*.pth
