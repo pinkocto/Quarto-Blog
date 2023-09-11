@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-09-11">
 
-<title>Quarto-Blog - STUDY</title>
+<title>Quarto-Blog - [DL] 2wk. Applied Math and Machine Learning Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,40 +66,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -109,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
@@ -120,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -139,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5_study.html">STUDY</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[DL]</strong> 2wk. Applied Math and Machine Learning Basics</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,7 +120,35 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><strong>[DL]</strong> 2wk. Applied Math and Machine Learning Basics</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 11, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -161,25 +160,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_ip2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_dv2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_stbda2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_study.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../5_study.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STUDY</span></a>
   </div>
 </li>
@@ -188,155 +187,155 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#notations" id="toc-notations" class="nav-link active" data-scroll-target="#notations">Notations</a></li>
+  <li><a href="#transpose-multiplication" id="toc-transpose-multiplication" class="nav-link" data-scroll-target="#transpose-multiplication">Transpose &amp; Multiplication</a></li>
+  <li><a href="#identity-and-inverse-matrix" id="toc-identity-and-inverse-matrix" class="nav-link" data-scroll-target="#identity-and-inverse-matrix">Identity and Inverse Matrix</a></li>
+  <li><a href="#norms-and-special-kinds-of-matrices-and-vectors" id="toc-norms-and-special-kinds-of-matrices-and-vectors" class="nav-link" data-scroll-target="#norms-and-special-kinds-of-matrices-and-vectors">Norms and Special Kinds of Matrices and Vectors</a>
+  <ul class="collapse">
+  <li><a href="#norm" id="toc-norm" class="nav-link" data-scroll-target="#norm">1. Norm</a></li>
+  </ul></li>
+  <li><a href="#linear-dependence-and-span" id="toc-linear-dependence-and-span" class="nav-link" data-scroll-target="#linear-dependence-and-span">Linear Dependence and Span</a></li>
+  <li><a href="#decompositions" id="toc-decompositions" class="nav-link" data-scroll-target="#decompositions">Decompositions</a>
+  <ul class="collapse">
+  <li><a href="#eigendecomposition" id="toc-eigendecomposition" class="nav-link" data-scroll-target="#eigendecomposition">1. Eigendecomposition</a></li>
+  <li><a href="#singular-value-decomposition" id="toc-singular-value-decomposition" class="nav-link" data-scroll-target="#singular-value-decomposition">2. Singular value decomposition</a></li>
+  </ul></li>
+  <li><a href="#the-moore-penrose-pseudoinverse-trace-and-determinant" id="toc-the-moore-penrose-pseudoinverse-trace-and-determinant" class="nav-link" data-scroll-target="#the-moore-penrose-pseudoinverse-trace-and-determinant">The Moore-Penrose Pseudoinverse, Trace, and Determinant</a></li>
+  <li><a href="#example-pca" id="toc-example-pca" class="nav-link" data-scroll-target="#example-pca">Example: PCA</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">STUDY</h1>
-</div>
-
-
-
-<div class="quarto-title-meta column-page-right">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
+<blockquote class="blockquote">
+<p>이번주 선형대수 // 다음주 확률 // optimization</p>
+</blockquote>
+<section id="notations" class="level2">
+<h2 class="anchored" data-anchor-id="notations">Notations</h2>
+<p><code>-</code> Scalar</p>
+<p>Single number. (real number or natural number)</p>
+<p><code>-</code> Vector</p>
+<p>숫자들이 순서대로 배열된 1차원 배열.</p>
+<p><code>-</code> Matrix</p>
+<p>2차원 배열. (벡터를 쌓아놓은 것)</p>
+<p><span class="math display">\[{\bf A} = \begin{bmatrix}A_{1,1} &amp; A_{1,2} \\ A_{2,1} &amp; A_{2,2} \end{bmatrix}\]</span></p>
+<p><code>-</code> Tensor</p>
+<p>3차원 이상의 배열.</p>
+</section>
+<section id="transpose-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="transpose-multiplication">Transpose &amp; Multiplication</h2>
+<p><code>-</code> <strong>1. Transpose</strong></p>
+<p><span class="math inline">\({\bf A}_{i,j}^\top = {\bf A}_{j,i}^\top\)</span></p>
+<p><code>-</code> <strong>2. Addition</strong></p>
+<ul>
+<li><span class="math inline">\({\bf A} + {\bf B} = {\bf C}\)</span> where <span class="math inline">\(C_{i,j} = A_{i,j} + B_{i,j}\)</span></li>
+<li><span class="math inline">\(a\cdot {\bf A} + c = {\bf G}\)</span> where <span class="math inline">\(G_{i,j} = a\cdot A_{i,j}+c\)</span></li>
+</ul>
+<p><span class="math inline">\(\begin{bmatrix} a_{11} &amp; a_{12} \\ a_{21} &amp; a_{22}\end{bmatrix} + \begin{bmatrix} b_1 \\ b_2 \end{bmatrix}=\begin{bmatrix} a_{11} + b_1 &amp; a_{12} + b_2 \\ a_{21} + b_1 &amp; a_{22} + b_2 \end{bmatrix}\)</span></p>
+<blockquote class="blockquote">
+<p>inner product는 차원을 줄이는 것이라면 outer product는 차원을 늘리는 것.</p>
+</blockquote>
+<p><code>-</code> <strong>3. Multiplication</strong></p>
+<p><strong>Multiplication</strong></p>
+<p>matrices <span class="math inline">\({\bf A} \in \mathbb{R}^{a_1\times b}\)</span> and <span class="math inline">\({\bf B} \in \mathbb{R}^{b\times a_2}\)</span>의 곱은 아래와 같다.</p>
+<p><span class="math display">\[{\bf C} = {\bf A}{\bf B}\]</span></p>
+<p>where <span class="math inline">\(C_{i,j} = \sum_{l}A_{i,l}B_{l,j} (i,j) = \{1,\dots,a_1\}\times \{1,\dots, a_2\}\)</span>.</p>
+<p><strong>Hadamard product</strong></p>
+<p>Hadamard product (element-wise product) of <span class="math inline">\(A \in \mathbb{R}^{a\times b}\)</span> and <span class="math inline">\(B^{a\times b}\)</span></p>
+<p><span class="math display">\[{\bf C} = {\bf A} \odot {\bf B}\]</span></p>
+<p>where <span class="math inline">\(C_{i,j} = A_{i,j}B_{i,j}.\)</span></p>
+<p>아다마르 곱(또는 요소별 곱셈, Hadamard product)은 다양한 분야에서 사용되며 주로 두 개의 행렬 또는 벡터 간의 요소별 연산을 나타냅니다. 아다마르 곱은 다음과 같은 상황에서 쓰입니다:</p>
+<ul>
+<li><p>신호 처리: 아다마르 곱은 디지털 신호 처리에서 자주 사용됩니다. 예를 들어, 두 시계열 데이터를 아다마르 곱하여 두 신호 간의 상관 관계를 계산하거나 신호를 필터링하는 데 사용될 수 있습니다.</p></li>
+<li><p>이미지 처리: 컴퓨터 비전 및 이미지 처리에서 두 이미지나 이미지와 마스크(필터) 사이의 요소별 곱셈은 특정 이미지 처리 작업에 사용됩니다. 예를 들어, 이미지를 선명하게 만들거나 특정 부분을 강조하는 데 유용합니다.</p></li>
+<li><p>뉴럴 네트워크: 인공 신경망에서 아다마르 곱은 활성화 함수와 가중치 간의 요소별 연산에 사용됩니다. 이를 통해 네트워크의 비선형성을 증가시키고 특정 기능을 강조할 수 있습니다.</p></li>
+<li><p>행렬 연산: 다른 행렬 연산과 결합하여 특정 형태의 계산을 수행할 때 아다마르 곱이 사용될 수 있습니다. 예를 들어, 고유값 분해(Eigendecomposition)와 같은 행렬 분해 기술에서도 사용됩니다.</p></li>
+<li><p>요소별 연산: 두 개의 행렬 또는 벡터 사이의 각 요소를 독립적으로 처리하고 싶을 때 아다마르 곱을 사용합니다. 이렇게 하면 각 요소 간의 관계를 보존하면서 연산을 수행할 수 있습니다.</p></li>
+</ul>
+<p>아다마르 곱은 행렬 곱셈과는 다르며, 두 개의 행렬 또는 벡터의 크기가 동일해야 합니다. 따라서 요소별 연산을 수행하려면 같은 크기의 입력이 필요합니다.</p>
+<p><strong>4. Properties of multiplication</strong></p>
+<p><strong>5. Linear equation</strong></p>
+<p><span class="math inline">\({\bf A}{\bf x} = {\bf b}\)</span> where <span class="math inline">\({\bf A} \in \mathbb{R}^{m\times n}, {\bf b} \in \mathbb{R}^{m\times 1}\)</span></p>
+</section>
+<section id="identity-and-inverse-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="identity-and-inverse-matrix">Identity and Inverse Matrix</h2>
+<p>Identity matrix: all diagonal terms are one, others are zero such that <span class="math inline">\({\bf I}_n \in \mathbb{R}^{n\times n}\)</span></p>
+<p><code>-</code> 해가 엄청나게 많은 상황</p>
+<p><code>-</code> 해를 못구하는 상황</p>
+</section>
+<section id="norms-and-special-kinds-of-matrices-and-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="norms-and-special-kinds-of-matrices-and-vectors">Norms and Special Kinds of Matrices and Vectors</h2>
+<section id="norm" class="level3">
+<h3 class="anchored" data-anchor-id="norm">1. Norm</h3>
+<p><code>-</code> Definition of <span class="math inline">\(L^p\)</span> norm</p>
+<p><span class="math display">\[||{\bf x}||_p = \left(\sum_i |x_i|^p\right)^{1/p}\]</span></p>
+<p>Norm function <span class="math inline">\(f\)</span> 는 다음을 만족한다.</p>
+<ol type="1">
+<li><span class="math inline">\(f(x) = 0 \Rightarrow {\bf x} = 0\)</span></li>
+<li><span class="math inline">\(f(x+y) \leq f(x) + f(y)\)</span> (triangle inequality)</li>
+<li><span class="math inline">\(\forall \alpha \in \mathbb{R}, f(\alpha {\bf x}) = |\alpha|f(x)\)</span></li>
+</ol>
+<p><code>-</code> <span class="math inline">\(L^1\)</span> and <span class="math inline">\(L^0\)</span> norm are considered to address the above.</p>
+<p><span class="math display">\[||{\bf x}||_1 = \sum_i |x_i|\]</span></p>
+<p><span class="math display">\[||{\bf x}||_0 = \sum_i \mathbb{I} (x_i \neq 0)\]</span></p>
+<p>high dimension에서는 <span class="math inline">\(L^0\)</span>나 <span class="math inline">\(L^1\)</span>을 많이 쓴다.</p>
+<p><code>-</code> <span class="math inline">\(L^2\)</span> norm은 <span class="math inline">\(0\)</span>과 <span class="math inline">\(0\)</span>이 아닌 기계학습 구별에서 너무 큰 값을 제공한다.</p>
+<p><code>-</code> Other norms such as <strong>max norm</strong> and <strong>Frobenius norm</strong></p>
+<p><span class="math display">\[||{\bf x}||_{\infty} = \max|x_i|\]</span></p>
+<p><span class="math display">\[||{\bf A}||_F = \sqrt{\sum_{i,j}{\bf A}^2_{i,j}}\]</span></p>
+<p><code>-</code> Definition of an angle between two vectors.</p>
+<p><span class="math inline">\(\cos \theta = \frac{x^\top y}{||x|| ||y||}\)</span></p>
+<p><span class="math inline">\(w_1(1,0,0) + w_1(0,1,0) + w_3(0,0,1) = (w_1, w_2, w_3)\)</span></p>
+</section>
+</section>
+<section id="linear-dependence-and-span" class="level2">
+<h2 class="anchored" data-anchor-id="linear-dependence-and-span">Linear Dependence and Span</h2>
+</section>
+<section id="decompositions" class="level2">
+<h2 class="anchored" data-anchor-id="decompositions">Decompositions</h2>
+<section id="eigendecomposition" class="level3">
+<h3 class="anchored" data-anchor-id="eigendecomposition">1. Eigendecomposition</h3>
+<p><span class="math display">\[{\bf A} = {\bf V}\text{diag}({\lambda}){\bf V}^{-1}\]</span></p>
+<p><img src="2023-09-11-DL-2wk_files/figure-html/f6b70f10-6309-411a-b82d-d4bc4bf42867-1-cd7cd15d-e0ae-4898-9e64-572c121393d5.png" class="img-fluid"></p>
+<p>데이터의 correaltion이 강할때 오른쪽 그림과 같다.</p>
+</section>
+<section id="singular-value-decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="singular-value-decomposition">2. Singular value decomposition</h3>
+<p>Decomposition for a non-square matrix <span class="math inline">\({\bf A} \in \mathbb{R}^{n\times m}\)</span></p>
+<p><span class="math display">\[{\bf A} = {\bf U}{\bf D}{\bf V}^\top\]</span></p>
+<p>where <span class="math inline">\({\bf U} \in \mathbb{R}^{n\times n}, {\bf D} \in \mathbb{R}^{n\times m}\)</span>, and <span class="math inline">\({\bf V}\in \mathbb{R}^{m\times m}\)</span>.</p>
+</section>
+</section>
+<section id="the-moore-penrose-pseudoinverse-trace-and-determinant" class="level2">
+<h2 class="anchored" data-anchor-id="the-moore-penrose-pseudoinverse-trace-and-determinant">The Moore-Penrose Pseudoinverse, Trace, and Determinant</h2>
+<ul>
+<li>linear equation의 해가 너무 많아서 못푸는 문제 같은 경우는 대안이 있지 않을까?</li>
+</ul>
+<p>변환시킨 경우 <span class="math inline">\(n\)</span>차원 중 어떤 한 축이 0이면 <span class="math inline">\(n-1\)</span> 차원. 그럼 볼륨이 0이된다.</p>
+</section>
+<section id="example-pca" class="level2">
+<h2 class="anchored" data-anchor-id="example-pca">Example: PCA</h2>
+<p>통계: 분산이 가장 큰 축을 찾는다.</p>
+<p>input data는 엄청 큰데 작은 차원으로 줄어들면서 다시 커지는 과정을 PCA가 하고 있다. 단, 제약이 있음.</p>
+<p>인코딩 디코딩 개념 알아두자.</p>
+<ul>
+<li><p><span class="math inline">\(f(x)\)</span>: 인코딩 (관측을 하는 큰 차원에서 관측하지 못하는 작은 차원으로)</p></li>
+<li><p><span class="math inline">\(g(f(x))\)</span>: 디코딩 (관측하지 못하는 작은 차원에서 관측을 하는 큰차원으로)</p></li>
+</ul>
 
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-file-modified-sort="1691980327053" data-listing-reading-time-sort="1" data-listing-word-count-sort="132" data-listing-title-sort="Transformers for Timeseries" data-listing-filename-sort="Copy_of_Transformers_for_timeseries.ipynb">
-<td>
-<span class="listing-date">&nbsp;</span>
-</td>
-<td>
-<a href="./posts/5_study/5_etc/Copy_of_Transformers_for_timeseries.html" class="title listing-title">Transformers for Timeseries</a>
-</td>
-<td>
-<span class="listing-author">&nbsp;</span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1694358000000" data-listing-file-modified-sort="1694418236258" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="308" data-listing-title-sort="2wk" data-listing-filename-sort="2023-09-11.ipynb">
-<td>
-<span class="listing-date">Sep 11, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/6_as2023/2023-09-11.html" class="title listing-title">2wk</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1691593200000" data-listing-file-modified-sort="1691980301181" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="93" data-listing-title-sort="Time Series Transformere (Stock Price)" data-listing-filename-sort="2023-08-10-transformer-ts.ipynb">
-<td>
-<span class="listing-date">Aug 10, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/5_etc/2023-08-10-transformer-ts.html" class="title listing-title">Time Series Transformere (Stock Price)</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1691506800000" data-listing-file-modified-sort="1691979224331" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2" data-listing-title-sort="Attention is all you need" data-listing-filename-sort="2023-08-09-transformer.ipynb">
-<td>
-<span class="listing-date">Aug 9, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/5_etc/2023-08-09-transformer.html" class="title listing-title">Attention is all you need</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="4" data-listing-date-sort="1689001200000" data-listing-file-modified-sort="1691736607328" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1216" data-listing-title-sort="**[Fourier]** 퓨리에변환(detailed)" data-listing-filename-sort="2023-06-28-퓨리에변환(detailed).ipynb">
-<td>
-<span class="listing-date">Jul 11, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/0_Fourier Transformation/2023-06-28-퓨리에변환(detailed).html" class="title listing-title"><strong>[Fourier]</strong> 퓨리에변환(detailed)</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="5" data-listing-date-sort="1687618800000" data-listing-file-modified-sort="1691736607328" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="618" data-listing-title-sort="**[Fourier]** 푸리에변환 코드실습 (블로그)" data-listing-filename-sort="2023-06-25-fft-python.ipynb">
-<td>
-<span class="listing-date">Jun 25, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/0_Fourier Transformation/2023-06-25-fft-python.html" class="title listing-title"><strong>[Fourier]</strong> 푸리에변환 코드실습 (블로그)</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="6" data-listing-date-sort="1687446000000" data-listing-file-modified-sort="1691736607328" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="206" data-listing-title-sort="**[Fourier]** 퓨리에변환4jy" data-listing-filename-sort="2023-06-23-퓨리에변환4jy.ipynb">
-<td>
-<span class="listing-date">Jun 23, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/0_Fourier Transformation/2023-06-23-퓨리에변환4jy.html" class="title listing-title"><strong>[Fourier]</strong> 퓨리에변환4jy</a>
-</td>
-<td>
-<span class="listing-author">신록예찬 </span>
-</td>
-</tr>
-<tr data-index="7" data-listing-date-sort="1686668400000" data-listing-file-modified-sort="1691736607328" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1286" data-listing-title-sort="**[수리통계학]** 추정 for JY" data-listing-filename-sort="2023-05-13-추정 for JY.ipynb">
-<td>
-<span class="listing-date">Jun 14, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/3_Stat/2023-05-13-추정 for JY.html" class="title listing-title"><strong>[수리통계학]</strong> 추정 for JY</a>
-</td>
-<td>
-<span class="listing-author">신록예찬 </span>
-</td>
-</tr>
-<tr data-index="8" data-categories="R,linear algebra,basic" data-listing-date-sort="1676732400000" data-listing-file-modified-sort="1691736607332" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="160" data-listing-title-sort="simultaneous equation" data-listing-filename-sort="2023-02-20-simul_eq.qmd">
-<td>
-<span class="listing-date">Feb 19, 2023</span>
-</td>
-<td>
-<a href="./posts/5_study/5_etc/2023-02-20-simul_eq.html" class="title listing-title">simultaneous equation</a>
-</td>
-<td>
-<span class="listing-author">jiyun Lim</span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
