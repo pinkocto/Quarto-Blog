@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -234,6 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#b.-predictor-생성" id="toc-b.-predictor-생성" class="nav-link" data-scroll-target="#b.-predictor-생성">B. Predictor 생성</a></li>
   <li><a href="#c.-적합fit" id="toc-c.-적합fit" class="nav-link" data-scroll-target="#c.-적합fit">C. 적합(fit)</a></li>
   <li><a href="#d.-예측-predict" id="toc-d.-예측-predict" class="nav-link" data-scroll-target="#d.-예측-predict">D. 예측 (predict)</a></li>
+  <li><a href="#submission-result" id="toc-submission-result" class="nav-link" data-scroll-target="#submission-result">Submission Result</a></li>
   </ul></li>
   <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">3. 숙제</a></li>
   </ul>
@@ -251,31 +255,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="import" class="level1">
 <h1>2. Import</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># This Python 3 environment comes with many helpful analytics libraries installed</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># It is defined by the kaggle/python Docker image: https://github.com/kaggle/docker-python</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># For example, here's several helpful packages to load</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co"># linear algebra</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># Input data files are available in the read-only "../input/" directory</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co"># For example, running this (by clicking run or pressing Shift+Enter) will list all files under the input directory</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="im">import</span> os</span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="cf">for</span> dirname, _, filenames <span class="kw">in</span> os.walk(<span class="st">'/kaggle/input'</span>):</span>
-<span id="cb1-13"><a href="#cb1-13"></a>    <span class="cf">for</span> filename <span class="kw">in</span> filenames:</span>
-<span id="cb1-14"><a href="#cb1-14"></a>        <span class="bu">print</span>(os.path.join(dirname, filename))</span>
-<span id="cb1-15"><a href="#cb1-15"></a></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># You can write up to 20GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using "Save &amp; Run All" </span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="co"># You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<pre><code>/kaggle/input/titanic/train.csv
-/kaggle/input/titanic/test.csv
-/kaggle/input/titanic/gender_submission.csv</code></pre>
-<div id="5ee63a9f-4df2-46eb-b255-633ad13ef668" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#pip install autogluon</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e5ed7226-0d55-4953-b9ee-7dfb687328e2" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co"># linear algebra</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="4fb9404e-25d7-4a80-8709-69221a7fbc3a" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="im">from</span> autogluon.tabular <span class="im">import</span> TabularDataset, TabularPredictor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5ee63a9f-4df2-46eb-b255-633ad13ef668" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#pip install autogluon</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4fb9404e-25d7-4a80-8709-69221a7fbc3a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> autogluon.tabular <span class="im">import</span> TabularDataset, TabularPredictor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="분석의-절차" class="level1">
@@ -283,22 +271,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-데이터" class="level2">
 <h2 class="anchored" data-anchor-id="a.-데이터">A. 데이터</h2>
 <p><code>-</code> 비유: 문제를 받아오는 과정으로 비유할 수 있다.</p>
-<div id="5ac6c193-2953-419d-ac23-d3d9ea3f40c8" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>tr <span class="op">=</span> TabularDataset(<span class="st">"/kaggle/input/titanic/train.csv"</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a>tst <span class="op">=</span> TabularDataset(<span class="st">"/kaggle/input/titanic/test.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loaded data from: ./titanic/train.csv | Columns = 12 / 12 | Rows = 891 -&gt; 891
-Loaded data from: ./titanic/test.csv | Columns = 11 / 11 | Rows = 418 -&gt; 418</code></pre>
-</div>
+<div id="5ac6c193-2953-419d-ac23-d3d9ea3f40c8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>tr <span class="op">=</span> TabularDataset(<span class="st">"titanic/train.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>tst <span class="op">=</span> TabularDataset(<span class="st">"titanic/test.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="b.-predictor-생성" class="level2">
 <h2 class="anchored" data-anchor-id="b.-predictor-생성">B. Predictor 생성</h2>
 <p><code>-</code> 비유: 문제를 풀 학생을 생성하는 과정으로 비유할 수 있다.</p>
-<div id="d14af837-2d5e-4dd3-9348-ade59683b80d" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>predictr <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d14af837-2d5e-4dd3-9348-ade59683b80d" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>predictr <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>No path specified. Models will be saved in: "AutogluonModels/ag-20230912_120554/"</code></pre>
+<pre><code>No path specified. Models will be saved in: "AutogluonModels/ag-20230913_064329/"</code></pre>
 </div>
 </div>
 </section>
@@ -306,19 +290,19 @@ Loaded data from: ./titanic/test.csv | Columns = 11 / 11 | Rows = 418 -&gt; 418<
 <h2 class="anchored" data-anchor-id="c.-적합fit">C. 적합(fit)</h2>
 <p><code>-</code> 비유: 학생이 공부를 하는 과정으로 비유할 수 있다.</p>
 <p><code>-</code> 학습</p>
-<div id="d487d466-82e6-4b71-b6c5-037ae26df37e" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a>predictr.fit(tr,presets<span class="op">=</span><span class="st">'best_quality'</span>) <span class="co"># 학생(predictr)에게 문제(tr)를 줘서 학습을 시킴(predictr.fit())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d487d466-82e6-4b71-b6c5-037ae26df37e" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>predictr.fit(tr,presets<span class="op">=</span><span class="st">'best_quality'</span>) <span class="co"># 학생(predictr)에게 문제(tr)를 줘서 학습을 시킴(predictr.fit())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Presets specified: ['best_quality']
 Stack configuration (auto_stack=True): num_stack_levels=0, num_bag_folds=8, num_bag_sets=1
 Beginning AutoGluon training ...
-AutoGluon will save models to "AutogluonModels/ag-20230912_120554/"
+AutoGluon will save models to "AutogluonModels/ag-20230913_064329/"
 AutoGluon Version:  0.8.2
-Python Version:     3.10.12
+Python Version:     3.8.16
 Operating System:   Linux
 Platform Machine:   x86_64
 Platform Version:   #26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jul 13 16:27:29 UTC 2
-Disk Space Avail:   293.94 GB / 490.57 GB (59.9%)
+Disk Space Avail:   675.44 GB / 982.82 GB (68.7%)
 Train Data Rows:    891
 Train Data Columns: 11
 Label Column: Survived
@@ -329,19 +313,9 @@ AutoGluon infers your prediction problem is: 'binary' (because only two unique l
 Selected class &lt;--&gt; label mapping:  class 1 = 1, class 0 = 0
 Using Feature Generators to preprocess the data ...
 Fitting AutoMLPipelineFeatureGenerator...
-    Available Memory:                    125495.28 MB
+    Available Memory:                    36523.72 MB
     Train Data (Original)  Memory Usage: 0.31 MB (0.0% of available memory)
     Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
-/home/cgb2/anaconda3/envs/mp/lib/python3.10/site-packages/autogluon/common/features/infer_types.py:118: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
-  result = pd.to_datetime(X, errors="coerce")
-/home/cgb2/anaconda3/envs/mp/lib/python3.10/site-packages/autogluon/common/features/infer_types.py:118: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
-  result = pd.to_datetime(X, errors="coerce")
-/home/cgb2/anaconda3/envs/mp/lib/python3.10/site-packages/autogluon/common/features/infer_types.py:118: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
-  result = pd.to_datetime(X, errors="coerce")
-/home/cgb2/anaconda3/envs/mp/lib/python3.10/site-packages/autogluon/common/features/infer_types.py:118: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
-  result = pd.to_datetime(X, errors="coerce")
-/home/cgb2/anaconda3/envs/mp/lib/python3.10/site-packages/autogluon/common/features/infer_types.py:118: UserWarning: Could not infer format, so each element will be parsed individually, falling back to `dateutil`. To ensure parsing is consistent and as-expected, please specify a format.
-  result = pd.to_datetime(X, errors="coerce")
     Stage 1 Generators:
         Fitting AsTypeFeatureGenerator...
             Note: Converting 1 features to boolean dtype as they only contain 2 unique values.
@@ -373,10 +347,10 @@ Fitting AutoMLPipelineFeatureGenerator...
         ('int', ['binned', 'text_special']) : 9 | ['Name.char_count', 'Name.word_count', 'Name.capital_ratio', 'Name.lower_ratio', 'Name.special_ratio', ...]
         ('int', ['bool'])                   : 1 | ['Sex']
         ('int', ['text_ngram'])             : 9 | ['__nlp__.henry', '__nlp__.john', '__nlp__.master', '__nlp__.miss', '__nlp__.mr', ...]
-    0.1s = Fit runtime
+    0.2s = Fit runtime
     11 features in original data used to generate 28 features in processed data.
     Train Data (Processed) Memory Usage: 0.07 MB (0.0% of available memory)
-Data preprocessing and feature engineering runtime = 0.16s ...
+Data preprocessing and feature engineering runtime = 0.18s ...
 AutoGluon will gauge predictive performance using evaluation metric: 'accuracy'
     To change this, specify the eval_metric parameter of Predictor()
 User-specified model hyperparameters to be fit:
@@ -392,106 +366,337 @@ User-specified model hyperparameters to be fit:
 }
 Fitting 13 L1 models ...
 Fitting model: KNeighborsUnif_BAG_L1 ...
-    0.6319   = Validation score   (accuracy)
+    0.6308   = Validation score   (accuracy)
     0.0s     = Training   runtime
-    0.0s     = Validation runtime
+    0.03s    = Validation runtime
 Fitting model: KNeighborsDist_BAG_L1 ...
     0.6364   = Validation score   (accuracy)
     0.0s     = Training   runtime
-    0.0s     = Validation runtime
+    0.01s    = Validation runtime
 Fitting model: LightGBMXT_BAG_L1 ...
     Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
     0.835    = Validation score   (accuracy)
-    0.46s    = Training   runtime
+    0.33s    = Training   runtime
     0.03s    = Validation runtime
 Fitting model: LightGBM_BAG_L1 ...
     Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
     0.8406   = Validation score   (accuracy)
-    0.65s    = Training   runtime
-    0.03s    = Validation runtime
+    0.43s    = Training   runtime
+    0.02s    = Validation runtime
 Fitting model: RandomForestGini_BAG_L1 ...
     0.8373   = Validation score   (accuracy)
-    0.34s    = Training   runtime
-    0.09s    = Validation runtime
+    0.35s    = Training   runtime
+    0.06s    = Validation runtime
 Fitting model: RandomForestEntr_BAG_L1 ...
     0.8361   = Validation score   (accuracy)
-    0.34s    = Training   runtime
-    0.08s    = Validation runtime
+    0.25s    = Training   runtime
+    0.05s    = Validation runtime
 Fitting model: CatBoost_BAG_L1 ...
     Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
     0.8608   = Validation score   (accuracy)
-    1.85s    = Training   runtime
+    1.59s    = Training   runtime
     0.03s    = Validation runtime
 Fitting model: ExtraTreesGini_BAG_L1 ...
     0.8294   = Validation score   (accuracy)
-    0.58s    = Training   runtime
-    0.1s     = Validation runtime
+    0.26s    = Training   runtime
+    0.05s    = Validation runtime
 Fitting model: ExtraTreesEntr_BAG_L1 ...
     0.8328   = Validation score   (accuracy)
-    0.3s     = Training   runtime
-    0.07s    = Validation runtime
+    0.26s    = Training   runtime
+    0.08s    = Validation runtime
 Fitting model: NeuralNetFastAI_BAG_L1 ...
     Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
-    0.8507   = Validation score   (accuracy)
-    2.85s    = Training   runtime
-    0.09s    = Validation runtime
+    0.853    = Validation score   (accuracy)
+    2.15s    = Training   runtime
+    0.07s    = Validation runtime
 Fitting model: XGBoost_BAG_L1 ...
     Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
     0.8406   = Validation score   (accuracy)
-    1.09s    = Training   runtime
-    0.05s    = Validation runtime
+    0.57s    = Training   runtime
+    0.04s    = Validation runtime
 Fitting model: NeuralNetTorch_BAG_L1 ...
     Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
-    0.8406   = Validation score   (accuracy)
-    4.25s    = Training   runtime
-    0.1s     = Validation runtime
+    0.8462   = Validation score   (accuracy)
+    3.68s    = Training   runtime
+    0.07s    = Validation runtime
 Fitting model: LightGBMLarge_BAG_L1 ...
     Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
     0.8406   = Validation score   (accuracy)
-    1.36s    = Training   runtime
+    1.06s    = Training   runtime
     0.03s    = Validation runtime
 Fitting model: WeightedEnsemble_L2 ...
     0.8608   = Validation score   (accuracy)
-    0.4s     = Training   runtime
+    0.42s    = Training   runtime
     0.0s     = Validation runtime
-AutoGluon training complete, total runtime = 23.18s ... Best model: "WeightedEnsemble_L2"
-TabularPredictor saved. To load, use: predictor = TabularPredictor.load("AutogluonModels/ag-20230912_120554/")</code></pre>
+AutoGluon training complete, total runtime = 19.56s ... Best model: "WeightedEnsemble_L2"
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("AutogluonModels/ag-20230913_064329/")</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>&lt;autogluon.tabular.predictor.predictor.TabularPredictor at 0x7fb1783c2160&gt;</code></pre>
 </div>
 </div>
 <p><code>-</code> 리더보드확인 (모의고사채점)</p>
-<div id="174c297f-09ab-4fab-8b6a-c1b5f5cc5244" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>predictr.leaderboard()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="174c297f-09ab-4fab-8b6a-c1b5f5cc5244" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>predictr.leaderboard()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                      model  score_val  pred_time_val  fit_time  pred_time_val_marginal  fit_time_marginal  stack_level  can_infer  fit_order
-0           CatBoost_BAG_L1   0.860831       0.026401  1.851676                0.026401           1.851676            1       True          7
-1       WeightedEnsemble_L2   0.860831       0.027539  2.251745                0.001138           0.400069            2       True         14
-2    NeuralNetFastAI_BAG_L1   0.850730       0.093112  2.852662                0.093112           2.852662            1       True         10
-3      LightGBMLarge_BAG_L1   0.840629       0.029128  1.360948                0.029128           1.360948            1       True         13
-4           LightGBM_BAG_L1   0.840629       0.031956  0.654864                0.031956           0.654864            1       True          4
-5            XGBoost_BAG_L1   0.840629       0.048379  1.094147                0.048379           1.094147            1       True         11
-6     NeuralNetTorch_BAG_L1   0.840629       0.102560  4.247738                0.102560           4.247738            1       True         12
-7   RandomForestGini_BAG_L1   0.837262       0.088506  0.341183                0.088506           0.341183            1       True          5
-8   RandomForestEntr_BAG_L1   0.836139       0.081470  0.341543                0.081470           0.341543            1       True          6
-9         LightGBMXT_BAG_L1   0.835017       0.027167  0.462362                0.027167           0.462362            1       True          3
-10    ExtraTreesEntr_BAG_L1   0.832772       0.073440  0.297061                0.073440           0.297061            1       True          9
-11    ExtraTreesGini_BAG_L1   0.829405       0.097789  0.580898                0.097789           0.580898            1       True          8
-12    KNeighborsDist_BAG_L1   0.636364       0.001740  0.003219                0.001740           0.003219            1       True          2
-13    KNeighborsUnif_BAG_L1   0.631874       0.001945  0.003195                0.001945           0.003195            1       True          1</code></pre>
+0           CatBoost_BAG_L1   0.860831       0.034114  1.593431                0.034114           1.593431            1       True          7
+1       WeightedEnsemble_L2   0.860831       0.035236  2.013822                0.001122           0.420391            2       True         14
+2    NeuralNetFastAI_BAG_L1   0.852974       0.067540  2.145609                0.067540           2.145609            1       True         10
+3     NeuralNetTorch_BAG_L1   0.846240       0.073878  3.684342                0.073878           3.684342            1       True         12
+4           LightGBM_BAG_L1   0.840629       0.024179  0.434251                0.024179           0.434251            1       True          4
+5      LightGBMLarge_BAG_L1   0.840629       0.027767  1.059269                0.027767           1.059269            1       True         13
+6            XGBoost_BAG_L1   0.840629       0.035949  0.567940                0.035949           0.567940            1       True         11
+7   RandomForestGini_BAG_L1   0.837262       0.056912  0.350744                0.056912           0.350744            1       True          5
+8   RandomForestEntr_BAG_L1   0.836139       0.054147  0.253396                0.054147           0.253396            1       True          6
+9         LightGBMXT_BAG_L1   0.835017       0.026695  0.332248                0.026695           0.332248            1       True          3
+10    ExtraTreesEntr_BAG_L1   0.832772       0.075741  0.255411                0.075741           0.255411            1       True          9
+11    ExtraTreesGini_BAG_L1   0.829405       0.054623  0.255257                0.054623           0.255257            1       True          8
+12    KNeighborsDist_BAG_L1   0.636364       0.005361  0.003128                0.005361           0.003128            1       True          2
+13    KNeighborsUnif_BAG_L1   0.630752       0.033042  0.002380                0.033042           0.002380            1       True          1</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">model</th>
+<th data-quarto-table-cell-role="th">score_val</th>
+<th data-quarto-table-cell-role="th">pred_time_val</th>
+<th data-quarto-table-cell-role="th">fit_time</th>
+<th data-quarto-table-cell-role="th">pred_time_val_marginal</th>
+<th data-quarto-table-cell-role="th">fit_time_marginal</th>
+<th data-quarto-table-cell-role="th">stack_level</th>
+<th data-quarto-table-cell-role="th">can_infer</th>
+<th data-quarto-table-cell-role="th">fit_order</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>CatBoost_BAG_L1</td>
+<td>0.860831</td>
+<td>0.034114</td>
+<td>1.593431</td>
+<td>0.034114</td>
+<td>1.593431</td>
+<td>1</td>
+<td>True</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>WeightedEnsemble_L2</td>
+<td>0.860831</td>
+<td>0.035236</td>
+<td>2.013822</td>
+<td>0.001122</td>
+<td>0.420391</td>
+<td>2</td>
+<td>True</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>NeuralNetFastAI_BAG_L1</td>
+<td>0.852974</td>
+<td>0.067540</td>
+<td>2.145609</td>
+<td>0.067540</td>
+<td>2.145609</td>
+<td>1</td>
+<td>True</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>NeuralNetTorch_BAG_L1</td>
+<td>0.846240</td>
+<td>0.073878</td>
+<td>3.684342</td>
+<td>0.073878</td>
+<td>3.684342</td>
+<td>1</td>
+<td>True</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>LightGBM_BAG_L1</td>
+<td>0.840629</td>
+<td>0.024179</td>
+<td>0.434251</td>
+<td>0.024179</td>
+<td>0.434251</td>
+<td>1</td>
+<td>True</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>LightGBMLarge_BAG_L1</td>
+<td>0.840629</td>
+<td>0.027767</td>
+<td>1.059269</td>
+<td>0.027767</td>
+<td>1.059269</td>
+<td>1</td>
+<td>True</td>
+<td>13</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>XGBoost_BAG_L1</td>
+<td>0.840629</td>
+<td>0.035949</td>
+<td>0.567940</td>
+<td>0.035949</td>
+<td>0.567940</td>
+<td>1</td>
+<td>True</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>RandomForestGini_BAG_L1</td>
+<td>0.837262</td>
+<td>0.056912</td>
+<td>0.350744</td>
+<td>0.056912</td>
+<td>0.350744</td>
+<td>1</td>
+<td>True</td>
+<td>5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>RandomForestEntr_BAG_L1</td>
+<td>0.836139</td>
+<td>0.054147</td>
+<td>0.253396</td>
+<td>0.054147</td>
+<td>0.253396</td>
+<td>1</td>
+<td>True</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>LightGBMXT_BAG_L1</td>
+<td>0.835017</td>
+<td>0.026695</td>
+<td>0.332248</td>
+<td>0.026695</td>
+<td>0.332248</td>
+<td>1</td>
+<td>True</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>ExtraTreesEntr_BAG_L1</td>
+<td>0.832772</td>
+<td>0.075741</td>
+<td>0.255411</td>
+<td>0.075741</td>
+<td>0.255411</td>
+<td>1</td>
+<td>True</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>ExtraTreesGini_BAG_L1</td>
+<td>0.829405</td>
+<td>0.054623</td>
+<td>0.255257</td>
+<td>0.054623</td>
+<td>0.255257</td>
+<td>1</td>
+<td>True</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>KNeighborsDist_BAG_L1</td>
+<td>0.636364</td>
+<td>0.005361</td>
+<td>0.003128</td>
+<td>0.005361</td>
+<td>0.003128</td>
+<td>1</td>
+<td>True</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>KNeighborsUnif_BAG_L1</td>
+<td>0.630752</td>
+<td>0.033042</td>
+<td>0.002380</td>
+<td>0.033042</td>
+<td>0.002380</td>
+<td>1</td>
+<td>True</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 </div>
+</div>
+<ul>
+<li>CatBoost_BAG_L1</li>
+</ul>
 </section>
 <section id="d.-예측-predict" class="level2">
 <h2 class="anchored" data-anchor-id="d.-예측-predict">D. 예측 (predict)</h2>
 <p><code>-</code> 비유: 학습이후에 문제를 푸는 과정으로 비유할 수 있다.</p>
 <p><code>-</code> training set 을 풀어봄 (predict) <span class="math inline">\(\to\)</span> 점수 확인</p>
-<div id="63dde064-62d6-4b36-bade-c3826d031584" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>(tr.Survived <span class="op">==</span> predictr.predict(tr)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="63dde064-62d6-4b36-bade-c3826d031584" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>(tr.Survived <span class="op">==</span> predictr.predict(tr)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>0.898989898989899</code></pre>
+</div>
 </div>
 <p><code>-</code> test set 을 풀어봄 (predict) <span class="math inline">\(\to\)</span> 점수 확인 하러 캐글에 결과제출</p>
-<div id="767c5239-4ba5-4a43-873b-dd1575ef8954" class="cell" data-execution_count="12">
+<div id="767c5239-4ba5-4a43-873b-dd1575ef8954" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>tst.assign(Survived <span class="op">=</span> predictr.predict(tst)).loc[:,[<span class="st">'PassengerId'</span>,<span class="st">'Survived'</span>]]<span class="op">\</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>.to_csv(<span class="st">"autogluon(best_quality)_submission.csv"</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-2"><a href="#cb14-2"></a>.to_csv(<span class="st">"./titanic_sub/autogluon(best_quality)_submission.csv"</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="submission-result" class="level2">
+<h2 class="anchored" data-anchor-id="submission-result">Submission Result</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Sub and Description</th>
+<th>Public Score</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>autogulon_sub</td>
+<td>0.75358</td>
+</tr>
+<tr class="even">
+<td>autogulon(Fsize)_sub</td>
+<td>0.77272</td>
+</tr>
+<tr class="odd">
+<td>autogulon(Fsize,Drop)</td>
+<td>0.78947</td>
+</tr>
+<tr class="even">
+<td>autogulon(best_quality)</td>
+<td>0.80143</td>
+</tr>
+</tbody>
+</table>
 </section>
 </section>
 <section id="숙제" class="level1">

@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-09-12">
 
-<title>Quarto-Blog - 02wk-005: 타이타닉, Autogluon</title>
+<title>Quarto-Blog - 02wk-008: 타이타닉, Autogluon (best_quality)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -147,7 +147,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">02wk-005: 타이타닉, Autogluon</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">02wk-008: 타이타닉, Autogluon (best_quality)</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">02wk-005: 타이타닉, Autogluon</h1>
+      <h1 class="title">02wk-008: 타이타닉, Autogluon (best_quality)</h1>
                       </div>
   </div>
     
@@ -237,8 +237,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#b.-predictor-생성" id="toc-b.-predictor-생성" class="nav-link" data-scroll-target="#b.-predictor-생성">B. Predictor 생성</a></li>
   <li><a href="#c.-적합fit" id="toc-c.-적합fit" class="nav-link" data-scroll-target="#c.-적합fit">C. 적합(fit)</a></li>
   <li><a href="#d.-예측-predict" id="toc-d.-예측-predict" class="nav-link" data-scroll-target="#d.-예측-predict">D. 예측 (predict)</a></li>
-  <li><a href="#result" id="toc-result" class="nav-link" data-scroll-target="#result">Result</a></li>
+  <li><a href="#submission-result" id="toc-submission-result" class="nav-link" data-scroll-target="#submission-result">Submission Result</a></li>
   </ul></li>
+  <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">3. 숙제</a></li>
   </ul>
 </nav>
     </div>
@@ -250,18 +251,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
-<p><a href="https://youtu.be/playlist?list=PLQqh36zP38-zZrOGpLc8spPa9L39RiNhR&amp;si=TFl5m9-VohYT_47L" class="uri">https://youtu.be/playlist?list=PLQqh36zP38-zZrOGpLc8spPa9L39RiNhR&amp;si=TFl5m9-VohYT_47L</a></p>
+<p><a href="https://youtu.be/playlist?list=PLQqh36zP38-x6USW3HM9Lm-B19o9qrm19&amp;si=EFy8hdlgDJ-LUFHi" class="uri">https://youtu.be/playlist?list=PLQqh36zP38-x6USW3HM9Lm-B19o9qrm19&amp;si=EFy8hdlgDJ-LUFHi</a></p>
 </section>
 <section id="import" class="level1">
 <h1>2. Import</h1>
-<div id="08a6729a-55a2-4aa6-8efd-a57232923755" class="cell" data-execution_count="21">
+<div id="e5ed7226-0d55-4953-b9ee-7dfb687328e2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np <span class="co"># linear algebra</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># data processing, CSV file I/O (e.g. pd.read_csv)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="438db173-0810-4140-98cd-65314c5695af" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># !pip install autogluon</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5ee63a9f-4df2-46eb-b255-633ad13ef668" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#pip install autogluon</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="77a36c4a-ac65-4270-bb1e-bca688db2eb1" class="cell" data-execution_count="3">
+<div id="4fb9404e-25d7-4a80-8709-69221a7fbc3a" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a><span class="im">from</span> autogluon.tabular <span class="im">import</span> TabularDataset, TabularPredictor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -270,31 +271,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-데이터" class="level2">
 <h2 class="anchored" data-anchor-id="a.-데이터">A. 데이터</h2>
 <p><code>-</code> 비유: 문제를 받아오는 과정으로 비유할 수 있다.</p>
-<div id="d2622720-773a-4a8b-b2bf-dd73ad4eda17" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># import os</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># os.getcwd()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5ac6c193-2953-419d-ac23-d3d9ea3f40c8" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>tr <span class="op">=</span> TabularDataset(<span class="st">"titanic/train.csv"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a>tst <span class="op">=</span> TabularDataset(<span class="st">"titanic/test.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7c66df28-7fe6-47de-ba1f-4d1c74976f0f" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># tr = TabularDataset("/kaggle/input/titanic/train.csv")</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># tst = TabularDataset("/kaggle/input/titanic/test.csv")</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a></span>
-<span id="cb5-4"><a href="#cb5-4"></a>tr <span class="op">=</span> TabularDataset(<span class="st">"./titanic/train.csv"</span>)</span>
-<span id="cb5-5"><a href="#cb5-5"></a>tst <span class="op">=</span> TabularDataset(<span class="st">"./titanic/test.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="13773c77-731e-47c5-beca-644ba219d416" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a><span class="bu">type</span>(tr), <span class="bu">type</span>(tst)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>(autogluon.core.dataset.TabularDataset, autogluon.core.dataset.TabularDataset)</code></pre>
-</div>
+<p><code>-</code> 피처엔지니어링</p>
+<div id="d4c9110f-3319-4f67-b129-6147f8a1e574" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>_tr <span class="op">=</span> tr.<span class="bu">eval</span>(<span class="st">'Fsize = SibSp + Parch'</span>).drop([<span class="st">'SibSp'</span>,<span class="st">'Parch'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-2"><a href="#cb5-2"></a>_tst <span class="op">=</span> tst.<span class="bu">eval</span>(<span class="st">'Fsize = SibSp + Parch'</span>).drop([<span class="st">'SibSp'</span>,<span class="st">'Parch'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="b.-predictor-생성" class="level2">
 <h2 class="anchored" data-anchor-id="b.-predictor-생성">B. Predictor 생성</h2>
 <p><code>-</code> 비유: 문제를 풀 학생을 생성하는 과정으로 비유할 수 있다.</p>
-<div id="0ba98784-7f27-48dd-9b7f-6c0a738eb56c" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>predictr <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d14af837-2d5e-4dd3-9348-ade59683b80d" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>predictr <span class="op">=</span> TabularPredictor(<span class="st">"Survived"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>No path specified. Models will be saved in: "AutogluonModels/ag-20230913_055133/"</code></pre>
+<pre><code>No path specified. Models will be saved in: "AutogluonModels/ag-20230913_070925/"</code></pre>
 </div>
 </div>
 </section>
@@ -302,21 +295,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="c.-적합fit">C. 적합(fit)</h2>
 <p><code>-</code> 비유: 학생이 공부를 하는 과정으로 비유할 수 있다.</p>
 <p><code>-</code> 학습</p>
-<p>predictr은 인스턴스니까 숨겨진 메소드가 있다.</p>
-<div id="2ff440a6-2707-4849-8c16-efb51eb4f3b4" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>predictr.fit(tr) </span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="co"># 학생(predictr)에게 문제(tr)를 줘서 학습을 시킴(predictr.fit())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="d487d466-82e6-4b71-b6c5-037ae26df37e" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a>predictr.fit(_tr,presets<span class="op">=</span><span class="st">'best_quality'</span>) <span class="co"># 학생(predictr)에게 문제(tr)를 줘서 학습을 시킴(predictr.fit())</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Beginning AutoGluon training ...
-AutoGluon will save models to "AutogluonModels/ag-20230913_055133/"
+<pre><code>Presets specified: ['best_quality']
+Stack configuration (auto_stack=True): num_stack_levels=0, num_bag_folds=8, num_bag_sets=1
+Beginning AutoGluon training ...
+AutoGluon will save models to "AutogluonModels/ag-20230913_070925/"
 AutoGluon Version:  0.8.2
 Python Version:     3.8.16
 Operating System:   Linux
 Platform Machine:   x86_64
 Platform Version:   #26~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Thu Jul 13 16:27:29 UTC 2
-Disk Space Avail:   675.53 GB / 982.82 GB (68.7%)
+Disk Space Avail:   675.38 GB / 982.82 GB (68.7%)
 Train Data Rows:    891
-Train Data Columns: 11
+Train Data Columns: 10
 Label Column: Survived
 Preprocessing data ...
 AutoGluon infers your prediction problem is: 'binary' (because only two unique label-values observed).
@@ -325,7 +318,7 @@ AutoGluon infers your prediction problem is: 'binary' (because only two unique l
 Selected class &lt;--&gt; label mapping:  class 1 = 1, class 0 = 0
 Using Feature Generators to preprocess the data ...
 Fitting AutoMLPipelineFeatureGenerator...
-    Available Memory:                    37551.07 MB
+    Available Memory:                    35836.53 MB
     Train Data (Original)  Memory Usage: 0.31 MB (0.0% of available memory)
     Inferring data type of each feature based on column values. Set feature_metadata_in to manually specify special dtypes of the features.
     Stage 1 Generators:
@@ -349,23 +342,22 @@ Fitting AutoMLPipelineFeatureGenerator...
         Fitting DropDuplicatesFeatureGenerator...
     Types of features in original data (raw dtype, special dtypes):
         ('float', [])        : 2 | ['Age', 'Fare']
-        ('int', [])          : 4 | ['PassengerId', 'Pclass', 'SibSp', 'Parch']
+        ('int', [])          : 3 | ['PassengerId', 'Pclass', 'Fsize']
         ('object', [])       : 4 | ['Sex', 'Ticket', 'Cabin', 'Embarked']
         ('object', ['text']) : 1 | ['Name']
     Types of features in processed data (raw dtype, special dtypes):
         ('category', [])                    : 3 | ['Ticket', 'Cabin', 'Embarked']
         ('float', [])                       : 2 | ['Age', 'Fare']
-        ('int', [])                         : 4 | ['PassengerId', 'Pclass', 'SibSp', 'Parch']
+        ('int', [])                         : 3 | ['PassengerId', 'Pclass', 'Fsize']
         ('int', ['binned', 'text_special']) : 9 | ['Name.char_count', 'Name.word_count', 'Name.capital_ratio', 'Name.lower_ratio', 'Name.special_ratio', ...]
         ('int', ['bool'])                   : 1 | ['Sex']
         ('int', ['text_ngram'])             : 9 | ['__nlp__.henry', '__nlp__.john', '__nlp__.master', '__nlp__.miss', '__nlp__.mr', ...]
-    0.2s = Fit runtime
-    11 features in original data used to generate 28 features in processed data.
+    0.1s = Fit runtime
+    10 features in original data used to generate 27 features in processed data.
     Train Data (Processed) Memory Usage: 0.07 MB (0.0% of available memory)
-Data preprocessing and feature engineering runtime = 0.21s ...
+Data preprocessing and feature engineering runtime = 0.15s ...
 AutoGluon will gauge predictive performance using evaluation metric: 'accuracy'
     To change this, specify the eval_metric parameter of Predictor()
-Automatically generating train/validation split with holdout_frac=0.2, Train Rows: 712, Val Rows: 179
 User-specified model hyperparameters to be fit:
 {
     'NN_TORCH': {},
@@ -378,91 +370,97 @@ User-specified model hyperparameters to be fit:
     'KNN': [{'weights': 'uniform', 'ag_args': {'name_suffix': 'Unif'}}, {'weights': 'distance', 'ag_args': {'name_suffix': 'Dist'}}],
 }
 Fitting 13 L1 models ...
-Fitting model: KNeighborsUnif ...
-    0.6536   = Validation score   (accuracy)
-    0.01s    = Training   runtime
+Fitting model: KNeighborsUnif_BAG_L1 ...
+    0.6308   = Validation score   (accuracy)
+    0.0s     = Training   runtime
     0.03s    = Validation runtime
-Fitting model: KNeighborsDist ...
-    0.6536   = Validation score   (accuracy)
-    0.01s    = Training   runtime
+Fitting model: KNeighborsDist_BAG_L1 ...
+    0.6364   = Validation score   (accuracy)
+    0.0s     = Training   runtime
     0.0s     = Validation runtime
-Fitting model: LightGBMXT ...
-    0.8156   = Validation score   (accuracy)
-    0.23s    = Training   runtime
-    0.0s     = Validation runtime
-Fitting model: LightGBM ...
-    0.8212   = Validation score   (accuracy)
-    0.14s    = Training   runtime
-    0.0s     = Validation runtime
-Fitting model: RandomForestGini ...
-    0.8156   = Validation score   (accuracy)
-    0.29s    = Training   runtime
-    0.02s    = Validation runtime
-Fitting model: RandomForestEntr ...
-    0.8156   = Validation score   (accuracy)
-    0.25s    = Training   runtime
-    0.02s    = Validation runtime
-Fitting model: CatBoost ...
-    0.8268   = Validation score   (accuracy)
+Fitting model: LightGBMXT_BAG_L1 ...
+    Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
+    0.8418   = Validation score   (accuracy)
     0.38s    = Training   runtime
-    0.0s     = Validation runtime
-Fitting model: ExtraTreesGini ...
-    0.8156   = Validation score   (accuracy)
-    0.26s    = Training   runtime
     0.02s    = Validation runtime
-Fitting model: ExtraTreesEntr ...
-    0.8101   = Validation score   (accuracy)
-    0.26s    = Training   runtime
+Fitting model: LightGBM_BAG_L1 ...
+    Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
+    0.8496   = Validation score   (accuracy)
+    0.44s    = Training   runtime
     0.02s    = Validation runtime
-Fitting model: NeuralNetFastAI ...
-No improvement since epoch 9: early stopping
-    0.8324   = Validation score   (accuracy)
-    1.05s    = Training   runtime
-    0.01s    = Validation runtime
-Fitting model: XGBoost ...
-    0.8101   = Validation score   (accuracy)
-    0.11s    = Training   runtime
-    0.0s     = Validation runtime
-Fitting model: NeuralNetTorch ...
-    0.8212   = Validation score   (accuracy)
-    1.18s    = Training   runtime
-    0.01s    = Validation runtime
-Fitting model: LightGBMLarge ...
-    0.8324   = Validation score   (accuracy)
-    0.35s    = Training   runtime
-    0.0s     = Validation runtime
-Fitting model: WeightedEnsemble_L2 ...
-    0.8324   = Validation score   (accuracy)
+Fitting model: RandomForestGini_BAG_L1 ...
+    0.8384   = Validation score   (accuracy)
+    0.36s    = Training   runtime
+    0.05s    = Validation runtime
+Fitting model: RandomForestEntr_BAG_L1 ...
+    0.8238   = Validation score   (accuracy)
+    0.31s    = Training   runtime
+    0.06s    = Validation runtime
+Fitting model: CatBoost_BAG_L1 ...
+    Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
+    0.853    = Validation score   (accuracy)
+    1.42s    = Training   runtime
+    0.03s    = Validation runtime
+Fitting model: ExtraTreesGini_BAG_L1 ...
+    0.8227   = Validation score   (accuracy)
     0.27s    = Training   runtime
+    0.06s    = Validation runtime
+Fitting model: ExtraTreesEntr_BAG_L1 ...
+    0.826    = Validation score   (accuracy)
+    0.25s    = Training   runtime
+    0.06s    = Validation runtime
+Fitting model: NeuralNetFastAI_BAG_L1 ...
+    Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
+    0.8519   = Validation score   (accuracy)
+    2.25s    = Training   runtime
+    0.06s    = Validation runtime
+Fitting model: XGBoost_BAG_L1 ...
+    Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
+    0.844    = Validation score   (accuracy)
+    0.68s    = Training   runtime
+    0.03s    = Validation runtime
+Fitting model: NeuralNetTorch_BAG_L1 ...
+    Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
+    0.8418   = Validation score   (accuracy)
+    3.75s    = Training   runtime
+    0.08s    = Validation runtime
+Fitting model: LightGBMLarge_BAG_L1 ...
+    Fitting 8 child models (S1F1 - S1F8) | Fitting with ParallelLocalFoldFittingStrategy
+    0.844    = Validation score   (accuracy)
+    1.0s     = Training   runtime
+    0.03s    = Validation runtime
+Fitting model: WeightedEnsemble_L2 ...
+    0.853    = Validation score   (accuracy)
+    0.41s    = Training   runtime
     0.0s     = Validation runtime
-AutoGluon training complete, total runtime = 5.26s ... Best model: "WeightedEnsemble_L2"
-TabularPredictor saved. To load, use: predictor = TabularPredictor.load("AutogluonModels/ag-20230913_055133/")</code></pre>
+AutoGluon training complete, total runtime = 19.83s ... Best model: "WeightedEnsemble_L2"
+TabularPredictor saved. To load, use: predictor = TabularPredictor.load("AutogluonModels/ag-20230913_070925/")</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>&lt;autogluon.tabular.predictor.predictor.TabularPredictor at 0x7fb971df4220&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>&lt;autogluon.tabular.predictor.predictor.TabularPredictor at 0x7f0c4def4ee0&gt;</code></pre>
 </div>
 </div>
-<p><code>-</code> 리더보드확인 (모의고사 채점)</p>
-<div id="6e513eca-aed5-420d-afca-aca5ce499dc5" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>predictr.leaderboard()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code> 리더보드확인 (모의고사채점)</p>
+<div id="174c297f-09ab-4fab-8b6a-c1b5f5cc5244" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>predictr.leaderboard()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                  model  score_val  pred_time_val  fit_time  pred_time_val_marginal  fit_time_marginal  stack_level  can_infer  fit_order
-0         LightGBMLarge   0.832402       0.002752  0.347409                0.002752           0.347409            1       True         13
-1       NeuralNetFastAI   0.832402       0.007613  1.051858                0.007613           1.051858            1       True         10
-2   WeightedEnsemble_L2   0.832402       0.008036  1.318412                0.000423           0.266554            2       True         14
-3              CatBoost   0.826816       0.003309  0.381638                0.003309           0.381638            1       True          7
-4              LightGBM   0.821229       0.002449  0.144130                0.002449           0.144130            1       True          4
-5        NeuralNetTorch   0.821229       0.007525  1.182258                0.007525           1.182258            1       True         12
-6            LightGBMXT   0.815642       0.002653  0.232583                0.002653           0.232583            1       True          3
-7      RandomForestGini   0.815642       0.021465  0.288951                0.021465           0.288951            1       True          5
-8      RandomForestEntr   0.815642       0.021691  0.250421                0.021691           0.250421            1       True          6
-9        ExtraTreesGini   0.815642       0.022456  0.255295                0.022456           0.255295            1       True          8
-10              XGBoost   0.810056       0.003953  0.111502                0.003953           0.111502            1       True         11
-11       ExtraTreesEntr   0.810056       0.022516  0.263453                0.022516           0.263453            1       True          9
-12       KNeighborsDist   0.653631       0.004180  0.007864                0.004180           0.007864            1       True          2
-13       KNeighborsUnif   0.653631       0.031115  0.007931                0.031115           0.007931            1       True          1</code></pre>
+<pre><code>                      model  score_val  pred_time_val  fit_time  pred_time_val_marginal  fit_time_marginal  stack_level  can_infer  fit_order
+0           CatBoost_BAG_L1   0.852974       0.031577  1.419052                0.031577           1.419052            1       True          7
+1       WeightedEnsemble_L2   0.852974       0.032645  1.832624                0.001068           0.413572            2       True         14
+2    NeuralNetFastAI_BAG_L1   0.851852       0.063553  2.253746                0.063553           2.253746            1       True         10
+3           LightGBM_BAG_L1   0.849607       0.023809  0.435157                0.023809           0.435157            1       True          4
+4      LightGBMLarge_BAG_L1   0.843996       0.026434  1.002698                0.026434           1.002698            1       True         13
+5            XGBoost_BAG_L1   0.843996       0.033381  0.684330                0.033381           0.684330            1       True         11
+6         LightGBMXT_BAG_L1   0.841751       0.024597  0.384963                0.024597           0.384963            1       True          3
+7     NeuralNetTorch_BAG_L1   0.841751       0.077535  3.745817                0.077535           3.745817            1       True         12
+8   RandomForestGini_BAG_L1   0.838384       0.054624  0.364527                0.054624           0.364527            1       True          5
+9     ExtraTreesEntr_BAG_L1   0.826038       0.055092  0.248551                0.055092           0.248551            1       True          9
+10  RandomForestEntr_BAG_L1   0.823793       0.062297  0.314906                0.062297           0.314906            1       True          6
+11    ExtraTreesGini_BAG_L1   0.822671       0.056287  0.271098                0.056287           0.271098            1       True          8
+12    KNeighborsDist_BAG_L1   0.636364       0.004575  0.002916                0.004575           0.002916            1       True          2
+13    KNeighborsUnif_BAG_L1   0.630752       0.027986  0.002342                0.027986           0.002342            1       True          1</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -484,168 +482,168 @@ TabularPredictor saved. To load, use: predictor = TabularPredictor.load("Autoglu
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>LightGBMLarge</td>
-<td>0.832402</td>
-<td>0.002752</td>
-<td>0.347409</td>
-<td>0.002752</td>
-<td>0.347409</td>
+<td>CatBoost_BAG_L1</td>
+<td>0.852974</td>
+<td>0.031577</td>
+<td>1.419052</td>
+<td>0.031577</td>
+<td>1.419052</td>
+<td>1</td>
+<td>True</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>WeightedEnsemble_L2</td>
+<td>0.852974</td>
+<td>0.032645</td>
+<td>1.832624</td>
+<td>0.001068</td>
+<td>0.413572</td>
+<td>2</td>
+<td>True</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>NeuralNetFastAI_BAG_L1</td>
+<td>0.851852</td>
+<td>0.063553</td>
+<td>2.253746</td>
+<td>0.063553</td>
+<td>2.253746</td>
+<td>1</td>
+<td>True</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>LightGBM_BAG_L1</td>
+<td>0.849607</td>
+<td>0.023809</td>
+<td>0.435157</td>
+<td>0.023809</td>
+<td>0.435157</td>
+<td>1</td>
+<td>True</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>LightGBMLarge_BAG_L1</td>
+<td>0.843996</td>
+<td>0.026434</td>
+<td>1.002698</td>
+<td>0.026434</td>
+<td>1.002698</td>
 <td>1</td>
 <td>True</td>
 <td>13</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>NeuralNetFastAI</td>
-<td>0.832402</td>
-<td>0.007613</td>
-<td>1.051858</td>
-<td>0.007613</td>
-<td>1.051858</td>
-<td>1</td>
-<td>True</td>
-<td>10</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>WeightedEnsemble_L2</td>
-<td>0.832402</td>
-<td>0.008036</td>
-<td>1.318412</td>
-<td>0.000423</td>
-<td>0.266554</td>
-<td>2</td>
-<td>True</td>
-<td>14</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>CatBoost</td>
-<td>0.826816</td>
-<td>0.003309</td>
-<td>0.381638</td>
-<td>0.003309</td>
-<td>0.381638</td>
-<td>1</td>
-<td>True</td>
-<td>7</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>LightGBM</td>
-<td>0.821229</td>
-<td>0.002449</td>
-<td>0.144130</td>
-<td>0.002449</td>
-<td>0.144130</td>
-<td>1</td>
-<td>True</td>
-<td>4</td>
-</tr>
-<tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
-<td>NeuralNetTorch</td>
-<td>0.821229</td>
-<td>0.007525</td>
-<td>1.182258</td>
-<td>0.007525</td>
-<td>1.182258</td>
+<td>XGBoost_BAG_L1</td>
+<td>0.843996</td>
+<td>0.033381</td>
+<td>0.684330</td>
+<td>0.033381</td>
+<td>0.684330</td>
 <td>1</td>
 <td>True</td>
-<td>12</td>
+<td>11</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
-<td>LightGBMXT</td>
-<td>0.815642</td>
-<td>0.002653</td>
-<td>0.232583</td>
-<td>0.002653</td>
-<td>0.232583</td>
+<td>LightGBMXT_BAG_L1</td>
+<td>0.841751</td>
+<td>0.024597</td>
+<td>0.384963</td>
+<td>0.024597</td>
+<td>0.384963</td>
 <td>1</td>
 <td>True</td>
 <td>3</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
-<td>RandomForestGini</td>
-<td>0.815642</td>
-<td>0.021465</td>
-<td>0.288951</td>
-<td>0.021465</td>
-<td>0.288951</td>
+<td>NeuralNetTorch_BAG_L1</td>
+<td>0.841751</td>
+<td>0.077535</td>
+<td>3.745817</td>
+<td>0.077535</td>
+<td>3.745817</td>
+<td>1</td>
+<td>True</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>RandomForestGini_BAG_L1</td>
+<td>0.838384</td>
+<td>0.054624</td>
+<td>0.364527</td>
+<td>0.054624</td>
+<td>0.364527</td>
 <td>1</td>
 <td>True</td>
 <td>5</td>
 </tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">8</td>
-<td>RandomForestEntr</td>
-<td>0.815642</td>
-<td>0.021691</td>
-<td>0.250421</td>
-<td>0.021691</td>
-<td>0.250421</td>
-<td>1</td>
-<td>True</td>
-<td>6</td>
-</tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
-<td>ExtraTreesGini</td>
-<td>0.815642</td>
-<td>0.022456</td>
-<td>0.255295</td>
-<td>0.022456</td>
-<td>0.255295</td>
-<td>1</td>
-<td>True</td>
-<td>8</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>XGBoost</td>
-<td>0.810056</td>
-<td>0.003953</td>
-<td>0.111502</td>
-<td>0.003953</td>
-<td>0.111502</td>
-<td>1</td>
-<td>True</td>
-<td>11</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>ExtraTreesEntr</td>
-<td>0.810056</td>
-<td>0.022516</td>
-<td>0.263453</td>
-<td>0.022516</td>
-<td>0.263453</td>
+<td>ExtraTreesEntr_BAG_L1</td>
+<td>0.826038</td>
+<td>0.055092</td>
+<td>0.248551</td>
+<td>0.055092</td>
+<td>0.248551</td>
 <td>1</td>
 <td>True</td>
 <td>9</td>
 </tr>
 <tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>RandomForestEntr_BAG_L1</td>
+<td>0.823793</td>
+<td>0.062297</td>
+<td>0.314906</td>
+<td>0.062297</td>
+<td>0.314906</td>
+<td>1</td>
+<td>True</td>
+<td>6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>ExtraTreesGini_BAG_L1</td>
+<td>0.822671</td>
+<td>0.056287</td>
+<td>0.271098</td>
+<td>0.056287</td>
+<td>0.271098</td>
+<td>1</td>
+<td>True</td>
+<td>8</td>
+</tr>
+<tr class="odd">
 <td data-quarto-table-cell-role="th">12</td>
-<td>KNeighborsDist</td>
-<td>0.653631</td>
-<td>0.004180</td>
-<td>0.007864</td>
-<td>0.004180</td>
-<td>0.007864</td>
+<td>KNeighborsDist_BAG_L1</td>
+<td>0.636364</td>
+<td>0.004575</td>
+<td>0.002916</td>
+<td>0.004575</td>
+<td>0.002916</td>
 <td>1</td>
 <td>True</td>
 <td>2</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">13</td>
-<td>KNeighborsUnif</td>
-<td>0.653631</td>
-<td>0.031115</td>
-<td>0.007931</td>
-<td>0.031115</td>
-<td>0.007931</td>
+<td>KNeighborsUnif_BAG_L1</td>
+<td>0.630752</td>
+<td>0.027986</td>
+<td>0.002342</td>
+<td>0.027986</td>
+<td>0.002342</td>
 <td>1</td>
 <td>True</td>
 <td>1</td>
@@ -657,170 +655,60 @@ TabularPredictor saved. To load, use: predictor = TabularPredictor.load("Autoglu
 </div>
 </div>
 <ul>
-<li>모형에 대한 accuracy가 나타난다.</li>
-<li>validation: 실제 test에서 잘하기 위한 자체적 test라고 보면된다.</li>
+<li>CatBoost_BAG_L1</li>
 </ul>
 </section>
 <section id="d.-예측-predict" class="level2">
 <h2 class="anchored" data-anchor-id="d.-예측-predict">D. 예측 (predict)</h2>
 <p><code>-</code> 비유: 학습이후에 문제를 푸는 과정으로 비유할 수 있다.</p>
 <p><code>-</code> training set 을 풀어봄 (predict) <span class="math inline">\(\to\)</span> 점수 확인</p>
-<div id="91daef3c-7a51-48b6-9692-3b68b04df6b9" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>(tr.Survived <span class="op">==</span> predictr.predict(tr)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>0.8810325476992144</code></pre>
-</div>
-</div>
-<div id="e521d63e-3e90-413b-8b3b-89e27bf38b26" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1"></a>(tr.Survived <span class="op">==</span> (tr.Sex <span class="op">==</span> <span class="st">"female"</span>)).mean() <span class="co"># 예전점수와 비교</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>0.7867564534231201</code></pre>
+<div id="63dde064-62d6-4b36-bade-c3826d031584" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a>(tr.Survived <span class="op">==</span> predictr.predict(_tr)).mean()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>0.9113355780022446</code></pre>
 </div>
 </div>
 <p><code>-</code> test set 을 풀어봄 (predict) <span class="math inline">\(\to\)</span> 점수 확인 하러 캐글에 결과제출</p>
-<div id="fb8b17e6-2738-4e8f-a792-e02cfb025ef2" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1"></a>tst.assign(Survived <span class="op">=</span> predictr.predict(tst)).loc[:,[<span class="st">'PassengerId'</span>,<span class="st">'Survived'</span>]]<span class="op">\</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>.to_csv(<span class="st">"./titanic_sub/autogluon_submission.csv"</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="767c5239-4ba5-4a43-873b-dd1575ef8954" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1"></a>tst.assign(Survived <span class="op">=</span> predictr.predict(_tst)).loc[:,[<span class="st">'PassengerId'</span>,<span class="st">'Survived'</span>]]<span class="op">\</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>.to_csv(<span class="st">"./titanic_sub/autogluon(Fsize,Drop,best_quality)_submission.csv"</span>,index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="84e86f67-e6e2-4845-a103-d57756644b6b" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1"></a>tst.assign(Survived <span class="op">=</span> predictr.predict(tst)).loc[:,[<span class="st">'PassengerId'</span>,<span class="st">'Survived'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+</section>
+<section id="submission-result" class="level2">
+<h2 class="anchored" data-anchor-id="submission-result">Submission Result</h2>
+<table class="table">
 <thead>
 <tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">PassengerId</th>
-<th data-quarto-table-cell-role="th">Survived</th>
+<th>Sub and Description</th>
+<th>Public Score</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>892</td>
-<td>0</td>
+<td>autogulon_sub</td>
+<td>0.75358</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>893</td>
-<td>0</td>
+<td>autogulon(Fsize)_sub</td>
+<td>0.77272</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>894</td>
-<td>0</td>
+<td>autogulon(Fsize,Drop)</td>
+<td>0.78947</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>895</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>896</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">413</td>
-<td>1305</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">414</td>
-<td>1306</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">415</td>
-<td>1307</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">416</td>
-<td>1308</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">417</td>
-<td>1309</td>
-<td>0</td>
+<td>autogulon(best_quality)</td>
+<td>0.80143</td>
 </tr>
 </tbody>
 </table>
-
-<p>418 rows × 2 columns</p>
-</div>
-</div>
-</div>
-<p><code>-</code> TabularDataset?</p>
-<div id="2d6a564a-a77b-45b2-a091-f0b1bb5cb0aa" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># pd.DataFrame &lt;-- 클래스</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>TabularDataset?? <span class="co"># 클래스를 상속 --&gt; 상속받은 클래스의 기능을 물려받음.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div class="ansi-escaped-output">
-<pre><span class="ansi-red-fg">Init signature:</span> TabularDataset<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-<span class="ansi-red-fg">Source:</span>        
-<span class="ansi-green-fg">class</span> TabularDataset<span class="ansi-blue-fg">(</span>pd<span class="ansi-blue-fg">.</span>DataFrame<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-    <span class="ansi-blue-fg">"""</span>
-<span class="ansi-blue-fg">    A dataset in tabular format (with rows = samples, columns = features/variables).</span>
-<span class="ansi-blue-fg">    This object is essentially a pandas DataFrame (with some extra attributes) and all existing pandas methods can be applied to it.</span>
-<span class="ansi-blue-fg">    For full list of methods/attributes, see pandas Dataframe documentation: https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html</span>
-<span class="ansi-blue-fg">    Parameters</span>
-<span class="ansi-blue-fg">    ----------</span>
-<span class="ansi-blue-fg">    data : :class:`pd.DataFrame` or str</span>
-<span class="ansi-blue-fg">        If str, path to data file (CSV or Parquet format).</span>
-<span class="ansi-blue-fg">        If you already have your data in a :class:`pd.DataFrame`, you can specify it here.</span>
-<span class="ansi-blue-fg">    Attributes</span>
-<span class="ansi-blue-fg">    ----------</span>
-<span class="ansi-blue-fg">    file_path: (str)</span>
-<span class="ansi-blue-fg">        Path to data file from which this `TabularDataset` was created.</span>
-<span class="ansi-blue-fg">        None if `data` was a :class:`pd.DataFrame`.</span>
-<span class="ansi-blue-fg">    Note: In addition to these attributes, `TabularDataset` also shares all the same attributes and methods of a pandas Dataframe.</span>
-<span class="ansi-blue-fg">    For a detailed list, see:  https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html</span>
-<span class="ansi-blue-fg">    Examples</span>
-<span class="ansi-blue-fg">    --------</span>
-<span class="ansi-blue-fg">    &gt;&gt;&gt; from autogluon.core.dataset import TabularDataset</span>
-<span class="ansi-blue-fg">    &gt;&gt;&gt; train_data = TabularDataset('https://autogluon.s3.amazonaws.com/datasets/Inc/train.csv')</span>
-<span class="ansi-blue-fg">    &gt;&gt;&gt; train_data.head(30)</span>
-<span class="ansi-blue-fg">    &gt;&gt;&gt; train_data.columns</span>
-<span class="ansi-blue-fg">    """</span>
-    _metadata <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">"file_path"</span><span class="ansi-blue-fg">]</span>  <span class="ansi-red-fg"># preserved properties that will be copied to a new instance of TabularDataset</span>
-    <span class="ansi-blue-fg">@</span>property
-    <span class="ansi-green-fg">def</span> _constructor<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-        <span class="ansi-green-fg">return</span> TabularDataset
-    <span class="ansi-blue-fg">@</span>property
-    <span class="ansi-green-fg">def</span> _constructor_sliced<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-        <span class="ansi-green-fg">return</span> pd<span class="ansi-blue-fg">.</span>Series
-    <span class="ansi-green-fg">def</span> __init__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> data<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-        <span class="ansi-green-fg">if</span> isinstance<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> str<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-            file_path <span class="ansi-blue-fg">=</span> data
-            data <span class="ansi-blue-fg">=</span> load_pd<span class="ansi-blue-fg">.</span>load<span class="ansi-blue-fg">(</span>file_path<span class="ansi-blue-fg">)</span>
-        <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
-            file_path <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">None</span>
-        super<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__init__<span class="ansi-blue-fg">(</span>data<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
-        self<span class="ansi-blue-fg">.</span>file_path <span class="ansi-blue-fg">=</span> file_path
-<span class="ansi-red-fg">File:</span>           ~/anaconda3/envs/torch/lib/python3.8/site-packages/autogluon/core/dataset.py
-<span class="ansi-red-fg">Type:</span>           type
-<span class="ansi-red-fg">Subclasses:</span>     </pre>
-</div>
-</div>
-</div>
 </section>
-<section id="result" class="level2">
-<h2 class="anchored" data-anchor-id="result">Result</h2>
-<ul>
-<li>public Score&gt; 0.75358</li>
-</ul>
-
-
 </section>
+<section id="숙제" class="level1">
+<h1>3. 숙제</h1>
+<p><code>-</code> 캐글에 제출한 결과를 캡쳐하여 LMS에 제출</p>
+
+
 </section>
 
 </main> <!-- /main -->
