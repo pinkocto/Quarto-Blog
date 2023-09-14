@@ -274,19 +274,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="import" class="level2">
 <h2 class="anchored" data-anchor-id="import">Import</h2>
-<div id="fd614b80-b28e-4b23-ae2d-736d2072e232" class="cell" data-execution_count="1">
+<div id="fd614b80-b28e-4b23-ae2d-736d2072e232" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> MinMaxScaler</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="f7cc11e1-de77-4f35-af0e-a87db4af7ec3" class="cell" data-execution_count="2">
+<div id="f7cc11e1-de77-4f35-af0e-a87db4af7ec3" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># 데이터 불러오기</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>inputs <span class="op">=</span> pd.read_csv(<span class="st">'./farm/train_input.csv'</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a>outputs <span class="op">=</span> pd.read_csv(<span class="st">'./farm/train_output.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6cd87840-2cb3-4951-841c-30ec853c6160" class="cell" data-execution_count="3">
+<div id="6cd87840-2cb3-4951-841c-30ec853c6160" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>inputs.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="24">
 <div>
 
 
@@ -438,9 +440,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="309d9010-3e1d-48c7-ae85-48dd125546a6" class="cell" data-execution_count="4">
+<div id="309d9010-3e1d-48c7-ae85-48dd125546a6" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>outputs.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="25">
 <div>
 
 
@@ -512,12 +514,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>생장길이 = 지난주 생장점에서 금주 생장점 길이</li>
 <li>개화군 = 꽃이 핀 개수를 점수로 측정</li>
 </ul>
-<div id="ee2e294a-5214-4be8-9641-c18e248a17f6" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>pd.DataFrame(inputs[<span class="st">'시설ID'</span>].value_counts()).sort_index() <span class="co"># farm01~farm36</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="ee2e294a-5214-4be8-9641-c18e248a17f6" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># pd.DataFrame(inputs['시설ID'].value_counts()).sort_index() # farm01~farm36</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="5b1b8661-9a0e-48d0-861a-3bbb69cc87c5" class="cell" data-execution_count="10">
+<div id="5b1b8661-9a0e-48d0-861a-3bbb69cc87c5" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>inputs.isna().<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
+<div class="cell-output cell-output-display" data-execution_count="27">
 <pre><code>Sample_no        0
 시설ID             0
 일                0
@@ -541,22 +543,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="8845b064-853c-4a74-bb5f-3d9d3f9dad7e" class="cell" data-execution_count="13">
+<div id="8845b064-853c-4a74-bb5f-3d9d3f9dad7e" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># nan 제거  -- 베이스라인이므로 간단한 처리를 위해 nan 항목 보간 없이 학습</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>inputs <span class="op">=</span> inputs.dropna(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="734fdcd7-8e55-439f-a09e-ecbd64457778" class="cell" data-execution_count="18">
+<div id="734fdcd7-8e55-439f-a09e-ecbd64457778" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># 주차 정보 수치 변환</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>inputs[<span class="st">'주차'</span>] <span class="op">=</span> [<span class="bu">int</span>(i.replace(<span class="st">'주차'</span>, <span class="st">""</span>)) <span class="cf">for</span> i <span class="kw">in</span> inputs[<span class="st">'주차'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="7531cdfb-fdb1-42c3-b4ec-b09c0f489286" class="cell" data-execution_count="19">
+<div id="7531cdfb-fdb1-42c3-b4ec-b09c0f489286" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># scaler</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>input_scaler <span class="op">=</span> MinMaxScaler()</span>
 <span id="cb10-3"><a href="#cb10-3"></a>output_scaler <span class="op">=</span> MinMaxScaler()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="2816fcf1-f4c2-44a7-a43a-5a50a5a27913" class="cell" data-execution_count="22">
+<div id="2816fcf1-f4c2-44a7-a43a-5a50a5a27913" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1"></a>inputs.iloc[:,<span class="dv">3</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="34">
 <div>
 
 
@@ -715,9 +717,9 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="6faac8f5-f807-4c49-a833-6e900c2a9d15" class="cell" data-execution_count="25">
+<div id="6faac8f5-f807-4c49-a833-6e900c2a9d15" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>outputs.iloc[:,<span class="dv">3</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="35">
 <div>
 
 
@@ -804,14 +806,14 @@ dtype: int64</code></pre>
 </div>
 </div>
 </div>
-<div id="c1b69348-dc70-4a91-81b1-1a73d360acdb" class="cell" data-execution_count="26">
+<div id="c1b69348-dc70-4a91-81b1-1a73d360acdb" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># scaling</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>input_sc <span class="op">=</span> input_scaler.fit_transform(inputs.iloc[:,<span class="dv">3</span>:].to_numpy())</span>
 <span id="cb13-3"><a href="#cb13-3"></a>output_sc <span class="op">=</span> output_scaler.fit_transform(outputs.iloc[:,<span class="dv">3</span>:].to_numpy())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="931ad9fe-0d8f-4ce2-a6c8-a5e22591cf35" class="cell" data-execution_count="30">
+<div id="931ad9fe-0d8f-4ce2-a6c8-a5e22591cf35" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a><span class="bu">len</span>(inputs[<span class="st">'Sample_no'</span>].unique()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>1518</code></pre>
 </div>
 </div>
