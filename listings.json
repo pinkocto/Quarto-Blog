@@ -2,8 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/8_ts/2023-09-10.html",
-      "/posts/5_STBDA2023/titanic-advanced-feature-engineering-tutorial.html",
       "/posts/7_study/5_etc/Copy_of_Transformers_for_timeseries.html",
       "/posts/7_study/7_ds2023/2023-09-14-graph.html",
       "/posts/6_note/2023-09-13-autogluon_ts.html",
@@ -19,6 +17,8 @@
       "/posts/7_study/7_ds2023/2023-09-12-python.html",
       "/posts/4_DL2023/2023-09-11-DL-2wk.html",
       "/posts/7_study/6_as2023/2023-09-11.html",
+      "/posts/8_ts/2023-09-10-chap10.html",
+      "/posts/5_STBDA2023/02wk-00-itanic-advanced-feature-engineering-tutorial.html",
       "/posts/6_note/2023-09-09_baseline_code.html",
       "/posts/5_STBDA2023/01wk-002-타이타닉, 데이터의 이해.out.html",
       "/posts/5_STBDA2023/01wk-hw1.html",
@@ -75,7 +75,6 @@
   {
     "listing": "/5_stbda2023.html",
     "items": [
-      "/posts/5_STBDA2023/titanic-advanced-feature-engineering-tutorial.html",
       "/posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html",
       "/posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html",
       "/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html",
@@ -84,6 +83,7 @@
       "/posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html",
       "/posts/5_STBDA2023/02wk-005-타이타닉, Autogluon.out.html",
       "/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html",
+      "/posts/5_STBDA2023/02wk-00-itanic-advanced-feature-engineering-tutorial.html",
       "/posts/5_STBDA2023/01wk-002-타이타닉, 데이터의 이해.out.html",
       "/posts/5_STBDA2023/01wk-hw1.html"
     ]
