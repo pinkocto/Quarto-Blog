@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-08-10">
 
-<title>Quarto-Blog - Transformers for Timeseries</title>
+<title>Quarto-Blog - 트랜스포머 (전력사용량 데이터)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -140,7 +142,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Transformers for Timeseries</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">트랜스포머 (전력사용량 데이터)</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,14 +155,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Transformers for Timeseries</h1>
+      <h1 class="title">트랜스포머 (전력사용량 데이터)</h1>
                       </div>
   </div>
     
   
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 10, 2023</p>
+      </div>
+    </div>
     
       
     </div>
@@ -210,8 +224,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#preparing-the-dataset" id="toc-preparing-the-dataset" class="nav-link active" data-scroll-target="#preparing-the-dataset">Preparing the Dataset</a></li>
+  <li><a href="#transformers-for-timeseries" id="toc-transformers-for-timeseries" class="nav-link active" data-scroll-target="#transformers-for-timeseries">Transformers for Timeseries</a>
+  <ul class="collapse">
+  <li><a href="#preparing-the-dataset" id="toc-preparing-the-dataset" class="nav-link" data-scroll-target="#preparing-the-dataset">Preparing the Dataset</a></li>
   <li><a href="#implementation-of-the-transformer-model" id="toc-implementation-of-the-transformer-model" class="nav-link" data-scroll-target="#implementation-of-the-transformer-model">Implementation of the Transformer model</a></li>
+  </ul></li>
   <li><a href="#training-the-transformer" id="toc-training-the-transformer" class="nav-link" data-scroll-target="#training-the-transformer">Training the Transformer</a>
   <ul class="collapse">
   <li><a href="#evaluation-on-test-set" id="toc-evaluation-on-test-set" class="nav-link" data-scroll-target="#evaluation-on-test-set">Evaluation on Test set</a></li>
@@ -225,6 +242,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<section id="transformers-for-timeseries" class="level2">
+<h2 class="anchored" data-anchor-id="transformers-for-timeseries">Transformers for Timeseries</h2>
 <p>Click to run on colab (if you’re not already there): <a href="https://colab.research.google.com/github/charlesollion/dlexperiments/blob/master/7-Transformers-Timeseries/Transformers_for_timeseries.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid" alt="Open In Colab"></a></p>
 <p>The goal of this notebook is to illustrate the use of a transformer for timeseries prediction. This notebook was built by Alice Martin and adapted to pytorch by Charles Ollion</p>
 <div id="cell-2" class="cell">
@@ -499,6 +518,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb18-9"><a href="#cb18-9"></a>out, attn <span class="op">=</span> transformer (x<span class="op">=</span>inputs, mask<span class="op">=</span>mask)</span>
 <span id="cb18-10"><a href="#cb18-10"></a>out.shape, attn[<span class="st">"decoder_layer1"</span>].shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
 </section>
 <section id="training-the-transformer" class="level2">
 <h2 class="anchored" data-anchor-id="training-the-transformer">Training the Transformer</h2>
