@@ -5,7 +5,7 @@
       "/posts/8_ts/2023-09-10.html",
       "/posts/5_STBDA2023/titanic-advanced-feature-engineering-tutorial.html",
       "/posts/7_study/5_etc/Copy_of_Transformers_for_timeseries.html",
-      "/posts/7_study/7_ds2023/2023-09-12.html",
+      "/posts/7_study/7_ds2023/2023-09-14-graph.html",
       "/posts/7_study/6_as2023/2023-09-13.html",
       "/posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html",
       "/posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html",
@@ -15,6 +15,7 @@
       "/posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html",
       "/posts/5_STBDA2023/02wk-005-타이타닉, Autogluon.out.html",
       "/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html",
+      "/posts/7_study/7_ds2023/2023-09-12-python.html",
       "/posts/4_DL2023/2023-09-11-DL-2wk.html",
       "/posts/7_study/6_as2023/2023-09-11.html",
       "/posts/6_note/baseline_code.html",
@@ -87,22 +88,6 @@
     ]
   },
   {
-    "listing": "/2_dv2022.html",
-    "items": [
-      "/posts/2_DV2022/2022-10-19-7wk-2.html",
-      "/posts/2_DV2022/2022-11-09-10wk-2.html",
-      "/posts/2_DV2022/2022-10-06-5wk-2.html",
-      "/posts/2_DV2022/2022-10-03-5wk-1.html",
-      "/posts/2_DV2022/2022-10-17-7wk-1.html"
-    ]
-  },
-  {
-    "listing": "/4_dl2023.html",
-    "items": [
-      "/posts/4_DL2023/2023-09-11-DL-2wk.html"
-    ]
-  },
-  {
     "listing": "/3_stbda2022.html",
     "items": [
       "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
@@ -119,6 +104,22 @@
       "/posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html",
       "/posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html",
       "/posts/3_STBDA2022/2023-01-01.html"
+    ]
+  },
+  {
+    "listing": "/4_dl2023.html",
+    "items": [
+      "/posts/4_DL2023/2023-09-11-DL-2wk.html"
+    ]
+  },
+  {
+    "listing": "/2_dv2022.html",
+    "items": [
+      "/posts/2_DV2022/2022-10-19-7wk-2.html",
+      "/posts/2_DV2022/2022-11-09-10wk-2.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/2_DV2022/2022-10-17-7wk-1.html"
     ]
   },
   {
