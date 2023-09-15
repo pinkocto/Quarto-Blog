@@ -1054,7 +1054,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "가상환경\n# 가상환경 생성 맟 활성화\nconda create -n py310 python=3.10\nconda activate py310\n\n# 가상환경 삭제\nconda remove --name [py310] --all\n\n# pytorch 설치\nconda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch"
+    "text": "가상환경\n\n가상환경 생성 맟 활성화\n\nconda create -n py310 python=3.10\nconda activate py310\n\n가상환경 삭제 conda remove –name [py310] –all\npytorch 설치 conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch"
   },
   {
     "objectID": "3_stbda2022.html",
