@@ -20,7 +20,7 @@ website:
       - 1_ip2022.qmd
       - 2_dv2022.qmd
       - 3_stbda2022.qmd
-      - 5_study.qmd
+      - 7_study.qmd
   
 format:
   html:
