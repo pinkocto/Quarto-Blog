@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/index.html</loc>
-    <lastmod>2023-08-11T06:50:07.032Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/7_study.html</loc>
+    <lastmod>2023-09-15T03:13:11.953Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/5_study.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/1_ip2022.html</loc>
     <lastmod>2023-08-11T06:50:06.740Z</lastmod>
   </url>
   <url>
@@ -86,7 +86,7 @@
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html</loc>
-    <lastmod>2023-09-12T18:37:02.548Z</lastmod>
+    <lastmod>2023-09-14T17:58:35.196Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html</loc>
@@ -198,7 +198,7 @@
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html</loc>
-    <lastmod>2023-09-14T06:17:10.060Z</lastmod>
+    <lastmod>2023-09-15T03:18:02.117Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/01wk-002-타이타닉, 데이터의 이해.out.html</loc>
@@ -214,7 +214,7 @@
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html</loc>
-    <lastmod>2023-09-12T18:41:22.510Z</lastmod>
+    <lastmod>2023-09-14T18:15:11.724Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html</loc>
@@ -289,7 +289,7 @@
     <lastmod>2023-08-11T06:50:06.740Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/1_ip2022.html</loc>
-    <lastmod>2023-08-11T06:50:06.740Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/index.html</loc>
+    <lastmod>2023-08-11T06:50:07.032Z</lastmod>
   </url>
 </urlset>
