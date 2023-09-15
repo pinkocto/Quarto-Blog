@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-09-15">
 
-<title>Quarto-Blog - NOTE</title>
+<title>Quarto-Blog - AutoGluon TS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +22,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,40 +100,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -109,7 +115,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
@@ -120,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -139,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">NOTE</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">AutoGluon TS</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,7 +155,35 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">AutoGluon TS</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 15, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -161,25 +195,25 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_ip2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_dv2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_stbda2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7_study.html" class="sidebar-item-text sidebar-link">
+  <a href="../../7_study.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STUDY</span></a>
   </div>
 </li>
@@ -188,100 +222,480 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">NOTE</h1>
+
+
+
+<div id="170585d5-81f3-466f-a7c9-3387f26a6edf" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="4666cd8d-1646-4eed-a790-780b0a861411" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># 데이터 불러오기</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>inputs <span class="op">=</span> pd.read_csv(<span class="st">'./farm/train_input.csv'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3"></a>outputs <span class="op">=</span> pd.read_csv(<span class="st">'./farm/train_output.csv'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>test_inputs <span class="op">=</span> pd.read_csv(<span class="st">'./farm/test_input.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="f85107d1-2163-42a4-9b86-274d528e2061" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>inputs.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
 
 
-
-<div class="quarto-title-meta column-page-right">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sample_no</th>
+<th data-quarto-table-cell-role="th">시설ID</th>
+<th data-quarto-table-cell-role="th">일</th>
+<th data-quarto-table-cell-role="th">주차</th>
+<th data-quarto-table-cell-role="th">내부CO2</th>
+<th data-quarto-table-cell-role="th">내부습도</th>
+<th data-quarto-table-cell-role="th">내부온도</th>
+<th data-quarto-table-cell-role="th">지온</th>
+<th data-quarto-table-cell-role="th">강우감지</th>
+<th data-quarto-table-cell-role="th">일사량</th>
+<th data-quarto-table-cell-role="th">외부온도</th>
+<th data-quarto-table-cell-role="th">외부풍향</th>
+<th data-quarto-table-cell-role="th">외부풍속</th>
+<th data-quarto-table-cell-role="th">지습</th>
+<th data-quarto-table-cell-role="th">급액횟수</th>
+<th data-quarto-table-cell-role="th">급액EC(dS/m)</th>
+<th data-quarto-table-cell-role="th">급액pH</th>
+<th data-quarto-table-cell-role="th">급액량(회당)</th>
+<th data-quarto-table-cell-role="th">품종</th>
+<th data-quarto-table-cell-role="th">재배형태</th>
 </tr>
 </thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1694703600000" data-listing-file-modified-sort="1694750899455" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1" data-listing-title-sort="AutoGluon TS" data-listing-filename-sort="2023-09-15-autogluon_smartfarm.ipynb">
-<td>
-<span class="listing-date">Sep 15, 2023</span>
-</td>
-<td>
-<a href="./posts/6_note/2023-09-15-autogluon_smartfarm.html" class="title listing-title">AutoGluon TS</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220323</td>
+<td>30주차</td>
+<td>517.041667</td>
+<td>84.985417</td>
+<td>20.610833</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>1879</td>
+<td>11.166667</td>
+<td>195.0</td>
+<td>0.083333</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.68</td>
+<td>4.42</td>
+<td>88</td>
+<td>tomato09</td>
+<td>NaN</td>
 </tr>
-<tr data-index="1" data-listing-date-sort="1694617200000" data-listing-file-modified-sort="1694710821682" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="350" data-listing-title-sort="AutoGluon TS" data-listing-filename-sort="2023-09-14-autogluon_ts.ipynb">
-<td>
-<span class="listing-date">Sep 14, 2023</span>
-</td>
-<td>
-<a href="./posts/6_note/2023-09-14-autogluon_ts.html" class="title listing-title">AutoGluon TS</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220324</td>
+<td>30주차</td>
+<td>514.416667</td>
+<td>88.291250</td>
+<td>20.695000</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>1411</td>
+<td>12.708333</td>
+<td>142.5</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.78</td>
+<td>5.63</td>
+<td>97</td>
+<td>tomato09</td>
+<td>NaN</td>
 </tr>
-<tr data-index="2" data-listing-date-sort="1694185200000" data-listing-file-modified-sort="1694407694162" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="2" data-listing-title-sort="연습장2" data-listing-filename-sort="2023-09-09_baseline_code.ipynb">
-<td>
-<span class="listing-date">Sep 9, 2023</span>
-</td>
-<td>
-<a href="./posts/6_note/2023-09-09_baseline_code.html" class="title listing-title">연습장2</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220326</td>
+<td>30주차</td>
+<td>471.875000</td>
+<td>83.514583</td>
+<td>20.402500</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>1955</td>
+<td>8.791667</td>
+<td>202.5</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.69</td>
+<td>4.25</td>
+<td>101</td>
+<td>tomato09</td>
+<td>NaN</td>
 </tr>
-<tr data-index="3" data-listing-date-sort="1693666800000" data-listing-file-modified-sort="1694506542817" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="471" data-listing-title-sort="연습장1" data-listing-filename-sort="2023-09-09_smart_farm_eda.ipynb">
-<td>
-<span class="listing-date">Sep 3, 2023</span>
-</td>
-<td>
-<a href="./posts/6_note/2023-09-09_smart_farm_eda.html" class="title listing-title">연습장1</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220327</td>
+<td>30주차</td>
+<td>469.250000</td>
+<td>80.916250</td>
+<td>20.139167</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2231</td>
+<td>8.041667</td>
+<td>180.0</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.70</td>
+<td>4.25</td>
+<td>99</td>
+<td>tomato09</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220328</td>
+<td>30주차</td>
+<td>465.750000</td>
+<td>82.026250</td>
+<td>17.653333</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2284</td>
+<td>9.000000</td>
+<td>97.5</td>
+<td>0.041667</td>
+<td>0.0</td>
+<td>13</td>
+<td>2.66</td>
+<td>4.21</td>
+<td>94</td>
+<td>tomato09</td>
+<td>NaN</td>
 </tr>
 </tbody>
 </table>
-<div class="listing-no-matching d-none">
-No matching items
+
 </div>
-</div></main> <!-- /main -->
+</div>
+</div>
+<div id="7e2b1b4e-6288-4db4-b6fa-38cf40f0e953" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>inputs[<span class="st">'주차'</span>] <span class="op">=</span> [<span class="bu">int</span>(i.replace(<span class="st">'주차'</span>, <span class="st">''</span>)) <span class="cf">for</span> i <span class="kw">in</span> inputs[<span class="st">'주차'</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="67e7f859-9615-4f48-baf5-2df0b094295e" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>inputs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Sample_no</th>
+<th data-quarto-table-cell-role="th">시설ID</th>
+<th data-quarto-table-cell-role="th">일</th>
+<th data-quarto-table-cell-role="th">주차</th>
+<th data-quarto-table-cell-role="th">내부CO2</th>
+<th data-quarto-table-cell-role="th">내부습도</th>
+<th data-quarto-table-cell-role="th">내부온도</th>
+<th data-quarto-table-cell-role="th">지온</th>
+<th data-quarto-table-cell-role="th">강우감지</th>
+<th data-quarto-table-cell-role="th">일사량</th>
+<th data-quarto-table-cell-role="th">외부온도</th>
+<th data-quarto-table-cell-role="th">외부풍향</th>
+<th data-quarto-table-cell-role="th">외부풍속</th>
+<th data-quarto-table-cell-role="th">지습</th>
+<th data-quarto-table-cell-role="th">급액횟수</th>
+<th data-quarto-table-cell-role="th">급액EC(dS/m)</th>
+<th data-quarto-table-cell-role="th">급액pH</th>
+<th data-quarto-table-cell-role="th">급액량(회당)</th>
+<th data-quarto-table-cell-role="th">품종</th>
+<th data-quarto-table-cell-role="th">재배형태</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220323</td>
+<td>30</td>
+<td>517.041667</td>
+<td>84.985417</td>
+<td>20.610833</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>1879</td>
+<td>11.166667</td>
+<td>195.0</td>
+<td>0.083333</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.68</td>
+<td>4.42</td>
+<td>88</td>
+<td>tomato09</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220324</td>
+<td>30</td>
+<td>514.416667</td>
+<td>88.291250</td>
+<td>20.695000</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>1411</td>
+<td>12.708333</td>
+<td>142.5</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.78</td>
+<td>5.63</td>
+<td>97</td>
+<td>tomato09</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220326</td>
+<td>30</td>
+<td>471.875000</td>
+<td>83.514583</td>
+<td>20.402500</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>1955</td>
+<td>8.791667</td>
+<td>202.5</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.69</td>
+<td>4.25</td>
+<td>101</td>
+<td>tomato09</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220327</td>
+<td>30</td>
+<td>469.250000</td>
+<td>80.916250</td>
+<td>20.139167</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2231</td>
+<td>8.041667</td>
+<td>180.0</td>
+<td>0.000000</td>
+<td>0.0</td>
+<td>14</td>
+<td>2.70</td>
+<td>4.25</td>
+<td>99</td>
+<td>tomato09</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0</td>
+<td>farm25</td>
+<td>20220328</td>
+<td>30</td>
+<td>465.750000</td>
+<td>82.026250</td>
+<td>17.653333</td>
+<td>0.0</td>
+<td>NaN</td>
+<td>2284</td>
+<td>9.000000</td>
+<td>97.5</td>
+<td>0.041667</td>
+<td>0.0</td>
+<td>13</td>
+<td>2.66</td>
+<td>4.21</td>
+<td>94</td>
+<td>tomato09</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10107</td>
+<td>2027</td>
+<td>farm04</td>
+<td>20160821</td>
+<td>7</td>
+<td>334.684002</td>
+<td>65.565417</td>
+<td>21.985833</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>979</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>26</td>
+<td>2.06</td>
+<td>5.80</td>
+<td>81</td>
+<td>tomato07</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10108</td>
+<td>2027</td>
+<td>farm04</td>
+<td>20160822</td>
+<td>7</td>
+<td>333.726601</td>
+<td>61.144167</td>
+<td>22.530833</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>2515</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>28</td>
+<td>2.43</td>
+<td>4.42</td>
+<td>32</td>
+<td>tomato07</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10109</td>
+<td>2027</td>
+<td>farm04</td>
+<td>20160823</td>
+<td>7</td>
+<td>344.862883</td>
+<td>72.867917</td>
+<td>20.397917</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1972</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>21</td>
+<td>2.71</td>
+<td>5.88</td>
+<td>27</td>
+<td>tomato07</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10110</td>
+<td>2027</td>
+<td>farm04</td>
+<td>20160826</td>
+<td>7</td>
+<td>372.708516</td>
+<td>66.672917</td>
+<td>24.401667</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1314</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>18</td>
+<td>2.50</td>
+<td>5.39</td>
+<td>82</td>
+<td>tomato07</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10111</td>
+<td>2027</td>
+<td>farm04</td>
+<td>20160827</td>
+<td>7</td>
+<td>372.612192</td>
+<td>59.257083</td>
+<td>28.352500</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>1310</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>16</td>
+<td>2.50</td>
+<td>5.39</td>
+<td>82</td>
+<td>tomato07</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+<p>10112 rows × 20 columns</p>
+</div>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
