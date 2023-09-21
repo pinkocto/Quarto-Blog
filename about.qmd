@@ -1,0 +1,26 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/pinkocto
+
+---
+
+**가상환경**
+
+- 가상환경 생성 맟 활성화
+
+conda create -n py310 python=3.10
+
+conda activate py310
+
+- 가상환경 삭제
+conda remove --name [py310] --all
+
+-  pytorch 설치
+conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
+
