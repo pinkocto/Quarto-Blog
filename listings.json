@@ -50,6 +50,11 @@
   {
     "listing": "/5_stbda2023.html",
     "items": [
+      "/posts/5_STBDA2023/03wk-011.out.html",
+      "/posts/5_STBDA2023/03wk-010.out.html",
+      "/posts/5_STBDA2023/03wk-009.out.html",
+      "/posts/5_STBDA2023/03wk-012.out.html",
+      "/posts/5_STBDA2023/03wk-013.out.html",
       "/posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html",
       "/posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html",
       "/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html",
@@ -61,6 +66,25 @@
       "/posts/5_STBDA2023/02wk-00-itanic-advanced-feature-engineering-tutorial.html",
       "/posts/5_STBDA2023/01wk-002-타이타닉, 데이터의 이해.out.html",
       "/posts/5_STBDA2023/01wk-hw1.html"
+    ]
+  },
+  {
+    "listing": "/2_dv2022.html",
+    "items": [
+      "/posts/2_DV2022/2023-09-20-03wk-2.html",
+      "/posts/2_DV2022/2022-10-19-7wk-2.html",
+      "/posts/2_DV2022/2022-11-09-10wk-2.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/2_DV2022/2022-10-17-7wk-1.html"
+    ]
+  },
+  {
+    "listing": "/4_dl2023.html",
+    "items": [
+      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
+      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
+      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
     ]
   },
   {
@@ -83,25 +107,6 @@
     ]
   },
   {
-    "listing": "/4_dl2023.html",
-    "items": [
-      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
-      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
-      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
-    ]
-  },
-  {
-    "listing": "/2_dv2022.html",
-    "items": [
-      "/posts/2_DV2022/2023-09-20-03wk-2.html",
-      "/posts/2_DV2022/2022-10-19-7wk-2.html",
-      "/posts/2_DV2022/2022-11-09-10wk-2.html",
-      "/posts/2_DV2022/2022-10-06-5wk-2.html",
-      "/posts/2_DV2022/2022-10-03-5wk-1.html",
-      "/posts/2_DV2022/2022-10-17-7wk-1.html"
-    ]
-  },
-  {
     "listing": "/6_note.html",
     "items": [
       "/posts/6_note/2023-09-15-autogluon_smartfarm.html",
@@ -120,6 +125,11 @@
       "/posts/1_IP2022/01_자료형/2023-03-15-2wk-2.out.html",
       "/posts/1_IP2022/01_자료형/2023-03-20-3wk-1.out.html",
       "/posts/1_IP2022/01_자료형/2023-03-13-2wk-1.out.html",
+      "/posts/5_STBDA2023/03wk-011.out.html",
+      "/posts/5_STBDA2023/03wk-010.out.html",
+      "/posts/5_STBDA2023/03wk-009.out.html",
+      "/posts/5_STBDA2023/03wk-012.out.html",
+      "/posts/5_STBDA2023/03wk-013.out.html",
       "/posts/2_DV2022/2023-09-20-03wk-2.html",
       "/posts/7_study/7_ds2023/2023-09-19-graph2.html",
       "/posts/4_DL2023/2023-09-18-DL-3wk.html",
