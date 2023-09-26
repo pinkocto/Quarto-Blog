@@ -69,6 +69,27 @@
     ]
   },
   {
+    "listing": "/2_dv2022.html",
+    "items": [
+      "/posts/2_DV2022/2023-09-25-04wk-1.html",
+      "/posts/2_DV2022/2023-09-20-03wk-2.html",
+      "/posts/2_DV2022/2022-10-19-7wk-2.html",
+      "/posts/2_DV2022/2022-11-09-10wk-2.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/2_DV2022/2022-10-17-7wk-1.html"
+    ]
+  },
+  {
+    "listing": "/4_dl2023.html",
+    "items": [
+      "/posts/4_DL2023/2023-09-25-DL-4wk.html",
+      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
+      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
+      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
+    ]
+  },
+  {
     "listing": "/3_stbda2022.html",
     "items": [
       "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
@@ -85,26 +106,6 @@
       "/posts/3_STBDA2022/2022_03_14_(2주차)_3월14일.html",
       "/posts/3_STBDA2022/2022_03_07_(1주차)_3월7일.html",
       "/posts/3_STBDA2022/2023-01-01.html"
-    ]
-  },
-  {
-    "listing": "/4_dl2023.html",
-    "items": [
-      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
-      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
-      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
-    ]
-  },
-  {
-    "listing": "/2_dv2022.html",
-    "items": [
-      "/posts/2_DV2022/2023-09-25-04wk-1.html",
-      "/posts/2_DV2022/2023-09-20-03wk-2.html",
-      "/posts/2_DV2022/2022-10-19-7wk-2.html",
-      "/posts/2_DV2022/2022-11-09-10wk-2.html",
-      "/posts/2_DV2022/2022-10-06-5wk-2.html",
-      "/posts/2_DV2022/2022-10-03-5wk-1.html",
-      "/posts/2_DV2022/2022-10-17-7wk-1.html"
     ]
   },
   {
@@ -127,6 +128,7 @@
       "/posts/1_IP2022/01_자료형/2023-03-20-3wk-1.out.html",
       "/posts/1_IP2022/01_자료형/2023-03-13-2wk-1.out.html",
       "/posts/2_DV2022/2023-09-25-04wk-1.html",
+      "/posts/4_DL2023/2023-09-25-DL-4wk.html",
       "/posts/5_STBDA2023/03wk-011.out.html",
       "/posts/5_STBDA2023/03wk-010.out.html",
       "/posts/5_STBDA2023/03wk-009.out.html",
