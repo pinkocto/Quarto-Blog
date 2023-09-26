@@ -76,10 +76,10 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] }],
       page: 25,
     pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-date"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -225,10 +225,32 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+     </select>
+  </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
+</div>
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Pandas" data-listing-date-sort="1695567600000" data-listing-file-modified-sort="1695689327637" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="647">
+<div class="quarto-post image-right" data-index="0" data-categories="Pandas" data-listing-date-sort="1695567600000" data-listing-file-modified-sort="1695690133307" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="647">
 <div class="thumbnail">
-<p><a href="./posts/2_DV2022/2023-09-25-04wk-1.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/2_DV2022/2023-09-25-04wk-1.html"> <p class="card-img-top"><img src="posts/2_DV2022/2023-09-25-04wk-1_files/figure-html/a894315b-e790-4faa-a9b1-bf69433931df-2-95eb405b-fc88-41ff-8f56-656f8d4fea9c.png"  class="thumbnail-image card-img"/></p> </a></p>
 </div>
 <div class="body">
 <a href="./posts/2_DV2022/2023-09-25-04wk-1.html">
@@ -289,147 +311,7 @@ JiyunLim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74">
-<div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/03wk-011.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/5_STBDA2023/03wk-011.out.html">
-<h3 class="no-anchor listing-title">
-03wk-011: Medical Cost, 회귀분석
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-zwUq3ZIN2SNas0l8htamMO&amp;si=dH2sszdMPMFTGeEV
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/5_STBDA2023/03wk-011.out.html">
-<div class="listing-date">
-Sep 21, 2023
-</div>
-<div class="listing-author">
-JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="146">
-<div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/03wk-010.out.html"> <p class="card-img-top"><img src="posts/5_STBDA2023/03wk-010.out_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/5_STBDA2023/03wk-010.out.html">
-<h3 class="no-anchor listing-title">
-03wk-010: 아이스크림(초코/바닐라), 회귀분석
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-yMATKoY2e3Ltd85lyvT-Ht&amp;si=8Ke2fNuWswEvFReG
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/5_STBDA2023/03wk-010.out.html">
-<div class="listing-date">
-Sep 21, 2023
-</div>
-<div class="listing-author">
-JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="341">
-<div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/03wk-009.out.html"> <p class="card-img-top"><img src="posts/5_STBDA2023/03wk-009.out_files/figure-html/cell-7-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/5_STBDA2023/03wk-009.out.html">
-<h3 class="no-anchor listing-title">
-03wk-009: 아이스크림, 회귀분석
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-zXz97SY6e8rSowprIvDS2a&amp;si=Y8pI1Dyw2VaYeayc
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/5_STBDA2023/03wk-009.out.html">
-<div class="listing-date">
-Sep 21, 2023
-</div>
-<div class="listing-author">
-JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="43">
-<div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/03wk-012.out.html"> <p class="card-img-top"><img src="posts/5_STBDA2023/03wk-012.out_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/5_STBDA2023/03wk-012.out.html">
-<h3 class="no-anchor listing-title">
-03wk-012: 취업, 로지스틱
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-z03THS4jG11HPcozk3ZfVS&amp;si=Ry49nDAOI3PSu0Ja
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/5_STBDA2023/03wk-012.out.html">
-<div class="listing-date">
-Sep 21, 2023
-</div>
-<div class="listing-author">
-JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="72">
-<div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/03wk-013.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/5_STBDA2023/03wk-013.out.html">
-<h3 class="no-anchor listing-title">
-03wk-013: 타이타닉, 로지스틱
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-wi9Mkfc849jTCMENvydI8B&amp;si=hotGT-ErLB8dukhs
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/5_STBDA2023/03wk-013.out.html">
-<div class="listing-date">
-Sep 21, 2023
-</div>
-<div class="listing-author">
-JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="7" data-categories="파이썬의 자료형" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689025960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="544">
+<div class="quarto-post image-right" data-index="2" data-categories="파이썬의 자료형" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689025960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="544">
 <div class="thumbnail">
 <p><a href="./posts/1_IP2022/01_자료형/2023-03-29-4wk-2.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -464,7 +346,182 @@ jiyunLim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-categories="Pandas,Indexing" data-listing-date-sort="1695135600000" data-listing-file-modified-sort="1695689026056" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1191">
+<div class="quarto-post image-right" data-index="3" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="72">
+<div class="thumbnail">
+<p><a href="./posts/5_STBDA2023/03wk-013.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_STBDA2023/03wk-013.out.html">
+<h3 class="no-anchor listing-title">
+03wk-013: 타이타닉, 로지스틱
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+https://youtu.be/playlist?list=PLQqh36zP38-wi9Mkfc849jTCMENvydI8B&amp;si=hotGT-ErLB8dukhs
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_STBDA2023/03wk-013.out.html">
+<div class="listing-date">
+Sep 21, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="43">
+<div class="thumbnail">
+<p><a href="./posts/5_STBDA2023/03wk-012.out.html"> <p class="card-img-top"><img src="posts/5_STBDA2023/03wk-012.out_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_STBDA2023/03wk-012.out.html">
+<h3 class="no-anchor listing-title">
+03wk-012: 취업, 로지스틱
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+https://youtu.be/playlist?list=PLQqh36zP38-z03THS4jG11HPcozk3ZfVS&amp;si=Ry49nDAOI3PSu0Ja
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_STBDA2023/03wk-012.out.html">
+<div class="listing-date">
+Sep 21, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="5" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="74">
+<div class="thumbnail">
+<p><a href="./posts/5_STBDA2023/03wk-011.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_STBDA2023/03wk-011.out.html">
+<h3 class="no-anchor listing-title">
+03wk-011: Medical Cost, 회귀분석
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+https://youtu.be/playlist?list=PLQqh36zP38-zwUq3ZIN2SNas0l8htamMO&amp;si=dH2sszdMPMFTGeEV
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_STBDA2023/03wk-011.out.html">
+<div class="listing-date">
+Sep 21, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="6" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="146">
+<div class="thumbnail">
+<p><a href="./posts/5_STBDA2023/03wk-010.out.html"> <p class="card-img-top"><img src="posts/5_STBDA2023/03wk-010.out_files/figure-html/cell-6-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_STBDA2023/03wk-010.out.html">
+<h3 class="no-anchor listing-title">
+03wk-010: 아이스크림(초코/바닐라), 회귀분석
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+https://youtu.be/playlist?list=PLQqh36zP38-yMATKoY2e3Ltd85lyvT-Ht&amp;si=8Ke2fNuWswEvFReG
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_STBDA2023/03wk-010.out.html">
+<div class="listing-date">
+Sep 21, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1695222000000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="341">
+<div class="thumbnail">
+<p><a href="./posts/5_STBDA2023/03wk-009.out.html"> <p class="card-img-top"><img src="posts/5_STBDA2023/03wk-009.out_files/figure-html/cell-7-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_STBDA2023/03wk-009.out.html">
+<h3 class="no-anchor listing-title">
+03wk-009: 아이스크림, 회귀분석
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+https://youtu.be/playlist?list=PLQqh36zP38-zXz97SY6e8rSowprIvDS2a&amp;si=Y8pI1Dyw2VaYeayc
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_STBDA2023/03wk-009.out.html">
+<div class="listing-date">
+Sep 21, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="8" data-categories="파이썬의 자료형" data-listing-date-sort="1695135600000" data-listing-file-modified-sort="1695689025960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1427">
+<div class="thumbnail">
+<p><a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html">
+<h3 class="no-anchor listing-title">
+04wk-1: 파이썬의 자료형 (6) – O
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('파이썬의 자료형'); return false;">
+파이썬의 자료형
+</div>
+</div>
+<a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html">
+<div class="listing-description">
+인덱싱고급 (스트라이딩), if문이 포함된 컴프리헨션
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html">
+<div class="listing-date">
+Sep 20, 2023
+</div>
+<div class="listing-author">
+jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="9" data-categories="Pandas,Indexing" data-listing-date-sort="1695135600000" data-listing-file-modified-sort="1695689026056" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1191">
 <div class="thumbnail">
 <p><a href="./posts/2_DV2022/2023-09-20-03wk-2.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -498,41 +555,6 @@ Sep 20, 2023
 </div>
 <div class="listing-author">
 JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="9" data-categories="파이썬의 자료형" data-listing-date-sort="1695135600000" data-listing-file-modified-sort="1695689025960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1427">
-<div class="thumbnail">
-<p><a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html">
-<h3 class="no-anchor listing-title">
-04wk-1: 파이썬의 자료형 (6) – O
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('파이썬의 자료형'); return false;">
-파이썬의 자료형
-</div>
-</div>
-<a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html">
-<div class="listing-description">
-인덱싱고급 (스트라이딩), if문이 포함된 컴프리헨션
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html">
-<div class="listing-date">
-Sep 20, 2023
-</div>
-<div class="listing-author">
-jiyunLim
 </div>
 </a>
 </div>
@@ -600,35 +622,7 @@ JiyunLim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="12" data-listing-date-sort="1694962800000" data-listing-file-modified-sort="1695689026232" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
-<div class="thumbnail">
-<p><a href="./posts/4_DL2023/2023-09-18-DL-3wk.html"> <p class="card-img-top"><img src="posts/4_DL2023/2023-09-18-DL-3wk_files/figure-html/41ef1b7b-915b-4f96-a840-a5ab37212753-1-d4958b9b-ca62-429c-a1f9-50e1987e364f.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/4_DL2023/2023-09-18-DL-3wk.html">
-<h3 class="no-anchor listing-title">
-<strong>[DL]</strong> 3wk. Applied Math and Machine Learning Basics (2)
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-<code>-</code> 독립 : 공간을 줄여도 차지하는 비중은 달라지지 않는다.
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/4_DL2023/2023-09-18-DL-3wk.html">
-<div class="listing-date">
-Sep 18, 2023
-</div>
-<div class="listing-author">
-JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="13" data-categories="파이썬의 자료형" data-listing-date-sort="1694962800000" data-listing-file-modified-sort="1695689025960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="706">
+<div class="quarto-post image-right" data-index="12" data-categories="파이썬의 자료형" data-listing-date-sort="1694962800000" data-listing-file-modified-sort="1695689025960" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="706">
 <div class="thumbnail">
 <p><a href="./posts/1_IP2022/01_자료형/2023-03-20-3wk-1.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -659,6 +653,34 @@ Sep 18, 2023
 </div>
 <div class="listing-author">
 jiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="13" data-listing-date-sort="1694962800000" data-listing-file-modified-sort="1695689026232" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27">
+<div class="thumbnail">
+<p><a href="./posts/4_DL2023/2023-09-18-DL-3wk.html"> <p class="card-img-top"><img src="posts/4_DL2023/2023-09-18-DL-3wk_files/figure-html/41ef1b7b-915b-4f96-a840-a5ab37212753-1-d4958b9b-ca62-429c-a1f9-50e1987e364f.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_DL2023/2023-09-18-DL-3wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[DL]</strong> 3wk. Applied Math and Machine Learning Basics (2)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+<code>-</code> 독립 : 공간을 줄여도 차지하는 비중은 달라지지 않는다.
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_DL2023/2023-09-18-DL-3wk.html">
+<div class="listing-date">
+Sep 18, 2023
+</div>
+<div class="listing-author">
+JiyunLim
 </div>
 </a>
 </div>
@@ -923,25 +945,53 @@ JiyunLim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="112">
+<div class="quarto-post image-right" data-index="22" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="137">
 <div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/7_study/7_ds2023/2023-09-12-python.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
 <div class="body">
-<a href="./posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html">
+<a href="./posts/7_study/7_ds2023/2023-09-12-python.html">
 <h3 class="no-anchor listing-title">
-02wk-007: 타이타닉, Autogluon (Fsize,Drop)
+2wk 환경설정 및 파이썬 기초
 </h3>
 <div class="listing-subtitle">
 
 </div>
 <div class="listing-description">
-Autogluon (Fsize, Drop SibSp/Parch)
+<code>!</code>는 시스템 쉘에서 쓰는 명령어. (컴퓨터 자체한테 일을 시키는 것.)
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html">
+<a href="./posts/7_study/7_ds2023/2023-09-12-python.html">
+<div class="listing-date">
+Sep 12, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="23" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="85">
+<div class="thumbnail">
+<p><a href="./posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html">
+<h3 class="no-anchor listing-title">
+02wk-008: 타이타닉, Autogluon (best_quality)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+https://youtu.be/playlist?list=PLQqh36zP38-x6USW3HM9Lm-B19o9qrm19&amp;si=EFy8hdlgDJ-LUFHi
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html">
 <div class="listing-date">
 Sep 12, 2023
 </div>
@@ -951,63 +1001,7 @@ Sep 12, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="23" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="77">
-<div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html">
-<h3 class="no-anchor listing-title">
-02wk-006: 타이타닉, Autogluon (Fsize)
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-zEjYbXMD4e-nS0_-nx9Zac&amp;si=eA9ME6Pe4ecmtIgi
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html">
-<div class="listing-date">
-Sep 12, 2023
-</div>
-<div class="listing-author">
-최규빈
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="24" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="430">
-<div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
-</div>
-<div class="body">
-<a href="./posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html">
-<h3 class="no-anchor listing-title">
-02wk-003: 타이타닉, 첫 제출
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-zw88937ohvzYyltCjK-_mg&amp;si=gQE8ICf9c9TvFaxy
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html">
-<div class="listing-date">
-Sep 12, 2023
-</div>
-<div class="listing-author">
-최규빈
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="25" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="86">
+<div class="quarto-post image-right" data-index="24" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="86">
 <div class="thumbnail">
 <p><a href="./posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out-Copy1.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -1035,25 +1029,53 @@ Sep 12, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="26" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1843">
+<div class="quarto-post image-right" data-index="25" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="112">
 <div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
 <div class="body">
-<a href="./posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html">
+<a href="./posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html">
 <h3 class="no-anchor listing-title">
-02wk-004: 타이타닉, Alexis Cook의 코드
+02wk-007: 타이타닉, Autogluon (Fsize,Drop)
 </h3>
 <div class="listing-subtitle">
 
 </div>
 <div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-yR3MqhN9-OgAtewojoYoKD&amp;si=U1GTMdGiWFvlppYH
+Autogluon (Fsize, Drop SibSp/Parch)
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html">
+<a href="./posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html">
+<div class="listing-date">
+Sep 12, 2023
+</div>
+<div class="listing-author">
+최규빈
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="26" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="77">
+<div class="thumbnail">
+<p><a href="./posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html">
+<h3 class="no-anchor listing-title">
+02wk-006: 타이타닉, Autogluon (Fsize)
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+https://youtu.be/playlist?list=PLQqh36zP38-zEjYbXMD4e-nS0_-nx9Zac&amp;si=eA9ME6Pe4ecmtIgi
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html">
 <div class="listing-date">
 Sep 12, 2023
 </div>
@@ -1091,25 +1113,25 @@ Sep 12, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="28" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="85">
+<div class="quarto-post image-right" data-index="28" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="10" data-listing-word-count-sort="1843">
 <div class="thumbnail">
-<p><a href="./posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
 <div class="body">
-<a href="./posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html">
+<a href="./posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html">
 <h3 class="no-anchor listing-title">
-02wk-008: 타이타닉, Autogluon (best_quality)
+02wk-004: 타이타닉, Alexis Cook의 코드
 </h3>
 <div class="listing-subtitle">
 
 </div>
 <div class="listing-description">
-https://youtu.be/playlist?list=PLQqh36zP38-x6USW3HM9Lm-B19o9qrm19&amp;si=EFy8hdlgDJ-LUFHi
+https://youtu.be/playlist?list=PLQqh36zP38-yR3MqhN9-OgAtewojoYoKD&amp;si=U1GTMdGiWFvlppYH
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html">
+<a href="./posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html">
 <div class="listing-date">
 Sep 12, 2023
 </div>
@@ -1119,63 +1141,35 @@ Sep 12, 2023
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="29" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026984" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="137">
+<div class="quarto-post image-right" data-index="29" data-listing-date-sort="1694444400000" data-listing-file-modified-sort="1695689026248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="430">
 <div class="thumbnail">
-<p><a href="./posts/7_study/7_ds2023/2023-09-12-python.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
 <div class="body">
-<a href="./posts/7_study/7_ds2023/2023-09-12-python.html">
+<a href="./posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html">
 <h3 class="no-anchor listing-title">
-2wk 환경설정 및 파이썬 기초
+02wk-003: 타이타닉, 첫 제출
 </h3>
 <div class="listing-subtitle">
 
 </div>
 <div class="listing-description">
-<code>!</code>는 시스템 쉘에서 쓰는 명령어. (컴퓨터 자체한테 일을 시키는 것.)
+https://youtu.be/playlist?list=PLQqh36zP38-zw88937ohvzYyltCjK-_mg&amp;si=gQE8ICf9c9TvFaxy
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/7_study/7_ds2023/2023-09-12-python.html">
+<a href="./posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html">
 <div class="listing-date">
 Sep 12, 2023
 </div>
 <div class="listing-author">
-JiyunLim
+최규빈
 </div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="30" data-listing-date-sort="1694358000000" data-listing-file-modified-sort="1695689026232" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="636">
-<div class="thumbnail">
-<p><a href="./posts/4_DL2023/2023-09-11-DL-2wk.html"> <p class="card-img-top"><img data-src="posts/4_DL2023/2023-09-11-DL-2wk_files/figure-html/f6b70f10-6309-411a-b82d-d4bc4bf42867-1-cd7cd15d-e0ae-4898-9e64-572c121393d5.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/4_DL2023/2023-09-11-DL-2wk.html">
-<h3 class="no-anchor listing-title">
-<strong>[DL]</strong> 2wk. Applied Math and Machine Learning Basics
-</h3>
-<div class="listing-subtitle">
-
-</div>
-<div class="listing-description">
-이번주 선형대수 // 다음주 확률 // optimization
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/4_DL2023/2023-09-11-DL-2wk.html">
-<div class="listing-date">
-Sep 11, 2023
-</div>
-<div class="listing-author">
-JiyunLim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="31" data-listing-date-sort="1694358000000" data-listing-file-modified-sort="1695689026936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="308">
+<div class="quarto-post image-right" data-index="30" data-listing-date-sort="1694358000000" data-listing-file-modified-sort="1695689026936" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="308">
 <div class="thumbnail">
 <p><a href="./posts/7_study/6_as2023/2023-09-11.html"> <p class="card-img-top"><img data-src="posts/7_study/6_as2023/2023-09-11_files/figure-html/07349615-01c0-4e54-a290-e3500b0f46a3-1-99cbc32c-cb73-4a5b-9b71-9de2e52d0418.png"  class="thumbnail-image card-img"/></p> </a></p>
 </div>
@@ -1194,6 +1188,34 @@ JiyunLim
 </div>
 <div class="metadata">
 <a href="./posts/7_study/6_as2023/2023-09-11.html">
+<div class="listing-date">
+Sep 11, 2023
+</div>
+<div class="listing-author">
+JiyunLim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="31" data-listing-date-sort="1694358000000" data-listing-file-modified-sort="1695689026232" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="636">
+<div class="thumbnail">
+<p><a href="./posts/4_DL2023/2023-09-11-DL-2wk.html"> <p class="card-img-top"><img data-src="posts/4_DL2023/2023-09-11-DL-2wk_files/figure-html/f6b70f10-6309-411a-b82d-d4bc4bf42867-1-cd7cd15d-e0ae-4898-9e64-572c121393d5.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/4_DL2023/2023-09-11-DL-2wk.html">
+<h3 class="no-anchor listing-title">
+<strong>[DL]</strong> 2wk. Applied Math and Machine Learning Basics
+</h3>
+<div class="listing-subtitle">
+
+</div>
+<div class="listing-description">
+이번주 선형대수 // 다음주 확률 // optimization
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/4_DL2023/2023-09-11-DL-2wk.html">
 <div class="listing-date">
 Sep 11, 2023
 </div>
@@ -2312,45 +2334,7 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="66" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="176">
-<div class="thumbnail">
-<p><a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html"> <p class="card-img-top"><img data-src="posts/1_IP2022/03_Class/2023-02-23-class6_files/figure-html/cell-57-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html">
-<h3 class="no-anchor listing-title">
-class 6단계
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('class'); return false;">
-class
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-</div>
-<a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html">
-<div class="listing-description">
-상속, 사용자정의 자료형
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html">
-<div class="listing-date">
-Feb 23, 2023
-</div>
-<div class="listing-author">
-jiyun Lim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="67" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="391">
+<div class="quarto-post image-right" data-index="66" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="391">
 <div class="thumbnail">
 <p><a href="./posts/1_IP2022/03_Class/2023-02-23-class9.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -2388,7 +2372,7 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="68" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="400">
+<div class="quarto-post image-right" data-index="67" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="400">
 <div class="thumbnail">
 <p><a href="./posts/1_IP2022/03_Class/2023-02-23-class8.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -2426,45 +2410,7 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="69" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
-<div class="thumbnail">
-<p><a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html"> <p class="card-img-top"><img data-src="posts/1_IP2022/03_Class/2023-02-23-class10_files/figure-html/cell-19-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html">
-<h3 class="no-anchor listing-title">
-class 10단계
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('class'); return false;">
-class
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-</div>
-<a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html">
-<div class="listing-description">
-문자열 join, matplotlib, 참조와 에일리어싱
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html">
-<div class="listing-date">
-Feb 23, 2023
-</div>
-<div class="listing-author">
-jiyun Lim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="70" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="348">
+<div class="quarto-post image-right" data-index="68" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="348">
 <div class="thumbnail">
 <p><a href="./posts/1_IP2022/03_Class/2023-02-23-class7.html"> <p class="card-img-top"><img data-src="posts/1_IP2022/03_Class/2023-02-23-class7_files/figure-html/cell-22-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
 </div>
@@ -2502,7 +2448,45 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="71" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="207">
+<div class="quarto-post image-right" data-index="69" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="176">
+<div class="thumbnail">
+<p><a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html"> <p class="card-img-top"><img data-src="posts/1_IP2022/03_Class/2023-02-23-class6_files/figure-html/cell-57-output-2.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html">
+<h3 class="no-anchor listing-title">
+class 6단계
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('class'); return false;">
+class
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html">
+<div class="listing-description">
+상속, 사용자정의 자료형
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/1_IP2022/03_Class/2023-02-23-class6.html">
+<div class="listing-date">
+Feb 23, 2023
+</div>
+<div class="listing-author">
+jiyun Lim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="70" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="207">
 <div class="thumbnail">
 <p><a href="./posts/1_IP2022/03_Class/2023-02-23-class5.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -2531,6 +2515,44 @@ Python
 </div>
 <div class="metadata">
 <a href="./posts/1_IP2022/03_Class/2023-02-23-class5.html">
+<div class="listing-date">
+Feb 23, 2023
+</div>
+<div class="listing-author">
+jiyun Lim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="71" data-categories="class,Python" data-listing-date-sort="1677078000000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="347">
+<div class="thumbnail">
+<p><a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html"> <p class="card-img-top"><img data-src="posts/1_IP2022/03_Class/2023-02-23-class10_files/figure-html/cell-19-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
+</div>
+<div class="body">
+<a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html">
+<h3 class="no-anchor listing-title">
+class 10단계
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('class'); return false;">
+class
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html">
+<div class="listing-description">
+문자열 join, matplotlib, 참조와 에일리어싱
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/1_IP2022/03_Class/2023-02-23-class10.html">
 <div class="listing-date">
 Feb 23, 2023
 </div>
@@ -2619,7 +2641,45 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="74" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
+<div class="quarto-post image-right" data-index="74" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="733">
+<div class="thumbnail">
+<p><a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+</div>
+<div class="body">
+<a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html">
+<h3 class="no-anchor listing-title">
+class 4단계
+</h3>
+<div class="listing-subtitle">
+
+</div>
+</a>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('class'); return false;">
+class
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
+Python
+</div>
+</div>
+<a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html">
+<div class="listing-description">
+프린트 가로채기 <code>__str__</code>, <code>__repr__</code> (파이썬의 비밀2,3)
+</div>
+</a>
+</div>
+<div class="metadata">
+<a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html">
+<div class="listing-date">
+Feb 15, 2023
+</div>
+<div class="listing-author">
+jiyun Lim
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="75" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="153">
 <div class="thumbnail">
 <p><a href="./posts/1_IP2022/03_Class/2023-02-15-class3.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
 </div>
@@ -2648,44 +2708,6 @@ Python
 </div>
 <div class="metadata">
 <a href="./posts/1_IP2022/03_Class/2023-02-15-class3.html">
-<div class="listing-date">
-Feb 15, 2023
-</div>
-<div class="listing-author">
-jiyun Lim
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="75" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1695689026012" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="311">
-<div class="thumbnail">
-<p><a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html"> <p class="card-img-top"><img data-src="posts/1_IP2022/03_Class/2023-02-15-class1_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
-</div>
-<div class="body">
-<a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html">
-<h3 class="no-anchor listing-title">
-class 1단계
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('class'); return false;">
-class
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Python'); return false;">
-Python
-</div>
-</div>
-<a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html">
-<div class="listing-description">
-클래스 선언 및 사용 예시
-</div>
-</a>
-</div>
-<div class="metadata">
-<a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html">
 <div class="listing-date">
 Feb 15, 2023
 </div>
@@ -2733,14 +2755,14 @@ jiyun Lim
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="77" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1695689026028" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="733">
+<div class="quarto-post image-right" data-index="77" data-categories="class,Python" data-listing-date-sort="1676386800000" data-listing-file-modified-sort="1695689026012" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="311">
 <div class="thumbnail">
-<p><a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html"> <div class="listing-item-img-placeholder card-img-top" >&nbsp;</div> </a></p>
+<p><a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html"> <p class="card-img-top"><img data-src="posts/1_IP2022/03_Class/2023-02-15-class1_files/figure-html/cell-4-output-1.png"  class="thumbnail-image card-img"/></p> </a></p>
 </div>
 <div class="body">
-<a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html">
+<a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html">
 <h3 class="no-anchor listing-title">
-class 4단계
+class 1단계
 </h3>
 <div class="listing-subtitle">
 
@@ -2754,14 +2776,14 @@ class
 Python
 </div>
 </div>
-<a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html">
+<a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html">
 <div class="listing-description">
-프린트 가로채기 <code>__str__</code>, <code>__repr__</code> (파이썬의 비밀2,3)
+클래스 선언 및 사용 예시
 </div>
 </a>
 </div>
 <div class="metadata">
-<a href="./posts/1_IP2022/03_Class/2023-02-15-class4.html">
+<a href="./posts/1_IP2022/03_Class/2023-02-15-class1.html">
 <div class="listing-date">
 Feb 15, 2023
 </div>
