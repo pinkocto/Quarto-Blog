@@ -21,13 +21,13 @@
   {
     "listing": "/1_ip2022.html",
     "items": [
-      "/posts/1_IP2022/01_자료형/2023-03-22-3wk-2.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-08-1wk-2.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html",
       "/posts/1_IP2022/01_자료형/2023-03-29-4wk-2.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-15-2wk-2.out.html",
+      "/posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html",
+      "/posts/1_IP2022/01_자료형/2023-03-22-3wk-2.out.html",
       "/posts/1_IP2022/01_자료형/2023-03-20-3wk-1.out.html",
+      "/posts/1_IP2022/01_자료형/2023-03-15-2wk-2.out.html",
       "/posts/1_IP2022/01_자료형/2023-03-13-2wk-1.out.html",
+      "/posts/1_IP2022/01_자료형/2023-03-08-1wk-2.out.html",
       "/posts/1_IP2022/2023-06-21-13wk-1.html",
       "/posts/1_IP2022/02_DataScience/2023-03-14-pandas2.html",
       "/posts/1_IP2022/02_DataScience/2023-03-13-pandas1.html",
@@ -57,7 +57,6 @@
       "/posts/5_STBDA2023/03wk-013.out.html",
       "/posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html",
       "/posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html",
-      "/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html",
       "/posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html",
       "/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out-Copy1.html",
       "/posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html",
@@ -65,7 +64,8 @@
       "/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html",
       "/posts/5_STBDA2023/02wk-00-itanic-advanced-feature-engineering-tutorial.html",
       "/posts/5_STBDA2023/01wk-002-타이타닉, 데이터의 이해.out.html",
-      "/posts/5_STBDA2023/01wk-hw1.html"
+      "/posts/5_STBDA2023/01wk-hw1.html",
+      "/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html"
     ]
   },
   {
@@ -120,13 +120,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/1_IP2022/01_자료형/2023-03-22-3wk-2.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-08-1wk-2.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-29-4wk-2.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-15-2wk-2.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-20-3wk-1.out.html",
-      "/posts/1_IP2022/01_자료형/2023-03-13-2wk-1.out.html",
       "/posts/2_DV2022/2023-09-25-04wk-1.html",
       "/posts/4_DL2023/2023-09-25-DL-4wk.html",
       "/posts/5_STBDA2023/03wk-011.out.html",
@@ -134,17 +127,23 @@
       "/posts/5_STBDA2023/03wk-009.out.html",
       "/posts/5_STBDA2023/03wk-012.out.html",
       "/posts/5_STBDA2023/03wk-013.out.html",
+      "/posts/1_IP2022/01_자료형/2023-03-29-4wk-2.out.html",
       "/posts/2_DV2022/2023-09-20-03wk-2.html",
+      "/posts/1_IP2022/01_자료형/2023-03-27-4wk-1.out.html",
       "/posts/7_study/7_ds2023/2023-09-19-graph2.html",
+      "/posts/1_IP2022/01_자료형/2023-03-22-3wk-2.out.html",
       "/posts/4_DL2023/2023-09-18-DL-3wk.html",
+      "/posts/1_IP2022/01_자료형/2023-03-20-3wk-1.out.html",
+      "/posts/1_IP2022/01_자료형/2023-03-15-2wk-2.out.html",
+      "/posts/1_IP2022/01_자료형/2023-03-13-2wk-1.out.html",
       "/posts/6_note/2023-09-15-autogluon_smartfarm.html",
+      "/posts/1_IP2022/01_자료형/2023-03-08-1wk-2.out.html",
       "/posts/6_note/2023-09-14-autogluon_ts.html",
       "/posts/7_study/7_ds2023/2023-09-14-graph.html",
       "/posts/7_study/6_as2023/2023-09-18.html",
       "/posts/7_study/6_as2023/2023-09-13.html",
       "/posts/5_STBDA2023/02wk-007-타이타닉, Autogluon (Fsize,Drop).out.html",
       "/posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html",
-      "/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html",
       "/posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html",
       "/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out-Copy1.html",
       "/posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html",
@@ -203,7 +202,8 @@
       "/posts/2_DV2022/2022-10-06-5wk-2.html",
       "/posts/2_DV2022/2022-10-03-5wk-1.html",
       "/posts/1_IP2022/04_시험/2022_06_09_2021년_파이썬입문_기말고사_(풀이포함).html",
-      "/posts/2_DV2022/2022-10-17-7wk-1.html"
+      "/posts/2_DV2022/2022-10-17-7wk-1.html",
+      "/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html"
     ]
   }
 ]
