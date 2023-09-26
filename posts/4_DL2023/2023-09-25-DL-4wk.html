@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2023-09-25">
 
-<title>Quarto-Blog - DL2023</title>
+<title>Quarto-Blog - [DL] 4wk. Numerical Computation and Machine Learning Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,40 +66,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -109,7 +80,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
@@ -120,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -139,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">DL2023</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>[DL]</strong> 4wk. Numerical Computation and Machine Learning Basics</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,7 +120,35 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title"><strong>[DL]</strong> 4wk. Numerical Computation and Machine Learning Basics</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 25, 2023</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -161,31 +160,31 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_ip2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_dv2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_stbda2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_stbda2023.html" class="sidebar-item-text sidebar-link">
+  <a href="../../5_stbda2023.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STBDA2023</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7_study.html" class="sidebar-item-text sidebar-link">
+  <a href="../../7_study.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STUDY</span></a>
   </div>
 </li>
@@ -194,100 +193,129 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#numerical-computation-i" id="toc-numerical-computation-i" class="nav-link active" data-scroll-target="#numerical-computation-i">Numerical Computation I</a></li>
+  <li><a href="#numerical-computation-xii" id="toc-numerical-computation-xii" class="nav-link" data-scroll-target="#numerical-computation-xii">Numerical Computation XII</a></li>
+  <li><a href="#numerical-computation-xiii" id="toc-numerical-computation-xiii" class="nav-link" data-scroll-target="#numerical-computation-xiii">Numerical Computation XIII</a></li>
+  <li><a href="#numerical-computation-xiv" id="toc-numerical-computation-xiv" class="nav-link" data-scroll-target="#numerical-computation-xiv">Numerical Computation XIV</a></li>
+  <li><a href="#numerical-computation-xv" id="toc-numerical-computation-xv" class="nav-link" data-scroll-target="#numerical-computation-xv">Numerical Computation XV</a></li>
+  <li><a href="#numerical-computation-xvi" id="toc-numerical-computation-xvi" class="nav-link" data-scroll-target="#numerical-computation-xvi">Numerical Computation XVI</a></li>
+  <li><a href="#numerical-computation-xvii" id="toc-numerical-computation-xvii" class="nav-link" data-scroll-target="#numerical-computation-xvii">Numerical Computation XVII</a></li>
+  <li><a href="#numerical-computation-xviii" id="toc-numerical-computation-xviii" class="nav-link" data-scroll-target="#numerical-computation-xviii">Numerical Computation XVIII</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page-right" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">DL2023</h1>
+
+
+
+<section id="numerical-computation-i" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-i">Numerical Computation I</h2>
+<p><strong><em><font color="red">1. Overflow and Underflow</font></em></strong></p>
+<ul>
+<li>Basic limit: Computers use only finite bytes in calculating numerical values in various operations (rounding error/quantization).</li>
+<li>Underflow: Nearly 0 becomes 0 (log operation can fail).</li>
+<li>Overflow: Going to infinite.</li>
+</ul>
+</section>
+<section id="numerical-computation-xii" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-xii">Numerical Computation XII</h2>
+<ul>
+<li>Local minimum
+<ul>
+<li><span class="math inline">\(u^\top H u\)</span> is positive for all <span class="math inline">\(u\)</span> (positive definite <span class="math inline">\(H\)</span>).</li>
+</ul></li>
+<li>Local maximum
+<ul>
+<li><span class="math inline">\(u^\top H u\)</span> is negative for all <span class="math inline">\(u\)</span> (negative definite <span class="math inline">\(H\)</span>).</li>
+</ul></li>
+<li>Saddle point
+<ul>
+<li><span class="math inline">\(u^\top H u\)</span> is negative/positive for some <span class="math inline">\(u\)</span>.</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-09-25-DL-4wk_files/figure-html/3ccba42b-0ac0-4d78-a1f0-d73babd4dae8-1-a3c35b20-fbed-415c-b48f-68fcdf85ef44.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure4: Example of a saddle point.</figcaption>
+</figure>
 </div>
-
-
-
-<div class="quarto-title-meta column-page-right">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-listing-date-sort="1695567600000" data-listing-file-modified-sort="1695642704801" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="346" data-listing-title-sort="**[DL]** 4wk. Numerical Computation and Machine Learning Basics" data-listing-filename-sort="2023-09-25-DL-4wk.ipynb">
-<td>
-<span class="listing-date">Sep 25, 2023</span>
-</td>
-<td>
-<a href="./posts/4_DL2023/2023-09-25-DL-4wk.html" class="title listing-title"><strong>[DL]</strong> 4wk. Numerical Computation and Machine Learning Basics</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="1" data-listing-date-sort="1694962800000" data-listing-file-modified-sort="1695268733000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="27" data-listing-title-sort="**[DL]** 3wk. Applied Math and Machine Learning Basics (2)" data-listing-filename-sort="2023-09-18-DL-3wk.ipynb">
-<td>
-<span class="listing-date">Sep 18, 2023</span>
-</td>
-<td>
-<a href="./posts/4_DL2023/2023-09-18-DL-3wk.html" class="title listing-title"><strong>[DL]</strong> 3wk. Applied Math and Machine Learning Basics (2)</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="2" data-listing-date-sort="1694358000000" data-listing-file-modified-sort="1695268733000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="636" data-listing-title-sort="**[DL]** 2wk. Applied Math and Machine Learning Basics" data-listing-filename-sort="2023-09-11-DL-2wk.ipynb">
-<td>
-<span class="listing-date">Sep 11, 2023</span>
-</td>
-<td>
-<a href="./posts/4_DL2023/2023-09-11-DL-2wk.html" class="title listing-title"><strong>[DL]</strong> 2wk. Applied Math and Machine Learning Basics</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="3" data-listing-date-sort="1693753200000" data-listing-file-modified-sort="1695268733000" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="240" data-listing-title-sort="딥러닝" data-listing-filename-sort="2023-09-04-DL-1wk.ipynb">
-<td>
-<span class="listing-date">Sep 4, 2023</span>
-</td>
-<td>
-<a href="./posts/4_DL2023/2023-09-04-DL-1wk.html" class="title listing-title">딥러닝</a>
-</td>
-<td>
-<span class="listing-author">jiyunLim </span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+</section>
+<section id="numerical-computation-xiii" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-xiii">Numerical Computation XIII</h2>
+<ul>
+<li>Note that the change of gradient w.r.t. each coordinate can be different.</li>
+<li>Newton’s method (second order approximation).</li>
+</ul>
+<p><span class="math display">\[f(x) \approx f(x_0) + (x-x_0)^\top \nabla_x f(x_0) + (x-x_0)^\top H(f)(x_0)(x-x_0)\]</span></p>
+<p><span class="math display">\[x^* = x_0 - H(f)(x_0)^{-1}\nabla_x f(x_0)\]</span></p>
+<p>Hessian이 크다? 곡률이크다</p>
+<p>곡률이 크면 천천히 움직이고, 곡률이 작으면 빠르게 움직인다.</p>
+<p>Optimal하게 움직일 수 있게 해준다.</p>
+</section>
+<section id="numerical-computation-xiv" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-xiv">Numerical Computation XIV</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="2023-09-25-DL-4wk_files/figure-html/37ecd9f9-dfe3-4bca-86ce-0857c6cc0f49-1-fdc7eceb-bcdb-4088-9a4a-d82ab2b39352.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure 5</figcaption>
+</figure>
 </div>
-</div></main> <!-- /main -->
+<ul>
+<li>Hessian을 쓰면 지그재그로 안가고 직선으로 갈 수 있다.</li>
+</ul>
+<p><code>-</code> Restriction on a function <span class="math inline">\(f\)</span>, Lipschitz continuous.</p>
+<p><span class="math display">\[\forall x,y |f(x)-f(y)| \leq \cal{L}||x-y||.\]</span></p>
+</section>
+<section id="numerical-computation-xv" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-xv">Numerical Computation XV</h2>
+<p>Ideas from the analysis of convex optimization algorithms can be helpful in proving the convergence of deep learning algorithms, but in general, the importance of convex optimization is greatly diminished in the context of deep learning.</p>
+</section>
+<section id="numerical-computation-xvi" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-xvi">Numerical Computation XVI</h2>
+<p><strong><em><font color="red">4. Constrained Optimization</font></em></strong></p>
+<p><span class="math display">\[\arg \min_x f(x) \text{ subject to } x \in \cal{S}.\]</span></p>
+<ul>
+<li>Here, points that lie within the set <span class="math inline">\(\cal{S}\)</span> are called feasible points.</li>
+<li>Simple approach: projection into <span class="math inline">\(\cal{S}\)</span> when <span class="math inline">\(x = x − \epsilon ∇x f(x).\)</span></li>
+<li>Structured approach: <span class="math inline">\(f(x, y) = f (\theta)\)</span> where <span class="math inline">\(x = \sin(\theta)\)</span>, <span class="math inline">\(y = \cos(\theta)\)</span>. Searching minimizing with a constraint <span class="math inline">\(\sqrt{x^2 + y^2}=1\)</span></li>
+</ul>
+</section>
+<section id="numerical-computation-xvii" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-xvii">Numerical Computation XVII</h2>
+<ul>
+<li><p>Karush–Kuhn–Tucker(KKT) approach provides a very general solution to constrained optimization</p></li>
+<li><p>setup</p></li>
+</ul>
+<ol type="1">
+<li><span class="math inline">\(\cal S = \{\forall_i, g(x)=0, \forall j, h(x) \leq 0 \}\)</span></li>
+<li>Object: <span class="math inline">\(\min_{x\in {\cal S}} f(x).\)</span></li>
+<li>Generalized Lagrangian.</li>
+</ol>
+<p><span class="math display">\[L(x, \lambda, \alpha) = f(x) + \sum_{i=1}^m \lambda_i g_i(x) + \sum_{j=1}^n \alpha_j h_j(x), \quad \text{  where  } \lambda_i &gt; 0 \text{  and  } \alpha_j \geq 0 \]</span></p>
+</section>
+<section id="numerical-computation-xviii" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-computation-xviii">Numerical Computation XVIII</h2>
+<ul>
+<li>Goal: <span class="math inline">\(\min_{x\in \cal{S}} f(x) = \min_x \max_{\lambda} \max_{\alpha\geq 0}L(x,\lambda, \alpha).\)</span></li>
+</ul>
+<blockquote class="blockquote">
+<p>강의록 읽어보고 생각정리 및 질문 생각해오기. (토론)</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>슬라이드에 있는 머신러닝 Basic과 연관이 되어있으면 좋음…</p>
+</blockquote>
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
