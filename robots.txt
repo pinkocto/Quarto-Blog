@@ -1,1 +1,0 @@
-Sitemap: https://pinkocto.github.io/Quarto-Blog/sitemap.xml
