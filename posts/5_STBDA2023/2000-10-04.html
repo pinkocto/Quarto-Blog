@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="JiyunLim">
+<meta name="dcterms.date" content="2000-01-01">
 
-<title>Quarto-Blog - DV2022</title>
+<title>Quarto-Blog - Kaggle 리눅스 세팅</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,40 +66,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -109,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Quarto-Blog</span>
     </a>
   </div>
@@ -120,7 +89,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
@@ -139,7 +108,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_dv2022.html">DV2022</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Kaggle 리눅스 세팅</li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -149,7 +118,35 @@ ul.task-list li input[type="checkbox"] {
   </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Kaggle 리눅스 세팅</h1>
+                      </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>JiyunLim </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 1, 2000</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -161,31 +158,31 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./1_ip2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../1_ip2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">IP2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./2_dv2022.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../2_dv2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DV2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./3_stbda2022.html" class="sidebar-item-text sidebar-link">
+  <a href="../../3_stbda2022.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STBDA2022</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./5_stbda2023.html" class="sidebar-item-text sidebar-link">
+  <a href="../../5_stbda2023.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STBDA2023</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./7_study.html" class="sidebar-item-text sidebar-link">
+  <a href="../../7_study.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">STUDY</span></a>
   </div>
 </li>
@@ -195,186 +192,41 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#contents" id="toc-contents" class="nav-link active" data-scroll-target="#contents">Contents</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
-<main class="content column-body" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">DV2022</h1>
-</div>
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
-<div class="quarto-title-meta column-body">
 
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-<p>This page is organized based on the contents of the <a href="https://guebin.github.io/DV2022/">Data Visualization (2022-2)</a> and lecture notes of Professor Guebin Choi of Jeonbuk National University.</p>
-<section id="contents" class="level2">
-<h2 class="anchored" data-anchor-id="contents">Contents</h2>
-<p><strong><em>1. 시각화 차트 소개</em></strong></p>
-<ul>
-<li>boxplot, histogram, lineplot, scatterplot</li>
-</ul>
-<p><strong><em>2. 파이썬 데이터 시각화 패키지 사용법</em></strong></p>
-<ul>
-<li>matplotlib, seaborn, plotnine/ggplot2</li>
-</ul>
-<p><strong><em>3. 데이터 시각화와 통계적 해석</em></strong></p>
-<ul>
-<li>히스토그램 이퀄라이제이션</li>
-<li>표본상관계수, 앤스콤의 플랏, 무상관, 무상관과 독립</li>
-</ul>
-<p><strong><em>4. Data Wrangling</em></strong></p>
-<ul>
-<li>lambda, map</li>
-<li>pandas: indexing</li>
-</ul>
-<p><strong><em>5. 인포그래픽과 데이터시각화</em></strong></p>
-<ul>
-<li>나이젤홈즈와 애드워드터프티, 찰스미나드의 도표</li>
-</ul>
+<p><strong><code>step1</code></strong> Kaggle 홈페이지에서 kaggle.json 다운로드</p>
+<p>다운로드 받은 파일 원하는 위치로 이동 (ex. Dropbox)</p>
+<p><strong><code>step2</code></strong> 터미널에서 확인</p>
+<pre><code>ls /home/jy/.kaggle.</code></pre>
+<blockquote class="blockquote">
+<p>ls: cannot access ‘/home/jy/.kaggle.’: No such file or directory</p>
+</blockquote>
+<p>현대 디렉토리에 <code>.kaggle</code> 이 없다?</p>
+<p>Dropbox에서 <code>ls</code>로 파일 리스트를 확인해보면</p>
+<p><strong><code>step3</code></strong> home/jy/ 위치에 다운로드 받은 kaggle.json 복사</p>
+<pre><code>cp kaggle.json /home/jy/.kaggle
+ls /home/jy/.kaggle
+# kaggle.json (복사된 kagglg.json)</code></pre>
+<p><strong><code>(참고)</code></strong></p>
+<pre><code># for 보안
+chmod 600 /home/jy/.kaggle/kaggle.json</code></pre>
+<p><strong><code>step4</code></strong></p>
+<pre><code>!kaggle competitions download -c titanic
+!unzip titanic.zip -d ./titanic
+df_train = pd.read_csv('titanic/train.csv')
+df_test = pd.read_csv('titanic/test.csv')
+!rm titanic.zip
+!rm -rf titanic/</code></pre>
 
 
 
-</section>
-
-<div class="quarto-listing quarto-listing-container-table" id="listing-listing">
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="plotnine" data-listing-date-sort="1697382000000" data-listing-file-modified-sort="1697391830528" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="370" data-listing-title-sort="supp-1: FIFA23 자료의 시각화" data-listing-filename-sort="2023-10-06-05wk-supp.ipynb">
-<td>
-<span class="listing-date">Oct 16, 2023</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2023-10-06-05wk-supp.html" class="title listing-title">supp-1: FIFA23 자료의 시각화</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="1" data-categories="Pandas" data-listing-date-sort="1696345200000" data-listing-file-modified-sort="1696565078556" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="539" data-listing-title-sort="**[DV2023]** 05wk-2: Pandas – transform column (꿀팁)" data-listing-filename-sort="2023-10-04-05wk-2.ipynb">
-<td>
-<span class="listing-date">Oct 4, 2023</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2023-10-04-05wk-2.html" class="title listing-title"><strong>[DV2023]</strong> 05wk-2: Pandas – transform column (꿀팁)</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="2" data-categories="Pandas" data-listing-date-sort="1695567600000" data-listing-file-modified-sort="1696486184266" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="647" data-listing-title-sort="04wk-1: Pandas – 기본기능, missing, query, 할당, transform column" data-listing-filename-sort="2023-09-25-04wk-1.ipynb">
-<td>
-<span class="listing-date">Sep 25, 2023</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2023-09-25-04wk-1.html" class="title listing-title">04wk-1: Pandas – 기본기능, missing, query, 할당, transform column</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="3" data-categories="Pandas,Indexing" data-listing-date-sort="1695135600000" data-listing-file-modified-sort="1695704656248" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1191" data-listing-title-sort="03wk-2: Pandas" data-listing-filename-sort="2023-09-20-03wk-2.ipynb">
-<td>
-<span class="listing-date">Sep 20, 2023</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2023-09-20-03wk-2.html" class="title listing-title">03wk-2: Pandas</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-<tr data-index="4" data-categories="통계와 시각화,plotnine,아이스크림을 많이 먹으면 걸리는 병" data-listing-date-sort="1680361200000" data-listing-file-modified-sort="1695692333342" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="418" data-listing-title-sort="07wk-2 아이스크림을 많이 먹으면 걸리는 병(2)" data-listing-filename-sort="2022-10-19-7wk-2.ipynb">
-<td>
-<span class="listing-date">Apr 2, 2023</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2022-10-19-7wk-2.html" class="title listing-title">07wk-2 아이스크림을 많이 먹으면 걸리는 병(2)</a>
-</td>
-<td>
-<span class="listing-author">jiyunLim </span>
-</td>
-</tr>
-<tr data-index="5" data-categories="통계와 시각화,plotnine" data-listing-date-sort="1680274800000" data-listing-file-modified-sort="1695692333346" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="210" data-listing-title-sort="10wk-2 심슨의 역설" data-listing-filename-sort="2022-11-09-10wk-2.ipynb">
-<td>
-<span class="listing-date">Apr 1, 2023</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2022-11-09-10wk-2.html" class="title listing-title">10wk-2 심슨의 역설</a>
-</td>
-<td>
-<span class="listing-author">jiyunLim </span>
-</td>
-</tr>
-<tr data-index="6" data-categories="훌륭한 시각화,plotnine" data-listing-date-sort="1664982000000" data-listing-file-modified-sort="1695692333342" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="794" data-listing-title-sort="05wk-2" data-listing-filename-sort="2022-10-06-5wk-2.ipynb">
-<td>
-<span class="listing-date">Oct 6, 2022</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2022-10-06-5wk-2.html" class="title listing-title">05wk-2</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-</tr>
-<tr data-index="7" data-categories="seaborn,matplotlib" data-listing-date-sort="1664895600000" data-listing-file-modified-sort="1695692333334" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="82" data-listing-title-sort="05wk-1" data-listing-filename-sort="2022-10-03-5wk-1.ipynb">
-<td>
-<span class="listing-date">Oct 5, 2022</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2022-10-03-5wk-1.html" class="title listing-title">05wk-1</a>
-</td>
-<td>
-<span class="listing-author">최규빈 </span>
-</td>
-</tr>
-<tr data-index="8" data-categories="pandas,통계와 시각화,아이스크림을 많이 먹으면 걸리는 병" data-listing-date-sort="1648825200000" data-listing-file-modified-sort="1695692333342" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="541" data-listing-title-sort="07wk-1 [Pandas] 새로운 열 할당, 아이스크림을 많이 먹으면 걸리는 병(1)" data-listing-filename-sort="2022-10-17-7wk-1.ipynb">
-<td>
-<span class="listing-date">Apr 2, 2022</span>
-</td>
-<td>
-<a href="./posts/2_DV2022/2022-10-17-7wk-1.html" class="title listing-title">07wk-1 [Pandas] 새로운 열 할당, 아이스크림을 많이 먹으면 걸리는 병(1)</a>
-</td>
-<td>
-<span class="listing-author">JiyunLim </span>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
