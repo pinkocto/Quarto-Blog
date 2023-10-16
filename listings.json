@@ -85,6 +85,29 @@
     ]
   },
   {
+    "listing": "/2_dv2022.html",
+    "items": [
+      "/posts/2_DV2022/2023-10-06-05wk-supp.html",
+      "/posts/2_DV2022/2023-10-04-05wk-2.html",
+      "/posts/2_DV2022/2023-09-25-04wk-1.html",
+      "/posts/2_DV2022/2023-09-20-03wk-2.html",
+      "/posts/2_DV2022/2022-10-19-7wk-2.html",
+      "/posts/2_DV2022/2022-11-09-10wk-2.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/2_DV2022/2022-10-17-7wk-1.html"
+    ]
+  },
+  {
+    "listing": "/4_dl2023.html",
+    "items": [
+      "/posts/4_DL2023/2023-09-25-DL-4wk.html",
+      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
+      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
+      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
+    ]
+  },
+  {
     "listing": "/3_stbda2022.html",
     "items": [
       "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
@@ -104,30 +127,6 @@
     ]
   },
   {
-    "listing": "/4_dl2023.html",
-    "items": [
-      "/posts/4_DL2023/2023-09-25-DL-4wk.html",
-      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
-      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
-      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
-    ]
-  },
-  {
-    "listing": "/2_dv2022.html",
-    "items": [
-      "/posts/2_DV2022/2023-10-06-05wk-supp.html",
-      "/posts/2_DV2022/2023-10-06-05wk-supp-Copy1.html",
-      "/posts/2_DV2022/2023-10-04-05wk-2.html",
-      "/posts/2_DV2022/2023-09-25-04wk-1.html",
-      "/posts/2_DV2022/2023-09-20-03wk-2.html",
-      "/posts/2_DV2022/2022-10-19-7wk-2.html",
-      "/posts/2_DV2022/2022-11-09-10wk-2.html",
-      "/posts/2_DV2022/2022-10-06-5wk-2.html",
-      "/posts/2_DV2022/2022-10-03-5wk-1.html",
-      "/posts/2_DV2022/2022-10-17-7wk-1.html"
-    ]
-  },
-  {
     "listing": "/6_note.html",
     "items": [
       "/posts/6_note/2023-09-15-autogluon_smartfarm.html",
@@ -140,7 +139,6 @@
     "listing": "/index.html",
     "items": [
       "/posts/2_DV2022/2023-10-06-05wk-supp.html",
-      "/posts/2_DV2022/2023-10-06-05wk-supp-Copy1.html",
       "/posts/7_study/7_ds2023/2023-10-12-DealingData.html",
       "/posts/5_STBDA2023/06wk-026.html",
       "/posts/5_STBDA2023/06wk-025.html",
