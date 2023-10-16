@@ -13,3 +13,5 @@ title-block-banner: false
 ---
 
 This page is organized based on the contents of the ***2023-2 Special Topics in Big Data Analysis*** lectures and lecture notes of Professor Guebin Choi of Jeonbuk National University.
+
+- [2023STBDA Hompage](https://guebin.github.io/STBDA2023/)
