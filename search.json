@@ -2611,6 +2611,13 @@
     "text": "E. s.astype()\n- 예시1: 원소의 타입을 모두 int형으로 변경\n\ns = pd.Series(list('12345'))\ns\n\n0    1\n1    2\n2    3\n3    4\n4    5\ndtype: object\n\n\n\ns.astype(np.int64)\n\n0    1\n1    2\n2    3\n3    4\n4    5\ndtype: int64\n\n\n- 예시2: 원소별로 (1) 처음3개의 문자열만 취하고 (2) 원소의 타입을 모두 인트형으로 변경\n\ndf = pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/FIFA23_official_data.csv')\ns = df.Height\n\n\ns.str[:3].astype('int')\n\n0        189\n1        179\n2        172\n3        181\n4        172\n        ... \n17655    190\n17656    195\n17657    190\n17658    187\n17659    186\nName: Height, Length: 17660, dtype: int64"
   },
   {
+    "objectID": "posts/2_DV2022/2023-10-16-07wk-1-t.html",
+    "href": "posts/2_DV2022/2023-10-16-07wk-1-t.html",
+    "title": "[DV2023] 07wk-1: Pandas – lambda df:의 활용, MultiIndex의 이해, tidydata의 이해, melt/stack",
+    "section": "",
+    "text": "https://youtu.be/playlist?list=PLQqh36zP38-yK6NIOpCR3OtlDVgglrzTE&si=v3TcGhzIZv7CGC6x"
+  },
+  {
     "objectID": "posts/2_DV2022/2023-10-16-07wk-1-t.html#a.-lambda-df-with-indexer",
     "href": "posts/2_DV2022/2023-10-16-07wk-1-t.html#a.-lambda-df-with-indexer",
     "title": "[DV2023] 07wk-1: Pandas – lambda df:의 활용, MultiIndex의 이해, tidydata의 이해, melt/stack",
