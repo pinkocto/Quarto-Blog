@@ -2,6 +2,7 @@
   {
     "listing": "/7_study.html",
     "items": [
+      "/posts/7_study/5_etc/2023-11-06-pheatmap.html",
       "/posts/7_study/7_ds2023/2023-10-12-DealingData.html",
       "/posts/7_study/7_ds2023/2023-09-26-LinearAlgebra.html",
       "/posts/7_study/7_ds2023/2023-09-19-graph2.html",
@@ -52,6 +53,25 @@
   {
     "listing": "/5_stbda2023.html",
     "items": [
+      "/posts/5_STBDA2023/11wk-040.html",
+      "/posts/5_STBDA2023/11wk-042.html",
+      "/posts/5_STBDA2023/11wk-043.html",
+      "/posts/5_STBDA2023/11wk-041.html",
+      "/posts/5_STBDA2023/A3.html",
+      "/posts/5_STBDA2023/10wk-036.html",
+      "/posts/5_STBDA2023/10wk-038.html",
+      "/posts/5_STBDA2023/10wk-037.html",
+      "/posts/5_STBDA2023/10wk-039.html",
+      "/posts/5_STBDA2023/08wk-supp.html",
+      "/posts/5_STBDA2023/07wk-030.html",
+      "/posts/5_STBDA2023/07wk-033.html",
+      "/posts/5_STBDA2023/07wk-028.html",
+      "/posts/5_STBDA2023/07wk-031.html",
+      "/posts/5_STBDA2023/07wk-029.html",
+      "/posts/5_STBDA2023/07wk-032.html",
+      "/posts/5_STBDA2023/07wk-027.html",
+      "/posts/5_STBDA2023/07wk-035.html",
+      "/posts/5_STBDA2023/07wk-034.html",
       "/posts/5_STBDA2023/06wk-025.html",
       "/posts/5_STBDA2023/06wk-026.html",
       "/posts/5_STBDA2023/06wk-022.html",
@@ -85,6 +105,30 @@
     ]
   },
   {
+    "listing": "/2_dv2022.html",
+    "items": [
+      "/posts/2_DV2022/2023-10-16-07wk-1-t.html",
+      "/posts/2_DV2022/2023-10-06-05wk-supp-t.html",
+      "/posts/2_DV2022/2023-10-04-05wk-2-t.html",
+      "/posts/2_DV2022/2023-09-25-04wk-1-t.html",
+      "/posts/2_DV2022/2023-09-20-03wk-2-t.html",
+      "/posts/2_DV2022/2022-10-19-7wk-2.html",
+      "/posts/2_DV2022/2022-11-09-10wk-2.html",
+      "/posts/2_DV2022/2022-10-06-5wk-2.html",
+      "/posts/2_DV2022/2022-10-03-5wk-1.html",
+      "/posts/2_DV2022/2022-10-17-7wk-1.html"
+    ]
+  },
+  {
+    "listing": "/4_dl2023.html",
+    "items": [
+      "/posts/4_DL2023/2023-09-25-DL-4wk.html",
+      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
+      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
+      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
+    ]
+  },
+  {
     "listing": "/3_stbda2022.html",
     "items": [
       "/posts/3_STBDA2022/2022_05_23_(12주차)_5월23일.html",
@@ -104,30 +148,6 @@
     ]
   },
   {
-    "listing": "/4_dl2023.html",
-    "items": [
-      "/posts/4_DL2023/2023-09-25-DL-4wk.html",
-      "/posts/4_DL2023/2023-09-18-DL-3wk.html",
-      "/posts/4_DL2023/2023-09-11-DL-2wk.html",
-      "/posts/4_DL2023/2023-09-04-DL-1wk.html"
-    ]
-  },
-  {
-    "listing": "/2_dv2022.html",
-    "items": [
-      "/posts/2_DV2022/2023-10-16-07wk-1-t.html",
-      "/posts/2_DV2022/2023-10-06-05wk-supp-t.html",
-      "/posts/2_DV2022/2023-10-04-05wk-2-t.html",
-      "/posts/2_DV2022/2023-09-25-04wk-1-t.html",
-      "/posts/2_DV2022/2023-09-20-03wk-2-t.html",
-      "/posts/2_DV2022/2022-10-19-7wk-2.html",
-      "/posts/2_DV2022/2022-11-09-10wk-2.html",
-      "/posts/2_DV2022/2022-10-06-5wk-2.html",
-      "/posts/2_DV2022/2022-10-03-5wk-1.html",
-      "/posts/2_DV2022/2022-10-17-7wk-1.html"
-    ]
-  },
-  {
     "listing": "/6_note.html",
     "items": [
       "/posts/6_note/2023-09-15-autogluon_smartfarm.html",
@@ -139,6 +159,26 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/5_STBDA2023/11wk-043.html",
+      "/posts/5_STBDA2023/11wk-042.html",
+      "/posts/5_STBDA2023/11wk-041.html",
+      "/posts/5_STBDA2023/11wk-040.html",
+      "/posts/5_STBDA2023/A3.html",
+      "/posts/5_STBDA2023/10wk-039.html",
+      "/posts/5_STBDA2023/10wk-038.html",
+      "/posts/5_STBDA2023/10wk-037.html",
+      "/posts/5_STBDA2023/10wk-036.html",
+      "/posts/7_study/5_etc/2023-11-06-pheatmap.html",
+      "/posts/5_STBDA2023/08wk-supp.html",
+      "/posts/5_STBDA2023/07wk-033.html",
+      "/posts/5_STBDA2023/07wk-032.html",
+      "/posts/5_STBDA2023/07wk-031.html",
+      "/posts/5_STBDA2023/07wk-030.html",
+      "/posts/5_STBDA2023/07wk-029.html",
+      "/posts/5_STBDA2023/07wk-028.html",
+      "/posts/5_STBDA2023/07wk-027.html",
+      "/posts/5_STBDA2023/07wk-035.html",
+      "/posts/5_STBDA2023/07wk-034.html",
       "/posts/2_DV2022/2023-10-06-05wk-supp-t.html",
       "/posts/2_DV2022/2023-10-16-07wk-1-t.html",
       "/posts/7_study/7_ds2023/2023-10-12-DealingData.html",
@@ -189,7 +229,6 @@
       "/posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html",
       "/posts/7_study/6_as2023/2023-09-11.html",
       "/posts/4_DL2023/2023-09-11-DL-2wk.html",
-      "/posts/8_ts/2023-09-10-chap10.html",
       "/posts/5_STBDA2023/02wk-00-itanic-advanced-feature-engineering-tutorial.html",
       "/posts/6_note/2023-09-09_baseline_code.html",
       "/posts/5_STBDA2023/01wk-002-타이타닉, 데이터의 이해.out.html",

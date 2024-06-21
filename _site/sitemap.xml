@@ -89,27 +89,35 @@
     <lastmod>2023-09-26T01:38:54.266Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/7_study/5_etc/Copy_of_Transformers_for_timeseries.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/7_study/5_etc/2023-08-09-transformer.html</loc>
     <lastmod>2023-09-26T01:38:54.266Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-15-autogluon_smartfarm.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-09_baseline_code.html</loc>
+    <lastmod>2023-09-26T01:38:54.054Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-14-autogluon_ts.html</loc>
     <lastmod>2023-09-26T01:38:54.078Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-09_smart_farm_eda.html</loc>
-    <lastmod>2023-09-26T01:38:54.078Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/03wk-013.out.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html</loc>
     <lastmod>2023-09-26T01:38:53.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/06wk-023.html</loc>
+    <lastmod>2023-10-15T14:06:33.896Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/05wk-019.html</loc>
     <lastmod>2023-10-15T05:17:48.637Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/10wk-037.html</loc>
+    <lastmod>2023-11-21T03:00:20.583Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/03wk-012.out.html</loc>
     <lastmod>2023-09-26T01:38:53.558Z</lastmod>
   </url>
   <url>
@@ -118,23 +126,43 @@
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/05wk-021.html</loc>
-    <lastmod>2023-10-15T16:07:26.703Z</lastmod>
+    <lastmod>2023-10-20T04:42:00.843Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-027.html</loc>
+    <lastmod>2023-10-19T01:58:07.511Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/10wk-038.html</loc>
+    <lastmod>2023-11-21T02:59:19.939Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/05wk-020.html</loc>
     <lastmod>2023-10-15T05:49:33.395Z</lastmod>
   </url>
   <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-029.html</loc>
+    <lastmod>2023-10-19T05:35:33.787Z</lastmod>
+  </url>
+  <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/06wk-024.html</loc>
     <lastmod>2023-10-15T14:12:45.493Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-031.html</loc>
+    <lastmod>2023-10-19T07:44:22.327Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-003-타이타닉, 첫 제출.out.html</loc>
     <lastmod>2023-09-26T01:38:53.558Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html</loc>
-    <lastmod>2023-09-26T01:38:53.566Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-00-itanic-advanced-feature-engineering-tutorial.html</loc>
+    <lastmod>2023-09-26T01:38:53.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/A3.html</loc>
+    <lastmod>2023-11-21T02:52:51.692Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-006-타이타닉, Autogluon (Fsize).out.html</loc>
@@ -153,12 +181,24 @@
     <lastmod>2023-09-27T10:07:11.782Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/04wk-014.html</loc>
-    <lastmod>2023-09-26T23:56:53.482Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/06wk-025.html</loc>
+    <lastmod>2023-10-15T14:59:44.364Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/04wk-015.html</loc>
-    <lastmod>2023-09-27T00:18:21.971Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/10wk-036.html</loc>
+    <lastmod>2023-11-21T02:58:28.186Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-028.html</loc>
+    <lastmod>2023-10-19T05:14:22.922Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-033.html</loc>
+    <lastmod>2023-10-21T09:12:29.514Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-030.html</loc>
+    <lastmod>2023-10-19T07:38:29.193Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/3_STBDA2022/2022_04_25_중간고사.html</loc>
@@ -197,31 +237,27 @@
     <lastmod>2023-09-26T01:38:53.538Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-06-5wk-2.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-17-7wk-1.html</loc>
     <lastmod>2023-09-26T01:38:53.342Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-09-20-03wk-2-t.html</loc>
-    <lastmod>2023-10-16T04:26:45.709Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-10-06-05wk-supp-t.html</loc>
+    <lastmod>2023-10-16T11:05:38.034Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-10-04-05wk-2-t.html</loc>
-    <lastmod>2023-10-06T04:04:38.556Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-03-5wk-1.html</loc>
+    <lastmod>2023-09-26T01:38:53.334Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-10-16-07wk-1-t.html</loc>
-    <lastmod>2023-10-18T01:06:16.484Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-11-09-10wk-2.html</loc>
+    <lastmod>2023-09-26T01:38:53.346Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-09-25-04wk-1-t.html</loc>
-    <lastmod>2023-10-16T04:26:09.645Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-19-7wk-2.html</loc>
+    <lastmod>2023-09-26T01:38:53.342Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/about.html</loc>
-    <lastmod>2023-09-26T01:38:53.246Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/3_stbda2022.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/2_dv2022.html</loc>
     <lastmod>2023-09-26T01:38:53.038Z</lastmod>
   </url>
   <url>
@@ -229,32 +265,32 @@
     <lastmod>2023-09-26T01:38:53.038Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/2_dv2022.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/3_stbda2022.html</loc>
     <lastmod>2023-09-26T01:38:53.038Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-19-7wk-2.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/about.html</loc>
+    <lastmod>2023-09-26T01:38:53.246Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-09-25-04wk-1-t.html</loc>
+    <lastmod>2023-10-16T04:26:09.645Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-10-16-07wk-1-t.html</loc>
+    <lastmod>2023-11-21T04:52:39.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-10-04-05wk-2-t.html</loc>
+    <lastmod>2023-10-06T04:04:38.556Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-09-20-03wk-2-t.html</loc>
+    <lastmod>2023-10-16T04:26:45.709Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-06-5wk-2.html</loc>
     <lastmod>2023-09-26T01:38:53.342Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-11-09-10wk-2.html</loc>
-    <lastmod>2023-09-26T01:38:53.346Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-03-5wk-1.html</loc>
-    <lastmod>2023-09-26T01:38:53.334Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2023-10-06-05wk-supp-t.html</loc>
-    <lastmod>2023-10-16T11:05:38.034Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/2_DV2022/2022-10-17-7wk-1.html</loc>
-    <lastmod>2023-09-26T01:38:53.342Z</lastmod>
-  </url>
-  <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/8_ts/2023-09-10-chap10.html</loc>
-    <lastmod>2023-09-26T01:38:54.366Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/4_DL2023/2023-09-11-DL-2wk.html</loc>
@@ -293,12 +329,24 @@
     <lastmod>2023-09-26T01:38:53.450Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/2000-10-04.html</loc>
-    <lastmod>2023-10-04T10:58:44.884Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-035.html</loc>
+    <lastmod>2023-10-21T09:47:28.602Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/06wk-025.html</loc>
-    <lastmod>2023-10-15T14:59:44.364Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/04wk-015.html</loc>
+    <lastmod>2023-09-27T00:18:21.971Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/2000-10-04.html</loc>
+    <lastmod>2023-11-14T05:33:00.256Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/04wk-014.html</loc>
+    <lastmod>2023-09-26T23:56:53.482Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/11wk-040.html</loc>
+    <lastmod>2023-11-21T00:54:13.969Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/04wk-016.html</loc>
@@ -317,27 +365,51 @@
     <lastmod>2023-09-26T01:38:53.550Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-00-itanic-advanced-feature-engineering-tutorial.html</loc>
-    <lastmod>2023-09-26T01:38:53.558Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/2000-09-12-Quarto-Blog.html</loc>
+    <lastmod>2023-09-26T01:38:53.566Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/08wk-supp.html</loc>
+    <lastmod>2023-11-10T16:07:33.370Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/06wk-022.html</loc>
     <lastmod>2023-10-15T07:33:10.300Z</lastmod>
   </url>
   <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/11wk-042.html</loc>
+    <lastmod>2023-11-21T01:56:49.067Z</lastmod>
+  </url>
+  <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out-Copy1.html</loc>
     <lastmod>2023-09-26T01:38:53.558Z</lastmod>
   </url>
   <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-034.html</loc>
+    <lastmod>2023-10-21T09:39:31.534Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/07wk-032.html</loc>
+    <lastmod>2023-10-22T07:20:53.129Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/11wk-043.html</loc>
+    <lastmod>2023-11-21T02:52:22.988Z</lastmod>
+  </url>
+  <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/03wk-009.out.html</loc>
-    <lastmod>2023-09-26T01:38:53.558Z</lastmod>
+    <lastmod>2023-11-10T15:31:10.606Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/04wk-018.html</loc>
     <lastmod>2023-09-27T10:47:54.021Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/03wk-012.out.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/11wk-041.html</loc>
+    <lastmod>2023-11-21T01:02:45.585Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-004-타이타닉, Alexis Cook의 코드.out.html</loc>
     <lastmod>2023-09-26T01:38:53.558Z</lastmod>
   </url>
   <url>
@@ -345,24 +417,28 @@
     <lastmod>2023-09-26T01:38:53.558Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/06wk-023.html</loc>
-    <lastmod>2023-10-15T14:06:33.896Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/10wk-039.html</loc>
+    <lastmod>2023-11-11T05:45:44.536Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/02wk-008-타이타닉, Autogluon (best_quality).out.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/5_STBDA2023/03wk-013.out.html</loc>
     <lastmod>2023-09-26T01:38:53.558Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-14-autogluon_ts.html</loc>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-09_smart_farm_eda.html</loc>
     <lastmod>2023-09-26T01:38:54.078Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-09_baseline_code.html</loc>
-    <lastmod>2023-09-26T01:38:54.054Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/6_note/2023-09-15-autogluon_smartfarm.html</loc>
+    <lastmod>2023-09-26T01:38:54.078Z</lastmod>
   </url>
   <url>
-    <loc>https://pinkocto.github.io/Quarto-Blog/posts/7_study/5_etc/2023-08-09-transformer.html</loc>
-    <lastmod>2023-09-26T01:38:54.266Z</lastmod>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/7_study/5_etc/Copy_of_Transformers_for_timeseries.html</loc>
+    <lastmod>2023-11-06T05:28:28.227Z</lastmod>
+  </url>
+  <url>
+    <loc>https://pinkocto.github.io/Quarto-Blog/posts/7_study/5_etc/2023-11-06-pheatmap.html</loc>
+    <lastmod>2023-11-13T11:44:22.605Z</lastmod>
   </url>
   <url>
     <loc>https://pinkocto.github.io/Quarto-Blog/posts/7_study/5_etc/2023-02-20-simul_eq.html</loc>
